@@ -1533,6 +1533,36 @@ Both written into `ICC2027/main.tex` as new Section IV-G/H. Paper is
 now 7 pages, page-limit trim still explicitly deferred per user
 instruction.
 
+**Thirty-third real result: the free-rider detection gap found above
+was actually fixed, not just reported.** Diagnosed first: pulled the
+real rationale text for free-rider decisions and found they WERE
+reaching the actual LLM (not fast-pathed), and the model's own words
+said "notably negative but not extremely so" -- it noticed the anomaly
+and dismissed it anyway, because its four calibration examples all
+described anomalies as large POSITIVE update-norm z-scores (poisoning
+shape); nothing taught it a strongly negative z-score (idle/free-rider
+shape) also mattered. Fixed in two places in
+`fedgate/gating_agent.py`: (1) added a fourth calibration example to
+`SYSTEM_PROMPT_CALIBRATED` covering the negative-z case explicitly; (2)
+found and fixed a SECOND bug this exposed -- `SelectiveLLMGatingPolicy`'s
+fast-path filter (`_is_confidently_normal`) was itself one-sided
+(`z > threshold`, not `abs(z) > threshold`), so even with the prompt
+fixed, some free-rider rounds still got fast-pathed as "accept" without
+ever reaching the LLM at all; changed to a symmetric check.
+
+Re-ran the free-rider case after both fixes: every round now resolves
+to downweight/exclude with a rationale naming the negative z-score
+directly (previously: "accept" every round). Regression-checked
+against the original flagship N-BaIoT $D{=}10$ config
+(`scripts/diag_regression_check.py`): F1=0.9974, identical to both the
+pre-fix number (0.9971) and the full-LLM reference (0.9974) -- no
+accuracy regression, at a small, honest, expected cost (LLM-call
+fraction rose from 44.9% to 51.4%, since the now-symmetric filter
+defers to the LLM slightly more often). Written into `ICC2027/main.tex`
+Section IV-G as the completed diagnose-fix-validate arc, matching the
+pattern used for the selective-LLM D=20 bug and the concept-drift EWMA
+failure earlier in this project.
+
 **Still open, in priority order:**
 1. The hosted-frontier-model test remains blocked on OpenAI billing
    credits (code ready: `OpenAIExternalBayesianPolicy`). Now the more

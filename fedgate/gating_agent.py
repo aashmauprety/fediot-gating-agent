@@ -730,7 +730,14 @@ class LLMExternalBayesianPolicy:
         "not assume any.\n\n"
         "Calibration reference -- most rounds from honest gateways look "
         "like Example 1. Only score above 0.5 when the digest clearly "
-        "resembles Example 3, not merely because a value is nonzero:\n"
+        "resembles Example 3 or Example 4, not merely because a value is "
+        "nonzero. Anomalous means far from 0 in EITHER direction: a "
+        "strongly NEGATIVE update-norm z-score (an update far SMALLER "
+        "than its peers this round) is just as much a deviation from the "
+        "group as a strongly positive one, even though it is a different "
+        "kind of problem (a gateway contributing little or nothing, not "
+        "one pushing an aggressive update) -- do not treat a negative "
+        "z-score as automatically safe just because it is not positive:\n"
         "Example 1 (typical honest round): update_norm_z=+0.15, "
         "cosine_z=+0.10, calibration loss: essentially unchanged -> "
         "anomaly_score=0.05 (both z-scores are close to 0, i.e. this "
@@ -742,13 +749,20 @@ class LLMExternalBayesianPolicy:
         "slightly worse -> anomaly_score=0.4 (this gateway deviates "
         "somewhat from the rest of the group this round, but not "
         "drastically, and the calibration loss change is small).\n"
-        "Example 3 (clearly anomalous): update_norm_z=+3.8, "
+        "Example 3 (clearly anomalous, too large): update_norm_z=+3.8, "
         "cosine_z=-3.5, calibration loss: got much worse -> "
         "anomaly_score=0.95 (this gateway is a strong outlier vs. the "
         "rest of the group THIS round on both z-scores, and calibration "
         "loss got substantially worse -- multiple independent signals "
         "agree this looks poisoned, not just relatively different from "
-        "one fixed absolute number).\n\n"
+        "one fixed absolute number).\n"
+        "Example 4 (clearly anomalous, too small): update_norm_z=-3.2, "
+        "cosine_z=+0.05, calibration loss: essentially unchanged -> "
+        "anomaly_score=0.8 (this gateway's update is far SMALLER than "
+        "the rest of the group this round -- a near-idle or free-riding "
+        "contribution, not poisoning, but still a real deviation from "
+        "the group worth flagging, not a safe case just because the "
+        "sign is negative and calibration loss did not move).\n\n"
         "Now judge the real round below the same way -- always relative "
         "to this round's own group, never against a fixed absolute "
         "cosine or z-score value from a different round. Respond with "
@@ -1035,7 +1049,17 @@ class SelectiveLLMGatingPolicy(LLMExternalBayesianPolicy):
         norms = np.array(round_update_norms)
         mu, sigma = norms.mean(), norms.std() + 1e-8
         z = (digest.update_norm - mu) / sigma
-        if z > self.norm_downweight_z * self.margin:
+        # Symmetric on purpose (novel-attack-shape generalization test,
+        # "free_rider"): an update far SMALLER than its peers this round
+        # (a near-idle/free-riding contribution) is just as much a
+        # deviation as one far larger (poisoning) -- this was a real,
+        # found-by-testing bug, not a hypothetical one. The original
+        # one-sided check (`z > threshold`) fast-pathed free-riders as
+        # "comfortably normal" whenever their tiny-noise delta happened
+        # to land just inside the positive-side margin, even though the
+        # SAME digest's LLM-judged rationale (once actually routed to
+        # the LLM) correctly called it "strongly negative" and anomalous.
+        if abs(z) > self.norm_downweight_z * self.margin:
             return False
 
         cos_z = cosine_zscore(digest.cosine_sim_to_prev_update, round_cosines)
