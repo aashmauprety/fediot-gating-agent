@@ -1,0 +1,9 @@
+{
+  "description": "qwen2.5:32b on the identical N-BaIoT TB D=10 seed=0 config used for the recorded 14B headline number (0.9974), full LLM every round -- tests whether 14B is near a capability ceiling.",
+  "model": "qwen2.5:32b",
+  "reference_14b": 0.9974,
+  "final_macro_f1": 0.9964059588914775,
+  "wall_clock_seconds": 2277.134297847748,
+  "n_fallback_rounds": 0,
+  "n_rounds": 25
+}

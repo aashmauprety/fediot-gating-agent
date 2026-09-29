@@ -1459,10 +1459,29 @@ the public repo's README** -- any further edits to it need a follow-up
 `git add -A && git commit && git push` in `code/` to actually reach
 GitHub, they don't happen automatically.
 
+**Thirty-first real result: qwen2.5:32b tested -- 14B is a ceiling, not
+a floor.** Per continued "continue more" instruction, pulled
+`qwen2.5:32b` (19GB, ~38 min local download) and ran it on the
+IDENTICAL N-BaIoT trust_building $D=10$ seed=0 config already used for
+the recorded 14B headline number (`scripts/run_nbaiot_qwen32b_capability_test.py`,
+`results/nbaiot_qwen32b_capability_test.json`). Result: **0.9964**
+macro-F1 vs 14B's 0.9974 -- statistically indistinguishable, if
+anything marginally lower -- while taking 2277s vs 854s (2.7x longer)
+for the identical 25 rounds. Going bigger bought no measured accuracy
+and cost substantially more compute. Written into `ICC2027/main.tex`
+Section IV-D directly answering the paper's own "is 14B near a
+capability floor" open question from Future Work -- it isn't a floor,
+it's already at the ceiling this specific judgment task offers at this
+evidence design. Paper's Conclusion updated to reflect this too.
+
 **Still open, in priority order:**
-1. Try a hosted frontier-model API (code ready, blocked on OpenAI
-   credits -- see above), and/or a model larger than 14B, to see
-   whether qwen2.5:14b is near a capability floor for this task.
+1. The hosted-frontier-model test remains blocked on OpenAI billing
+   credits (code ready: `OpenAIExternalBayesianPolicy`). Now the more
+   interesting remaining question given the 32B null result: would a
+   frontier-tier model (GPT-4-class) actually break the ceiling a
+   bigger LOCAL model did not, or is this a hard ceiling for the task
+   itself regardless of model class? Worth running the moment credits
+   are available.
 
 ## To get the remaining datasets
 
