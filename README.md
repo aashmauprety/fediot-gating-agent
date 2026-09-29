@@ -1563,6 +1563,37 @@ Section IV-G as the completed diagnose-fix-validate arc, matching the
 pattern used for the selective-LLM D=20 bug and the concept-drift EWMA
 failure earlier in this project.
 
+**Thirty-fourth real result: the ICC 2027 submission-deadline page-limit
+trim, finally done.** The paper had grown to 8 pages against the 6-page
+hard limit (Oct 2, 2026 deadline, 3 days out when this trim happened)
+after several sessions of "don't worry about page limit, add
+experiments" per explicit user instruction. Cutting 2 full pages back
+out required real restructuring, not just word-trimming:
+
+- Merged what were two separate subsections (novel attack-shape
+  generalization + zero-recalibration transfer) into one, replacing
+  most of the prose with a compact summary table (new Table VI) --
+  the single biggest space recovery in this pass.
+- Compressed the FetchHistory tool-collapse paragraph, the two
+  deployment-gaps paragraph, both Related Work paragraphs, the
+  GShield/evasion paragraphs (merged into one), the core failure-
+  diagnosis paragraphs, the onboarding/triage paragraph, the
+  capability-boundary paragraphs, the Conclusion, and the abstract --
+  every one individually, checking after each edit whether the page
+  count moved, since IEEE's two-column reflow does not respond
+  linearly to word count (several rounds of real cuts landed zero
+  page-count change until a threshold was crossed).
+- Replaced the round-22 trace-example `quote` block with inline text
+  (environments carry their own vertical padding beyond the visible
+  lines).
+
+Final state confirmed via a full clean rebuild (`latexmk -C` + 3
+passes, not trusting a single incremental compile): exactly 6/6 pages,
+0 undefined references, 0 overfull boxes, and a full visual read of
+all 6 rendered pages (not just the page-count number) confirming no
+table/figure overlap or truncation anywhere. This is the actual,
+final, submission-ready state of the ICC 2027 paper.
+
 **Still open, in priority order:**
 1. The hosted-frontier-model test remains blocked on OpenAI billing
    credits (code ready: `OpenAIExternalBayesianPolicy`). Now the more
