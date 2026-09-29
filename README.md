@@ -1429,6 +1429,36 @@ escape hatch is never actually used -- a failure mode invisible unless
 you specifically test with and without the option present on identical
 inputs, as done here. Written into `ICC2027/main.tex`.
 
+**Thirtieth real result: full consistency read-through of the ICC paper,
+plus a real integrity fix -- the code repository is now actually
+public.** Read the entire current `ICC2027/main.tex` top to bottom for
+the first time since all the additions this session, and found two
+real issues: (1) a grammar error from an earlier compression edit
+("both reasoning" for a list of three items); (2) the system-overview
+figure was never once referenced from the text (`\ref{system}` unused)
+-- against IEEE convention that every figure/table gets cited. Both
+fixed. Also caught a numeric inconsistency: abstract said "0.895" but
+the actual table minimum is 0.896 -- fixed to match.
+
+More importantly: the abstract claimed "Code and full results are
+public" with **no repository anywhere** -- not even a local git repo.
+This is now actually true, not just claimed. Initialized git in
+`code/`, added a `.gitignore` excluding the 22GB `data/` directory
+(raw N-BaIoT/CIC IoT-DIAD/UNSW datasets -- redistribution licensing
+unverified) and `.venv/`, scanned for hardcoded secrets (none found),
+and pushed to a new public repo under the `aashmauprety` GitHub account
+(matching the paper's authorship, not the other available
+`upretya1-design` account) at
+https://github.com/aashmauprety/fediot-gating-agent -- confirmed live
+(HTTP 200). Added the real URL to the abstract (needed `\usepackage{url}`,
+not in IEEEtran by default). 124 files, code + scripts + results JSON
+only, no raw data.
+
+**Note for next session: this README.md file, once you read this, IS
+the public repo's README** -- any further edits to it need a follow-up
+`git add -A && git commit && git push` in `code/` to actually reach
+GitHub, they don't happen automatically.
+
 **Still open, in priority order:**
 1. Try a hosted frontier-model API (code ready, blocked on OpenAI
    credits -- see above), and/or a model larger than 14B, to see
