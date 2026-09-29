@@ -1,0 +1,111 @@
+{
+  "description": "Real CIC IoT-DIAD 2024 device identification, genuine per-device federated clients, 118 rich numeric features (IAT, TTL, TCP window, TLS/HTTP/DNS/ICMP fields, multi-window stats)",
+  "n_devices": 59,
+  "n_clients": 10,
+  "total_rows": 116756,
+  "num_rounds": 25,
+  "final_macro_f1": 0.2926797491880409,
+  "wall_clock_seconds": 68.80787014961243,
+  "rounds": [
+    {
+      "round": 0,
+      "macro_f1": 0.022947113047873183
+    },
+    {
+      "round": 1,
+      "macro_f1": 0.039160792756809885
+    },
+    {
+      "round": 2,
+      "macro_f1": 0.06610576150492356
+    },
+    {
+      "round": 3,
+      "macro_f1": 0.09727807867338159
+    },
+    {
+      "round": 4,
+      "macro_f1": 0.1362937795649374
+    },
+    {
+      "round": 5,
+      "macro_f1": 0.15213589747677783
+    },
+    {
+      "round": 6,
+      "macro_f1": 0.18243268829014817
+    },
+    {
+      "round": 7,
+      "macro_f1": 0.19014681447647125
+    },
+    {
+      "round": 8,
+      "macro_f1": 0.18562964828670106
+    },
+    {
+      "round": 9,
+      "macro_f1": 0.1999712982145953
+    },
+    {
+      "round": 10,
+      "macro_f1": 0.2013566344111574
+    },
+    {
+      "round": 11,
+      "macro_f1": 0.20582346141156513
+    },
+    {
+      "round": 12,
+      "macro_f1": 0.22059229024135005
+    },
+    {
+      "round": 13,
+      "macro_f1": 0.22948719733447304
+    },
+    {
+      "round": 14,
+      "macro_f1": 0.24088575841468093
+    },
+    {
+      "round": 15,
+      "macro_f1": 0.2538408615513502
+    },
+    {
+      "round": 16,
+      "macro_f1": 0.2501740760969197
+    },
+    {
+      "round": 17,
+      "macro_f1": 0.26651904922826464
+    },
+    {
+      "round": 18,
+      "macro_f1": 0.2564524533044434
+    },
+    {
+      "round": 19,
+      "macro_f1": 0.27069258938745805
+    },
+    {
+      "round": 20,
+      "macro_f1": 0.27843498821455365
+    },
+    {
+      "round": 21,
+      "macro_f1": 0.2753634019721768
+    },
+    {
+      "round": 22,
+      "macro_f1": 0.28079114003587285
+    },
+    {
+      "round": 23,
+      "macro_f1": 0.2959460125147619
+    },
+    {
+      "round": 24,
+      "macro_f1": 0.2926797491880409
+    }
+  ]
+}

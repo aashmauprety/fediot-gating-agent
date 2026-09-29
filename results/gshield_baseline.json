@@ -1,0 +1,105 @@
+{
+  "ciciot_diad": [
+    {
+      "label": "trust_building D=10 seed=0",
+      "attack": "trust_building",
+      "delay": 10,
+      "seed": 0,
+      "final_macro_f1": 0.9193431261911088,
+      "targeted_success_rate": 0.0063025210084033615,
+      "wall_clock_seconds": 17.985666036605835
+    },
+    {
+      "label": "trust_building D=10 seed=1",
+      "attack": "trust_building",
+      "delay": 10,
+      "seed": 1,
+      "final_macro_f1": 0.9196495089648689,
+      "targeted_success_rate": 0.01016260162601626,
+      "wall_clock_seconds": 18.095739126205444
+    },
+    {
+      "label": "trust_building D=10 seed=2",
+      "attack": "trust_building",
+      "delay": 10,
+      "seed": 2,
+      "final_macro_f1": 0.9143400012884495,
+      "targeted_success_rate": 0.0020491803278688526,
+      "wall_clock_seconds": 17.815359115600586
+    },
+    {
+      "label": "trust_building D=20 seed=0",
+      "attack": "trust_building",
+      "delay": 20,
+      "seed": 0,
+      "final_macro_f1": 0.9171525300023688,
+      "targeted_success_rate": 0.01050420168067227,
+      "wall_clock_seconds": 18.27675199508667
+    },
+    {
+      "label": "untargeted seed=0",
+      "attack": "untargeted",
+      "delay": 0,
+      "seed": 0,
+      "final_macro_f1": 0.91450640587847,
+      "targeted_success_rate": null,
+      "wall_clock_seconds": 17.17224383354187
+    },
+    {
+      "label": "targeted seed=0",
+      "attack": "targeted",
+      "delay": 0,
+      "seed": 0,
+      "final_macro_f1": 0.9208602390676883,
+      "targeted_success_rate": 0.01050420168067227,
+      "wall_clock_seconds": 17.12505292892456
+    }
+  ],
+  "nbaiot": [
+    {
+      "label": "trust_building D=0",
+      "attack": "trust_building",
+      "delay": 0,
+      "seed": 0,
+      "final_macro_f1": 0.9951653780426727,
+      "targeted_success_rate": 0.001392757660167131,
+      "wall_clock_seconds": 34.43809986114502
+    },
+    {
+      "label": "trust_building D=10",
+      "attack": "trust_building",
+      "delay": 10,
+      "seed": 0,
+      "final_macro_f1": 0.9966858517007342,
+      "targeted_success_rate": 0.0017409470752089136,
+      "wall_clock_seconds": 32.192814111709595
+    },
+    {
+      "label": "trust_building D=20",
+      "attack": "trust_building",
+      "delay": 20,
+      "seed": 0,
+      "final_macro_f1": 0.9969321786480386,
+      "targeted_success_rate": 0.0017409470752089136,
+      "wall_clock_seconds": 31.177711009979248
+    },
+    {
+      "label": "untargeted",
+      "attack": "untargeted",
+      "delay": 0,
+      "seed": 0,
+      "final_macro_f1": 0.9951653780426727,
+      "targeted_success_rate": null,
+      "wall_clock_seconds": 32.57369804382324
+    },
+    {
+      "label": "targeted",
+      "attack": "targeted",
+      "delay": 0,
+      "seed": 0,
+      "final_macro_f1": 0.9944652792916875,
+      "targeted_success_rate": 0.001392757660167131,
+      "wall_clock_seconds": 32.73810791969299
+    }
+  ]
+}

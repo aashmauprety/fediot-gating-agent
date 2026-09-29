@@ -1,0 +1,127 @@
+{
+  "description": "Cross-network raw packet-size signature analysis for the 4 aligned devices",
+  "rows": [
+    {
+      "yourthings_device": "SamsungSmartThingsHub",
+      "unsw_class": "Smart Things",
+      "unsw_stats": {
+        "mean_abs_size": 73.88191223144531,
+        "std_abs_size": 43.343406677246094,
+        "median_abs_size": 60.0,
+        "top_size_value": 60.0,
+        "top_size_fraction": 0.395385,
+        "frac_incoming": 0.48947,
+        "n_packets": 200000
+      },
+      "yourthings_stats": {
+        "mean_abs_size": 106.82518005371094,
+        "std_abs_size": 74.85588073730469,
+        "median_abs_size": 70.0,
+        "top_size_value": 70.0,
+        "top_size_fraction": 0.244305,
+        "frac_incoming": 0.51014,
+        "n_packets": 200000
+      },
+      "cross_network_shift": {
+        "mean_size_shift_z": 0.760052574260615,
+        "top_size_matches_exactly": false,
+        "top_size_fraction_diff": 0.15108,
+        "direction_balance_diff": 0.02067000000000002
+      },
+      "cross_network_retrieval_correct_in_5_technique_investigation": false
+    },
+    {
+      "yourthings_device": "AmazonEchoGen1",
+      "unsw_class": "Amazon Echo",
+      "unsw_stats": {
+        "mean_abs_size": 336.1910400390625,
+        "std_abs_size": 517.485595703125,
+        "median_abs_size": 91.0,
+        "top_size_value": 66.0,
+        "top_size_fraction": 0.17212,
+        "frac_incoming": 0.46766,
+        "n_packets": 200000
+      },
+      "yourthings_stats": {
+        "mean_abs_size": 117.74382019042969,
+        "std_abs_size": 174.6499786376953,
+        "median_abs_size": 78.0,
+        "top_size_value": 78.0,
+        "top_size_fraction": 0.101395,
+        "frac_incoming": 0.60412,
+        "n_packets": 200000
+      },
+      "cross_network_shift": {
+        "mean_size_shift_z": 0.42213198137780295,
+        "top_size_matches_exactly": false,
+        "top_size_fraction_diff": 0.070725,
+        "direction_balance_diff": 0.13645999999999997
+      },
+      "cross_network_retrieval_correct_in_5_technique_investigation": true
+    },
+    {
+      "yourthings_device": "BelkinWeMoMotionSensor",
+      "unsw_class": "Belkin wemo motion sensor",
+      "unsw_stats": {
+        "mean_abs_size": 275.8627624511719,
+        "std_abs_size": 420.62750244140625,
+        "median_abs_size": 74.0,
+        "top_size_value": 66.0,
+        "top_size_fraction": 0.492535,
+        "frac_incoming": 0.518585,
+        "n_packets": 200000
+      },
+      "yourthings_stats": {
+        "mean_abs_size": 309.36883544921875,
+        "std_abs_size": 494.9569396972656,
+        "median_abs_size": 74.0,
+        "top_size_value": 60.0,
+        "top_size_fraction": 0.16713908450704226,
+        "frac_incoming": 0.4982042253521127,
+        "n_packets": 113600
+      },
+      "cross_network_shift": {
+        "mean_size_shift_z": 0.07965735194101888,
+        "top_size_matches_exactly": false,
+        "top_size_fraction_diff": 0.32539591549295777,
+        "direction_balance_diff": 0.02038077464788729
+      },
+      "cross_network_retrieval_correct_in_5_technique_investigation": false
+    },
+    {
+      "yourthings_device": "LIFXVirtualBulb",
+      "unsw_class": "Light Bulbs LiFX Smart Bulb",
+      "unsw_stats": {
+        "mean_abs_size": 110.64329528808594,
+        "std_abs_size": 84.05091857910156,
+        "median_abs_size": 92.0,
+        "top_size_value": 123.0,
+        "top_size_fraction": 0.32286265432098765,
+        "frac_incoming": 0.4951466049382716,
+        "n_packets": 129600
+      },
+      "yourthings_stats": {
+        "mean_abs_size": 165.526611328125,
+        "std_abs_size": 99.88182067871094,
+        "median_abs_size": 155.0,
+        "top_size_value": 276.0,
+        "top_size_fraction": 0.17413421706710852,
+        "frac_incoming": 0.3716901408450704,
+        "n_packets": 120700
+      },
+      "cross_network_shift": {
+        "mean_size_shift_z": 0.6529769926117769,
+        "top_size_matches_exactly": false,
+        "top_size_fraction_diff": 0.14872843725387913,
+        "direction_balance_diff": 0.12345646409320121
+      },
+      "cross_network_retrieval_correct_in_5_technique_investigation": false
+    }
+  ],
+  "ranked_by_shift": [
+    "BelkinWeMoMotionSensor",
+    "AmazonEchoGen1",
+    "LIFXVirtualBulb",
+    "SamsungSmartThingsHub"
+  ]
+}

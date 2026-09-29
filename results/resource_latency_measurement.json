@@ -1,0 +1,1355 @@
+{
+  "description": "Real per-decision latency/CPU/memory for the selective-LLM Gating Agent, fast-path vs real LLM call, N-BaIoT TB D=10. No energy (Joules) measurement -- no wattmeter on this machine; would be fabrication to estimate it.",
+  "summary": {
+    "fast_path": {
+      "n": 119,
+      "latency_s": {
+        "n": 119,
+        "mean": 5.1919151754940254e-05,
+        "std": 3.9028491866434016e-05,
+        "min": 1.2159347534179688e-05,
+        "max": 0.00017786026000976562
+      },
+      "cpu_percent": {
+        "n": 119,
+        "mean": 0.0,
+        "std": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "memory_mb": {
+        "n": 119,
+        "mean": 9734.25512079832,
+        "std": 446.29429436285056,
+        "min": 9152.078125,
+        "max": 10082.109375
+      }
+    },
+    "llm_call": {
+      "n": 97,
+      "latency_s": {
+        "n": 97,
+        "mean": 3.7490402079120124,
+        "std": 0.32201884265337927,
+        "min": 2.924510955810547,
+        "max": 4.754164934158325
+      },
+      "cpu_percent": {
+        "n": 97,
+        "mean": 13.90406281847784,
+        "std": 2.9251254602229464,
+        "min": 11.514316403010799,
+        "max": 31.420177146308937
+      },
+      "memory_mb": {
+        "n": 97,
+        "mean": 9639.084407216495,
+        "std": 462.9858560875401,
+        "min": 9150.328125,
+        "max": 10082.109375
+      }
+    },
+    "welch_ttest_latency": {
+      "t_stat": 114.66177578710884,
+      "p_value": 1.60097229259534e-104
+    }
+  },
+  "raw_records": [
+    {
+      "latency_s": 4.754164934158325,
+      "fast_path": false,
+      "cpu_percent": 13.879322596888743,
+      "memory_mb": 10074.140625
+    },
+    {
+      "latency_s": 7.128715515136719e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 10074.140625
+    },
+    {
+      "latency_s": 3.588615894317627,
+      "fast_path": false,
+      "cpu_percent": 12.860971850757544,
+      "memory_mb": 10076.25
+    },
+    {
+      "latency_s": 7.891654968261719e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 10076.25
+    },
+    {
+      "latency_s": 1.621246337890625e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 10076.25
+    },
+    {
+      "latency_s": 1.3113021850585938e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 10076.25
+    },
+    {
+      "latency_s": 3.581958055496216,
+      "fast_path": false,
+      "cpu_percent": 12.903372983131582,
+      "memory_mb": 10076.390625
+    },
+    {
+      "latency_s": 0.00010395050048828125,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 10076.390625
+    },
+    {
+      "latency_s": 1.5020370483398438e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 10076.390625
+    },
+    {
+      "latency_s": 6.389617919921875e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 10076.390625
+    },
+    {
+      "latency_s": 1.6927719116210938e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 10076.390625
+    },
+    {
+      "latency_s": 3.7568907737731934,
+      "fast_path": false,
+      "cpu_percent": 13.122469980804178,
+      "memory_mb": 10076.71875
+    },
+    {
+      "latency_s": 7.009506225585938e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 10076.71875
+    },
+    {
+      "latency_s": 1.5020370483398438e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 10076.71875
+    },
+    {
+      "latency_s": 1.2636184692382812e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 10076.71875
+    },
+    {
+      "latency_s": 3.6549668312072754,
+      "fast_path": false,
+      "cpu_percent": 13.03245140100695,
+      "memory_mb": 10076.9375
+    },
+    {
+      "latency_s": 7.772445678710938e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 10076.9375
+    },
+    {
+      "latency_s": 1.621246337890625e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 10076.9375
+    },
+    {
+      "latency_s": 6.318092346191406e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 10076.9375
+    },
+    {
+      "latency_s": 1.52587890625e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 10076.9375
+    },
+    {
+      "latency_s": 4.1951069831848145,
+      "fast_path": false,
+      "cpu_percent": 13.424480716638586,
+      "memory_mb": 10076.96875
+    },
+    {
+      "latency_s": 3.399444103240967,
+      "fast_path": false,
+      "cpu_percent": 13.230240308149504,
+      "memory_mb": 10077.171875
+    },
+    {
+      "latency_s": 0.00011301040649414062,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 10077.171875
+    },
+    {
+      "latency_s": 1.811981201171875e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 10077.171875
+    },
+    {
+      "latency_s": 3.922816038131714,
+      "fast_path": false,
+      "cpu_percent": 13.187352630647016,
+      "memory_mb": 10077.25
+    },
+    {
+      "latency_s": 0.00010204315185546875,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 10077.25
+    },
+    {
+      "latency_s": 1.71661376953125e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 10077.25
+    },
+    {
+      "latency_s": 6.580352783203125e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 10077.25
+    },
+    {
+      "latency_s": 1.621246337890625e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 10077.25
+    },
+    {
+      "latency_s": 3.930446147918701,
+      "fast_path": false,
+      "cpu_percent": 13.247623002689599,
+      "memory_mb": 10079.0
+    },
+    {
+      "latency_s": 4.448218107223511,
+      "fast_path": false,
+      "cpu_percent": 13.553643312160188,
+      "memory_mb": 10079.015625
+    },
+    {
+      "latency_s": 7.081031799316406e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 10079.015625
+    },
+    {
+      "latency_s": 1.5020370483398438e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 10079.015625
+    },
+    {
+      "latency_s": 3.500610113143921,
+      "fast_path": false,
+      "cpu_percent": 12.801498753528067,
+      "memory_mb": 10079.015625
+    },
+    {
+      "latency_s": 7.295608520507812e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 10079.015625
+    },
+    {
+      "latency_s": 1.5974044799804688e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 10079.015625
+    },
+    {
+      "latency_s": 5.6743621826171875e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 10079.015625
+    },
+    {
+      "latency_s": 3.411128044128418,
+      "fast_path": false,
+      "cpu_percent": 12.804607811537377,
+      "memory_mb": 10079.1875
+    },
+    {
+      "latency_s": 3.334620952606201,
+      "fast_path": false,
+      "cpu_percent": 12.577439114097986,
+      "memory_mb": 10079.1875
+    },
+    {
+      "latency_s": 3.62608003616333,
+      "fast_path": false,
+      "cpu_percent": 12.806431500925793,
+      "memory_mb": 10079.21875
+    },
+    {
+      "latency_s": 0.00010514259338378906,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 10079.21875
+    },
+    {
+      "latency_s": 1.5974044799804688e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 10079.21875
+    },
+    {
+      "latency_s": 3.711212158203125,
+      "fast_path": false,
+      "cpu_percent": 12.842718866031147,
+      "memory_mb": 10079.21875
+    },
+    {
+      "latency_s": 6.413459777832031e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 10079.21875
+    },
+    {
+      "latency_s": 1.2874603271484375e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 10079.21875
+    },
+    {
+      "latency_s": 6.413459777832031e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 10079.21875
+    },
+    {
+      "latency_s": 1.5974044799804688e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 10079.21875
+    },
+    {
+      "latency_s": 3.9805397987365723,
+      "fast_path": false,
+      "cpu_percent": 13.179781098194669,
+      "memory_mb": 10079.28125
+    },
+    {
+      "latency_s": 0.00011420249938964844,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 10079.28125
+    },
+    {
+      "latency_s": 2.924510955810547,
+      "fast_path": false,
+      "cpu_percent": 11.958337147110141,
+      "memory_mb": 10079.375
+    },
+    {
+      "latency_s": 9.393692016601562e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 10079.375
+    },
+    {
+      "latency_s": 3.6258819103240967,
+      "fast_path": false,
+      "cpu_percent": 12.730067537106875,
+      "memory_mb": 10079.375
+    },
+    {
+      "latency_s": 0.00010395050048828125,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 10079.375
+    },
+    {
+      "latency_s": 1.621246337890625e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 10079.375
+    },
+    {
+      "latency_s": 3.810981035232544,
+      "fast_path": false,
+      "cpu_percent": 12.936911190110482,
+      "memory_mb": 10079.4375
+    },
+    {
+      "latency_s": 6.413459777832031e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 10079.4375
+    },
+    {
+      "latency_s": 3.4495689868927,
+      "fast_path": false,
+      "cpu_percent": 12.564417225655127,
+      "memory_mb": 10079.4375
+    },
+    {
+      "latency_s": 9.489059448242188e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 10079.4375
+    },
+    {
+      "latency_s": 3.6322779655456543,
+      "fast_path": false,
+      "cpu_percent": 12.748190870640984,
+      "memory_mb": 10079.453125
+    },
+    {
+      "latency_s": 8.893013000488281e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 10079.453125
+    },
+    {
+      "latency_s": 3.727998971939087,
+      "fast_path": false,
+      "cpu_percent": 13.083698028658684,
+      "memory_mb": 10079.71875
+    },
+    {
+      "latency_s": 9.322166442871094e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 10079.71875
+    },
+    {
+      "latency_s": 1.2874603271484375e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 10079.71875
+    },
+    {
+      "latency_s": 3.9060044288635254,
+      "fast_path": false,
+      "cpu_percent": 12.984284304756107,
+      "memory_mb": 10079.765625
+    },
+    {
+      "latency_s": 0.00010514259338378906,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 10079.765625
+    },
+    {
+      "latency_s": 3.8094406127929688,
+      "fast_path": false,
+      "cpu_percent": 12.864202223137111,
+      "memory_mb": 10079.765625
+    },
+    {
+      "latency_s": 3.390536069869995,
+      "fast_path": false,
+      "cpu_percent": 12.494018623321743,
+      "memory_mb": 10079.78125
+    },
+    {
+      "latency_s": 0.00010800361633300781,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 10079.78125
+    },
+    {
+      "latency_s": 3.938603162765503,
+      "fast_path": false,
+      "cpu_percent": 13.015619467487664,
+      "memory_mb": 10079.8125
+    },
+    {
+      "latency_s": 3.0862159729003906,
+      "fast_path": false,
+      "cpu_percent": 11.514316403010799,
+      "memory_mb": 10079.8125
+    },
+    {
+      "latency_s": 9.202957153320312e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 10079.8125
+    },
+    {
+      "latency_s": 1.621246337890625e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 10079.8125
+    },
+    {
+      "latency_s": 6.389617919921875e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 10079.8125
+    },
+    {
+      "latency_s": 1.5974044799804688e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 10079.8125
+    },
+    {
+      "latency_s": 3.8168258666992188,
+      "fast_path": false,
+      "cpu_percent": 18.675827320790443,
+      "memory_mb": 10080.09375
+    },
+    {
+      "latency_s": 4.467949867248535,
+      "fast_path": false,
+      "cpu_percent": 19.45856748243671,
+      "memory_mb": 10080.109375
+    },
+    {
+      "latency_s": 0.0001239776611328125,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 10080.109375
+    },
+    {
+      "latency_s": 3.600120544433594e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 10080.109375
+    },
+    {
+      "latency_s": 3.7544608116149902,
+      "fast_path": false,
+      "cpu_percent": 14.406735324727771,
+      "memory_mb": 10082.09375
+    },
+    {
+      "latency_s": 7.390975952148438e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 10082.09375
+    },
+    {
+      "latency_s": 1.71661376953125e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 10082.09375
+    },
+    {
+      "latency_s": 3.3866870403289795,
+      "fast_path": false,
+      "cpu_percent": 12.627113958497592,
+      "memory_mb": 10082.09375
+    },
+    {
+      "latency_s": 4.019350051879883,
+      "fast_path": false,
+      "cpu_percent": 13.597817183013902,
+      "memory_mb": 10082.09375
+    },
+    {
+      "latency_s": 3.7276690006256104,
+      "fast_path": false,
+      "cpu_percent": 12.944277185528362,
+      "memory_mb": 10082.09375
+    },
+    {
+      "latency_s": 7.081031799316406e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 10082.09375
+    },
+    {
+      "latency_s": 1.5974044799804688e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 10082.09375
+    },
+    {
+      "latency_s": 1.3113021850585938e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 10082.09375
+    },
+    {
+      "latency_s": 3.7361059188842773,
+      "fast_path": false,
+      "cpu_percent": 12.92870926272467,
+      "memory_mb": 10082.09375
+    },
+    {
+      "latency_s": 7.319450378417969e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 10082.09375
+    },
+    {
+      "latency_s": 1.4781951904296875e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 10082.09375
+    },
+    {
+      "latency_s": 3.4029388427734375,
+      "fast_path": false,
+      "cpu_percent": 13.161480140941146,
+      "memory_mb": 10082.09375
+    },
+    {
+      "latency_s": 3.3769280910491943,
+      "fast_path": false,
+      "cpu_percent": 12.542235445363538,
+      "memory_mb": 10082.09375
+    },
+    {
+      "latency_s": 3.750916004180908,
+      "fast_path": false,
+      "cpu_percent": 14.205663240820945,
+      "memory_mb": 10082.09375
+    },
+    {
+      "latency_s": 8.392333984375e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 10082.09375
+    },
+    {
+      "latency_s": 1.71661376953125e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 10082.09375
+    },
+    {
+      "latency_s": 1.52587890625e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 10082.09375
+    },
+    {
+      "latency_s": 3.489037036895752,
+      "fast_path": false,
+      "cpu_percent": 14.37375948425572,
+      "memory_mb": 10082.09375
+    },
+    {
+      "latency_s": 0.00011014938354492188,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 10082.09375
+    },
+    {
+      "latency_s": 1.5020370483398438e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 10082.09375
+    },
+    {
+      "latency_s": 3.7448160648345947,
+      "fast_path": false,
+      "cpu_percent": 12.94614228326367,
+      "memory_mb": 10082.09375
+    },
+    {
+      "latency_s": 3.4616219997406006,
+      "fast_path": false,
+      "cpu_percent": 12.635933560417042,
+      "memory_mb": 10082.09375
+    },
+    {
+      "latency_s": 3.8325910568237305,
+      "fast_path": false,
+      "cpu_percent": 14.875394101464165,
+      "memory_mb": 10082.109375
+    },
+    {
+      "latency_s": 7.772445678710938e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 10082.109375
+    },
+    {
+      "latency_s": 1.6927719116210938e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 10082.109375
+    },
+    {
+      "latency_s": 1.3113021850585938e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 10082.109375
+    },
+    {
+      "latency_s": 3.666607141494751,
+      "fast_path": false,
+      "cpu_percent": 13.107906177372952,
+      "memory_mb": 10082.109375
+    },
+    {
+      "latency_s": 8.273124694824219e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 10082.109375
+    },
+    {
+      "latency_s": 1.621246337890625e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 10082.109375
+    },
+    {
+      "latency_s": 3.7361910343170166,
+      "fast_path": false,
+      "cpu_percent": 12.979632667221114,
+      "memory_mb": 10082.109375
+    },
+    {
+      "latency_s": 3.6826651096343994,
+      "fast_path": false,
+      "cpu_percent": 13.691023891391875,
+      "memory_mb": 10082.109375
+    },
+    {
+      "latency_s": 4.279632806777954,
+      "fast_path": false,
+      "cpu_percent": 13.250835517988014,
+      "memory_mb": 10082.109375
+    },
+    {
+      "latency_s": 0.00010919570922851562,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 10082.109375
+    },
+    {
+      "latency_s": 1.4781951904296875e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 10082.109375
+    },
+    {
+      "latency_s": 1.2159347534179688e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 10082.109375
+    },
+    {
+      "latency_s": 4.112444877624512,
+      "fast_path": false,
+      "cpu_percent": 13.171468362948174,
+      "memory_mb": 10082.109375
+    },
+    {
+      "latency_s": 7.200241088867188e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 10082.109375
+    },
+    {
+      "latency_s": 1.5974044799804688e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 10082.109375
+    },
+    {
+      "latency_s": 3.389338731765747,
+      "fast_path": false,
+      "cpu_percent": 12.802557735914199,
+      "memory_mb": 10082.109375
+    },
+    {
+      "latency_s": 3.6530821323394775,
+      "fast_path": false,
+      "cpu_percent": 12.87011238641123,
+      "memory_mb": 10082.109375
+    },
+    {
+      "latency_s": 3.82431697845459,
+      "fast_path": false,
+      "cpu_percent": 13.614335917583535,
+      "memory_mb": 10082.109375
+    },
+    {
+      "latency_s": 3.4717400074005127,
+      "fast_path": false,
+      "cpu_percent": 12.716218583734403,
+      "memory_mb": 10082.109375
+    },
+    {
+      "latency_s": 6.794929504394531e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 10082.109375
+    },
+    {
+      "latency_s": 1.5974044799804688e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 10082.109375
+    },
+    {
+      "latency_s": 4.222686052322388,
+      "fast_path": false,
+      "cpu_percent": 15.362997105674268,
+      "memory_mb": 9874.734375
+    },
+    {
+      "latency_s": 9.393692016601562e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 9874.734375
+    },
+    {
+      "latency_s": 1.6927719116210938e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 9874.734375
+    },
+    {
+      "latency_s": 3.409275770187378,
+      "fast_path": false,
+      "cpu_percent": 13.999942280226882,
+      "memory_mb": 9150.328125
+    },
+    {
+      "latency_s": 4.1008899211883545,
+      "fast_path": false,
+      "cpu_percent": 13.15581920920395,
+      "memory_mb": 9152.078125
+    },
+    {
+      "latency_s": 3.3784968852996826,
+      "fast_path": false,
+      "cpu_percent": 12.58652798675793,
+      "memory_mb": 9152.078125
+    },
+    {
+      "latency_s": 3.104767084121704,
+      "fast_path": false,
+      "cpu_percent": 12.265785280564225,
+      "memory_mb": 9152.078125
+    },
+    {
+      "latency_s": 8.106231689453125e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 9152.078125
+    },
+    {
+      "latency_s": 1.6689300537109375e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 9152.078125
+    },
+    {
+      "latency_s": 3.8313207626342773,
+      "fast_path": false,
+      "cpu_percent": 13.045472278764304,
+      "memory_mb": 9152.09375
+    },
+    {
+      "latency_s": 6.890296936035156e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 9152.09375
+    },
+    {
+      "latency_s": 1.52587890625e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 9152.09375
+    },
+    {
+      "latency_s": 3.7326698303222656,
+      "fast_path": false,
+      "cpu_percent": 13.003001231375771,
+      "memory_mb": 9152.15625
+    },
+    {
+      "latency_s": 3.7228360176086426,
+      "fast_path": false,
+      "cpu_percent": 12.957388768089032,
+      "memory_mb": 9153.953125
+    },
+    {
+      "latency_s": 3.7501869201660156,
+      "fast_path": false,
+      "cpu_percent": 13.222362153032625,
+      "memory_mb": 9153.953125
+    },
+    {
+      "latency_s": 3.4758481979370117,
+      "fast_path": false,
+      "cpu_percent": 12.62149849525588,
+      "memory_mb": 9153.953125
+    },
+    {
+      "latency_s": 0.00010800361633300781,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 9153.953125
+    },
+    {
+      "latency_s": 1.5974044799804688e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 9153.953125
+    },
+    {
+      "latency_s": 3.63907790184021,
+      "fast_path": false,
+      "cpu_percent": 12.82952518724339,
+      "memory_mb": 9153.96875
+    },
+    {
+      "latency_s": 6.699562072753906e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 9153.96875
+    },
+    {
+      "latency_s": 1.4781951904296875e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 9153.96875
+    },
+    {
+      "latency_s": 3.4745030403137207,
+      "fast_path": false,
+      "cpu_percent": 12.71326790838323,
+      "memory_mb": 9153.96875
+    },
+    {
+      "latency_s": 3.634721040725708,
+      "fast_path": false,
+      "cpu_percent": 12.863060982161338,
+      "memory_mb": 9153.96875
+    },
+    {
+      "latency_s": 3.7224159240722656,
+      "fast_path": false,
+      "cpu_percent": 12.981724822177968,
+      "memory_mb": 9153.96875
+    },
+    {
+      "latency_s": 3.8235068321228027,
+      "fast_path": false,
+      "cpu_percent": 13.076605272401585,
+      "memory_mb": 9153.96875
+    },
+    {
+      "latency_s": 5.2928924560546875e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 9153.96875
+    },
+    {
+      "latency_s": 1.4066696166992188e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 9153.96875
+    },
+    {
+      "latency_s": 4.172537088394165,
+      "fast_path": false,
+      "cpu_percent": 13.289512166167782,
+      "memory_mb": 9153.96875
+    },
+    {
+      "latency_s": 3.8274831771850586,
+      "fast_path": false,
+      "cpu_percent": 12.990945145464499,
+      "memory_mb": 9154.046875
+    },
+    {
+      "latency_s": 6.508827209472656e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 9154.046875
+    },
+    {
+      "latency_s": 3.782866954803467,
+      "fast_path": false,
+      "cpu_percent": 16.524308559312487,
+      "memory_mb": 9154.078125
+    },
+    {
+      "latency_s": 3.8075718879699707,
+      "fast_path": false,
+      "cpu_percent": 29.45525098405842,
+      "memory_mb": 9156.125
+    },
+    {
+      "latency_s": 4.377374887466431,
+      "fast_path": false,
+      "cpu_percent": 31.420177146308937,
+      "memory_mb": 9156.296875
+    },
+    {
+      "latency_s": 0.00017786026000976562,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 9156.296875
+    },
+    {
+      "latency_s": 0.00010991096496582031,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 9156.296875
+    },
+    {
+      "latency_s": 4.506111145019531e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 9156.296875
+    },
+    {
+      "latency_s": 4.650471210479736,
+      "fast_path": false,
+      "cpu_percent": 24.50153983175536,
+      "memory_mb": 9156.296875
+    },
+    {
+      "latency_s": 6.4849853515625e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 9156.296875
+    },
+    {
+      "latency_s": 1.6927719116210938e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 9156.296875
+    },
+    {
+      "latency_s": 3.6996147632598877,
+      "fast_path": false,
+      "cpu_percent": 13.587791382826328,
+      "memory_mb": 9156.296875
+    },
+    {
+      "latency_s": 3.7314467430114746,
+      "fast_path": false,
+      "cpu_percent": 15.246346824204332,
+      "memory_mb": 9156.421875
+    },
+    {
+      "latency_s": 3.821678876876831,
+      "fast_path": false,
+      "cpu_percent": 13.266817656179933,
+      "memory_mb": 9156.46875
+    },
+    {
+      "latency_s": 6.890296936035156e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 9156.46875
+    },
+    {
+      "latency_s": 1.8358230590820312e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 9156.46875
+    },
+    {
+      "latency_s": 1.4066696166992188e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 9156.46875
+    },
+    {
+      "latency_s": 3.6676390171051025,
+      "fast_path": false,
+      "cpu_percent": 14.891494758693621,
+      "memory_mb": 9156.46875
+    },
+    {
+      "latency_s": 8.702278137207031e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 9156.46875
+    },
+    {
+      "latency_s": 1.8835067749023438e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 9156.46875
+    },
+    {
+      "latency_s": 4.00735878944397,
+      "fast_path": false,
+      "cpu_percent": 14.446791875112757,
+      "memory_mb": 9156.46875
+    },
+    {
+      "latency_s": 3.701848030090332,
+      "fast_path": false,
+      "cpu_percent": 13.623631761774137,
+      "memory_mb": 9156.46875
+    },
+    {
+      "latency_s": 3.429651975631714,
+      "fast_path": false,
+      "cpu_percent": 14.28529411966798,
+      "memory_mb": 9156.46875
+    },
+    {
+      "latency_s": 6.771087646484375e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 9156.46875
+    },
+    {
+      "latency_s": 1.621246337890625e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 9156.46875
+    },
+    {
+      "latency_s": 1.2874603271484375e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 9156.46875
+    },
+    {
+      "latency_s": 4.087226152420044,
+      "fast_path": false,
+      "cpu_percent": 17.976155871996006,
+      "memory_mb": 9158.25
+    },
+    {
+      "latency_s": 4.079769849777222,
+      "fast_path": false,
+      "cpu_percent": 14.577060714159389,
+      "memory_mb": 9158.0
+    },
+    {
+      "latency_s": 0.00011706352233886719,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 9158.0
+    },
+    {
+      "latency_s": 3.7756309509277344,
+      "fast_path": false,
+      "cpu_percent": 13.733640568673353,
+      "memory_mb": 9158.0
+    },
+    {
+      "latency_s": 3.766779899597168,
+      "fast_path": false,
+      "cpu_percent": 13.205954296750733,
+      "memory_mb": 9158.0
+    },
+    {
+      "latency_s": 4.007986068725586,
+      "fast_path": false,
+      "cpu_percent": 15.251802314631528,
+      "memory_mb": 9158.0
+    },
+    {
+      "latency_s": 9.226799011230469e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 9158.0
+    },
+    {
+      "latency_s": 2.002716064453125e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 9158.0
+    },
+    {
+      "latency_s": 1.621246337890625e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 9158.0
+    },
+    {
+      "latency_s": 1.4781951904296875e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 9158.0
+    },
+    {
+      "latency_s": 1.3828277587890625e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 9158.0
+    },
+    {
+      "latency_s": 1.3828277587890625e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 9158.0
+    },
+    {
+      "latency_s": 3.576702117919922,
+      "fast_path": false,
+      "cpu_percent": 13.841384372481917,
+      "memory_mb": 9152.484375
+    },
+    {
+      "latency_s": 3.7427072525024414,
+      "fast_path": false,
+      "cpu_percent": 13.534464702290082,
+      "memory_mb": 9152.484375
+    },
+    {
+      "latency_s": 3.7870638370513916,
+      "fast_path": false,
+      "cpu_percent": 13.015126155987005,
+      "memory_mb": 9152.484375
+    },
+    {
+      "latency_s": 8.511543273925781e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 9152.484375
+    },
+    {
+      "latency_s": 1.621246337890625e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 9152.484375
+    },
+    {
+      "latency_s": 1.3113021850585938e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 9152.484375
+    },
+    {
+      "latency_s": 4.43918514251709,
+      "fast_path": false,
+      "cpu_percent": 13.45560387376204,
+      "memory_mb": 9152.53125
+    },
+    {
+      "latency_s": 0.00011014938354492188,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 9152.53125
+    },
+    {
+      "latency_s": 1.6927719116210938e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 9152.53125
+    },
+    {
+      "latency_s": 4.057137966156006,
+      "fast_path": false,
+      "cpu_percent": 13.303786178891,
+      "memory_mb": 9154.28125
+    },
+    {
+      "latency_s": 4.042897939682007,
+      "fast_path": false,
+      "cpu_percent": 13.222141740289556,
+      "memory_mb": 9154.28125
+    },
+    {
+      "latency_s": 3.6070337295532227,
+      "fast_path": false,
+      "cpu_percent": 12.865827901683685,
+      "memory_mb": 9154.28125
+    },
+    {
+      "latency_s": 0.0001010894775390625,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 9154.28125
+    },
+    {
+      "latency_s": 1.5020370483398438e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 9154.28125
+    },
+    {
+      "latency_s": 1.3113021850585938e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 9154.28125
+    },
+    {
+      "latency_s": 3.6048378944396973,
+      "fast_path": false,
+      "cpu_percent": 12.875781202697949,
+      "memory_mb": 9154.28125
+    },
+    {
+      "latency_s": 3.853879928588867,
+      "fast_path": false,
+      "cpu_percent": 13.10776779143101,
+      "memory_mb": 9154.28125
+    },
+    {
+      "latency_s": 7.390975952148438e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 9154.28125
+    },
+    {
+      "latency_s": 3.3185341358184814,
+      "fast_path": false,
+      "cpu_percent": 12.768718194772505,
+      "memory_mb": 9154.28125
+    },
+    {
+      "latency_s": 3.5740480422973633,
+      "fast_path": false,
+      "cpu_percent": 12.976160435210266,
+      "memory_mb": 9154.28125
+    },
+    {
+      "latency_s": 3.935347080230713,
+      "fast_path": false,
+      "cpu_percent": 13.255636297508586,
+      "memory_mb": 9154.28125
+    },
+    {
+      "latency_s": 0.00011110305786132812,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 9154.28125
+    },
+    {
+      "latency_s": 3.228386163711548,
+      "fast_path": false,
+      "cpu_percent": 12.622287772771175,
+      "memory_mb": 9154.28125
+    },
+    {
+      "latency_s": 7.104873657226562e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 9154.28125
+    },
+    {
+      "latency_s": 3.588244915008545,
+      "fast_path": false,
+      "cpu_percent": 12.95769567052796,
+      "memory_mb": 9154.28125
+    },
+    {
+      "latency_s": 0.00012803077697753906,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 9154.28125
+    },
+    {
+      "latency_s": 1.5974044799804688e-05,
+      "fast_path": true,
+      "cpu_percent": 0.0,
+      "memory_mb": 9154.28125
+    }
+  ]
+}

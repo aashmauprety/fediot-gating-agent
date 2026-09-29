@@ -1,0 +1,132 @@
+{
+  "rows": [
+    {
+      "device": "Amazon Echo",
+      "pca_f1": 0.587991718426501,
+      "pca_support": 202.0,
+      "encoder_f1": 0.5824742268041238,
+      "encoder_support": 202.0
+    },
+    {
+      "device": "Belkin Wemo switch",
+      "pca_f1": 0.817966903073286,
+      "pca_support": 204.0,
+      "encoder_f1": 0.7023809523809523,
+      "encoder_support": 204.0
+    },
+    {
+      "device": "Belkin wemo motion sensor",
+      "pca_f1": 0.7563805104408353,
+      "pca_support": 186.0,
+      "encoder_f1": 0.8401084010840109,
+      "encoder_support": 186.0
+    },
+    {
+      "device": "Dropcam",
+      "pca_f1": 0.8010204081632653,
+      "pca_support": 197.0,
+      "encoder_f1": 0.883495145631068,
+      "encoder_support": 197.0
+    },
+    {
+      "device": "Insteon Camera",
+      "pca_f1": 0.3783783783783784,
+      "pca_support": 232.0,
+      "encoder_f1": 0.5929919137466307,
+      "encoder_support": 232.0
+    },
+    {
+      "device": "Light Bulbs LiFX Smart Bulb",
+      "pca_f1": 0.8303249097472925,
+      "pca_support": 124.0,
+      "encoder_f1": 0.8458781362007168,
+      "encoder_support": 124.0
+    },
+    {
+      "device": "Nest Dropcam",
+      "pca_f1": 0.652014652014652,
+      "pca_support": 152.0,
+      "encoder_f1": 0.5022421524663677,
+      "encoder_support": 152.0
+    },
+    {
+      "device": "Netatmo Welcome",
+      "pca_f1": 0.5,
+      "pca_support": 178.0,
+      "encoder_f1": 0.5209003215434084,
+      "encoder_support": 178.0
+    },
+    {
+      "device": "Netatmo weather station",
+      "pca_f1": 0.7959183673469388,
+      "pca_support": 154.0,
+      "encoder_f1": 0.8695652173913043,
+      "encoder_support": 154.0
+    },
+    {
+      "device": "PIX-STAR Photo-frame",
+      "pca_f1": 0.43478260869565216,
+      "pca_support": 66.0,
+      "encoder_f1": 0.7733333333333333,
+      "encoder_support": 66.0
+    },
+    {
+      "device": "Samsung SmartCam",
+      "pca_f1": 0.831858407079646,
+      "pca_support": 175.0,
+      "encoder_f1": 0.7575757575757576,
+      "encoder_support": 175.0
+    },
+    {
+      "device": "Smart Things",
+      "pca_f1": 0.8326180257510729,
+      "pca_support": 200.0,
+      "encoder_f1": 0.8775981524249422,
+      "encoder_support": 200.0
+    },
+    {
+      "device": "TP-Link Day Night Cloud camera",
+      "pca_f1": 0.7371007371007371,
+      "pca_support": 212.0,
+      "encoder_f1": 0.6510638297872341,
+      "encoder_support": 212.0
+    },
+    {
+      "device": "TP-Link Smart plug",
+      "pca_f1": 0.0,
+      "pca_support": 31.0,
+      "encoder_f1": 0.6031746031746031,
+      "encoder_support": 31.0
+    },
+    {
+      "device": "Triby Speaker",
+      "pca_f1": 0.7649122807017544,
+      "pca_support": 129.0,
+      "encoder_f1": 0.7945205479452054,
+      "encoder_support": 129.0
+    },
+    {
+      "device": "Withings Aura smart sleep sensor",
+      "pca_f1": 0.8430232558139535,
+      "pca_support": 187.0,
+      "encoder_f1": 0.773109243697479,
+      "encoder_support": 187.0
+    },
+    {
+      "device": "Withings Smart Baby Monitor",
+      "pca_f1": 0.6575342465753424,
+      "pca_support": 211.0,
+      "encoder_f1": 0.7214854111405835,
+      "encoder_support": 211.0
+    },
+    {
+      "device": "iHome",
+      "pca_f1": 0.11538461538461539,
+      "pca_support": 40.0,
+      "encoder_f1": 0.13953488372093023,
+      "encoder_support": 40.0
+    }
+  ],
+  "pca_macro_f1": 0.6298450013718846,
+  "encoder_macro_f1": 0.6906351238915919
+}

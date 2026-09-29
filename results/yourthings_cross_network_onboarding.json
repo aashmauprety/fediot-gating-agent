@@ -1,0 +1,49 @@
+{
+  "description": "Real cross-dataset test: UNSW-trained Phase 0 encoder + device-fingerprint KB, queried with real YourThings traffic",
+  "unsw_classes": [
+    "Amazon Echo",
+    "Belkin Wemo switch",
+    "Belkin wemo motion sensor",
+    "Dropcam",
+    "Insteon Camera",
+    "Light Bulbs LiFX Smart Bulb",
+    "Nest Dropcam",
+    "Netatmo Welcome",
+    "Netatmo weather station",
+    "PIX-STAR Photo-frame",
+    "Samsung SmartCam",
+    "Smart Things",
+    "TP-Link Day Night Cloud camera",
+    "TP-Link Smart plug",
+    "Triby Speaker",
+    "Withings Aura smart sleep sensor",
+    "Withings Smart Baby Monitor",
+    "iHome"
+  ],
+  "yourthings_identified_devices": [
+    "Philips Hue Hub",
+    "Samsung Smart Things Hub"
+  ],
+  "results": [
+    {
+      "yourthings_device": "Philips Hue Hub",
+      "n_windows": 2000,
+      "in_unsw_label_space": false,
+      "action": "request-more-data",
+      "predicted_label": "Dropcam",
+      "confidence": 0.3735084874908571,
+      "rationale": "5-NN vote over device-fingerprint KB: top label 'Dropcam' received 37% of inverse-distance weight among neighbors [('Dropcam', 0.196), ('Belkin Wemo switch', 0.232), ('Samsung SmartCam', 0.287), ('Netatmo Welcome', 2.571), ('TP-Link Day Night Cloud camera', 2.65)].",
+      "correct_prediction_if_known": null
+    },
+    {
+      "yourthings_device": "Samsung Smart Things Hub",
+      "n_windows": 2000,
+      "in_unsw_label_space": false,
+      "action": "escalate",
+      "predicted_label": "Netatmo Welcome",
+      "confidence": 0.328624012045034,
+      "rationale": "5-NN vote over device-fingerprint KB: top label 'Netatmo Welcome' received 33% of inverse-distance weight among neighbors [('Netatmo Welcome', 0.269), ('TP-Link Day Night Cloud camera', 0.302), ('Nest Dropcam', 0.577), ('Withings Smart Baby Monitor', 0.662), ('Amazon Echo', 0.977)].",
+      "correct_prediction_if_known": null
+    }
+  ]
+}

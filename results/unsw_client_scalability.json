@@ -1,0 +1,27 @@
+[
+  {
+    "n_clients": 2,
+    "final_macro_f1": 0.7607473769040394,
+    "wall_clock_s": 22.047985076904297
+  },
+  {
+    "n_clients": 5,
+    "final_macro_f1": 0.6620563255785162,
+    "wall_clock_s": 21.47971200942993
+  },
+  {
+    "n_clients": 10,
+    "final_macro_f1": 0.547774760278512,
+    "wall_clock_s": 20.960649967193604
+  },
+  {
+    "n_clients": 20,
+    "final_macro_f1": 0.421789163772979,
+    "wall_clock_s": 21.43944811820984
+  },
+  {
+    "n_clients": 50,
+    "final_macro_f1": 0.230250231118349,
+    "wall_clock_s": 24.335971117019653
+  }
+]

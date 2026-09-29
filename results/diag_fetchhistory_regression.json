@@ -1,0 +1,174 @@
+{
+  "description": "Diagnosing the FetchHistory-tool regression (Llama 3.1 8B): does the collapse come from the added prompt framing/text, or from the tool-calling mechanism itself? Variant B isolates the framing by keeping the same added background text but removing the fetch_history option entirely.",
+  "model": "llama3.1:8b",
+  "cases": [
+    {
+      "name": "clearly_normal",
+      "z": 0.1,
+      "cos_z": 0.1,
+      "calib": "essentially unchanged",
+      "posterior_mean": 0.85,
+      "n_obs": 15
+    },
+    {
+      "name": "clearly_anomalous",
+      "z": 3.8,
+      "cos_z": -3.5,
+      "calib": "got much worse",
+      "posterior_mean": 0.5,
+      "n_obs": 3
+    },
+    {
+      "name": "ambiguous_strong_history",
+      "z": 2.5,
+      "cos_z": -2.0,
+      "calib": "got slightly worse",
+      "posterior_mean": 0.95,
+      "n_obs": 20
+    },
+    {
+      "name": "ambiguous_weak_history",
+      "z": 2.5,
+      "cos_z": -2.0,
+      "calib": "got slightly worse",
+      "posterior_mean": 0.6,
+      "n_obs": 2
+    },
+    {
+      "name": "borderline",
+      "z": 1.6,
+      "cos_z": -1.4,
+      "calib": "got slightly worse",
+      "posterior_mean": 0.7,
+      "n_obs": 8
+    }
+  ],
+  "results": {
+    "A_with_tool": [
+      {
+        "case": "clearly_normal",
+        "response": {
+          "action": "downweight",
+          "gating_score": 0.6,
+          "rationale": "Gateway gw_test has a high long-term trust posterior, but this round's update norm and cosine similarity z-scores are both slightly above average, indicating a deviation from the norm, so the update is downweighted."
+        }
+      },
+      {
+        "case": "clearly_anomalous",
+        "response": {
+          "action": "downweight",
+          "gating_score": 0.2,
+          "rationale": "Gateway gw_test's update norm is significantly higher than others this round, while cosine similarity is lower, and calibration loss worsened, indicating potential poisoning, but its long-term trust posterior is moderate, suggesting some past good behavior."
+        }
+      },
+      {
+        "case": "ambiguous_strong_history",
+        "response": {
+          "action": "downweight",
+          "gating_score": 0.6,
+          "rationale": "Gateway gw_test has a high long-term trust posterior, but this round's update norm is significantly higher than others and cosine similarity is significantly lower, indicating a potential anomaly, and calibration loss also worsened, so the update is downweighted."
+        }
+      },
+      {
+        "case": "ambiguous_weak_history",
+        "response": {
+          "action": "downweight",
+          "gating_score": 0.3,
+          "rationale": "The gateway's update norm is significantly higher than others this round, but its cosine similarity is lower, and the calibration loss worsened, indicating a mixed signal that warrants downweighting the update."
+        }
+      },
+      {
+        "case": "borderline",
+        "response": {
+          "action": "downweight",
+          "gating_score": 0.4,
+          "rationale": "The gateway's update norm is significantly higher than others this round, but its cosine similarity is lower, and the calibration loss worsened, indicating some inconsistency in its behavior."
+        }
+      }
+    ],
+    "B_framing_only_no_tool": [
+      {
+        "case": "clearly_normal",
+        "response": {
+          "action": "accept",
+          "gating_score": 0.85,
+          "rationale": "The gateway has a high long-term trust posterior mean of 0.85, indicating a strong history of honest behavior, and this round's digest shows no significant deviations from the group, so the update is accepted in full."
+        }
+      },
+      {
+        "case": "clearly_anomalous",
+        "response": {
+          "action": "exclude",
+          "gating_score": 0.0,
+          "rationale": "The gateway's update norm is significantly higher than usual, and its cosine similarity is significantly lower, indicating a likely poisoned update, which is further supported by a large increase in calibration loss."
+        }
+      },
+      {
+        "case": "ambiguous_strong_history",
+        "response": {
+          "action": "downweight",
+          "gating_score": 0.6,
+          "rationale": "The gateway's update norm is unusually high, but its cosine similarity is very low, and the calibration loss worsened, which, combined with its high long-term trust posterior, suggests a potential anomaly, but not enough to exclude it outright."
+        }
+      },
+      {
+        "case": "ambiguous_weak_history",
+        "response": {
+          "action": "downweight",
+          "gating_score": 0.4,
+          "rationale": "The gateway's update norm is unusually high, but its cosine similarity is very low, and its calibration loss worsened this round, indicating potential poisoning, so we'll downweight its update."
+        }
+      },
+      {
+        "case": "borderline",
+        "response": {
+          "action": "downweight",
+          "gating_score": 0.45,
+          "rationale": "The gateway's update norm is high, but its cosine similarity is low and calibration loss worsened, indicating potential poisoning, and its long-term trust posterior is only 0.70, suggesting some past anomalies."
+        }
+      }
+    ],
+    "C_original_no_tool": [
+      {
+        "case": "clearly_normal",
+        "response": {
+          "action": "downweight",
+          "gating_score": 0.7,
+          "rationale": "The gateway's update norm and cosine similarity z-scores are both slightly above the mean, indicating some deviation from the group, but the long-term trust posterior is high, suggesting overall reliability, so the update will be downweighted to reflect some caution."
+        }
+      },
+      {
+        "case": "clearly_anomalous",
+        "response": {
+          "action": "exclude",
+          "gating_score": 0.0,
+          "rationale": "The gateway's update norm is significantly higher than the group, and its cosine similarity is significantly lower, indicating a potential anomaly, while its calibration loss also worsened, suggesting a possible attack, and its long-term trust posterior is only 0.50, indicating some past suspicious behavior."
+        }
+      },
+      {
+        "case": "ambiguous_strong_history",
+        "response": {
+          "action": "downweight",
+          "gating_score": 0.7,
+          "rationale": "The gateway's update norm is significantly higher than the group, but its cosine similarity is lower, and its calibration loss worsened, which, combined with its relatively high long-term trust posterior, suggests a potential anomaly but not a complete loss of trust."
+        }
+      },
+      {
+        "case": "ambiguous_weak_history",
+        "response": {
+          "action": "downweight",
+          "gating_score": 0.4,
+          "rationale": "The gateway's update norm is significantly higher than the group, but its cosine similarity is lower, and its calibration loss worsened, which, combined with its relatively low long-term trust posterior, suggests this update is likely compromised, but not entirely untrustworthy."
+        }
+      },
+      {
+        "case": "borderline",
+        "response": {
+          "action": "downweight",
+          "gating_score": 0.45,
+          "rationale": "The gateway's update norm is significantly higher than the group, but its cosine similarity is lower, and its calibration loss worsened, which, combined with its relatively low long-term trust posterior, suggests a cautious approach."
+        }
+      }
+    ]
+  }
+}

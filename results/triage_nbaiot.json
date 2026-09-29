@@ -1,0 +1,1904 @@
+{
+  "rows": [
+    {
+      "client": "Danmini_Doorbell",
+      "true_class": "mirai",
+      "predicted_class": "mirai",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Danmini_Doorbell",
+      "true_class": "mirai",
+      "predicted_class": "mirai",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Danmini_Doorbell",
+      "true_class": "mirai",
+      "predicted_class": "mirai",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Danmini_Doorbell",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Danmini_Doorbell",
+      "true_class": "mirai",
+      "predicted_class": "mirai",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Danmini_Doorbell",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Danmini_Doorbell",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Danmini_Doorbell",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Danmini_Doorbell",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Danmini_Doorbell",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Danmini_Doorbell",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Danmini_Doorbell",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Danmini_Doorbell",
+      "true_class": "mirai",
+      "predicted_class": "mirai",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Danmini_Doorbell",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Danmini_Doorbell",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Danmini_Doorbell",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Danmini_Doorbell",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Danmini_Doorbell",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Danmini_Doorbell",
+      "true_class": "mirai",
+      "predicted_class": "mirai",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Danmini_Doorbell",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Danmini_Doorbell",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Danmini_Doorbell",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Danmini_Doorbell",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Danmini_Doorbell",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Danmini_Doorbell",
+      "true_class": "mirai",
+      "predicted_class": "mirai",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Danmini_Doorbell",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Danmini_Doorbell",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Danmini_Doorbell",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Danmini_Doorbell",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Danmini_Doorbell",
+      "true_class": "mirai",
+      "predicted_class": "mirai",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Ecobee_Thermostat",
+      "true_class": "mirai",
+      "predicted_class": "mirai",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Ecobee_Thermostat",
+      "true_class": "mirai",
+      "predicted_class": "mirai",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Ecobee_Thermostat",
+      "true_class": "mirai",
+      "predicted_class": "mirai",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Ecobee_Thermostat",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Ecobee_Thermostat",
+      "true_class": "mirai",
+      "predicted_class": "mirai",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Ecobee_Thermostat",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Ecobee_Thermostat",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Ecobee_Thermostat",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Ecobee_Thermostat",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Ecobee_Thermostat",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Ecobee_Thermostat",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Ecobee_Thermostat",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Ecobee_Thermostat",
+      "true_class": "mirai",
+      "predicted_class": "mirai",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Ecobee_Thermostat",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Ecobee_Thermostat",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Ecobee_Thermostat",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Ecobee_Thermostat",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Ecobee_Thermostat",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Ecobee_Thermostat",
+      "true_class": "mirai",
+      "predicted_class": "mirai",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Ecobee_Thermostat",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Ecobee_Thermostat",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Ecobee_Thermostat",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Ecobee_Thermostat",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Ecobee_Thermostat",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Ecobee_Thermostat",
+      "true_class": "mirai",
+      "predicted_class": "mirai",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Ecobee_Thermostat",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Ecobee_Thermostat",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Ecobee_Thermostat",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Ecobee_Thermostat",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Ecobee_Thermostat",
+      "true_class": "mirai",
+      "predicted_class": "mirai",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Ennio_Doorbell",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Ennio_Doorbell",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Ennio_Doorbell",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Ennio_Doorbell",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Ennio_Doorbell",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Ennio_Doorbell",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Ennio_Doorbell",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Ennio_Doorbell",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Ennio_Doorbell",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Ennio_Doorbell",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Ennio_Doorbell",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Ennio_Doorbell",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Ennio_Doorbell",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Ennio_Doorbell",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Ennio_Doorbell",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Ennio_Doorbell",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Ennio_Doorbell",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Ennio_Doorbell",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Ennio_Doorbell",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Ennio_Doorbell",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Ennio_Doorbell",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Ennio_Doorbell",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Ennio_Doorbell",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Ennio_Doorbell",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Ennio_Doorbell",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Ennio_Doorbell",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Ennio_Doorbell",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Ennio_Doorbell",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Ennio_Doorbell",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Ennio_Doorbell",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Philips_B120N10_Baby_Monitor",
+      "true_class": "mirai",
+      "predicted_class": "mirai",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Philips_B120N10_Baby_Monitor",
+      "true_class": "mirai",
+      "predicted_class": "mirai",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Philips_B120N10_Baby_Monitor",
+      "true_class": "mirai",
+      "predicted_class": "mirai",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Philips_B120N10_Baby_Monitor",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Philips_B120N10_Baby_Monitor",
+      "true_class": "mirai",
+      "predicted_class": "mirai",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Philips_B120N10_Baby_Monitor",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Philips_B120N10_Baby_Monitor",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Philips_B120N10_Baby_Monitor",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Philips_B120N10_Baby_Monitor",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Philips_B120N10_Baby_Monitor",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Philips_B120N10_Baby_Monitor",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Philips_B120N10_Baby_Monitor",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Philips_B120N10_Baby_Monitor",
+      "true_class": "mirai",
+      "predicted_class": "mirai",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Philips_B120N10_Baby_Monitor",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Philips_B120N10_Baby_Monitor",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Philips_B120N10_Baby_Monitor",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Philips_B120N10_Baby_Monitor",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Philips_B120N10_Baby_Monitor",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Philips_B120N10_Baby_Monitor",
+      "true_class": "mirai",
+      "predicted_class": "mirai",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Philips_B120N10_Baby_Monitor",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Philips_B120N10_Baby_Monitor",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Philips_B120N10_Baby_Monitor",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Philips_B120N10_Baby_Monitor",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Philips_B120N10_Baby_Monitor",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Philips_B120N10_Baby_Monitor",
+      "true_class": "mirai",
+      "predicted_class": "mirai",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Philips_B120N10_Baby_Monitor",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "likely-false-positive"
+    },
+    {
+      "client": "Philips_B120N10_Baby_Monitor",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Philips_B120N10_Baby_Monitor",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Philips_B120N10_Baby_Monitor",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Philips_B120N10_Baby_Monitor",
+      "true_class": "mirai",
+      "predicted_class": "mirai",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Provision_PT_737E_Security_Camera",
+      "true_class": "mirai",
+      "predicted_class": "mirai",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Provision_PT_737E_Security_Camera",
+      "true_class": "mirai",
+      "predicted_class": "mirai",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Provision_PT_737E_Security_Camera",
+      "true_class": "mirai",
+      "predicted_class": "mirai",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Provision_PT_737E_Security_Camera",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Provision_PT_737E_Security_Camera",
+      "true_class": "mirai",
+      "predicted_class": "mirai",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Provision_PT_737E_Security_Camera",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Provision_PT_737E_Security_Camera",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Provision_PT_737E_Security_Camera",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Provision_PT_737E_Security_Camera",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Provision_PT_737E_Security_Camera",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Provision_PT_737E_Security_Camera",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Provision_PT_737E_Security_Camera",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Provision_PT_737E_Security_Camera",
+      "true_class": "mirai",
+      "predicted_class": "mirai",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Provision_PT_737E_Security_Camera",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Provision_PT_737E_Security_Camera",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Provision_PT_737E_Security_Camera",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Provision_PT_737E_Security_Camera",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Provision_PT_737E_Security_Camera",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Provision_PT_737E_Security_Camera",
+      "true_class": "mirai",
+      "predicted_class": "mirai",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Provision_PT_737E_Security_Camera",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Provision_PT_737E_Security_Camera",
+      "true_class": "benign",
+      "predicted_class": "mirai",
+      "correct": false,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Provision_PT_737E_Security_Camera",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Provision_PT_737E_Security_Camera",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Provision_PT_737E_Security_Camera",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Provision_PT_737E_Security_Camera",
+      "true_class": "mirai",
+      "predicted_class": "mirai",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Provision_PT_737E_Security_Camera",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Provision_PT_737E_Security_Camera",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Provision_PT_737E_Security_Camera",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Provision_PT_737E_Security_Camera",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Provision_PT_737E_Security_Camera",
+      "true_class": "mirai",
+      "predicted_class": "mirai",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Provision_PT_838_Security_Camera",
+      "true_class": "mirai",
+      "predicted_class": "mirai",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Provision_PT_838_Security_Camera",
+      "true_class": "mirai",
+      "predicted_class": "mirai",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Provision_PT_838_Security_Camera",
+      "true_class": "mirai",
+      "predicted_class": "mirai",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Provision_PT_838_Security_Camera",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Provision_PT_838_Security_Camera",
+      "true_class": "mirai",
+      "predicted_class": "mirai",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Provision_PT_838_Security_Camera",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Provision_PT_838_Security_Camera",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Provision_PT_838_Security_Camera",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Provision_PT_838_Security_Camera",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Provision_PT_838_Security_Camera",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Provision_PT_838_Security_Camera",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Provision_PT_838_Security_Camera",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Provision_PT_838_Security_Camera",
+      "true_class": "mirai",
+      "predicted_class": "mirai",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Provision_PT_838_Security_Camera",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Provision_PT_838_Security_Camera",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Provision_PT_838_Security_Camera",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Provision_PT_838_Security_Camera",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Provision_PT_838_Security_Camera",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Provision_PT_838_Security_Camera",
+      "true_class": "mirai",
+      "predicted_class": "mirai",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Provision_PT_838_Security_Camera",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Provision_PT_838_Security_Camera",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Provision_PT_838_Security_Camera",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Provision_PT_838_Security_Camera",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Provision_PT_838_Security_Camera",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Provision_PT_838_Security_Camera",
+      "true_class": "mirai",
+      "predicted_class": "mirai",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Provision_PT_838_Security_Camera",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Provision_PT_838_Security_Camera",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Provision_PT_838_Security_Camera",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Provision_PT_838_Security_Camera",
+      "true_class": "benign",
+      "predicted_class": "gafgyt",
+      "correct": false,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Provision_PT_838_Security_Camera",
+      "true_class": "mirai",
+      "predicted_class": "mirai",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Samsung_SNH_1011_N_Webcam",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Samsung_SNH_1011_N_Webcam",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Samsung_SNH_1011_N_Webcam",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Samsung_SNH_1011_N_Webcam",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Samsung_SNH_1011_N_Webcam",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Samsung_SNH_1011_N_Webcam",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Samsung_SNH_1011_N_Webcam",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Samsung_SNH_1011_N_Webcam",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Samsung_SNH_1011_N_Webcam",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Samsung_SNH_1011_N_Webcam",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Samsung_SNH_1011_N_Webcam",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Samsung_SNH_1011_N_Webcam",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Samsung_SNH_1011_N_Webcam",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Samsung_SNH_1011_N_Webcam",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Samsung_SNH_1011_N_Webcam",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Samsung_SNH_1011_N_Webcam",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Samsung_SNH_1011_N_Webcam",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Samsung_SNH_1011_N_Webcam",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Samsung_SNH_1011_N_Webcam",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Samsung_SNH_1011_N_Webcam",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Samsung_SNH_1011_N_Webcam",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Samsung_SNH_1011_N_Webcam",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Samsung_SNH_1011_N_Webcam",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Samsung_SNH_1011_N_Webcam",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Samsung_SNH_1011_N_Webcam",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Samsung_SNH_1011_N_Webcam",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Samsung_SNH_1011_N_Webcam",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Samsung_SNH_1011_N_Webcam",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Samsung_SNH_1011_N_Webcam",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "Samsung_SNH_1011_N_Webcam",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "SimpleHome_XCS7_1002_WHT_Security_Camera",
+      "true_class": "mirai",
+      "predicted_class": "mirai",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "SimpleHome_XCS7_1002_WHT_Security_Camera",
+      "true_class": "mirai",
+      "predicted_class": "mirai",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "SimpleHome_XCS7_1002_WHT_Security_Camera",
+      "true_class": "mirai",
+      "predicted_class": "mirai",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "SimpleHome_XCS7_1002_WHT_Security_Camera",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "SimpleHome_XCS7_1002_WHT_Security_Camera",
+      "true_class": "mirai",
+      "predicted_class": "mirai",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "SimpleHome_XCS7_1002_WHT_Security_Camera",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "SimpleHome_XCS7_1002_WHT_Security_Camera",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "SimpleHome_XCS7_1002_WHT_Security_Camera",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "SimpleHome_XCS7_1002_WHT_Security_Camera",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "SimpleHome_XCS7_1002_WHT_Security_Camera",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "SimpleHome_XCS7_1002_WHT_Security_Camera",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "SimpleHome_XCS7_1002_WHT_Security_Camera",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "SimpleHome_XCS7_1002_WHT_Security_Camera",
+      "true_class": "mirai",
+      "predicted_class": "mirai",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "SimpleHome_XCS7_1002_WHT_Security_Camera",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "SimpleHome_XCS7_1002_WHT_Security_Camera",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "SimpleHome_XCS7_1002_WHT_Security_Camera",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "SimpleHome_XCS7_1002_WHT_Security_Camera",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "SimpleHome_XCS7_1002_WHT_Security_Camera",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "SimpleHome_XCS7_1002_WHT_Security_Camera",
+      "true_class": "mirai",
+      "predicted_class": "mirai",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "SimpleHome_XCS7_1002_WHT_Security_Camera",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "SimpleHome_XCS7_1002_WHT_Security_Camera",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "SimpleHome_XCS7_1002_WHT_Security_Camera",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "SimpleHome_XCS7_1002_WHT_Security_Camera",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "SimpleHome_XCS7_1002_WHT_Security_Camera",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "SimpleHome_XCS7_1002_WHT_Security_Camera",
+      "true_class": "mirai",
+      "predicted_class": "mirai",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "SimpleHome_XCS7_1002_WHT_Security_Camera",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "SimpleHome_XCS7_1002_WHT_Security_Camera",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "SimpleHome_XCS7_1002_WHT_Security_Camera",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "SimpleHome_XCS7_1002_WHT_Security_Camera",
+      "true_class": "benign",
+      "predicted_class": "gafgyt",
+      "correct": false,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "SimpleHome_XCS7_1002_WHT_Security_Camera",
+      "true_class": "mirai",
+      "predicted_class": "mirai",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "SimpleHome_XCS7_1003_WHT_Security_Camera",
+      "true_class": "mirai",
+      "predicted_class": "mirai",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "SimpleHome_XCS7_1003_WHT_Security_Camera",
+      "true_class": "mirai",
+      "predicted_class": "mirai",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "SimpleHome_XCS7_1003_WHT_Security_Camera",
+      "true_class": "mirai",
+      "predicted_class": "mirai",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "SimpleHome_XCS7_1003_WHT_Security_Camera",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "SimpleHome_XCS7_1003_WHT_Security_Camera",
+      "true_class": "mirai",
+      "predicted_class": "mirai",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "SimpleHome_XCS7_1003_WHT_Security_Camera",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "SimpleHome_XCS7_1003_WHT_Security_Camera",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "SimpleHome_XCS7_1003_WHT_Security_Camera",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "SimpleHome_XCS7_1003_WHT_Security_Camera",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "SimpleHome_XCS7_1003_WHT_Security_Camera",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "SimpleHome_XCS7_1003_WHT_Security_Camera",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "SimpleHome_XCS7_1003_WHT_Security_Camera",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "SimpleHome_XCS7_1003_WHT_Security_Camera",
+      "true_class": "mirai",
+      "predicted_class": "mirai",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "SimpleHome_XCS7_1003_WHT_Security_Camera",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "SimpleHome_XCS7_1003_WHT_Security_Camera",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "SimpleHome_XCS7_1003_WHT_Security_Camera",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "SimpleHome_XCS7_1003_WHT_Security_Camera",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "SimpleHome_XCS7_1003_WHT_Security_Camera",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "SimpleHome_XCS7_1003_WHT_Security_Camera",
+      "true_class": "mirai",
+      "predicted_class": "mirai",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "SimpleHome_XCS7_1003_WHT_Security_Camera",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "SimpleHome_XCS7_1003_WHT_Security_Camera",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "SimpleHome_XCS7_1003_WHT_Security_Camera",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "SimpleHome_XCS7_1003_WHT_Security_Camera",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "SimpleHome_XCS7_1003_WHT_Security_Camera",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "SimpleHome_XCS7_1003_WHT_Security_Camera",
+      "true_class": "mirai",
+      "predicted_class": "mirai",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "SimpleHome_XCS7_1003_WHT_Security_Camera",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "SimpleHome_XCS7_1003_WHT_Security_Camera",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "SimpleHome_XCS7_1003_WHT_Security_Camera",
+      "true_class": "gafgyt",
+      "predicted_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "SimpleHome_XCS7_1003_WHT_Security_Camera",
+      "true_class": "benign",
+      "predicted_class": "benign",
+      "correct": true,
+      "triage_action": "confirm"
+    },
+    {
+      "client": "SimpleHome_XCS7_1003_WHT_Security_Camera",
+      "true_class": "mirai",
+      "predicted_class": "mirai",
+      "correct": true,
+      "triage_action": "confirm"
+    }
+  ],
+  "summary": {
+    "confirm": {
+      "correct": 266,
+      "incorrect": 3
+    },
+    "likely-false-positive": {
+      "correct": 1,
+      "incorrect": 0
+    }
+  }
+}

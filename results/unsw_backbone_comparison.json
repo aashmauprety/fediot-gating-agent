@@ -1,0 +1,238 @@
+{
+  "description": "Real UNSW device identification, 10 federated clients, 18 device classes",
+  "num_classes": 18,
+  "classes": [
+    "Amazon Echo",
+    "Belkin Wemo switch",
+    "Belkin wemo motion sensor",
+    "Dropcam",
+    "Insteon Camera",
+    "Light Bulbs LiFX Smart Bulb",
+    "Nest Dropcam",
+    "Netatmo Welcome",
+    "Netatmo weather station",
+    "PIX-STAR Photo-frame",
+    "Samsung SmartCam",
+    "Smart Things",
+    "TP-Link Day Night Cloud camera",
+    "TP-Link Smart plug",
+    "Triby Speaker",
+    "Withings Aura smart sleep sensor",
+    "Withings Smart Baby Monitor",
+    "iHome"
+  ],
+  "total_windows": 28674,
+  "pca_baseline": {
+    "embed_dim": 80,
+    "final_macro_f1": 0.6131067297750228,
+    "rounds": [
+      {
+        "round": 0,
+        "macro_f1": 0.12557186045877314
+      },
+      {
+        "round": 1,
+        "macro_f1": 0.17693886970234454
+      },
+      {
+        "round": 2,
+        "macro_f1": 0.21506381802314523
+      },
+      {
+        "round": 3,
+        "macro_f1": 0.2531769898183544
+      },
+      {
+        "round": 4,
+        "macro_f1": 0.2926897312098254
+      },
+      {
+        "round": 5,
+        "macro_f1": 0.33090214074826263
+      },
+      {
+        "round": 6,
+        "macro_f1": 0.38595402628875153
+      },
+      {
+        "round": 7,
+        "macro_f1": 0.41492411459240464
+      },
+      {
+        "round": 8,
+        "macro_f1": 0.42813225581328873
+      },
+      {
+        "round": 9,
+        "macro_f1": 0.4544543587592122
+      },
+      {
+        "round": 10,
+        "macro_f1": 0.473203366582109
+      },
+      {
+        "round": 11,
+        "macro_f1": 0.4898475937267431
+      },
+      {
+        "round": 12,
+        "macro_f1": 0.5030305847928586
+      },
+      {
+        "round": 13,
+        "macro_f1": 0.5193648853920557
+      },
+      {
+        "round": 14,
+        "macro_f1": 0.5407064908697095
+      },
+      {
+        "round": 15,
+        "macro_f1": 0.5467049107632822
+      },
+      {
+        "round": 16,
+        "macro_f1": 0.5479777222884087
+      },
+      {
+        "round": 17,
+        "macro_f1": 0.5707392931191805
+      },
+      {
+        "round": 18,
+        "macro_f1": 0.5655478075365692
+      },
+      {
+        "round": 19,
+        "macro_f1": 0.5876488232808352
+      },
+      {
+        "round": 20,
+        "macro_f1": 0.5925351314138305
+      },
+      {
+        "round": 21,
+        "macro_f1": 0.6030572370637354
+      },
+      {
+        "round": 22,
+        "macro_f1": 0.6050002285016951
+      },
+      {
+        "round": 23,
+        "macro_f1": 0.607469044313211
+      },
+      {
+        "round": 24,
+        "macro_f1": 0.6131067297750228
+      }
+    ]
+  },
+  "phase0_encoder": {
+    "embed_dim": 32,
+    "phase0_rounds": 15,
+    "final_macro_f1": 0.7920643287488784,
+    "rounds": [
+      {
+        "round": 0,
+        "macro_f1": 0.2314806118337198
+      },
+      {
+        "round": 1,
+        "macro_f1": 0.2530752159497089
+      },
+      {
+        "round": 2,
+        "macro_f1": 0.35485067848229623
+      },
+      {
+        "round": 3,
+        "macro_f1": 0.373980449081683
+      },
+      {
+        "round": 4,
+        "macro_f1": 0.44205732544851306
+      },
+      {
+        "round": 5,
+        "macro_f1": 0.4729788392208565
+      },
+      {
+        "round": 6,
+        "macro_f1": 0.5780289381606714
+      },
+      {
+        "round": 7,
+        "macro_f1": 0.6064933081015655
+      },
+      {
+        "round": 8,
+        "macro_f1": 0.6386513581371065
+      },
+      {
+        "round": 9,
+        "macro_f1": 0.6800419945064371
+      },
+      {
+        "round": 10,
+        "macro_f1": 0.702683092379844
+      },
+      {
+        "round": 11,
+        "macro_f1": 0.7102641084732273
+      },
+      {
+        "round": 12,
+        "macro_f1": 0.7285962033576079
+      },
+      {
+        "round": 13,
+        "macro_f1": 0.7453757284372963
+      },
+      {
+        "round": 14,
+        "macro_f1": 0.7519839886628455
+      },
+      {
+        "round": 15,
+        "macro_f1": 0.7526371803381253
+      },
+      {
+        "round": 16,
+        "macro_f1": 0.768857515925043
+      },
+      {
+        "round": 17,
+        "macro_f1": 0.7449191178165654
+      },
+      {
+        "round": 18,
+        "macro_f1": 0.7838080494900951
+      },
+      {
+        "round": 19,
+        "macro_f1": 0.7607228753298894
+      },
+      {
+        "round": 20,
+        "macro_f1": 0.7895025539707609
+      },
+      {
+        "round": 21,
+        "macro_f1": 0.7564531084608233
+      },
+      {
+        "round": 22,
+        "macro_f1": 0.7856225149637127
+      },
+      {
+        "round": 23,
+        "macro_f1": 0.7849769889219922
+      },
+      {
+        "round": 24,
+        "macro_f1": 0.7920643287488784
+      }
+    ]
+  }
+}

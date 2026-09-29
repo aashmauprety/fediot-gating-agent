@@ -1,0 +1,33 @@
+{
+  "description": "Real test: killed the actual ollama server 30s into the run, restarted it 90s later, while GracefulDegradationPolicy wraps the selective-LLM policy. Confirms training does not crash and correctly falls back to the deterministic rule-based policy during the real outage window, then resumes using the real LLM.",
+  "final_macro_f1": 0.9972437346418163,
+  "wall_clock_seconds": 64.58421802520752,
+  "n_degraded_decisions": 86,
+  "degraded_rounds": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24
+  ],
+  "n_rounds": 25
+}

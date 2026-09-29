@@ -1,0 +1,58 @@
+[
+  {
+    "delay_rounds": 0,
+    "strategy": "gating_llm_llama3.1:8b",
+    "final_macro_f1": 0.47581838307232943,
+    "wall_clock_seconds": 909.2320518493652,
+    "sample_actions": {
+      "ciciot_diad_attack_client_0": "exclude",
+      "ciciot_diad_attack_client_1": "exclude",
+      "ciciot_diad_attack_client_2": "exclude",
+      "ciciot_diad_attack_client_3": "downweight",
+      "ciciot_diad_attack_client_4": "downweight",
+      "ciciot_diad_attack_client_5": "downweight",
+      "ciciot_diad_attack_client_6": "downweight",
+      "ciciot_diad_attack_client_7": "downweight",
+      "ciciot_diad_attack_client_8": "downweight"
+    },
+    "sample_gating_scores": {
+      "ciciot_diad_attack_client_0": 0.0,
+      "ciciot_diad_attack_client_1": 0.0,
+      "ciciot_diad_attack_client_2": 0.0,
+      "ciciot_diad_attack_client_3": 0.35,
+      "ciciot_diad_attack_client_4": 0.35,
+      "ciciot_diad_attack_client_5": 0.35,
+      "ciciot_diad_attack_client_6": 0.35,
+      "ciciot_diad_attack_client_7": 0.3,
+      "ciciot_diad_attack_client_8": 0.3
+    }
+  },
+  {
+    "delay_rounds": 10,
+    "strategy": "gating_llm_llama3.1:8b",
+    "final_macro_f1": 0.06412156642594474,
+    "wall_clock_seconds": 883.9481611251831,
+    "sample_actions": {
+      "ciciot_diad_attack_client_0": "exclude",
+      "ciciot_diad_attack_client_1": "exclude",
+      "ciciot_diad_attack_client_2": "exclude",
+      "ciciot_diad_attack_client_3": "exclude",
+      "ciciot_diad_attack_client_4": "exclude",
+      "ciciot_diad_attack_client_5": "exclude",
+      "ciciot_diad_attack_client_6": "exclude",
+      "ciciot_diad_attack_client_7": "exclude",
+      "ciciot_diad_attack_client_8": "exclude"
+    },
+    "sample_gating_scores": {
+      "ciciot_diad_attack_client_0": 0.0,
+      "ciciot_diad_attack_client_1": 0.0,
+      "ciciot_diad_attack_client_2": 0.0,
+      "ciciot_diad_attack_client_3": 0.0,
+      "ciciot_diad_attack_client_4": 0.0,
+      "ciciot_diad_attack_client_5": 0.0,
+      "ciciot_diad_attack_client_6": 0.0,
+      "ciciot_diad_attack_client_7": 0.0,
+      "ciciot_diad_attack_client_8": 0.0
+    }
+  }
+]

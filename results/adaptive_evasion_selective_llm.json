@@ -1,0 +1,69 @@
+{
+  "description": "Selective-LLM Gating Agent under the constrain-and-scale adaptive attack, targeted attack, CIC IoT-DIAD 2024. Tracks whether the attacker can also land inside the free fast-path band, not just evade the final decision. Compare against the full-LLM reference (~0.906-0.907, flat across lambda) and GShield reference (~0.9207-0.9209, flat).",
+  "reference_full_llm": {
+    "lambda_0.0": 0.9061,
+    "lambda_0.9": null,
+    "lambda_0.99": null
+  },
+  "reference_gshield": {
+    "lambda_0.0": 0.9209,
+    "lambda_0.9": 0.9208,
+    "lambda_0.99": 0.9207
+  },
+  "runs": [
+    {
+      "label": "targeted, evasion_lambda=0.0, selective-LLM",
+      "evasion_lambda": 0.0,
+      "final_macro_f1": 0.9193122976329591,
+      "targeted_success_rate": 0.008403361344537815,
+      "wall_clock_seconds": 319.584303855896,
+      "n_fallback_rounds": 0,
+      "n_rounds": 25,
+      "malicious_fast_path_bypass_count": 0,
+      "malicious_fast_path_bypass_total": 75,
+      "malicious_fast_path_bypass_fraction": 0.0,
+      "overall_llm_call_fraction": 0.37037037037037035,
+      "malicious_clients": [
+        "ciciot_diad_attack_client_0",
+        "ciciot_diad_attack_client_1",
+        "ciciot_diad_attack_client_2"
+      ]
+    },
+    {
+      "label": "targeted, evasion_lambda=0.9, selective-LLM",
+      "evasion_lambda": 0.9,
+      "final_macro_f1": 0.9173869310594001,
+      "targeted_success_rate": 0.01050420168067227,
+      "wall_clock_seconds": 366.99324798583984,
+      "n_fallback_rounds": 0,
+      "n_rounds": 25,
+      "malicious_fast_path_bypass_count": 0,
+      "malicious_fast_path_bypass_total": 75,
+      "malicious_fast_path_bypass_fraction": 0.0,
+      "overall_llm_call_fraction": 0.4398148148148148,
+      "malicious_clients": [
+        "ciciot_diad_attack_client_0",
+        "ciciot_diad_attack_client_1",
+        "ciciot_diad_attack_client_2"
+      ]
+    },
+    {
+      "label": "targeted, evasion_lambda=0.99, selective-LLM",
+      "evasion_lambda": 0.99,
+      "final_macro_f1": 0.9183032838031286,
+      "targeted_success_rate": 0.01050420168067227,
+      "wall_clock_seconds": 541.80859208107,
+      "n_fallback_rounds": 0,
+      "n_rounds": 25,
+      "malicious_fast_path_bypass_count": 0,
+      "malicious_fast_path_bypass_total": 75,
+      "malicious_fast_path_bypass_fraction": 0.0,
+      "overall_llm_call_fraction": 0.4444444444444444,
+      "malicious_clients": [
+        "ciciot_diad_attack_client_0",
+        "ciciot_diad_attack_client_1",
+        "ciciot_diad_attack_client_2"
+      ]
+    }
+  ]
+}

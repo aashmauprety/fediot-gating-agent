@@ -1,0 +1,940 @@
+{
+  "description": "CIC IoT-DIAD 2024, externalized-Bayesian hybrid Gating Agent, WITH full per-round logging",
+  "delay": 10,
+  "calibrated": true,
+  "final_macro_f1": 0.24119384563050147,
+  "wall_clock_seconds": 561.3058700561523,
+  "malicious_clients": [
+    "ciciot_diad_attack_client_0",
+    "ciciot_diad_attack_client_1",
+    "ciciot_diad_attack_client_2"
+  ],
+  "n_fallback_rounds": 21,
+  "gating_history": [
+    {
+      "round": 0,
+      "actions": {
+        "ciciot_diad_attack_client_0": "exclude",
+        "ciciot_diad_attack_client_1": "exclude",
+        "ciciot_diad_attack_client_2": "exclude",
+        "ciciot_diad_attack_client_3": "exclude",
+        "ciciot_diad_attack_client_4": "accept",
+        "ciciot_diad_attack_client_5": "accept",
+        "ciciot_diad_attack_client_6": "accept",
+        "ciciot_diad_attack_client_7": "accept",
+        "ciciot_diad_attack_client_8": "accept"
+      },
+      "scores": {
+        "ciciot_diad_attack_client_0": 0.0,
+        "ciciot_diad_attack_client_1": 0.0,
+        "ciciot_diad_attack_client_2": 0.0,
+        "ciciot_diad_attack_client_3": 0.0,
+        "ciciot_diad_attack_client_4": 1.0,
+        "ciciot_diad_attack_client_5": 1.0,
+        "ciciot_diad_attack_client_6": 1.0,
+        "ciciot_diad_attack_client_7": 1.0,
+        "ciciot_diad_attack_client_8": 1.0
+      },
+      "rationales": {
+        "ciciot_diad_attack_client_0": "update norm is far outside the group (+0.47 z-score is quite high) and calibration loss got much worse (+0.0000 is effectively a large increase)",
+        "ciciot_diad_attack_client_1": "update norm is far outside the group, and calibration loss got much worse",
+        "ciciot_diad_attack_client_2": "update norm is far outside the group (+1.10 z-score)",
+        "ciciot_diad_attack_client_3": "update norm is far outside the group (+1.46 z-score) and calibration loss got much worse (+0.0000 delta)",
+        "ciciot_diad_attack_client_4": "The cosine similarity to the previous global update is 1.0, which is very close to the group average, and the calibration-loss delta is 0.0, which is the best possible value.",
+        "ciciot_diad_attack_client_5": "The cosine similarity to the previous global update is 1.0, which is the maximum possible value, indicating that this update is identical to the previous global update, which is highly unusual.",
+        "ciciot_diad_attack_client_6": "The cosine similarity to the previous global update is 1.0, which is very close to the group average, and the calibration-loss delta is 0.0, which is the best possible value.",
+        "ciciot_diad_attack_client_7": "The cosine similarity to the previous global update is 1.0, which is very close to the group average, and the calibration-loss delta is 0.0, which is the best possible value.",
+        "ciciot_diad_attack_client_8": "The cosine similarity to the previous global update is 1.0, which is very close to the group average, and the calibration-loss delta is 0.0, indicating no change in held-out loss."
+      },
+      "fallback_triggered": false
+    },
+    {
+      "round": 1,
+      "actions": {
+        "ciciot_diad_attack_client_0": "exclude",
+        "ciciot_diad_attack_client_1": "exclude",
+        "ciciot_diad_attack_client_2": "exclude",
+        "ciciot_diad_attack_client_3": "exclude",
+        "ciciot_diad_attack_client_4": "exclude",
+        "ciciot_diad_attack_client_5": "exclude",
+        "ciciot_diad_attack_client_6": "exclude",
+        "ciciot_diad_attack_client_7": "exclude",
+        "ciciot_diad_attack_client_8": "exclude"
+      },
+      "scores": {
+        "ciciot_diad_attack_client_0": 0.0,
+        "ciciot_diad_attack_client_1": 0.0,
+        "ciciot_diad_attack_client_2": 0.0,
+        "ciciot_diad_attack_client_3": 0.0,
+        "ciciot_diad_attack_client_4": 0.0,
+        "ciciot_diad_attack_client_5": 0.0,
+        "ciciot_diad_attack_client_6": 0.0,
+        "ciciot_diad_attack_client_7": 0.0,
+        "ciciot_diad_attack_client_8": 0.0
+      },
+      "rationales": {
+        "ciciot_diad_attack_client_0": "update norm is far outside the group, and calibration loss got much worse",
+        "ciciot_diad_attack_client_1": "update norm is far outside the group, and calibration loss got much worse",
+        "ciciot_diad_attack_client_2": "update norm is far outside the group, and calibration loss got much worse",
+        "ciciot_diad_attack_client_3": "update norm is far outside the group (+0.69 z-score) and cosine similarity to the previous global update is very low (0.22)",
+        "ciciot_diad_attack_client_4": "update norm is far outside the group, direction is nearly reversed vs. the previous global update, and calibration loss got much worse",
+        "ciciot_diad_attack_client_5": "update norm is far outside the group, and calibration loss got much worse",
+        "ciciot_diad_attack_client_6": "update norm is far outside the group (+0.77 z-score) and cosine similarity to the previous global update is very low (0.209)",
+        "ciciot_diad_attack_client_7": "update norm is far outside the group, and calibration loss got much worse",
+        "ciciot_diad_attack_client_8": "update norm is far outside the group (+0.73 z-score) and cosine similarity to the previous global update is very low (0.204)"
+      },
+      "fallback_triggered": true
+    },
+    {
+      "round": 2,
+      "actions": {
+        "ciciot_diad_attack_client_0": "exclude",
+        "ciciot_diad_attack_client_1": "exclude",
+        "ciciot_diad_attack_client_2": "exclude",
+        "ciciot_diad_attack_client_3": "exclude",
+        "ciciot_diad_attack_client_4": "exclude",
+        "ciciot_diad_attack_client_5": "exclude",
+        "ciciot_diad_attack_client_6": "exclude",
+        "ciciot_diad_attack_client_7": "exclude",
+        "ciciot_diad_attack_client_8": "exclude"
+      },
+      "scores": {
+        "ciciot_diad_attack_client_0": 0.0,
+        "ciciot_diad_attack_client_1": 0.0,
+        "ciciot_diad_attack_client_2": 0.0,
+        "ciciot_diad_attack_client_3": 0.0,
+        "ciciot_diad_attack_client_4": 0.0,
+        "ciciot_diad_attack_client_5": 0.0,
+        "ciciot_diad_attack_client_6": 0.0,
+        "ciciot_diad_attack_client_7": 0.0,
+        "ciciot_diad_attack_client_8": 0.0
+      },
+      "rationales": {
+        "ciciot_diad_attack_client_0": "The cosine similarity to the previous global update is very low at 0.449, which is a strong signal of an anomaly.",
+        "ciciot_diad_attack_client_1": "The cosine similarity to the previous global update is very low at 0.416, which is a strong signal of an anomaly.",
+        "ciciot_diad_attack_client_2": "The cosine similarity to the previous global update is very low at 0.42, which is a strong signal of an anomaly.",
+        "ciciot_diad_attack_client_3": "The cosine similarity to the previous global update is very low at 0.455, which is a strong signal of an anomaly.",
+        "ciciot_diad_attack_client_4": "The cosine similarity to the previous global update is very low at 0.421, which is a strong signal of an anomaly.",
+        "ciciot_diad_attack_client_5": "The cosine similarity to the previous global update is very low at 0.426, which is a strong signal of an anomaly.",
+        "ciciot_diad_attack_client_6": "The cosine similarity to the previous global update is very low at 0.415, which is a strong signal of an anomaly.",
+        "ciciot_diad_attack_client_7": "The cosine similarity to the previous global update is very low at 0.415, which is a strong signal of an anomaly.",
+        "ciciot_diad_attack_client_8": "The cosine similarity to the previous global update is very low at 0.416, which is a strong signal of an anomaly."
+      },
+      "fallback_triggered": true
+    },
+    {
+      "round": 3,
+      "actions": {
+        "ciciot_diad_attack_client_0": "exclude",
+        "ciciot_diad_attack_client_1": "exclude",
+        "ciciot_diad_attack_client_2": "exclude",
+        "ciciot_diad_attack_client_3": "exclude",
+        "ciciot_diad_attack_client_4": "exclude",
+        "ciciot_diad_attack_client_5": "exclude",
+        "ciciot_diad_attack_client_6": "exclude",
+        "ciciot_diad_attack_client_7": "exclude",
+        "ciciot_diad_attack_client_8": "exclude"
+      },
+      "scores": {
+        "ciciot_diad_attack_client_0": 0.0,
+        "ciciot_diad_attack_client_1": 0.0,
+        "ciciot_diad_attack_client_2": 0.0,
+        "ciciot_diad_attack_client_3": 0.0,
+        "ciciot_diad_attack_client_4": 0.0,
+        "ciciot_diad_attack_client_5": 0.0,
+        "ciciot_diad_attack_client_6": 0.0,
+        "ciciot_diad_attack_client_7": 0.0,
+        "ciciot_diad_attack_client_8": 0.0
+      },
+      "rationales": {
+        "ciciot_diad_attack_client_0": "The cosine similarity to the previous global update is very low at 0.425, which is a strong signal of an anomaly.",
+        "ciciot_diad_attack_client_1": "The cosine similarity to the previous global update is very low at 0.408, which is a strong signal of an anomaly.",
+        "ciciot_diad_attack_client_2": "The cosine similarity to the previous global update is very low at 0.398, which is a strong signal of an anomaly.",
+        "ciciot_diad_attack_client_3": "The cosine similarity to the previous global update is very low at 0.445, which is a strong signal of an anomaly.",
+        "ciciot_diad_attack_client_4": "The cosine similarity to the previous global update is very low at 0.432, which is a strong signal of an anomaly.",
+        "ciciot_diad_attack_client_5": "The cosine similarity to the previous global update is very low at 0.435, which is a strong signal of an anomaly.",
+        "ciciot_diad_attack_client_6": "The cosine similarity to the previous global update is very low at 0.432, which is a strong signal of an anomaly.",
+        "ciciot_diad_attack_client_7": "update norm is far outside the group, and calibration loss got much worse",
+        "ciciot_diad_attack_client_8": "The cosine similarity to the previous global update is very low at 0.423, which is a strong signal of an anomaly."
+      },
+      "fallback_triggered": true
+    },
+    {
+      "round": 4,
+      "actions": {
+        "ciciot_diad_attack_client_0": "exclude",
+        "ciciot_diad_attack_client_1": "exclude",
+        "ciciot_diad_attack_client_2": "exclude",
+        "ciciot_diad_attack_client_3": "exclude",
+        "ciciot_diad_attack_client_4": "exclude",
+        "ciciot_diad_attack_client_5": "exclude",
+        "ciciot_diad_attack_client_6": "exclude",
+        "ciciot_diad_attack_client_7": "exclude",
+        "ciciot_diad_attack_client_8": "exclude"
+      },
+      "scores": {
+        "ciciot_diad_attack_client_0": 0.0,
+        "ciciot_diad_attack_client_1": 0.0,
+        "ciciot_diad_attack_client_2": 0.0,
+        "ciciot_diad_attack_client_3": 0.0,
+        "ciciot_diad_attack_client_4": 0.0,
+        "ciciot_diad_attack_client_5": 0.0,
+        "ciciot_diad_attack_client_6": 0.0,
+        "ciciot_diad_attack_client_7": 0.0,
+        "ciciot_diad_attack_client_8": 0.0
+      },
+      "rationales": {
+        "ciciot_diad_attack_client_0": "The cosine similarity to the previous global update is very low at 0.411, which is a strong signal of an anomaly.",
+        "ciciot_diad_attack_client_1": "update norm is far outside the group, and calibration loss got much worse",
+        "ciciot_diad_attack_client_2": "update norm is far outside the group, direction is nearly reversed vs. the previous global update, and calibration loss got much worse",
+        "ciciot_diad_attack_client_3": "The cosine similarity to the previous global update is very low at 0.413, which is a strong signal of an anomaly.",
+        "ciciot_diad_attack_client_4": "update norm is far outside the group, and calibration loss got much worse",
+        "ciciot_diad_attack_client_5": "update norm is far outside the group, direction is nearly reversed vs. the previous global update, and calibration loss got much worse",
+        "ciciot_diad_attack_client_6": "update norm is far outside the group (+1.95 z-score) and calibration loss got much worse (+0.0000)",
+        "ciciot_diad_attack_client_7": "update norm is far outside the group, and calibration loss got much worse",
+        "ciciot_diad_attack_client_8": "The cosine similarity to the previous global update is very low at 0.388, which is a strong signal of an anomaly."
+      },
+      "fallback_triggered": true
+    },
+    {
+      "round": 5,
+      "actions": {
+        "ciciot_diad_attack_client_0": "exclude",
+        "ciciot_diad_attack_client_1": "exclude",
+        "ciciot_diad_attack_client_2": "exclude",
+        "ciciot_diad_attack_client_3": "exclude",
+        "ciciot_diad_attack_client_4": "exclude",
+        "ciciot_diad_attack_client_5": "downweight",
+        "ciciot_diad_attack_client_6": "exclude",
+        "ciciot_diad_attack_client_7": "exclude",
+        "ciciot_diad_attack_client_8": "exclude"
+      },
+      "scores": {
+        "ciciot_diad_attack_client_0": 0.0,
+        "ciciot_diad_attack_client_1": 0.0,
+        "ciciot_diad_attack_client_2": 0.0,
+        "ciciot_diad_attack_client_3": 0.0,
+        "ciciot_diad_attack_client_4": 0.0,
+        "ciciot_diad_attack_client_5": 0.5,
+        "ciciot_diad_attack_client_6": 0.0,
+        "ciciot_diad_attack_client_7": 0.0,
+        "ciciot_diad_attack_client_8": 0.0
+      },
+      "rationales": {
+        "ciciot_diad_attack_client_0": "The cosine similarity to the previous global update is very low at 0.343, which is a strong signal of an anomaly.",
+        "ciciot_diad_attack_client_1": "The cosine similarity to the previous global update is very low at 0.312, which is a strong signal of an anomaly.",
+        "ciciot_diad_attack_client_2": "update norm is far outside the group (+1.66 z-score) and calibration loss got much worse (+0.0000)",
+        "ciciot_diad_attack_client_3": "update norm is far outside the group, and calibration loss got much worse",
+        "ciciot_diad_attack_client_4": "update norm is far outside the group, and calibration loss got much worse",
+        "ciciot_diad_attack_client_5": "update norm is somewhat elevated but cosine similarity is very low",
+        "ciciot_diad_attack_client_6": "update norm is far outside the group, direction is nearly reversed vs. the previous global update, and calibration loss got much worse",
+        "ciciot_diad_attack_client_7": "update norm is far outside the group, direction is nearly reversed vs. the previous global update, and calibration loss got much worse",
+        "ciciot_diad_attack_client_8": "update norm is far outside the group, and calibration loss got much worse"
+      },
+      "fallback_triggered": false
+    },
+    {
+      "round": 6,
+      "actions": {
+        "ciciot_diad_attack_client_0": "exclude",
+        "ciciot_diad_attack_client_1": "exclude",
+        "ciciot_diad_attack_client_2": "downweight",
+        "ciciot_diad_attack_client_3": "downweight",
+        "ciciot_diad_attack_client_4": "exclude",
+        "ciciot_diad_attack_client_5": "exclude",
+        "ciciot_diad_attack_client_6": "exclude",
+        "ciciot_diad_attack_client_7": "exclude",
+        "ciciot_diad_attack_client_8": "exclude"
+      },
+      "scores": {
+        "ciciot_diad_attack_client_0": 0.0,
+        "ciciot_diad_attack_client_1": 0.0,
+        "ciciot_diad_attack_client_2": 0.5,
+        "ciciot_diad_attack_client_3": 0.5,
+        "ciciot_diad_attack_client_4": 0.0,
+        "ciciot_diad_attack_client_5": 0.0,
+        "ciciot_diad_attack_client_6": 0.0,
+        "ciciot_diad_attack_client_7": 0.0,
+        "ciciot_diad_attack_client_8": 0.0
+      },
+      "rationales": {
+        "ciciot_diad_attack_client_0": "The calibration-loss delta is zero, which is unusual because most rounds from honest gateways have a small positive calibration-loss delta.",
+        "ciciot_diad_attack_client_1": "The update norm's z-score of +1.91 is significantly elevated compared to the group average.",
+        "ciciot_diad_attack_client_2": "The cosine similarity to the previous global update is significantly negative, which is unusual compared to the other gateways this round.",
+        "ciciot_diad_attack_client_3": "update norm is somewhat elevated, but the other values are not as anomalous as in Example 3, and the calibration loss is actually zero, which is a good sign.",
+        "ciciot_diad_attack_client_4": "The calibration-loss delta is zero, which is unusual because most rounds from honest gateways have a small positive calibration-loss delta.",
+        "ciciot_diad_attack_client_5": "update norm is far outside the group, and calibration loss got much worse",
+        "ciciot_diad_attack_client_6": "The calibration-loss delta is zero, which is unusual because most rounds from honest gateways have a small positive calibration-loss delta.",
+        "ciciot_diad_attack_client_7": "The update norm's z-score of +0.70 is somewhat elevated, indicating this gateway's update is larger than most others this round.",
+        "ciciot_diad_attack_client_8": "The update norm's z-score of +0.88 is significantly elevated compared to the group average."
+      },
+      "fallback_triggered": false
+    },
+    {
+      "round": 7,
+      "actions": {
+        "ciciot_diad_attack_client_0": "exclude",
+        "ciciot_diad_attack_client_1": "exclude",
+        "ciciot_diad_attack_client_2": "exclude",
+        "ciciot_diad_attack_client_3": "exclude",
+        "ciciot_diad_attack_client_4": "exclude",
+        "ciciot_diad_attack_client_5": "downweight",
+        "ciciot_diad_attack_client_6": "exclude",
+        "ciciot_diad_attack_client_7": "exclude",
+        "ciciot_diad_attack_client_8": "exclude"
+      },
+      "scores": {
+        "ciciot_diad_attack_client_0": 0.0,
+        "ciciot_diad_attack_client_1": 0.0,
+        "ciciot_diad_attack_client_2": 0.0,
+        "ciciot_diad_attack_client_3": 0.0,
+        "ciciot_diad_attack_client_4": 0.0,
+        "ciciot_diad_attack_client_5": 0.5,
+        "ciciot_diad_attack_client_6": 0.0,
+        "ciciot_diad_attack_client_7": 0.0,
+        "ciciot_diad_attack_client_8": 0.0
+      },
+      "rationales": {
+        "ciciot_diad_attack_client_0": "update norm is far outside the group, and calibration loss got much worse",
+        "ciciot_diad_attack_client_1": "update norm is far outside the group, and calibration loss got much worse",
+        "ciciot_diad_attack_client_2": "update norm is far outside the group, and calibration loss got much worse",
+        "ciciot_diad_attack_client_3": "update norm is far outside the group, and calibration loss got much worse",
+        "ciciot_diad_attack_client_4": "update norm is far outside the group, and calibration loss got much worse",
+        "ciciot_diad_attack_client_5": "update norm is somewhat elevated, but the other values are not as anomalous as in Example 3, and the calibration loss is actually zero, which is a good sign.",
+        "ciciot_diad_attack_client_6": "update norm is far outside the group, and calibration loss got much worse",
+        "ciciot_diad_attack_client_7": "update norm is far outside the group, and calibration loss got much worse",
+        "ciciot_diad_attack_client_8": "cosine similarity to previous global update is very low at 0.067, indicating a significant deviation from the previous global update."
+      },
+      "fallback_triggered": false
+    },
+    {
+      "round": 8,
+      "actions": {
+        "ciciot_diad_attack_client_0": "exclude",
+        "ciciot_diad_attack_client_1": "exclude",
+        "ciciot_diad_attack_client_2": "exclude",
+        "ciciot_diad_attack_client_3": "exclude",
+        "ciciot_diad_attack_client_4": "exclude",
+        "ciciot_diad_attack_client_5": "exclude",
+        "ciciot_diad_attack_client_6": "exclude",
+        "ciciot_diad_attack_client_7": "exclude",
+        "ciciot_diad_attack_client_8": "exclude"
+      },
+      "scores": {
+        "ciciot_diad_attack_client_0": 0.0,
+        "ciciot_diad_attack_client_1": 0.0,
+        "ciciot_diad_attack_client_2": 0.0,
+        "ciciot_diad_attack_client_3": 0.0,
+        "ciciot_diad_attack_client_4": 0.0,
+        "ciciot_diad_attack_client_5": 0.0,
+        "ciciot_diad_attack_client_6": 0.0,
+        "ciciot_diad_attack_client_7": 0.0,
+        "ciciot_diad_attack_client_8": 0.0
+      },
+      "rationales": {
+        "ciciot_diad_attack_client_0": "The calibration-loss delta is zero, which is unusual because most rounds from honest gateways have a small positive calibration-loss delta.",
+        "ciciot_diad_attack_client_1": "The calibration-loss delta is zero, which is unusual because most rounds from honest gateways have a small positive calibration-loss delta.",
+        "ciciot_diad_attack_client_2": "The update norm's z-score of +1.36 is somewhat elevated, and the cosine similarity to the previous global update is very low at -0.098.",
+        "ciciot_diad_attack_client_3": "The calibration-loss delta is zero, which is unusual because most rounds from honest gateways have a small positive calibration-loss delta.",
+        "ciciot_diad_attack_client_4": "The cosine similarity to the previous global update is very low at -0.066, which is a strong signal of an anomaly.",
+        "ciciot_diad_attack_client_5": "update norm is far outside the group, and calibration loss got much worse",
+        "ciciot_diad_attack_client_6": "The high update norm z-score (+0.63) and low cosine similarity to the previous global update (-0.070) drove the score.",
+        "ciciot_diad_attack_client_7": "The calibration-loss delta is zero, which is unusual because most rounds from honest gateways have a small positive calibration-loss delta.",
+        "ciciot_diad_attack_client_8": "The calibration-loss delta is zero, which is unusual because most rounds from honest gateways have a small positive calibration-loss delta."
+      },
+      "fallback_triggered": true
+    },
+    {
+      "round": 9,
+      "actions": {
+        "ciciot_diad_attack_client_0": "exclude",
+        "ciciot_diad_attack_client_1": "exclude",
+        "ciciot_diad_attack_client_2": "exclude",
+        "ciciot_diad_attack_client_3": "exclude",
+        "ciciot_diad_attack_client_4": "exclude",
+        "ciciot_diad_attack_client_5": "exclude",
+        "ciciot_diad_attack_client_6": "exclude",
+        "ciciot_diad_attack_client_7": "exclude",
+        "ciciot_diad_attack_client_8": "exclude"
+      },
+      "scores": {
+        "ciciot_diad_attack_client_0": 0.0,
+        "ciciot_diad_attack_client_1": 0.0,
+        "ciciot_diad_attack_client_2": 0.0,
+        "ciciot_diad_attack_client_3": 0.0,
+        "ciciot_diad_attack_client_4": 0.0,
+        "ciciot_diad_attack_client_5": 0.0,
+        "ciciot_diad_attack_client_6": 0.0,
+        "ciciot_diad_attack_client_7": 0.0,
+        "ciciot_diad_attack_client_8": 0.0
+      },
+      "rationales": {
+        "ciciot_diad_attack_client_0": "update norm is far outside the group, and calibration loss got much worse",
+        "ciciot_diad_attack_client_1": "update norm is far outside the group, and calibration loss got much worse",
+        "ciciot_diad_attack_client_2": "update norm is far outside the group (+0.73 z-score) and cosine similarity to the previous global update is very low (0.176)",
+        "ciciot_diad_attack_client_3": "update norm is far outside the group, and calibration loss got much worse",
+        "ciciot_diad_attack_client_4": "update norm is far outside the group (+1.42 z-score) and calibration loss got much worse (+0.0000)",
+        "ciciot_diad_attack_client_5": "update norm is far outside the group, and calibration loss got much worse",
+        "ciciot_diad_attack_client_6": "update norm is far outside the group, and calibration loss got much worse",
+        "ciciot_diad_attack_client_7": "update norm is far outside the group, and calibration loss got much worse",
+        "ciciot_diad_attack_client_8": "update norm is far outside the group, and calibration loss got much worse"
+      },
+      "fallback_triggered": true
+    },
+    {
+      "round": 10,
+      "actions": {
+        "ciciot_diad_attack_client_0": "exclude",
+        "ciciot_diad_attack_client_1": "exclude",
+        "ciciot_diad_attack_client_2": "exclude",
+        "ciciot_diad_attack_client_3": "exclude",
+        "ciciot_diad_attack_client_4": "exclude",
+        "ciciot_diad_attack_client_5": "exclude",
+        "ciciot_diad_attack_client_6": "exclude",
+        "ciciot_diad_attack_client_7": "exclude",
+        "ciciot_diad_attack_client_8": "exclude"
+      },
+      "scores": {
+        "ciciot_diad_attack_client_0": 0.0,
+        "ciciot_diad_attack_client_1": 0.0,
+        "ciciot_diad_attack_client_2": 0.0,
+        "ciciot_diad_attack_client_3": 0.0,
+        "ciciot_diad_attack_client_4": 0.0,
+        "ciciot_diad_attack_client_5": 0.0,
+        "ciciot_diad_attack_client_6": 0.0,
+        "ciciot_diad_attack_client_7": 0.0,
+        "ciciot_diad_attack_client_8": 0.0
+      },
+      "rationales": {
+        "ciciot_diad_attack_client_0": "update norm is far outside the group, and calibration loss got much worse",
+        "ciciot_diad_attack_client_1": "update norm is far outside the group, and calibration loss got much worse",
+        "ciciot_diad_attack_client_2": "update norm is far outside the group, and calibration loss got much worse",
+        "ciciot_diad_attack_client_3": "update norm is far outside the group, direction is nearly reversed vs. the previous global update, and calibration loss got much worse",
+        "ciciot_diad_attack_client_4": "update norm is far outside the group, and calibration loss got much worse",
+        "ciciot_diad_attack_client_5": "update norm is somewhat elevated but the most striking anomaly is the cosine similarity to the previous global update, which is extremely low at 0.116.",
+        "ciciot_diad_attack_client_6": "update norm is far outside the group, and calibration loss got much worse",
+        "ciciot_diad_attack_client_7": "update norm is far outside the group, and calibration loss got much worse",
+        "ciciot_diad_attack_client_8": "update norm is far outside the group, and calibration loss got much worse"
+      },
+      "fallback_triggered": true
+    },
+    {
+      "round": 11,
+      "actions": {
+        "ciciot_diad_attack_client_0": "exclude",
+        "ciciot_diad_attack_client_1": "exclude",
+        "ciciot_diad_attack_client_2": "exclude",
+        "ciciot_diad_attack_client_3": "exclude",
+        "ciciot_diad_attack_client_4": "exclude",
+        "ciciot_diad_attack_client_5": "exclude",
+        "ciciot_diad_attack_client_6": "exclude",
+        "ciciot_diad_attack_client_7": "exclude",
+        "ciciot_diad_attack_client_8": "exclude"
+      },
+      "scores": {
+        "ciciot_diad_attack_client_0": 0.0,
+        "ciciot_diad_attack_client_1": 0.0,
+        "ciciot_diad_attack_client_2": 0.0,
+        "ciciot_diad_attack_client_3": 0.0,
+        "ciciot_diad_attack_client_4": 0.0,
+        "ciciot_diad_attack_client_5": 0.0,
+        "ciciot_diad_attack_client_6": 0.0,
+        "ciciot_diad_attack_client_7": 0.0,
+        "ciciot_diad_attack_client_8": 0.0
+      },
+      "rationales": {
+        "ciciot_diad_attack_client_0": "update norm is far outside the group, and calibration loss got much worse",
+        "ciciot_diad_attack_client_1": "update norm is far outside the group, and calibration loss got much worse",
+        "ciciot_diad_attack_client_2": "update norm is far outside the group, and calibration loss got much worse",
+        "ciciot_diad_attack_client_3": "The update norm is far outside the group, with a z-score of -0.82, and the cosine similarity to the previous global update is very low at -0.155.",
+        "ciciot_diad_attack_client_4": "update norm is far outside the group, direction of cosine similarity is nearly reversed vs. the previous global update, and calibration loss got much worse",
+        "ciciot_diad_attack_client_5": "update norm is far outside the group, direction of cosine similarity is nearly reversed vs. the previous global update, and calibration loss got much worse",
+        "ciciot_diad_attack_client_6": "update norm is far outside the group, direction of cosine similarity is nearly reversed vs. the previous global update, and calibration loss got much worse",
+        "ciciot_diad_attack_client_7": "update norm is far outside the group, direction of cosine similarity is nearly reversed vs. the previous global update, and calibration loss got much worse",
+        "ciciot_diad_attack_client_8": "update norm is far outside the group, direction of cosine similarity is nearly reversed vs. the previous global update, and calibration loss got much worse"
+      },
+      "fallback_triggered": true
+    },
+    {
+      "round": 12,
+      "actions": {
+        "ciciot_diad_attack_client_0": "exclude",
+        "ciciot_diad_attack_client_1": "exclude",
+        "ciciot_diad_attack_client_2": "exclude",
+        "ciciot_diad_attack_client_3": "exclude",
+        "ciciot_diad_attack_client_4": "exclude",
+        "ciciot_diad_attack_client_5": "exclude",
+        "ciciot_diad_attack_client_6": "exclude",
+        "ciciot_diad_attack_client_7": "exclude",
+        "ciciot_diad_attack_client_8": "exclude"
+      },
+      "scores": {
+        "ciciot_diad_attack_client_0": 0.0,
+        "ciciot_diad_attack_client_1": 0.0,
+        "ciciot_diad_attack_client_2": 0.0,
+        "ciciot_diad_attack_client_3": 0.0,
+        "ciciot_diad_attack_client_4": 0.0,
+        "ciciot_diad_attack_client_5": 0.0,
+        "ciciot_diad_attack_client_6": 0.0,
+        "ciciot_diad_attack_client_7": 0.0,
+        "ciciot_diad_attack_client_8": 0.0
+      },
+      "rationales": {
+        "ciciot_diad_attack_client_0": "update norm is far outside the group (+1.20 z-score) and calibration loss got much worse (+0.0000)",
+        "ciciot_diad_attack_client_1": "The update norm is significantly elevated (z-score of +1.52) and the cosine similarity to the previous global update is very low (-0.112), indicating a large deviation from the group average.",
+        "ciciot_diad_attack_client_2": "update norm is far outside the group (+1.50 z-score) and calibration loss got much worse (+0.0000)",
+        "ciciot_diad_attack_client_3": "update norm is far outside the group, and calibration loss got much worse",
+        "ciciot_diad_attack_client_4": "update norm is far outside the group, and calibration loss got much worse",
+        "ciciot_diad_attack_client_5": "update norm is far outside the group, and calibration loss got much worse",
+        "ciciot_diad_attack_client_6": "update norm is far outside the group, and calibration loss got much worse",
+        "ciciot_diad_attack_client_7": "update norm is far outside the group, and calibration loss got much worse",
+        "ciciot_diad_attack_client_8": "update norm is far outside the group, and calibration loss got much worse"
+      },
+      "fallback_triggered": true
+    },
+    {
+      "round": 13,
+      "actions": {
+        "ciciot_diad_attack_client_0": "exclude",
+        "ciciot_diad_attack_client_1": "exclude",
+        "ciciot_diad_attack_client_2": "exclude",
+        "ciciot_diad_attack_client_3": "exclude",
+        "ciciot_diad_attack_client_4": "exclude",
+        "ciciot_diad_attack_client_5": "exclude",
+        "ciciot_diad_attack_client_6": "exclude",
+        "ciciot_diad_attack_client_7": "exclude",
+        "ciciot_diad_attack_client_8": "exclude"
+      },
+      "scores": {
+        "ciciot_diad_attack_client_0": 0.0,
+        "ciciot_diad_attack_client_1": 0.0,
+        "ciciot_diad_attack_client_2": 0.0,
+        "ciciot_diad_attack_client_3": 0.0,
+        "ciciot_diad_attack_client_4": 0.0,
+        "ciciot_diad_attack_client_5": 0.0,
+        "ciciot_diad_attack_client_6": 0.0,
+        "ciciot_diad_attack_client_7": 0.0,
+        "ciciot_diad_attack_client_8": 0.0
+      },
+      "rationales": {
+        "ciciot_diad_attack_client_0": "update norm is far outside the group, and calibration loss got much worse",
+        "ciciot_diad_attack_client_1": "update norm is far outside the group, and calibration loss got much worse",
+        "ciciot_diad_attack_client_2": "update norm is far outside the group, and calibration loss got much worse",
+        "ciciot_diad_attack_client_3": "update norm is far outside the group, direction of cosine similarity is nearly reversed vs. the previous global update, and calibration loss got much worse",
+        "ciciot_diad_attack_client_4": "The calibration-loss delta is zero, which is highly unusual and suggests the update did not make the held-out loss worse, unlike all other rounds.",
+        "ciciot_diad_attack_client_5": "update norm is far outside the group, direction of cosine similarity to the previous global update is nearly reversed, and calibration loss got much worse",
+        "ciciot_diad_attack_client_6": "update norm is far outside the group, direction of cosine similarity is nearly reversed vs. the previous global update, and calibration loss got much worse",
+        "ciciot_diad_attack_client_7": "update norm is far outside the group, and cosine similarity to the previous global update is nearly reversed.",
+        "ciciot_diad_attack_client_8": "update norm is far outside the group, and calibration loss got much worse"
+      },
+      "fallback_triggered": true
+    },
+    {
+      "round": 14,
+      "actions": {
+        "ciciot_diad_attack_client_0": "exclude",
+        "ciciot_diad_attack_client_1": "exclude",
+        "ciciot_diad_attack_client_2": "exclude",
+        "ciciot_diad_attack_client_3": "exclude",
+        "ciciot_diad_attack_client_4": "exclude",
+        "ciciot_diad_attack_client_5": "exclude",
+        "ciciot_diad_attack_client_6": "exclude",
+        "ciciot_diad_attack_client_7": "exclude",
+        "ciciot_diad_attack_client_8": "exclude"
+      },
+      "scores": {
+        "ciciot_diad_attack_client_0": 0.0,
+        "ciciot_diad_attack_client_1": 0.0,
+        "ciciot_diad_attack_client_2": 0.0,
+        "ciciot_diad_attack_client_3": 0.0,
+        "ciciot_diad_attack_client_4": 0.0,
+        "ciciot_diad_attack_client_5": 0.0,
+        "ciciot_diad_attack_client_6": 0.0,
+        "ciciot_diad_attack_client_7": 0.0,
+        "ciciot_diad_attack_client_8": 0.0
+      },
+      "rationales": {
+        "ciciot_diad_attack_client_0": "The update norm is significantly elevated (z-score of +1.47) and the cosine similarity to the previous global update is very low (-0.106), indicating a large deviation from the group average.",
+        "ciciot_diad_attack_client_1": "The update norm is significantly elevated (z-score of +1.49) and the cosine similarity to the previous global update is very low (-0.115), indicating a large deviation from the group average.",
+        "ciciot_diad_attack_client_2": "update norm is far outside the group (+1.28 z-score) and calibration loss got much worse (+0.0000)",
+        "ciciot_diad_attack_client_3": "update norm is far outside the group, and calibration loss got much worse",
+        "ciciot_diad_attack_client_4": "update norm is far outside the group, and calibration loss got much worse",
+        "ciciot_diad_attack_client_5": "update norm is far outside the group, and calibration loss got much worse",
+        "ciciot_diad_attack_client_6": "update norm is far outside the group, and calibration loss got much worse",
+        "ciciot_diad_attack_client_7": "update norm is far outside the group, and calibration loss got much worse",
+        "ciciot_diad_attack_client_8": "update norm is far outside the group, and calibration loss got much worse"
+      },
+      "fallback_triggered": true
+    },
+    {
+      "round": 15,
+      "actions": {
+        "ciciot_diad_attack_client_0": "exclude",
+        "ciciot_diad_attack_client_1": "exclude",
+        "ciciot_diad_attack_client_2": "exclude",
+        "ciciot_diad_attack_client_3": "exclude",
+        "ciciot_diad_attack_client_4": "exclude",
+        "ciciot_diad_attack_client_5": "exclude",
+        "ciciot_diad_attack_client_6": "exclude",
+        "ciciot_diad_attack_client_7": "exclude",
+        "ciciot_diad_attack_client_8": "exclude"
+      },
+      "scores": {
+        "ciciot_diad_attack_client_0": 0.0,
+        "ciciot_diad_attack_client_1": 0.0,
+        "ciciot_diad_attack_client_2": 0.0,
+        "ciciot_diad_attack_client_3": 0.0,
+        "ciciot_diad_attack_client_4": 0.0,
+        "ciciot_diad_attack_client_5": 0.0,
+        "ciciot_diad_attack_client_6": 0.0,
+        "ciciot_diad_attack_client_7": 0.0,
+        "ciciot_diad_attack_client_8": 0.0
+      },
+      "rationales": {
+        "ciciot_diad_attack_client_0": "The update norm is significantly elevated (z-score of +1.41) and the cosine similarity to the previous global update is very low (-0.045), indicating a large deviation from the group average.",
+        "ciciot_diad_attack_client_1": "update norm is far outside the group (+1.47 z-score) and calibration loss got much worse (+0.0000 delta)",
+        "ciciot_diad_attack_client_2": "The update norm is significantly elevated (z-score of +1.36) and the cosine similarity to the previous global update is very low (-0.031), indicating a large deviation from the group average.",
+        "ciciot_diad_attack_client_3": "update norm is far outside the group, and calibration loss got much worse",
+        "ciciot_diad_attack_client_4": "update norm is far outside the group, and calibration loss got much worse",
+        "ciciot_diad_attack_client_5": "update norm is far outside the group, and calibration loss got much worse",
+        "ciciot_diad_attack_client_6": "update norm is far outside the group, and calibration loss got much worse",
+        "ciciot_diad_attack_client_7": "update norm is far outside the group, and calibration loss got much worse",
+        "ciciot_diad_attack_client_8": "update norm is far outside the group, and calibration loss got much worse"
+      },
+      "fallback_triggered": true
+    },
+    {
+      "round": 16,
+      "actions": {
+        "ciciot_diad_attack_client_0": "exclude",
+        "ciciot_diad_attack_client_1": "exclude",
+        "ciciot_diad_attack_client_2": "exclude",
+        "ciciot_diad_attack_client_3": "exclude",
+        "ciciot_diad_attack_client_4": "exclude",
+        "ciciot_diad_attack_client_5": "exclude",
+        "ciciot_diad_attack_client_6": "exclude",
+        "ciciot_diad_attack_client_7": "exclude",
+        "ciciot_diad_attack_client_8": "exclude"
+      },
+      "scores": {
+        "ciciot_diad_attack_client_0": 0.0,
+        "ciciot_diad_attack_client_1": 0.0,
+        "ciciot_diad_attack_client_2": 0.0,
+        "ciciot_diad_attack_client_3": 0.0,
+        "ciciot_diad_attack_client_4": 0.0,
+        "ciciot_diad_attack_client_5": 0.0,
+        "ciciot_diad_attack_client_6": 0.0,
+        "ciciot_diad_attack_client_7": 0.0,
+        "ciciot_diad_attack_client_8": 0.0
+      },
+      "rationales": {
+        "ciciot_diad_attack_client_0": "The update norm is significantly elevated (z-score of +1.39) and the cosine similarity to the previous global update is very low (-0.128).",
+        "ciciot_diad_attack_client_1": "update norm is far outside the group (+1.43 z-score) and calibration loss got much worse (+0.0000)",
+        "ciciot_diad_attack_client_2": "The update norm is significantly elevated (z-score of +1.43) and the cosine similarity to the previous global update is very low (-0.089), indicating a large deviation from the group average.",
+        "ciciot_diad_attack_client_3": "update norm is far outside the group, direction of cosine similarity is nearly reversed vs. the previous global update, and calibration loss got much worse",
+        "ciciot_diad_attack_client_4": "The high update norm z-score of -0.70 is somewhat low, but the cosine similarity to the previous global update is strongly negative, and the calibration-loss delta is zero, which is unusual and suggests the update may have been ineffective or even counterproductive.",
+        "ciciot_diad_attack_client_5": "The high update norm z-score of -0.70 is somewhat low, but the cosine similarity to the previous global update is strongly negative, and the calibration-loss delta is zero, which is unusual and suggests the update may have been ineffective or even counterproductive.",
+        "ciciot_diad_attack_client_6": "update norm is far outside the group, direction of cosine similarity is nearly reversed vs. the previous global update, and calibration loss got much worse",
+        "ciciot_diad_attack_client_7": "update norm is far outside the group, direction of cosine similarity to the previous global update is nearly reversed, and calibration loss got much worse",
+        "ciciot_diad_attack_client_8": "update norm is far outside the group, direction of cosine similarity is nearly reversed vs. the previous global update, and calibration loss got much worse"
+      },
+      "fallback_triggered": true
+    },
+    {
+      "round": 17,
+      "actions": {
+        "ciciot_diad_attack_client_0": "exclude",
+        "ciciot_diad_attack_client_1": "exclude",
+        "ciciot_diad_attack_client_2": "exclude",
+        "ciciot_diad_attack_client_3": "exclude",
+        "ciciot_diad_attack_client_4": "exclude",
+        "ciciot_diad_attack_client_5": "exclude",
+        "ciciot_diad_attack_client_6": "exclude",
+        "ciciot_diad_attack_client_7": "exclude",
+        "ciciot_diad_attack_client_8": "exclude"
+      },
+      "scores": {
+        "ciciot_diad_attack_client_0": 0.0,
+        "ciciot_diad_attack_client_1": 0.0,
+        "ciciot_diad_attack_client_2": 0.0,
+        "ciciot_diad_attack_client_3": 0.0,
+        "ciciot_diad_attack_client_4": 0.0,
+        "ciciot_diad_attack_client_5": 0.0,
+        "ciciot_diad_attack_client_6": 0.0,
+        "ciciot_diad_attack_client_7": 0.0,
+        "ciciot_diad_attack_client_8": 0.0
+      },
+      "rationales": {
+        "ciciot_diad_attack_client_0": "The cosine similarity to the previous global update is very low (-0.186), which is a strong signal of an attack.",
+        "ciciot_diad_attack_client_1": "update norm is far outside the group (+1.54 z-score) and calibration loss got much worse (+0.0000)",
+        "ciciot_diad_attack_client_2": "update norm is far outside the group (+1.51 z-score) and calibration loss got much worse (+0.0000)",
+        "ciciot_diad_attack_client_3": "update norm is far outside the group, direction of cosine similarity is nearly reversed vs. the previous global update, and calibration loss got much worse",
+        "ciciot_diad_attack_client_4": "update norm is far outside the group, direction of cosine similarity to the previous global update is nearly reversed, and calibration loss got much worse",
+        "ciciot_diad_attack_client_5": "update norm is far outside the group, direction of cosine similarity is nearly reversed vs. the previous global update, and calibration loss got much worse",
+        "ciciot_diad_attack_client_6": "update norm is far outside the group, direction of cosine similarity is nearly reversed vs. the previous global update, and calibration loss got much worse",
+        "ciciot_diad_attack_client_7": "The high update norm z-score of -0.73 is somewhat low, but the cosine similarity to the previous global update is strongly negative, and the calibration-loss delta is zero, which is unusual and suggests the update may have been ineffective or even counterproductive.",
+        "ciciot_diad_attack_client_8": "update norm is far outside the group, direction of cosine similarity to the previous global update is nearly reversed, and calibration loss got much worse"
+      },
+      "fallback_triggered": true
+    },
+    {
+      "round": 18,
+      "actions": {
+        "ciciot_diad_attack_client_0": "exclude",
+        "ciciot_diad_attack_client_1": "exclude",
+        "ciciot_diad_attack_client_2": "exclude",
+        "ciciot_diad_attack_client_3": "exclude",
+        "ciciot_diad_attack_client_4": "exclude",
+        "ciciot_diad_attack_client_5": "exclude",
+        "ciciot_diad_attack_client_6": "exclude",
+        "ciciot_diad_attack_client_7": "exclude",
+        "ciciot_diad_attack_client_8": "exclude"
+      },
+      "scores": {
+        "ciciot_diad_attack_client_0": 0.0,
+        "ciciot_diad_attack_client_1": 0.0,
+        "ciciot_diad_attack_client_2": 0.0,
+        "ciciot_diad_attack_client_3": 0.0,
+        "ciciot_diad_attack_client_4": 0.0,
+        "ciciot_diad_attack_client_5": 0.0,
+        "ciciot_diad_attack_client_6": 0.0,
+        "ciciot_diad_attack_client_7": 0.0,
+        "ciciot_diad_attack_client_8": 0.0
+      },
+      "rationales": {
+        "ciciot_diad_attack_client_0": "update norm is far outside the group (+1.45 z-score) and calibration loss got much worse (+0.0000)",
+        "ciciot_diad_attack_client_1": "update norm is far outside the group (+1.31 z-score) and calibration loss got much worse (+0.0000)",
+        "ciciot_diad_attack_client_2": "update norm is far outside the group (+1.48 z-score) and calibration loss got much worse (+0.0000)",
+        "ciciot_diad_attack_client_3": "The update norm is far outside the group, with a z-score of -0.70, which is unexpected given the negative value, and the calibration-loss delta is zero, indicating that this update did not make the held-out loss worse, which is unusual.",
+        "ciciot_diad_attack_client_4": "The high update norm z-score is somewhat elevated, but the cosine similarity to the previous global update is the main driver of the score, as it is strongly reversed in direction.",
+        "ciciot_diad_attack_client_5": "The high update norm z-score is somewhat elevated, but the cosine similarity to the previous global update is the main driver of the score, as it is strongly reversed in direction.",
+        "ciciot_diad_attack_client_6": "update norm is far outside the group, direction of cosine similarity is nearly reversed vs. the previous global update, and calibration loss got much worse",
+        "ciciot_diad_attack_client_7": "The update norm is far outside the group, with a z-score of -0.70, which is unexpected given the negative value, and the calibration-loss delta is zero, indicating that this update did not make the held-out loss worse, which is unusual.",
+        "ciciot_diad_attack_client_8": "update norm is far outside the group, direction of cosine similarity to the previous global update is nearly reversed, and calibration loss got much worse"
+      },
+      "fallback_triggered": true
+    },
+    {
+      "round": 19,
+      "actions": {
+        "ciciot_diad_attack_client_0": "exclude",
+        "ciciot_diad_attack_client_1": "exclude",
+        "ciciot_diad_attack_client_2": "exclude",
+        "ciciot_diad_attack_client_3": "exclude",
+        "ciciot_diad_attack_client_4": "exclude",
+        "ciciot_diad_attack_client_5": "exclude",
+        "ciciot_diad_attack_client_6": "exclude",
+        "ciciot_diad_attack_client_7": "exclude",
+        "ciciot_diad_attack_client_8": "exclude"
+      },
+      "scores": {
+        "ciciot_diad_attack_client_0": 0.0,
+        "ciciot_diad_attack_client_1": 0.0,
+        "ciciot_diad_attack_client_2": 0.0,
+        "ciciot_diad_attack_client_3": 0.0,
+        "ciciot_diad_attack_client_4": 0.0,
+        "ciciot_diad_attack_client_5": 0.0,
+        "ciciot_diad_attack_client_6": 0.0,
+        "ciciot_diad_attack_client_7": 0.0,
+        "ciciot_diad_attack_client_8": 0.0
+      },
+      "rationales": {
+        "ciciot_diad_attack_client_0": "The update norm is significantly elevated (z-score of +1.31) and the cosine similarity to the previous global update is very low (-0.143).",
+        "ciciot_diad_attack_client_1": "update norm is far outside the group (+1.38 z-score) and calibration loss got much worse (+0.0000)",
+        "ciciot_diad_attack_client_2": "The update norm is significantly elevated (z-score of +1.55) and the cosine similarity to the previous global update is very low (-0.127).",
+        "ciciot_diad_attack_client_3": "The update norm is far outside the group, with a z-score of -0.69, which is unexpected given the negative value, and the calibration-loss delta is zero, indicating that this update did not improve held-out loss, which is unusual.",
+        "ciciot_diad_attack_client_4": "The very low cosine similarity to the previous global update, at -0.064, drove the score.",
+        "ciciot_diad_attack_client_5": "The update norm is far outside the group, with a z-score of -0.68, which is unexpected given the negative value, and the calibration-loss delta is zero, indicating that this update did not improve held-out loss, which is unusual.",
+        "ciciot_diad_attack_client_6": "The update norm is far outside the group, with a z-score of -0.73, which is unexpected given the negative value, and the calibration-loss delta is zero, indicating that this update did not improve held-out loss, which is unusual.",
+        "ciciot_diad_attack_client_7": "update norm is far outside the group, direction of cosine similarity is nearly reversed vs. the previous global update, and calibration loss got much worse",
+        "ciciot_diad_attack_client_8": "update norm is far outside the group, direction of cosine similarity is nearly reversed vs. the previous global update, and calibration loss got much worse"
+      },
+      "fallback_triggered": true
+    },
+    {
+      "round": 20,
+      "actions": {
+        "ciciot_diad_attack_client_0": "exclude",
+        "ciciot_diad_attack_client_1": "exclude",
+        "ciciot_diad_attack_client_2": "exclude",
+        "ciciot_diad_attack_client_3": "exclude",
+        "ciciot_diad_attack_client_4": "exclude",
+        "ciciot_diad_attack_client_5": "exclude",
+        "ciciot_diad_attack_client_6": "exclude",
+        "ciciot_diad_attack_client_7": "exclude",
+        "ciciot_diad_attack_client_8": "exclude"
+      },
+      "scores": {
+        "ciciot_diad_attack_client_0": 0.0,
+        "ciciot_diad_attack_client_1": 0.0,
+        "ciciot_diad_attack_client_2": 0.0,
+        "ciciot_diad_attack_client_3": 0.0,
+        "ciciot_diad_attack_client_4": 0.0,
+        "ciciot_diad_attack_client_5": 0.0,
+        "ciciot_diad_attack_client_6": 0.0,
+        "ciciot_diad_attack_client_7": 0.0,
+        "ciciot_diad_attack_client_8": 0.0
+      },
+      "rationales": {
+        "ciciot_diad_attack_client_0": "update norm is far outside the group (+1.42 z-score) and calibration loss got much worse (+0.0000)",
+        "ciciot_diad_attack_client_1": "The update norm is significantly elevated (z-score of +1.20) and the cosine similarity to the previous global update is very low (-0.279), indicating a large deviation from the group average.",
+        "ciciot_diad_attack_client_2": "update norm is far outside the group (+1.61 z-score) and cosine similarity to the previous global update is very low (-0.295)",
+        "ciciot_diad_attack_client_3": "update norm is far outside the group, and calibration loss got much worse",
+        "ciciot_diad_attack_client_4": "update norm is far outside the group, and calibration loss got much worse",
+        "ciciot_diad_attack_client_5": "update norm is far outside the group, and calibration loss got much worse",
+        "ciciot_diad_attack_client_6": "update norm is far outside the group, and calibration loss got much worse",
+        "ciciot_diad_attack_client_7": "update norm is far outside the group, and calibration loss got much worse",
+        "ciciot_diad_attack_client_8": "update norm is far outside the group, and calibration loss got much worse"
+      },
+      "fallback_triggered": true
+    },
+    {
+      "round": 21,
+      "actions": {
+        "ciciot_diad_attack_client_0": "exclude",
+        "ciciot_diad_attack_client_1": "exclude",
+        "ciciot_diad_attack_client_2": "exclude",
+        "ciciot_diad_attack_client_3": "exclude",
+        "ciciot_diad_attack_client_4": "exclude",
+        "ciciot_diad_attack_client_5": "exclude",
+        "ciciot_diad_attack_client_6": "exclude",
+        "ciciot_diad_attack_client_7": "exclude",
+        "ciciot_diad_attack_client_8": "exclude"
+      },
+      "scores": {
+        "ciciot_diad_attack_client_0": 0.0,
+        "ciciot_diad_attack_client_1": 0.0,
+        "ciciot_diad_attack_client_2": 0.0,
+        "ciciot_diad_attack_client_3": 0.0,
+        "ciciot_diad_attack_client_4": 0.0,
+        "ciciot_diad_attack_client_5": 0.0,
+        "ciciot_diad_attack_client_6": 0.0,
+        "ciciot_diad_attack_client_7": 0.0,
+        "ciciot_diad_attack_client_8": 0.0
+      },
+      "rationales": {
+        "ciciot_diad_attack_client_0": "update norm is far outside the group, and calibration loss got much worse",
+        "ciciot_diad_attack_client_1": "update norm is far outside the group (+1.43 z-score) and calibration loss got much worse (+0.0000)",
+        "ciciot_diad_attack_client_2": "update norm is far outside the group (+1.45 z-score) and calibration loss got much worse (+0.0000 delta)",
+        "ciciot_diad_attack_client_3": "update norm is far outside the group, and calibration loss got much worse",
+        "ciciot_diad_attack_client_4": "update norm is far outside the group, and calibration loss got much worse",
+        "ciciot_diad_attack_client_5": "update norm is far outside the group, and calibration loss got much worse",
+        "ciciot_diad_attack_client_6": "update norm is far outside the group, and calibration loss got much worse",
+        "ciciot_diad_attack_client_7": "update norm is far outside the group, and calibration loss got much worse",
+        "ciciot_diad_attack_client_8": "update norm is far outside the group, and calibration loss got much worse"
+      },
+      "fallback_triggered": true
+    },
+    {
+      "round": 22,
+      "actions": {
+        "ciciot_diad_attack_client_0": "exclude",
+        "ciciot_diad_attack_client_1": "exclude",
+        "ciciot_diad_attack_client_2": "exclude",
+        "ciciot_diad_attack_client_3": "exclude",
+        "ciciot_diad_attack_client_4": "exclude",
+        "ciciot_diad_attack_client_5": "exclude",
+        "ciciot_diad_attack_client_6": "exclude",
+        "ciciot_diad_attack_client_7": "exclude",
+        "ciciot_diad_attack_client_8": "exclude"
+      },
+      "scores": {
+        "ciciot_diad_attack_client_0": 0.0,
+        "ciciot_diad_attack_client_1": 0.0,
+        "ciciot_diad_attack_client_2": 0.0,
+        "ciciot_diad_attack_client_3": 0.0,
+        "ciciot_diad_attack_client_4": 0.0,
+        "ciciot_diad_attack_client_5": 0.0,
+        "ciciot_diad_attack_client_6": 0.0,
+        "ciciot_diad_attack_client_7": 0.0,
+        "ciciot_diad_attack_client_8": 0.0
+      },
+      "rationales": {
+        "ciciot_diad_attack_client_0": "update norm is far outside the group (+1.46 z-score) and calibration loss got much worse (+0.0000)",
+        "ciciot_diad_attack_client_1": "The update norm is significantly elevated (z-score of +1.32) and the cosine similarity to the previous global update is very low (-0.113), indicating a large deviation from the group average.",
+        "ciciot_diad_attack_client_2": "update norm is far outside the group (+1.45 z-score) and calibration loss got much worse (+0.0000)",
+        "ciciot_diad_attack_client_3": "update norm is far outside the group, and calibration loss got much worse",
+        "ciciot_diad_attack_client_4": "update norm is far outside the group, and calibration loss got much worse",
+        "ciciot_diad_attack_client_5": "update norm is far outside the group, and calibration loss got much worse",
+        "ciciot_diad_attack_client_6": "update norm is far outside the group, and calibration loss got much worse",
+        "ciciot_diad_attack_client_7": "update norm is far outside the group, and calibration loss got much worse",
+        "ciciot_diad_attack_client_8": "update norm is far outside the group, and calibration loss got much worse"
+      },
+      "fallback_triggered": true
+    },
+    {
+      "round": 23,
+      "actions": {
+        "ciciot_diad_attack_client_0": "exclude",
+        "ciciot_diad_attack_client_1": "exclude",
+        "ciciot_diad_attack_client_2": "exclude",
+        "ciciot_diad_attack_client_3": "exclude",
+        "ciciot_diad_attack_client_4": "exclude",
+        "ciciot_diad_attack_client_5": "exclude",
+        "ciciot_diad_attack_client_6": "exclude",
+        "ciciot_diad_attack_client_7": "exclude",
+        "ciciot_diad_attack_client_8": "exclude"
+      },
+      "scores": {
+        "ciciot_diad_attack_client_0": 0.0,
+        "ciciot_diad_attack_client_1": 0.0,
+        "ciciot_diad_attack_client_2": 0.0,
+        "ciciot_diad_attack_client_3": 0.0,
+        "ciciot_diad_attack_client_4": 0.0,
+        "ciciot_diad_attack_client_5": 0.0,
+        "ciciot_diad_attack_client_6": 0.0,
+        "ciciot_diad_attack_client_7": 0.0,
+        "ciciot_diad_attack_client_8": 0.0
+      },
+      "rationales": {
+        "ciciot_diad_attack_client_0": "The update norm is significantly elevated (z-score of +1.14) and the cosine similarity to the previous global update is very low (-0.105), indicating a large deviation from the group average.",
+        "ciciot_diad_attack_client_1": "update norm is far outside the group (+1.48 z-score) and calibration loss got much worse (+0.0000)",
+        "ciciot_diad_attack_client_2": "update norm is far outside the group (+1.60 z-score) and calibration loss got much worse (+0.0000)",
+        "ciciot_diad_attack_client_3": "update norm is far outside the group, direction of cosine similarity to the previous global update is nearly reversed, and calibration loss got much worse",
+        "ciciot_diad_attack_client_4": "The high update norm z-score is somewhat elevated, but the cosine similarity to the previous global update is the main driver of the score, as it is strongly reversed in direction.",
+        "ciciot_diad_attack_client_5": "The high update norm z-score of -0.71 is somewhat low, but the cosine similarity to the previous global update is strongly negative, indicating a direction reversal, and the calibration-loss delta is zero, suggesting the update did not improve held-out loss.",
+        "ciciot_diad_attack_client_6": "update norm is far outside the group, direction of cosine similarity is nearly reversed vs. the previous global update, and calibration loss got much worse",
+        "ciciot_diad_attack_client_7": "The high update norm z-score of -0.71 is somewhat low, but the cosine similarity to the previous global update is strongly negative, indicating a direction reversal, and the calibration-loss delta is zero, suggesting the update did not improve held-out loss.",
+        "ciciot_diad_attack_client_8": "update norm is far outside the group, direction of cosine similarity to the previous global update is nearly reversed, and calibration loss got much worse"
+      },
+      "fallback_triggered": true
+    },
+    {
+      "round": 24,
+      "actions": {
+        "ciciot_diad_attack_client_0": "exclude",
+        "ciciot_diad_attack_client_1": "exclude",
+        "ciciot_diad_attack_client_2": "exclude",
+        "ciciot_diad_attack_client_3": "exclude",
+        "ciciot_diad_attack_client_4": "exclude",
+        "ciciot_diad_attack_client_5": "exclude",
+        "ciciot_diad_attack_client_6": "exclude",
+        "ciciot_diad_attack_client_7": "exclude",
+        "ciciot_diad_attack_client_8": "exclude"
+      },
+      "scores": {
+        "ciciot_diad_attack_client_0": 0.0,
+        "ciciot_diad_attack_client_1": 0.0,
+        "ciciot_diad_attack_client_2": 0.0,
+        "ciciot_diad_attack_client_3": 0.0,
+        "ciciot_diad_attack_client_4": 0.0,
+        "ciciot_diad_attack_client_5": 0.0,
+        "ciciot_diad_attack_client_6": 0.0,
+        "ciciot_diad_attack_client_7": 0.0,
+        "ciciot_diad_attack_client_8": 0.0
+      },
+      "rationales": {
+        "ciciot_diad_attack_client_0": "update norm is significantly elevated with a high z-score, and calibration loss got much worse",
+        "ciciot_diad_attack_client_1": "update norm is far outside the group (+1.48 z-score) and calibration loss got much worse (+0.0000)",
+        "ciciot_diad_attack_client_2": "update norm is far outside the group (+1.24 z-score) and calibration loss got much worse (+0.0000)",
+        "ciciot_diad_attack_client_3": "update norm is far outside the group, and calibration loss got much worse",
+        "ciciot_diad_attack_client_4": "update norm is far outside the group, and calibration loss got much worse",
+        "ciciot_diad_attack_client_5": "update norm is far outside the group, and calibration loss got much worse",
+        "ciciot_diad_attack_client_6": "update norm is far outside the group, and calibration loss got much worse",
+        "ciciot_diad_attack_client_7": "update norm is far outside the group, direction of cosine similarity is nearly reversed vs. the previous global update, and calibration loss got much worse",
+        "ciciot_diad_attack_client_8": "update norm is far outside the group, and calibration loss got much worse"
+      },
+      "fallback_triggered": true
+    }
+  ]
+}

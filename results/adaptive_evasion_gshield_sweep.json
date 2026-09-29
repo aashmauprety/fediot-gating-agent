@@ -1,0 +1,117 @@
+{
+  "description": "GShield-style baseline under a direction-blending adaptive attacker (scale_factor=1.0, no magnitude amplification), sweeping evasion_lambda in [0,1] on CIC IoT-DIAD 2024.",
+  "runs": [
+    {
+      "attack": "untargeted",
+      "evasion_lambda": 0.0,
+      "final_macro_f1": 0.9208602390676883,
+      "targeted_success_rate": null,
+      "wall_clock_seconds": 17.382895946502686
+    },
+    {
+      "attack": "untargeted",
+      "evasion_lambda": 0.5,
+      "final_macro_f1": 0.9181753252324649,
+      "targeted_success_rate": null,
+      "wall_clock_seconds": 21.267598152160645
+    },
+    {
+      "attack": "untargeted",
+      "evasion_lambda": 0.7,
+      "final_macro_f1": 0.9174979860641944,
+      "targeted_success_rate": null,
+      "wall_clock_seconds": 21.422258853912354
+    },
+    {
+      "attack": "untargeted",
+      "evasion_lambda": 0.8,
+      "final_macro_f1": 0.9201699018299572,
+      "targeted_success_rate": null,
+      "wall_clock_seconds": 21.498875856399536
+    },
+    {
+      "attack": "untargeted",
+      "evasion_lambda": 0.85,
+      "final_macro_f1": 0.9192544468863577,
+      "targeted_success_rate": null,
+      "wall_clock_seconds": 21.463579177856445
+    },
+    {
+      "attack": "untargeted",
+      "evasion_lambda": 0.9,
+      "final_macro_f1": 0.9233092134075487,
+      "targeted_success_rate": null,
+      "wall_clock_seconds": 21.6338951587677
+    },
+    {
+      "attack": "untargeted",
+      "evasion_lambda": 0.95,
+      "final_macro_f1": 0.9209281988018487,
+      "targeted_success_rate": null,
+      "wall_clock_seconds": 21.466058015823364
+    },
+    {
+      "attack": "untargeted",
+      "evasion_lambda": 0.99,
+      "final_macro_f1": 0.9221391416051059,
+      "targeted_success_rate": null,
+      "wall_clock_seconds": 21.478528022766113
+    },
+    {
+      "attack": "targeted",
+      "evasion_lambda": 0.0,
+      "final_macro_f1": 0.9208602390676883,
+      "targeted_success_rate": 0.01050420168067227,
+      "wall_clock_seconds": 16.71570324897766
+    },
+    {
+      "attack": "targeted",
+      "evasion_lambda": 0.5,
+      "final_macro_f1": 0.919031067028502,
+      "targeted_success_rate": 0.008403361344537815,
+      "wall_clock_seconds": 21.703947067260742
+    },
+    {
+      "attack": "targeted",
+      "evasion_lambda": 0.7,
+      "final_macro_f1": 0.9188962558691403,
+      "targeted_success_rate": 0.012605042016806723,
+      "wall_clock_seconds": 21.497826099395752
+    },
+    {
+      "attack": "targeted",
+      "evasion_lambda": 0.8,
+      "final_macro_f1": 0.9200744228627644,
+      "targeted_success_rate": 0.01050420168067227,
+      "wall_clock_seconds": 21.62173080444336
+    },
+    {
+      "attack": "targeted",
+      "evasion_lambda": 0.85,
+      "final_macro_f1": 0.9193747700530925,
+      "targeted_success_rate": 0.012605042016806723,
+      "wall_clock_seconds": 21.772182941436768
+    },
+    {
+      "attack": "targeted",
+      "evasion_lambda": 0.9,
+      "final_macro_f1": 0.920781950088722,
+      "targeted_success_rate": 0.01050420168067227,
+      "wall_clock_seconds": 21.53390383720398
+    },
+    {
+      "attack": "targeted",
+      "evasion_lambda": 0.95,
+      "final_macro_f1": 0.9182751513924856,
+      "targeted_success_rate": 0.01050420168067227,
+      "wall_clock_seconds": 21.768315076828003
+    },
+    {
+      "attack": "targeted",
+      "evasion_lambda": 0.99,
+      "final_macro_f1": 0.9207471274340333,
+      "targeted_success_rate": 0.012605042016806723,
+      "wall_clock_seconds": 21.80339217185974
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "admitted_devices": [
+    "Danmini_Doorbell",
+    "Ecobee_Thermostat",
+    "Ennio_Doorbell",
+    "Philips_B120N10_Baby_Monitor",
+    "Provision_PT_737E_Security_Camera",
+    "Provision_PT_838_Security_Camera",
+    "Samsung_SNH_1011_N_Webcam",
+    "SimpleHome_XCS7_1002_WHT_Security_Camera"
+  ],
+  "held_out_device": "SimpleHome_XCS7_1003_WHT_Security_Camera",
+  "unseen_device_query": {
+    "true_device": "SimpleHome_XCS7_1003_WHT_Security_Camera",
+    "action": "request-more-data",
+    "predicted_label": "Danmini_Doorbell",
+    "confidence": 0.37907050438243955,
+    "rationale": "3-NN vote over device-fingerprint KB: top label 'Danmini_Doorbell' received 38% of inverse-distance weight among neighbors [('Danmini_Doorbell', 17.913), ('SimpleHome_XCS7_1002_WHT_Security_Camera', 20.23), ('Ennio_Doorbell', 23.805)].",
+    "correct_behavior": true
+  },
+  "known_device_held_out_split_query": {
+    "true_device": "Danmini_Doorbell",
+    "action": "auto-admit",
+    "predicted_label": "Danmini_Doorbell",
+    "confidence": 0.9669949788783406,
+    "rationale": "3-NN vote over device-fingerprint KB: top label 'Danmini_Doorbell' received 97% of inverse-distance weight among neighbors [('Danmini_Doorbell', 0.312), ('SimpleHome_XCS7_1002_WHT_Security_Camera', 16.269), ('Ennio_Doorbell', 20.862)].",
+    "correct_behavior": true
+  }
+}

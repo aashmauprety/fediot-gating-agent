@@ -1,0 +1,102 @@
+{
+  "description": "N-BaIoT, selective-LLM Gating Agent: cheap deterministic fast path for confidently-normal clients, real LLM call only for the rest -- same 5 configs as the full-LLM headline result, testing whether accuracy holds while cutting the LLM-call count.",
+  "reference_full_llm": {
+    "trust_building_D0": 0.9958,
+    "trust_building_D10": 0.9974,
+    "trust_building_D20": 0.9961,
+    "untargeted": 0.9958,
+    "targeted": 0.9972
+  },
+  "runs": [
+    {
+      "label": "N-BaIoT, selective-LLM, attack=trust_building, D=0",
+      "attack": "trust_building",
+      "delay": 0,
+      "final_macro_f1": 0.9970486523057831,
+      "targeted_success_rate": 0.0010445682451253482,
+      "wall_clock_seconds": 457.127543926239,
+      "n_fallback_rounds": 0,
+      "n_rounds": 25,
+      "n_fast_path": 105,
+      "n_llm_calls": 111,
+      "llm_call_fraction": 0.5138888888888888,
+      "malicious_clients": [
+        "Danmini_Doorbell",
+        "Ecobee_Thermostat",
+        "Ennio_Doorbell"
+      ]
+    },
+    {
+      "label": "N-BaIoT, selective-LLM, attack=trust_building, D=10",
+      "attack": "trust_building",
+      "delay": 10,
+      "final_macro_f1": 0.9965579527404388,
+      "targeted_success_rate": 0.0020891364902506965,
+      "wall_clock_seconds": 403.9704809188843,
+      "n_fallback_rounds": 0,
+      "n_rounds": 25,
+      "n_fast_path": 119,
+      "n_llm_calls": 97,
+      "llm_call_fraction": 0.44907407407407407,
+      "malicious_clients": [
+        "Danmini_Doorbell",
+        "Ecobee_Thermostat",
+        "Ennio_Doorbell"
+      ]
+    },
+    {
+      "label": "N-BaIoT, selective-LLM, attack=trust_building, D=20",
+      "attack": "trust_building",
+      "delay": 20,
+      "final_macro_f1": 0.997628028858874,
+      "targeted_success_rate": 0.0017409470752089136,
+      "wall_clock_seconds": 384.474622964859,
+      "n_fallback_rounds": 0,
+      "n_rounds": 25,
+      "n_fast_path": 124,
+      "n_llm_calls": 92,
+      "llm_call_fraction": 0.42592592592592593,
+      "malicious_clients": [
+        "Danmini_Doorbell",
+        "Ecobee_Thermostat",
+        "Ennio_Doorbell"
+      ]
+    },
+    {
+      "label": "N-BaIoT, selective-LLM, attack=untargeted",
+      "attack": "untargeted",
+      "delay": null,
+      "final_macro_f1": 0.9970486523057831,
+      "targeted_success_rate": null,
+      "wall_clock_seconds": 450.8200047016144,
+      "n_fallback_rounds": 0,
+      "n_rounds": 25,
+      "n_fast_path": 105,
+      "n_llm_calls": 111,
+      "llm_call_fraction": 0.5138888888888888,
+      "malicious_clients": [
+        "Danmini_Doorbell",
+        "Ecobee_Thermostat",
+        "Ennio_Doorbell"
+      ]
+    },
+    {
+      "label": "N-BaIoT, selective-LLM, attack=targeted",
+      "attack": "targeted",
+      "delay": null,
+      "final_macro_f1": 0.9979755633255144,
+      "targeted_success_rate": 0.002785515320334262,
+      "wall_clock_seconds": 457.87923097610474,
+      "n_fallback_rounds": 0,
+      "n_rounds": 25,
+      "n_fast_path": 104,
+      "n_llm_calls": 112,
+      "llm_call_fraction": 0.5185185185185185,
+      "malicious_clients": [
+        "Danmini_Doorbell",
+        "Ecobee_Thermostat",
+        "Ennio_Doorbell"
+      ]
+    }
+  ]
+}

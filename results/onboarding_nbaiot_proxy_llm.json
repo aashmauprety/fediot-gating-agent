@@ -1,0 +1,30 @@
+{
+  "model": "qwen2.5:14b",
+  "admitted_devices": [
+    "Danmini_Doorbell",
+    "Ecobee_Thermostat",
+    "Ennio_Doorbell",
+    "Philips_B120N10_Baby_Monitor",
+    "Provision_PT_737E_Security_Camera",
+    "Provision_PT_838_Security_Camera",
+    "Samsung_SNH_1011_N_Webcam",
+    "SimpleHome_XCS7_1002_WHT_Security_Camera"
+  ],
+  "held_out_device": "SimpleHome_XCS7_1003_WHT_Security_Camera",
+  "unseen_device_query": {
+    "true_device": "SimpleHome_XCS7_1003_WHT_Security_Camera",
+    "action": "request-more-data",
+    "predicted_label": "Danmini_Doorbell",
+    "confidence": 0.75,
+    "rationale": "Top candidate has a significant lead but not overwhelming, with the second candidate close behind.",
+    "correct_behavior": true
+  },
+  "known_device_held_out_split_query": {
+    "true_device": "Danmini_Doorbell",
+    "action": "auto-admit",
+    "predicted_label": "Danmini_Doorbell",
+    "confidence": 0.967,
+    "rationale": "The top candidate's vote share is overwhelmingly dominant at 0.967.",
+    "correct_behavior": true
+  }
+}

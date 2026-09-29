@@ -1,0 +1,65 @@
+{
+  "classes": [
+    "Amazon Echo",
+    "Belkin Wemo switch",
+    "Belkin wemo motion sensor",
+    "Dropcam",
+    "Insteon Camera",
+    "Light Bulbs LiFX Smart Bulb",
+    "Nest Dropcam",
+    "Netatmo Welcome",
+    "Netatmo weather station",
+    "PIX-STAR Photo-frame",
+    "Samsung SmartCam",
+    "Smart Things",
+    "TP-Link Day Night Cloud camera",
+    "TP-Link Smart plug",
+    "Triby Speaker",
+    "Withings Aura smart sleep sensor",
+    "Withings Smart Baby Monitor",
+    "iHome"
+  ],
+  "n_clients": 10,
+  "results": {
+    "untargeted_alpha0": {
+      "final_macro_f1": 0.8279664583330303,
+      "targeted_success_rate": null
+    },
+    "untargeted_alpha1": {
+      "final_macro_f1": 0.5814487294035432,
+      "targeted_success_rate": null
+    },
+    "untargeted_alpha2": {
+      "final_macro_f1": 0.22040777153076674,
+      "targeted_success_rate": null
+    },
+    "untargeted_alpha3": {
+      "final_macro_f1": 0.0734309843877175,
+      "targeted_success_rate": null
+    },
+    "untargeted_alpha4": {
+      "final_macro_f1": 0.03833830718248229,
+      "targeted_success_rate": null
+    },
+    "targeted_alpha0": {
+      "final_macro_f1": 0.8279664583330303,
+      "targeted_success_rate": 0.024390243902439025
+    },
+    "targeted_alpha1": {
+      "final_macro_f1": 0.8507921371786937,
+      "targeted_success_rate": 0.024390243902439025
+    },
+    "targeted_alpha2": {
+      "final_macro_f1": 0.7676458287188815,
+      "targeted_success_rate": 0.6292682926829268
+    },
+    "targeted_alpha3": {
+      "final_macro_f1": 0.24857706056041623,
+      "targeted_success_rate": 0.0
+    },
+    "targeted_alpha4": {
+      "final_macro_f1": 0.06927543362682112,
+      "targeted_success_rate": 0.7317073170731707
+    }
+  }
+}

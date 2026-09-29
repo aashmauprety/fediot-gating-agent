@@ -1,0 +1,58 @@
+[
+  {
+    "delay_rounds": 0,
+    "strategy": "gating_llm_ollama_llama3.1_8b_with_history_tool",
+    "final_macro_f1": 0.13890648089508126,
+    "wall_clock_seconds": 969.5738198757172,
+    "sample_actions": {
+      "Danmini_Doorbell": "downweight",
+      "Ecobee_Thermostat": "downweight",
+      "Ennio_Doorbell": "downweight",
+      "Philips_B120N10_Baby_Monitor": "downweight",
+      "Provision_PT_737E_Security_Camera": "downweight",
+      "Provision_PT_838_Security_Camera": "downweight",
+      "Samsung_SNH_1011_N_Webcam": "downweight",
+      "SimpleHome_XCS7_1002_WHT_Security_Camera": "downweight",
+      "SimpleHome_XCS7_1003_WHT_Security_Camera": "downweight"
+    },
+    "sample_gating_scores": {
+      "Danmini_Doorbell": 0.3,
+      "Ecobee_Thermostat": 0.4,
+      "Ennio_Doorbell": 0.3,
+      "Philips_B120N10_Baby_Monitor": 0.4,
+      "Provision_PT_737E_Security_Camera": 0.4,
+      "Provision_PT_838_Security_Camera": 0.4,
+      "Samsung_SNH_1011_N_Webcam": 0.4,
+      "SimpleHome_XCS7_1002_WHT_Security_Camera": 0.4,
+      "SimpleHome_XCS7_1003_WHT_Security_Camera": 0.4
+    }
+  },
+  {
+    "delay_rounds": 10,
+    "strategy": "gating_llm_ollama_llama3.1_8b_with_history_tool",
+    "final_macro_f1": 0.18459956292582594,
+    "wall_clock_seconds": 942.3865518569946,
+    "sample_actions": {
+      "Danmini_Doorbell": "downweight",
+      "Ecobee_Thermostat": "downweight",
+      "Ennio_Doorbell": "downweight",
+      "Philips_B120N10_Baby_Monitor": "downweight",
+      "Provision_PT_737E_Security_Camera": "downweight",
+      "Provision_PT_838_Security_Camera": "downweight",
+      "Samsung_SNH_1011_N_Webcam": "downweight",
+      "SimpleHome_XCS7_1002_WHT_Security_Camera": "downweight",
+      "SimpleHome_XCS7_1003_WHT_Security_Camera": "downweight"
+    },
+    "sample_gating_scores": {
+      "Danmini_Doorbell": 0.4,
+      "Ecobee_Thermostat": 0.4,
+      "Ennio_Doorbell": 0.4,
+      "Philips_B120N10_Baby_Monitor": 0.4,
+      "Provision_PT_737E_Security_Camera": 0.4,
+      "Provision_PT_838_Security_Camera": 0.4,
+      "Samsung_SNH_1011_N_Webcam": 0.4,
+      "SimpleHome_XCS7_1002_WHT_Security_Camera": 0.4,
+      "SimpleHome_XCS7_1003_WHT_Security_Camera": 0.4
+    }
+  }
+]

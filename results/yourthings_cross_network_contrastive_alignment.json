@@ -1,0 +1,44 @@
+{
+  "description": "Real 4-fold leave-one-out contrastive cross-network alignment: align on 3 known pairs, test on the unseen 4th, repeated for each",
+  "num_finetune_steps": 300,
+  "fold_results": [
+    {
+      "held_out_yourthings_device": "SamsungSmartThingsHub",
+      "held_out_unsw_class": "Smart Things",
+      "n_alignment_pairs_used": 3,
+      "action": "escalate",
+      "predicted_label": "Insteon Camera",
+      "confidence": 0.28235881171617605,
+      "correct": false
+    },
+    {
+      "held_out_yourthings_device": "AmazonEchoGen1",
+      "held_out_unsw_class": "Amazon Echo",
+      "n_alignment_pairs_used": 3,
+      "action": "request-more-data",
+      "predicted_label": "Amazon Echo",
+      "confidence": 0.38450657549591283,
+      "correct": true
+    },
+    {
+      "held_out_yourthings_device": "BelkinWeMoMotionSensor",
+      "held_out_unsw_class": "Belkin wemo motion sensor",
+      "n_alignment_pairs_used": 3,
+      "action": "request-more-data",
+      "predicted_label": "Nest Dropcam",
+      "confidence": 0.41208352738910503,
+      "correct": false
+    },
+    {
+      "held_out_yourthings_device": "LIFXVirtualBulb",
+      "held_out_unsw_class": "Light Bulbs LiFX Smart Bulb",
+      "n_alignment_pairs_used": 3,
+      "action": "escalate",
+      "predicted_label": "Netatmo Welcome",
+      "confidence": 0.34992696850895466,
+      "correct": false
+    }
+  ],
+  "n_correct": 1,
+  "n_folds": 4
+}

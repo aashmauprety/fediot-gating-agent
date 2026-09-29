@@ -1,0 +1,34 @@
+[
+  {
+    "N": 50,
+    "num_classes": 19,
+    "total_windows": 32496,
+    "final_macro_f1": 0.4759170572304664,
+    "load_time_s": 8.892538070678711,
+    "train_time_s": 12.08436894416809
+  },
+  {
+    "N": 100,
+    "num_classes": 18,
+    "total_windows": 28674,
+    "final_macro_f1": 0.547774760278512,
+    "load_time_s": 8.77513861656189,
+    "train_time_s": 8.998118162155151
+  },
+  {
+    "N": 200,
+    "num_classes": 18,
+    "total_windows": 24303,
+    "final_macro_f1": 0.5577417756086994,
+    "load_time_s": 9.484065771102905,
+    "train_time_s": 10.184104919433594
+  },
+  {
+    "N": 500,
+    "num_classes": 16,
+    "total_windows": 16490,
+    "final_macro_f1": 0.4054782038109933,
+    "load_time_s": 9.555089950561523,
+    "train_time_s": 6.083998918533325
+  }
+]

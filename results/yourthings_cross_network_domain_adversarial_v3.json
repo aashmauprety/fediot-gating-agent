@@ -1,0 +1,521 @@
+{
+  "description": "Domain-adversarial v3: exactly 2 domains (UNSW network vs. YourThings network), evaluated on 4 held-out cross-network pairs",
+  "grl_lambda": 1.0,
+  "domain_loss_weight": 1.0,
+  "domain_labels": {
+    "unsw_client_0": 0,
+    "unsw_client_1": 0,
+    "unsw_client_2": 0,
+    "unsw_client_3": 0,
+    "unsw_client_4": 0,
+    "unsw_client_5": 0,
+    "unsw_client_6": 0,
+    "unsw_client_7": 0,
+    "unsw_client_8": 0,
+    "unsw_client_9": 0,
+    "yourthings_GoogleOnHub": 1,
+    "yourthings_Sonos": 1,
+    "yourthings_NestCamera": 1,
+    "yourthings_RingDoorbell": 1,
+    "yourthings_Roku4": 1,
+    "yourthings_AmazonFireTV": 1,
+    "yourthings_WithingsHome": 1,
+    "yourthings_Wink2Hub": 1
+  },
+  "held_out_eval_devices": [
+    "AmazonEchoGen1",
+    "BelkinWeMoMotionSensor",
+    "LIFXVirtualBulb",
+    "SamsungSmartThingsHub"
+  ],
+  "alignment_used": {
+    "SamsungSmartThingsHub": "Smart Things",
+    "AmazonEchoGen1": "Amazon Echo",
+    "BelkinWeMoMotionSensor": "Belkin wemo motion sensor",
+    "LIFXVirtualBulb": "Light Bulbs LiFX Smart Bulb"
+  },
+  "results": [
+    {
+      "yourthings_device": "AmazonEchoGen1",
+      "n_windows": 2000,
+      "aligned_unsw_class": "Amazon Echo",
+      "is_real_cross_network_same_device_test": true,
+      "action": "escalate",
+      "predicted_label": "Amazon Echo",
+      "confidence": 0.29407327119056836,
+      "correct_prediction_if_known": true
+    },
+    {
+      "yourthings_device": "AmazonFireTV",
+      "n_windows": 2000,
+      "aligned_unsw_class": null,
+      "is_real_cross_network_same_device_test": false,
+      "action": "request-more-data",
+      "predicted_label": "Smart Things",
+      "confidence": 0.41116423973024324,
+      "correct_prediction_if_known": null
+    },
+    {
+      "yourthings_device": "AndroidTablet",
+      "n_windows": 1344,
+      "aligned_unsw_class": null,
+      "is_real_cross_network_same_device_test": false,
+      "action": "request-more-data",
+      "predicted_label": "Smart Things",
+      "confidence": 0.41140570398056553,
+      "correct_prediction_if_known": null
+    },
+    {
+      "yourthings_device": "AppleHomePod",
+      "n_windows": 2000,
+      "aligned_unsw_class": null,
+      "is_real_cross_network_same_device_test": false,
+      "action": "request-more-data",
+      "predicted_label": "Belkin wemo motion sensor",
+      "confidence": 0.4565253054601005,
+      "correct_prediction_if_known": null
+    },
+    {
+      "yourthings_device": "AppleTV(4thGen)",
+      "n_windows": 2000,
+      "aligned_unsw_class": null,
+      "is_real_cross_network_same_device_test": false,
+      "action": "request-more-data",
+      "predicted_label": "Insteon Camera",
+      "confidence": 0.4946687198759712,
+      "correct_prediction_if_known": null
+    },
+    {
+      "yourthings_device": "AugustDoorbellCam",
+      "n_windows": 2000,
+      "aligned_unsw_class": null,
+      "is_real_cross_network_same_device_test": false,
+      "action": "request-more-data",
+      "predicted_label": "Amazon Echo",
+      "confidence": 0.5252884964638007,
+      "correct_prediction_if_known": null
+    },
+    {
+      "yourthings_device": "BelkinNetcam",
+      "n_windows": 2000,
+      "aligned_unsw_class": null,
+      "is_real_cross_network_same_device_test": false,
+      "action": "escalate",
+      "predicted_label": "Netatmo weather station",
+      "confidence": 0.25579705293653393,
+      "correct_prediction_if_known": null
+    },
+    {
+      "yourthings_device": "BelkinWeMoCrockpot",
+      "n_windows": 2000,
+      "aligned_unsw_class": null,
+      "is_real_cross_network_same_device_test": false,
+      "action": "escalate",
+      "predicted_label": "iHome",
+      "confidence": 0.2802680352944479,
+      "correct_prediction_if_known": null
+    },
+    {
+      "yourthings_device": "BelkinWeMoLink",
+      "n_windows": 2000,
+      "aligned_unsw_class": null,
+      "is_real_cross_network_same_device_test": false,
+      "action": "escalate",
+      "predicted_label": "iHome",
+      "confidence": 0.2451211826494702,
+      "correct_prediction_if_known": null
+    },
+    {
+      "yourthings_device": "BelkinWeMoMotionSensor",
+      "n_windows": 1136,
+      "aligned_unsw_class": "Belkin wemo motion sensor",
+      "is_real_cross_network_same_device_test": true,
+      "action": "escalate",
+      "predicted_label": "Amazon Echo",
+      "confidence": 0.28146246516249607,
+      "correct_prediction_if_known": false
+    },
+    {
+      "yourthings_device": "BelkinWeMoSwitch",
+      "n_windows": 406,
+      "aligned_unsw_class": null,
+      "is_real_cross_network_same_device_test": false,
+      "action": "escalate",
+      "predicted_label": "Insteon Camera",
+      "confidence": 0.32833363729535886,
+      "correct_prediction_if_known": null
+    },
+    {
+      "yourthings_device": "BoseSoundTouch10",
+      "n_windows": 2000,
+      "aligned_unsw_class": null,
+      "is_real_cross_network_same_device_test": false,
+      "action": "escalate",
+      "predicted_label": "Netatmo Welcome",
+      "confidence": 0.2823802757644128,
+      "correct_prediction_if_known": null
+    },
+    {
+      "yourthings_device": "Canary",
+      "n_windows": 2000,
+      "aligned_unsw_class": null,
+      "is_real_cross_network_same_device_test": false,
+      "action": "escalate",
+      "predicted_label": "TP-Link Day Night Cloud camera",
+      "confidence": 0.2611053762806144,
+      "correct_prediction_if_known": null
+    },
+    {
+      "yourthings_device": "CasetaWirelessHub",
+      "n_windows": 1976,
+      "aligned_unsw_class": null,
+      "is_real_cross_network_same_device_test": false,
+      "action": "escalate",
+      "predicted_label": "iHome",
+      "confidence": 0.29372944500374953,
+      "correct_prediction_if_known": null
+    },
+    {
+      "yourthings_device": "ChamberlainmyQGarageOpener",
+      "n_windows": 2000,
+      "aligned_unsw_class": null,
+      "is_real_cross_network_same_device_test": false,
+      "action": "escalate",
+      "predicted_label": "iHome",
+      "confidence": 0.2871350869985736,
+      "correct_prediction_if_known": null
+    },
+    {
+      "yourthings_device": "ChineseWebcam",
+      "n_windows": 1668,
+      "aligned_unsw_class": null,
+      "is_real_cross_network_same_device_test": false,
+      "action": "request-more-data",
+      "predicted_label": "Withings Smart Baby Monitor",
+      "confidence": 0.39866676757560277,
+      "correct_prediction_if_known": null
+    },
+    {
+      "yourthings_device": "D-LinkDCS-5009LCamera",
+      "n_windows": 2000,
+      "aligned_unsw_class": null,
+      "is_real_cross_network_same_device_test": false,
+      "action": "escalate",
+      "predicted_label": "Withings Aura smart sleep sensor",
+      "confidence": 0.24677170006745758,
+      "correct_prediction_if_known": null
+    },
+    {
+      "yourthings_device": "Gateway",
+      "n_windows": 2000,
+      "aligned_unsw_class": null,
+      "is_real_cross_network_same_device_test": false,
+      "action": "escalate",
+      "predicted_label": "Belkin Wemo switch",
+      "confidence": 0.3156184586948922,
+      "correct_prediction_if_known": null
+    },
+    {
+      "yourthings_device": "GoogleHome",
+      "n_windows": 2000,
+      "aligned_unsw_class": null,
+      "is_real_cross_network_same_device_test": false,
+      "action": "request-more-data",
+      "predicted_label": "Smart Things",
+      "confidence": 0.5352088439033285,
+      "correct_prediction_if_known": null
+    },
+    {
+      "yourthings_device": "GoogleHomeMini",
+      "n_windows": 2000,
+      "aligned_unsw_class": null,
+      "is_real_cross_network_same_device_test": false,
+      "action": "request-more-data",
+      "predicted_label": "Smart Things",
+      "confidence": 0.6121376155349777,
+      "correct_prediction_if_known": null
+    },
+    {
+      "yourthings_device": "GoogleOnHub",
+      "n_windows": 2000,
+      "aligned_unsw_class": null,
+      "is_real_cross_network_same_device_test": false,
+      "action": "request-more-data",
+      "predicted_label": "Netatmo Welcome",
+      "confidence": 0.5003016247448275,
+      "correct_prediction_if_known": null
+    },
+    {
+      "yourthings_device": "HarmonKardonInvoke",
+      "n_windows": 2000,
+      "aligned_unsw_class": null,
+      "is_real_cross_network_same_device_test": false,
+      "action": "escalate",
+      "predicted_label": "Withings Smart Baby Monitor",
+      "confidence": 0.30498414207062086,
+      "correct_prediction_if_known": null
+    },
+    {
+      "yourthings_device": "InsteonHub",
+      "n_windows": 1530,
+      "aligned_unsw_class": null,
+      "is_real_cross_network_same_device_test": false,
+      "action": "escalate",
+      "predicted_label": "Nest Dropcam",
+      "confidence": 0.2972894909965336,
+      "correct_prediction_if_known": null
+    },
+    {
+      "yourthings_device": "KoogeekLightbulb",
+      "n_windows": 405,
+      "aligned_unsw_class": null,
+      "is_real_cross_network_same_device_test": false,
+      "action": "request-more-data",
+      "predicted_label": "Smart Things",
+      "confidence": 0.36799053423081357,
+      "correct_prediction_if_known": null
+    },
+    {
+      "yourthings_device": "LIFXVirtualBulb",
+      "n_windows": 1207,
+      "aligned_unsw_class": "Light Bulbs LiFX Smart Bulb",
+      "is_real_cross_network_same_device_test": true,
+      "action": "escalate",
+      "predicted_label": "Netatmo Welcome",
+      "confidence": 0.31877819020334447,
+      "correct_prediction_if_known": false
+    },
+    {
+      "yourthings_device": "LogitechHarmonyHub",
+      "n_windows": 2000,
+      "aligned_unsw_class": null,
+      "is_real_cross_network_same_device_test": false,
+      "action": "escalate",
+      "predicted_label": "Smart Things",
+      "confidence": 0.3431745588333636,
+      "correct_prediction_if_known": null
+    },
+    {
+      "yourthings_device": "LogitechLogiCircle",
+      "n_windows": 2000,
+      "aligned_unsw_class": null,
+      "is_real_cross_network_same_device_test": false,
+      "action": "request-more-data",
+      "predicted_label": "Samsung SmartCam",
+      "confidence": 0.4787657370762892,
+      "correct_prediction_if_known": null
+    },
+    {
+      "yourthings_device": "MiCasaVerdeVeraLite",
+      "n_windows": 2000,
+      "aligned_unsw_class": null,
+      "is_real_cross_network_same_device_test": false,
+      "action": "escalate",
+      "predicted_label": "Netatmo Welcome",
+      "confidence": 0.32279220701227995,
+      "correct_prediction_if_known": null
+    },
+    {
+      "yourthings_device": "NestCamera",
+      "n_windows": 2000,
+      "aligned_unsw_class": null,
+      "is_real_cross_network_same_device_test": false,
+      "action": "request-more-data",
+      "predicted_label": "Samsung SmartCam",
+      "confidence": 0.4792299502953322,
+      "correct_prediction_if_known": null
+    },
+    {
+      "yourthings_device": "NestProtect",
+      "n_windows": 12,
+      "aligned_unsw_class": null,
+      "is_real_cross_network_same_device_test": false,
+      "action": "escalate",
+      "predicted_label": "Netatmo Welcome",
+      "confidence": 0.21672314112115368,
+      "correct_prediction_if_known": null
+    },
+    {
+      "yourthings_device": "NetgearArloCamera",
+      "n_windows": 1090,
+      "aligned_unsw_class": null,
+      "is_real_cross_network_same_device_test": false,
+      "action": "request-more-data",
+      "predicted_label": "iHome",
+      "confidence": 0.37157523803952114,
+      "correct_prediction_if_known": null
+    },
+    {
+      "yourthings_device": "PhilipsHUEHub",
+      "n_windows": 2000,
+      "aligned_unsw_class": null,
+      "is_real_cross_network_same_device_test": false,
+      "action": "escalate",
+      "predicted_label": "Belkin Wemo switch",
+      "confidence": 0.31854911577254,
+      "correct_prediction_if_known": null
+    },
+    {
+      "yourthings_device": "PiperNV",
+      "n_windows": 2000,
+      "aligned_unsw_class": null,
+      "is_real_cross_network_same_device_test": false,
+      "action": "escalate",
+      "predicted_label": "TP-Link Smart plug",
+      "confidence": 0.3422914677147254,
+      "correct_prediction_if_known": null
+    },
+    {
+      "yourthings_device": "RingDoorbell",
+      "n_windows": 2000,
+      "aligned_unsw_class": null,
+      "is_real_cross_network_same_device_test": false,
+      "action": "escalate",
+      "predicted_label": "Netatmo weather station",
+      "confidence": 0.29299123215470657,
+      "correct_prediction_if_known": null
+    },
+    {
+      "yourthings_device": "Roku4",
+      "n_windows": 1786,
+      "aligned_unsw_class": null,
+      "is_real_cross_network_same_device_test": false,
+      "action": "escalate",
+      "predicted_label": "Insteon Camera",
+      "confidence": 0.3304677732195142,
+      "correct_prediction_if_known": null
+    },
+    {
+      "yourthings_device": "RokuTV",
+      "n_windows": 1819,
+      "aligned_unsw_class": null,
+      "is_real_cross_network_same_device_test": false,
+      "action": "request-more-data",
+      "predicted_label": "Insteon Camera",
+      "confidence": 0.4227071077858221,
+      "correct_prediction_if_known": null
+    },
+    {
+      "yourthings_device": "Roomba",
+      "n_windows": 949,
+      "aligned_unsw_class": null,
+      "is_real_cross_network_same_device_test": false,
+      "action": "escalate",
+      "predicted_label": "iHome",
+      "confidence": 0.23661586387596942,
+      "correct_prediction_if_known": null
+    },
+    {
+      "yourthings_device": "SamsungSmartTV",
+      "n_windows": 2000,
+      "aligned_unsw_class": null,
+      "is_real_cross_network_same_device_test": false,
+      "action": "escalate",
+      "predicted_label": "Withings Smart Baby Monitor",
+      "confidence": 0.2932357563516446,
+      "correct_prediction_if_known": null
+    },
+    {
+      "yourthings_device": "SamsungSmartThingsHub",
+      "n_windows": 2000,
+      "aligned_unsw_class": "Smart Things",
+      "is_real_cross_network_same_device_test": true,
+      "action": "escalate",
+      "predicted_label": "Insteon Camera",
+      "confidence": 0.3223596118400227,
+      "correct_prediction_if_known": false
+    },
+    {
+      "yourthings_device": "SecurifiAlmond",
+      "n_windows": 1298,
+      "aligned_unsw_class": null,
+      "is_real_cross_network_same_device_test": false,
+      "action": "request-more-data",
+      "predicted_label": "iHome",
+      "confidence": 0.3516001821416032,
+      "correct_prediction_if_known": null
+    },
+    {
+      "yourthings_device": "Sonos",
+      "n_windows": 2000,
+      "aligned_unsw_class": null,
+      "is_real_cross_network_same_device_test": false,
+      "action": "escalate",
+      "predicted_label": "Belkin Wemo switch",
+      "confidence": 0.2750363122364493,
+      "correct_prediction_if_known": null
+    },
+    {
+      "yourthings_device": "TP-LinkSmartWiFiLEDBulb",
+      "n_windows": 234,
+      "aligned_unsw_class": null,
+      "is_real_cross_network_same_device_test": false,
+      "action": "request-more-data",
+      "predicted_label": "Belkin wemo motion sensor",
+      "confidence": 0.46073281108176534,
+      "correct_prediction_if_known": null
+    },
+    {
+      "yourthings_device": "TP-LinkWiFiPlug",
+      "n_windows": 221,
+      "aligned_unsw_class": null,
+      "is_real_cross_network_same_device_test": false,
+      "action": "request-more-data",
+      "predicted_label": "Belkin wemo motion sensor",
+      "confidence": 0.41144454454787693,
+      "correct_prediction_if_known": null
+    },
+    {
+      "yourthings_device": "Wink2Hub",
+      "n_windows": 2000,
+      "aligned_unsw_class": null,
+      "is_real_cross_network_same_device_test": false,
+      "action": "escalate",
+      "predicted_label": "Withings Smart Baby Monitor",
+      "confidence": 0.29308037314617374,
+      "correct_prediction_if_known": null
+    },
+    {
+      "yourthings_device": "WithingsHome",
+      "n_windows": 2000,
+      "aligned_unsw_class": null,
+      "is_real_cross_network_same_device_test": false,
+      "action": "escalate",
+      "predicted_label": "Withings Aura smart sleep sensor",
+      "confidence": 0.31275943046892624,
+      "correct_prediction_if_known": null
+    },
+    {
+      "yourthings_device": "iPad",
+      "n_windows": 2000,
+      "aligned_unsw_class": null,
+      "is_real_cross_network_same_device_test": false,
+      "action": "escalate",
+      "predicted_label": "Belkin wemo motion sensor",
+      "confidence": 0.3148684440157274,
+      "correct_prediction_if_known": null
+    },
+    {
+      "yourthings_device": "iPhone",
+      "n_windows": 2000,
+      "aligned_unsw_class": null,
+      "is_real_cross_network_same_device_test": false,
+      "action": "escalate",
+      "predicted_label": "Belkin wemo motion sensor",
+      "confidence": 0.27591979065307576,
+      "correct_prediction_if_known": null
+    },
+    {
+      "yourthings_device": "nVidiaShield",
+      "n_windows": 2000,
+      "aligned_unsw_class": null,
+      "is_real_cross_network_same_device_test": false,
+      "action": "request-more-data",
+      "predicted_label": "Smart Things",
+      "confidence": 0.40379296690694577,
+      "correct_prediction_if_known": null
+    }
+  ],
+  "n_real_cross_network_tests": 4,
+  "n_correct": 1
+}

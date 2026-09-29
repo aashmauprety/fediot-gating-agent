@@ -1,0 +1,44 @@
+[
+  {
+    "delay_rounds": 0,
+    "strategy": "fedavg",
+    "final_macro_f1": 0.3574609805047382,
+    "targeted_success_rate": 0.03586350974930362,
+    "wall_clock_seconds": 29.96707582473755
+  },
+  {
+    "delay_rounds": 0,
+    "strategy": "gating_agent",
+    "final_macro_f1": 0.3203640101420007,
+    "targeted_success_rate": 0.9975626740947076,
+    "wall_clock_seconds": 27.668795824050903
+  },
+  {
+    "delay_rounds": 10,
+    "strategy": "fedavg",
+    "final_macro_f1": 0.742686633881435,
+    "targeted_success_rate": 0.02576601671309192,
+    "wall_clock_seconds": 30.046208143234253
+  },
+  {
+    "delay_rounds": 10,
+    "strategy": "gating_agent",
+    "final_macro_f1": 0.9858381733580733,
+    "targeted_success_rate": 0.0020891364902506965,
+    "wall_clock_seconds": 29.751381158828735
+  },
+  {
+    "delay_rounds": 20,
+    "strategy": "fedavg",
+    "final_macro_f1": 0.13890648089508126,
+    "targeted_success_rate": 0.0,
+    "wall_clock_seconds": 29.573220014572144
+  },
+  {
+    "delay_rounds": 20,
+    "strategy": "gating_agent",
+    "final_macro_f1": 0.9880343774707946,
+    "targeted_success_rate": 0.001392757660167131,
+    "wall_clock_seconds": 29.949010848999023
+  }
+]

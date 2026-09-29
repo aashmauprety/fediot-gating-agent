@@ -1,0 +1,22 @@
+{
+  "description": "N-BaIoT qwen2.5:14b hybrid, TB D=10, seeds 1-2 (seed=0 reference: 0.9974).",
+  "reference_seed0": 0.9974,
+  "runs": [
+    {
+      "label": "N-BaIoT, qwen2.5:14b hybrid, TB D=10, seed=1",
+      "seed": 1,
+      "final_macro_f1": 0.9971064034710726,
+      "wall_clock_seconds": 826.2875227928162,
+      "n_fallback_rounds": 0,
+      "n_rounds": 25
+    },
+    {
+      "label": "N-BaIoT, qwen2.5:14b hybrid, TB D=10, seed=2",
+      "seed": 2,
+      "final_macro_f1": 0.9953999185990052,
+      "wall_clock_seconds": 837.6887800693512,
+      "n_fallback_rounds": 0,
+      "n_rounds": 25
+    }
+  ]
+}

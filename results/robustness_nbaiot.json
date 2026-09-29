@@ -1,0 +1,362 @@
+[
+  {
+    "attack_type": "untargeted",
+    "alpha_clients": 0,
+    "alpha_frac": 0.0,
+    "strategy": "fedavg",
+    "final_macro_f1": 0.9958401058870616,
+    "targeted_success_rate": null,
+    "wall_clock_seconds": 29.88708806037903
+  },
+  {
+    "attack_type": "untargeted",
+    "alpha_clients": 0,
+    "alpha_frac": 0.0,
+    "strategy": "trimmed_mean",
+    "final_macro_f1": 0.9969707672636648,
+    "targeted_success_rate": null,
+    "wall_clock_seconds": 29.83589506149292
+  },
+  {
+    "attack_type": "untargeted",
+    "alpha_clients": 0,
+    "alpha_frac": 0.0,
+    "strategy": "krum",
+    "final_macro_f1": 0.9921217718853285,
+    "targeted_success_rate": null,
+    "wall_clock_seconds": 30.831702947616577
+  },
+  {
+    "attack_type": "untargeted",
+    "alpha_clients": 0,
+    "alpha_frac": 0.0,
+    "strategy": "gating_agent",
+    "final_macro_f1": 0.9974127199467558,
+    "targeted_success_rate": null,
+    "wall_clock_seconds": 29.355815172195435
+  },
+  {
+    "attack_type": "untargeted",
+    "alpha_clients": 1,
+    "alpha_frac": 0.1111111111111111,
+    "strategy": "fedavg",
+    "final_macro_f1": 0.9273651746816113,
+    "targeted_success_rate": null,
+    "wall_clock_seconds": 29.478203773498535
+  },
+  {
+    "attack_type": "untargeted",
+    "alpha_clients": 1,
+    "alpha_frac": 0.1111111111111111,
+    "strategy": "trimmed_mean",
+    "final_macro_f1": 0.9961402673510213,
+    "targeted_success_rate": null,
+    "wall_clock_seconds": 30.459412813186646
+  },
+  {
+    "attack_type": "untargeted",
+    "alpha_clients": 1,
+    "alpha_frac": 0.1111111111111111,
+    "strategy": "krum",
+    "final_macro_f1": 0.9922884289230146,
+    "targeted_success_rate": null,
+    "wall_clock_seconds": 29.451095819473267
+  },
+  {
+    "attack_type": "untargeted",
+    "alpha_clients": 1,
+    "alpha_frac": 0.1111111111111111,
+    "strategy": "gating_agent",
+    "final_macro_f1": 0.9920310585468037,
+    "targeted_success_rate": null,
+    "wall_clock_seconds": 30.80394697189331
+  },
+  {
+    "attack_type": "untargeted",
+    "alpha_clients": 2,
+    "alpha_frac": 0.2222222222222222,
+    "strategy": "fedavg",
+    "final_macro_f1": 0.13890648089508126,
+    "targeted_success_rate": null,
+    "wall_clock_seconds": 30.00535798072815
+  },
+  {
+    "attack_type": "untargeted",
+    "alpha_clients": 2,
+    "alpha_frac": 0.2222222222222222,
+    "strategy": "trimmed_mean",
+    "final_macro_f1": 0.21433296938881286,
+    "targeted_success_rate": null,
+    "wall_clock_seconds": 28.386802911758423
+  },
+  {
+    "attack_type": "untargeted",
+    "alpha_clients": 2,
+    "alpha_frac": 0.2222222222222222,
+    "strategy": "krum",
+    "final_macro_f1": 0.9958515371418525,
+    "targeted_success_rate": null,
+    "wall_clock_seconds": 29.137550830841064
+  },
+  {
+    "attack_type": "untargeted",
+    "alpha_clients": 2,
+    "alpha_frac": 0.2222222222222222,
+    "strategy": "gating_agent",
+    "final_macro_f1": 0.954374017826222,
+    "targeted_success_rate": null,
+    "wall_clock_seconds": 29.420751094818115
+  },
+  {
+    "attack_type": "untargeted",
+    "alpha_clients": 3,
+    "alpha_frac": 0.3333333333333333,
+    "strategy": "fedavg",
+    "final_macro_f1": 0.3574609805047382,
+    "targeted_success_rate": null,
+    "wall_clock_seconds": 28.980611085891724
+  },
+  {
+    "attack_type": "untargeted",
+    "alpha_clients": 3,
+    "alpha_frac": 0.3333333333333333,
+    "strategy": "trimmed_mean",
+    "final_macro_f1": 0.5242643552413813,
+    "targeted_success_rate": null,
+    "wall_clock_seconds": 29.274025917053223
+  },
+  {
+    "attack_type": "untargeted",
+    "alpha_clients": 3,
+    "alpha_frac": 0.3333333333333333,
+    "strategy": "krum",
+    "final_macro_f1": 0.992318235332606,
+    "targeted_success_rate": null,
+    "wall_clock_seconds": 29.670948028564453
+  },
+  {
+    "attack_type": "untargeted",
+    "alpha_clients": 3,
+    "alpha_frac": 0.3333333333333333,
+    "strategy": "gating_agent",
+    "final_macro_f1": 0.3203640101420007,
+    "targeted_success_rate": null,
+    "wall_clock_seconds": 28.997732877731323
+  },
+  {
+    "attack_type": "untargeted",
+    "alpha_clients": 4,
+    "alpha_frac": 0.4444444444444444,
+    "strategy": "fedavg",
+    "final_macro_f1": 0.18459956292582594,
+    "targeted_success_rate": null,
+    "wall_clock_seconds": 30.447688102722168
+  },
+  {
+    "attack_type": "untargeted",
+    "alpha_clients": 4,
+    "alpha_frac": 0.4444444444444444,
+    "strategy": "trimmed_mean",
+    "final_macro_f1": 0.17424988510275097,
+    "targeted_success_rate": null,
+    "wall_clock_seconds": 29.841660737991333
+  },
+  {
+    "attack_type": "untargeted",
+    "alpha_clients": 4,
+    "alpha_frac": 0.4444444444444444,
+    "strategy": "krum",
+    "final_macro_f1": 0.99790094286973,
+    "targeted_success_rate": null,
+    "wall_clock_seconds": 30.45079493522644
+  },
+  {
+    "attack_type": "untargeted",
+    "alpha_clients": 4,
+    "alpha_frac": 0.4444444444444444,
+    "strategy": "gating_agent",
+    "final_macro_f1": 0.9442915732828695,
+    "targeted_success_rate": null,
+    "wall_clock_seconds": 29.371886014938354
+  },
+  {
+    "attack_type": "targeted",
+    "alpha_clients": 0,
+    "alpha_frac": 0.0,
+    "strategy": "fedavg",
+    "final_macro_f1": 0.9958401058870616,
+    "targeted_success_rate": null,
+    "wall_clock_seconds": 29.927037954330444
+  },
+  {
+    "attack_type": "targeted",
+    "alpha_clients": 0,
+    "alpha_frac": 0.0,
+    "strategy": "trimmed_mean",
+    "final_macro_f1": 0.9969707672636648,
+    "targeted_success_rate": null,
+    "wall_clock_seconds": 29.887326955795288
+  },
+  {
+    "attack_type": "targeted",
+    "alpha_clients": 0,
+    "alpha_frac": 0.0,
+    "strategy": "krum",
+    "final_macro_f1": 0.9921217718853285,
+    "targeted_success_rate": null,
+    "wall_clock_seconds": 29.67597794532776
+  },
+  {
+    "attack_type": "targeted",
+    "alpha_clients": 0,
+    "alpha_frac": 0.0,
+    "strategy": "gating_agent",
+    "final_macro_f1": 0.9974127199467558,
+    "targeted_success_rate": null,
+    "wall_clock_seconds": 31.865194082260132
+  },
+  {
+    "attack_type": "targeted",
+    "alpha_clients": 1,
+    "alpha_frac": 0.1111111111111111,
+    "strategy": "fedavg",
+    "final_macro_f1": 0.5445987298560953,
+    "targeted_success_rate": 1.0,
+    "wall_clock_seconds": 30.26527690887451
+  },
+  {
+    "attack_type": "targeted",
+    "alpha_clients": 1,
+    "alpha_frac": 0.1111111111111111,
+    "strategy": "trimmed_mean",
+    "final_macro_f1": 0.9974807610707509,
+    "targeted_success_rate": 0.0017409470752089136,
+    "wall_clock_seconds": 31.020164012908936
+  },
+  {
+    "attack_type": "targeted",
+    "alpha_clients": 1,
+    "alpha_frac": 0.1111111111111111,
+    "strategy": "krum",
+    "final_macro_f1": 0.9922884289230146,
+    "targeted_success_rate": 0.0020891364902506965,
+    "wall_clock_seconds": 29.957412242889404
+  },
+  {
+    "attack_type": "targeted",
+    "alpha_clients": 1,
+    "alpha_frac": 0.1111111111111111,
+    "strategy": "gating_agent",
+    "final_macro_f1": 0.8072093278835978,
+    "targeted_success_rate": 0.5013927576601671,
+    "wall_clock_seconds": 29.351421117782593
+  },
+  {
+    "attack_type": "targeted",
+    "alpha_clients": 2,
+    "alpha_frac": 0.2222222222222222,
+    "strategy": "fedavg",
+    "final_macro_f1": 0.54365217800003,
+    "targeted_success_rate": 1.0,
+    "wall_clock_seconds": 30.538008213043213
+  },
+  {
+    "attack_type": "targeted",
+    "alpha_clients": 2,
+    "alpha_frac": 0.2222222222222222,
+    "strategy": "trimmed_mean",
+    "final_macro_f1": 0.548074645161877,
+    "targeted_success_rate": 0.9996518105849582,
+    "wall_clock_seconds": 30.228343963623047
+  },
+  {
+    "attack_type": "targeted",
+    "alpha_clients": 2,
+    "alpha_frac": 0.2222222222222222,
+    "strategy": "krum",
+    "final_macro_f1": 0.9958515371418525,
+    "targeted_success_rate": 0.002437325905292479,
+    "wall_clock_seconds": 30.824653148651123
+  },
+  {
+    "attack_type": "targeted",
+    "alpha_clients": 2,
+    "alpha_frac": 0.2222222222222222,
+    "strategy": "gating_agent",
+    "final_macro_f1": 0.5463752604724456,
+    "targeted_success_rate": 1.0,
+    "wall_clock_seconds": 28.93606996536255
+  },
+  {
+    "attack_type": "targeted",
+    "alpha_clients": 3,
+    "alpha_frac": 0.3333333333333333,
+    "strategy": "fedavg",
+    "final_macro_f1": 0.17415287628053586,
+    "targeted_success_rate": 1.0,
+    "wall_clock_seconds": 29.332842111587524
+  },
+  {
+    "attack_type": "targeted",
+    "alpha_clients": 3,
+    "alpha_frac": 0.3333333333333333,
+    "strategy": "trimmed_mean",
+    "final_macro_f1": 0.5249623982406115,
+    "targeted_success_rate": 1.0,
+    "wall_clock_seconds": 29.819577932357788
+  },
+  {
+    "attack_type": "targeted",
+    "alpha_clients": 3,
+    "alpha_frac": 0.3333333333333333,
+    "strategy": "krum",
+    "final_macro_f1": 0.992318235332606,
+    "targeted_success_rate": 0.002437325905292479,
+    "wall_clock_seconds": 30.487268924713135
+  },
+  {
+    "attack_type": "targeted",
+    "alpha_clients": 3,
+    "alpha_frac": 0.3333333333333333,
+    "strategy": "gating_agent",
+    "final_macro_f1": 0.525354244239547,
+    "targeted_success_rate": 1.0,
+    "wall_clock_seconds": 30.0255868434906
+  },
+  {
+    "attack_type": "targeted",
+    "alpha_clients": 4,
+    "alpha_frac": 0.4444444444444444,
+    "strategy": "fedavg",
+    "final_macro_f1": 0.17424988510275097,
+    "targeted_success_rate": 1.0,
+    "wall_clock_seconds": 29.395788192749023
+  },
+  {
+    "attack_type": "targeted",
+    "alpha_clients": 4,
+    "alpha_frac": 0.4444444444444444,
+    "strategy": "trimmed_mean",
+    "final_macro_f1": 0.17913439920483196,
+    "targeted_success_rate": 1.0,
+    "wall_clock_seconds": 29.19251775741577
+  },
+  {
+    "attack_type": "targeted",
+    "alpha_clients": 4,
+    "alpha_frac": 0.4444444444444444,
+    "strategy": "krum",
+    "final_macro_f1": 0.99790094286973,
+    "targeted_success_rate": 0.0020891364902506965,
+    "wall_clock_seconds": 29.357523918151855
+  },
+  {
+    "attack_type": "targeted",
+    "alpha_clients": 4,
+    "alpha_frac": 0.4444444444444444,
+    "strategy": "gating_agent",
+    "final_macro_f1": 0.19427979584960756,
+    "targeted_success_rate": 1.0,
+    "wall_clock_seconds": 29.449665069580078
+  }
+]

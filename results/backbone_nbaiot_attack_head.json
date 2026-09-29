@@ -1,0 +1,139 @@
+{
+  "description": "N-BaIoT attack-type head, federated (9 real devices as clients), no attack, no gating.",
+  "num_rounds": 25,
+  "num_classes": 3,
+  "classes": [
+    "benign",
+    "gafgyt",
+    "mirai"
+  ],
+  "wall_clock_seconds": 32.49657988548279,
+  "rounds": [
+    {
+      "round": 0,
+      "macro_f1": 0.9336599747704533,
+      "targeted_success_rate": null
+    },
+    {
+      "round": 1,
+      "macro_f1": 0.967946511726422,
+      "targeted_success_rate": null
+    },
+    {
+      "round": 2,
+      "macro_f1": 0.9677118670397259,
+      "targeted_success_rate": null
+    },
+    {
+      "round": 3,
+      "macro_f1": 0.9866683006517093,
+      "targeted_success_rate": null
+    },
+    {
+      "round": 4,
+      "macro_f1": 0.986593504024538,
+      "targeted_success_rate": null
+    },
+    {
+      "round": 5,
+      "macro_f1": 0.9891022835268807,
+      "targeted_success_rate": null
+    },
+    {
+      "round": 6,
+      "macro_f1": 0.9889286545450183,
+      "targeted_success_rate": null
+    },
+    {
+      "round": 7,
+      "macro_f1": 0.9920612957898055,
+      "targeted_success_rate": null
+    },
+    {
+      "round": 8,
+      "macro_f1": 0.9879584911017197,
+      "targeted_success_rate": null
+    },
+    {
+      "round": 9,
+      "macro_f1": 0.9932087629352803,
+      "targeted_success_rate": null
+    },
+    {
+      "round": 10,
+      "macro_f1": 0.9934394020182745,
+      "targeted_success_rate": null
+    },
+    {
+      "round": 11,
+      "macro_f1": 0.9949050750020532,
+      "targeted_success_rate": null
+    },
+    {
+      "round": 12,
+      "macro_f1": 0.9949091895782226,
+      "targeted_success_rate": null
+    },
+    {
+      "round": 13,
+      "macro_f1": 0.9942284640643635,
+      "targeted_success_rate": null
+    },
+    {
+      "round": 14,
+      "macro_f1": 0.9933782147965938,
+      "targeted_success_rate": null
+    },
+    {
+      "round": 15,
+      "macro_f1": 0.9951781548488733,
+      "targeted_success_rate": null
+    },
+    {
+      "round": 16,
+      "macro_f1": 0.9946165805232215,
+      "targeted_success_rate": null
+    },
+    {
+      "round": 17,
+      "macro_f1": 0.9954579359238167,
+      "targeted_success_rate": null
+    },
+    {
+      "round": 18,
+      "macro_f1": 0.9951375213966691,
+      "targeted_success_rate": null
+    },
+    {
+      "round": 19,
+      "macro_f1": 0.9958956722634188,
+      "targeted_success_rate": null
+    },
+    {
+      "round": 20,
+      "macro_f1": 0.9960598599213536,
+      "targeted_success_rate": null
+    },
+    {
+      "round": 21,
+      "macro_f1": 0.99659636122942,
+      "targeted_success_rate": null
+    },
+    {
+      "round": 22,
+      "macro_f1": 0.9950965127795777,
+      "targeted_success_rate": null
+    },
+    {
+      "round": 23,
+      "macro_f1": 0.9970021357493127,
+      "targeted_success_rate": null
+    },
+    {
+      "round": 24,
+      "macro_f1": 0.9958401058870616,
+      "targeted_success_rate": null
+    }
+  ],
+  "final_macro_f1": 0.9958401058870616
+}

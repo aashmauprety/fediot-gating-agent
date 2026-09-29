@@ -1,0 +1,38 @@
+[
+  {
+    "delay_rounds": 0,
+    "strategy": "gating_with_bayesian",
+    "final_macro_f1": 0.3203640101420007,
+    "wall_clock_seconds": 32.802634954452515
+  },
+  {
+    "delay_rounds": 0,
+    "strategy": "gating_round_only",
+    "final_macro_f1": 0.17424988510275097,
+    "wall_clock_seconds": 33.89645314216614
+  },
+  {
+    "delay_rounds": 10,
+    "strategy": "gating_with_bayesian",
+    "final_macro_f1": 0.9858381733580733,
+    "wall_clock_seconds": 36.54873585700989
+  },
+  {
+    "delay_rounds": 10,
+    "strategy": "gating_round_only",
+    "final_macro_f1": 0.18459956292582594,
+    "wall_clock_seconds": 33.51970720291138
+  },
+  {
+    "delay_rounds": 20,
+    "strategy": "gating_with_bayesian",
+    "final_macro_f1": 0.9880343774707946,
+    "wall_clock_seconds": 43.68776798248291
+  },
+  {
+    "delay_rounds": 20,
+    "strategy": "gating_round_only",
+    "final_macro_f1": 0.9653701188363977,
+    "wall_clock_seconds": 44.57634496688843
+  }
+]

@@ -1,0 +1,949 @@
+{
+  "description": "CIC IoT-DIAD 2024, 8B single-turn (non-hybrid) LLMGatingPolicy with the z-scored-cosine + worded-calib-delta prompt fix, D=10.",
+  "reference_rule_based_f1": 0.758,
+  "reference_8b_singleturn_old_prompt_f1": 0.064,
+  "reference_8b_hybrid_old_prompt_f1": 0.241,
+  "reference_8b_hybrid_new_prompt_f1": 0.186,
+  "reference_qwen14b_hybrid_new_prompt_f1": 0.9041,
+  "result": {
+    "label": "8B single-turn, z-scored cosine + worded calib delta, D=10 seed=0",
+    "model": "llama3.1:8b",
+    "use_history_tool": false,
+    "final_macro_f1": 0.13750283986175313,
+    "wall_clock_seconds": 942.0200772285461,
+    "n_fallback_rounds": 0,
+    "n_rounds": 25,
+    "malicious_clients": [
+      "ciciot_diad_attack_client_0",
+      "ciciot_diad_attack_client_1",
+      "ciciot_diad_attack_client_2"
+    ],
+    "gating_history": [
+      {
+        "round": 0,
+        "actions": {
+          "ciciot_diad_attack_client_0": "accept",
+          "ciciot_diad_attack_client_1": "accept",
+          "ciciot_diad_attack_client_2": "accept",
+          "ciciot_diad_attack_client_3": "accept",
+          "ciciot_diad_attack_client_4": "accept",
+          "ciciot_diad_attack_client_5": "accept",
+          "ciciot_diad_attack_client_6": "accept",
+          "ciciot_diad_attack_client_7": "accept",
+          "ciciot_diad_attack_client_8": "accept"
+        },
+        "scores": {
+          "ciciot_diad_attack_client_0": 1.0,
+          "ciciot_diad_attack_client_1": 1.0,
+          "ciciot_diad_attack_client_2": 1.0,
+          "ciciot_diad_attack_client_3": 1.0,
+          "ciciot_diad_attack_client_4": 1.0,
+          "ciciot_diad_attack_client_5": 1.0,
+          "ciciot_diad_attack_client_6": 1.0,
+          "ciciot_diad_attack_client_7": 1.0,
+          "ciciot_diad_attack_client_8": 1.0
+        },
+        "rationales": {
+          "ciciot_diad_attack_client_0": "round 0: no previous global update exists yet, cosine similarity to it is undefined -- trivially accepted without consulting the policy or updating the trust posterior, not a real gating judgment",
+          "ciciot_diad_attack_client_1": "round 0: no previous global update exists yet, cosine similarity to it is undefined -- trivially accepted without consulting the policy or updating the trust posterior, not a real gating judgment",
+          "ciciot_diad_attack_client_2": "round 0: no previous global update exists yet, cosine similarity to it is undefined -- trivially accepted without consulting the policy or updating the trust posterior, not a real gating judgment",
+          "ciciot_diad_attack_client_3": "round 0: no previous global update exists yet, cosine similarity to it is undefined -- trivially accepted without consulting the policy or updating the trust posterior, not a real gating judgment",
+          "ciciot_diad_attack_client_4": "round 0: no previous global update exists yet, cosine similarity to it is undefined -- trivially accepted without consulting the policy or updating the trust posterior, not a real gating judgment",
+          "ciciot_diad_attack_client_5": "round 0: no previous global update exists yet, cosine similarity to it is undefined -- trivially accepted without consulting the policy or updating the trust posterior, not a real gating judgment",
+          "ciciot_diad_attack_client_6": "round 0: no previous global update exists yet, cosine similarity to it is undefined -- trivially accepted without consulting the policy or updating the trust posterior, not a real gating judgment",
+          "ciciot_diad_attack_client_7": "round 0: no previous global update exists yet, cosine similarity to it is undefined -- trivially accepted without consulting the policy or updating the trust posterior, not a real gating judgment",
+          "ciciot_diad_attack_client_8": "round 0: no previous global update exists yet, cosine similarity to it is undefined -- trivially accepted without consulting the policy or updating the trust posterior, not a real gating judgment"
+        },
+        "fallback_triggered": false
+      },
+      {
+        "round": 1,
+        "actions": {
+          "ciciot_diad_attack_client_0": "downweight",
+          "ciciot_diad_attack_client_1": "downweight",
+          "ciciot_diad_attack_client_2": "downweight",
+          "ciciot_diad_attack_client_3": "downweight",
+          "ciciot_diad_attack_client_4": "downweight",
+          "ciciot_diad_attack_client_5": "downweight",
+          "ciciot_diad_attack_client_6": "downweight",
+          "ciciot_diad_attack_client_7": "downweight",
+          "ciciot_diad_attack_client_8": "downweight"
+        },
+        "scores": {
+          "ciciot_diad_attack_client_0": 0.6,
+          "ciciot_diad_attack_client_1": 0.6,
+          "ciciot_diad_attack_client_2": 0.6,
+          "ciciot_diad_attack_client_3": 0.6,
+          "ciciot_diad_attack_client_4": 0.3,
+          "ciciot_diad_attack_client_5": 0.3,
+          "ciciot_diad_attack_client_6": 0.4,
+          "ciciot_diad_attack_client_7": 0.6,
+          "ciciot_diad_attack_client_8": 0.4
+        },
+        "rationales": {
+          "ciciot_diad_attack_client_0": "The gateway's update norm and cosine similarity z-scores are both high, but its long-term trust posterior is low, indicating a lack of history, so we downweight the update to balance caution with the positive signs from this round's digest.",
+          "ciciot_diad_attack_client_1": "The gateway's update norm and cosine similarity z-scores are slightly above the group mean, but the long-term trust posterior is low due to no history, and the calibration loss only slightly improved, which suggests some caution is warranted.",
+          "ciciot_diad_attack_client_2": "The gateway's update norm and cosine similarity z-scores are both above average, but its long-term trust posterior is only 0.5, indicating no history of trustworthy behavior, so we downweight its update to reflect this uncertainty.",
+          "ciciot_diad_attack_client_3": "The gateway's update norm and cosine similarity z-scores are both high, indicating a significant deviation from the group, but its calibration loss improved, suggesting some level of normal behavior, and its long-term trust posterior is neutral, so we downweight the update to reflect caution.",
+          "ciciot_diad_attack_client_4": "The gateway's update norm and cosine similarity z-scores are both significantly lower than the group, indicating potential poisoning, but its calibration loss improved, suggesting it may be behaving normally; however, its long-term trust posterior is neutral, indicating no strong evidence of trustworthiness, so we downweight the update to balance these competing signals.",
+          "ciciot_diad_attack_client_5": "The gateway's update norm and cosine similarity z-scores are both negative, indicating deviation from the group, but its calibration loss improved significantly, which is a positive sign; however, its long-term trust posterior is low, indicating a lack of history, so we downweight the update to balance these factors.",
+          "ciciot_diad_attack_client_6": "The gateway's update norm z-score is high, but its cosine similarity z-score is low, and its calibration loss improved, so we downweight its update to balance these mixed signals, given its neutral long-term trust posterior.",
+          "ciciot_diad_attack_client_7": "The gateway's held-out calibration loss improved significantly this round, but its update norm and cosine similarity z-scores are slightly above the group mean, and its long-term trust posterior is neutral, so we downweight its update to balance caution and potential improvement.",
+          "ciciot_diad_attack_client_8": "The gateway's update norm is slightly above average, but its cosine similarity is significantly below average, and its calibration loss improved, but the long-term trust posterior is neutral, so we downweight the update to reflect some caution."
+        },
+        "fallback_triggered": false
+      },
+      {
+        "round": 2,
+        "actions": {
+          "ciciot_diad_attack_client_0": "downweight",
+          "ciciot_diad_attack_client_1": "downweight",
+          "ciciot_diad_attack_client_2": "downweight",
+          "ciciot_diad_attack_client_3": "downweight",
+          "ciciot_diad_attack_client_4": "downweight",
+          "ciciot_diad_attack_client_5": "downweight",
+          "ciciot_diad_attack_client_6": "downweight",
+          "ciciot_diad_attack_client_7": "downweight",
+          "ciciot_diad_attack_client_8": "downweight"
+        },
+        "scores": {
+          "ciciot_diad_attack_client_0": 0.4,
+          "ciciot_diad_attack_client_1": 0.3,
+          "ciciot_diad_attack_client_2": 0.4,
+          "ciciot_diad_attack_client_3": 0.4,
+          "ciciot_diad_attack_client_4": 0.35,
+          "ciciot_diad_attack_client_5": 0.55,
+          "ciciot_diad_attack_client_6": 0.35,
+          "ciciot_diad_attack_client_7": 0.4,
+          "ciciot_diad_attack_client_8": 0.35
+        },
+        "rationales": {
+          "ciciot_diad_attack_client_0": "The gateway's update norm and cosine similarity z-scores are both high, indicating a significant deviation from the group, but its calibration loss actually improved, and its long-term trust posterior is only 0.533, suggesting some inconsistency in its behavior.",
+          "ciciot_diad_attack_client_1": "The gateway's update norm and cosine similarity z-scores are both significantly lower than the group, indicating potential poisoning, but its calibration loss actually improved, suggesting it may not be a targeted attack, and its long-term trust posterior is only 0.533, indicating some past suspicious behavior.",
+          "ciciot_diad_attack_client_2": "The gateway's update norm z-score is significantly lower than the group, and its long-term trust posterior is only 0.533, indicating some past inconsistency, so we downweight its update to mitigate potential impact.",
+          "ciciot_diad_attack_client_3": "The gateway's update norm and cosine similarity z-scores are both high, indicating a significant deviation from the group, but its calibration loss actually improved, and its long-term trust posterior is only 0.533, suggesting some inconsistency in its behavior.",
+          "ciciot_diad_attack_client_4": "The gateway's update norm is significantly higher than the group, and its cosine similarity is lower, suggesting potential poisoning, but its calibration loss actually improved, and its long-term trust posterior is still relatively low, indicating some uncertainty about its behavior.",
+          "ciciot_diad_attack_client_5": "The gateway's update norm is slightly above the group mean, but its cosine similarity is below, and its calibration loss improved, but the long-term trust posterior is only 0.433, indicating some uncertainty about its behavior.",
+          "ciciot_diad_attack_client_6": "The gateway's update has a low cosine similarity z-score, indicating a significant deviation from the group, and its long-term trust posterior is only 0.467, suggesting inconsistent behavior in the past.",
+          "ciciot_diad_attack_client_7": "The gateway's update norm and cosine similarity z-scores are both slightly below average, and its calibration loss improved, but its long-term trust posterior is only 0.533, indicating some past rounds of suspicious behavior.",
+          "ciciot_diad_attack_client_8": "The gateway's update norm and cosine similarity z-scores are both significantly lower than the group, indicating potential poisoning, but its calibration loss actually improved, suggesting it may not be a targeted attack, and its long-term trust posterior is only 0.467, indicating some past suspicious behavior."
+        },
+        "fallback_triggered": false
+      },
+      {
+        "round": 3,
+        "actions": {
+          "ciciot_diad_attack_client_0": "downweight",
+          "ciciot_diad_attack_client_1": "downweight",
+          "ciciot_diad_attack_client_2": "downweight",
+          "ciciot_diad_attack_client_3": "downweight",
+          "ciciot_diad_attack_client_4": "downweight",
+          "ciciot_diad_attack_client_5": "downweight",
+          "ciciot_diad_attack_client_6": "downweight",
+          "ciciot_diad_attack_client_7": "downweight",
+          "ciciot_diad_attack_client_8": "downweight"
+        },
+        "scores": {
+          "ciciot_diad_attack_client_0": 0.6,
+          "ciciot_diad_attack_client_1": 0.35,
+          "ciciot_diad_attack_client_2": 0.35,
+          "ciciot_diad_attack_client_3": 0.55,
+          "ciciot_diad_attack_client_4": 0.55,
+          "ciciot_diad_attack_client_5": 0.35,
+          "ciciot_diad_attack_client_6": 0.35,
+          "ciciot_diad_attack_client_7": 0.3,
+          "ciciot_diad_attack_client_8": 0.55
+        },
+        "rationales": {
+          "ciciot_diad_attack_client_0": "The gateway's update norm is significantly higher than the group, and its cosine similarity is also above average, but its long-term trust posterior is only 0.497, indicating some past suspicious behavior, so we'll downweight its update to balance caution and the gateway's past performance.",
+          "ciciot_diad_attack_client_1": "The gateway's update norm is slightly above the group mean, but its cosine similarity is significantly below, and its calibration loss only improved slightly, outweighing its long-term trust posterior of 0.472.",
+          "ciciot_diad_attack_client_2": "The gateway's update norm is significantly higher than the group, and its cosine similarity is significantly lower, indicating potential poisoning, but its calibration loss is essentially unchanged, suggesting it may not be a targeted attack.",
+          "ciciot_diad_attack_client_3": "The gateway's update norm is significantly lower than the group, but its cosine similarity is unusually high, and its calibration loss improved slightly, so while there are some red flags, they're not enough to exclude the update entirely, but it's not fully trustworthy either.",
+          "ciciot_diad_attack_client_4": "The gateway's update norm is slightly lower than the group, but its cosine similarity is significantly higher, and its calibration loss improved, but its long-term trust posterior is only 0.415, indicating some past suspicious behavior.",
+          "ciciot_diad_attack_client_5": "The gateway's update norm is slightly below the group mean, but its cosine similarity is significantly above, and its calibration loss worsened this round, which, combined with its relatively low long-term trust posterior, suggests a cautious approach.",
+          "ciciot_diad_attack_client_6": "The gateway's update norm and cosine similarity z-scores are both above average, but its long-term trust posterior is low, indicating inconsistent behavior in the past, so the update is downweighted.",
+          "ciciot_diad_attack_client_7": "The gateway's update norm and cosine similarity z-scores are both significantly lower than the group, indicating potential poisoning, but its long-term trust posterior is not strong enough to fully trust its update.",
+          "ciciot_diad_attack_client_8": "The gateway's update norm is slightly below average, but its cosine similarity is above average, and its calibration loss improved, but its long-term trust posterior is only 0.438, indicating some past suspicious behavior."
+        },
+        "fallback_triggered": false
+      },
+      {
+        "round": 4,
+        "actions": {
+          "ciciot_diad_attack_client_0": "downweight",
+          "ciciot_diad_attack_client_1": "downweight",
+          "ciciot_diad_attack_client_2": "downweight",
+          "ciciot_diad_attack_client_3": "downweight",
+          "ciciot_diad_attack_client_4": "downweight",
+          "ciciot_diad_attack_client_5": "downweight",
+          "ciciot_diad_attack_client_6": "downweight",
+          "ciciot_diad_attack_client_7": "downweight",
+          "ciciot_diad_attack_client_8": "downweight"
+        },
+        "scores": {
+          "ciciot_diad_attack_client_0": 0.35,
+          "ciciot_diad_attack_client_1": 0.35,
+          "ciciot_diad_attack_client_2": 0.3,
+          "ciciot_diad_attack_client_3": 0.35,
+          "ciciot_diad_attack_client_4": 0.6,
+          "ciciot_diad_attack_client_5": 0.3,
+          "ciciot_diad_attack_client_6": 0.3,
+          "ciciot_diad_attack_client_7": 0.3,
+          "ciciot_diad_attack_client_8": 0.35
+        },
+        "rationales": {
+          "ciciot_diad_attack_client_0": "The gateway's update norm z-score is significantly lower than the group, while its cosine similarity z-score is unusually high, suggesting potential poisoning, but its calibration loss actually improved, and its long-term trust posterior is not extremely high, so we'll downweight its update to mitigate potential harm.",
+          "ciciot_diad_attack_client_1": "The gateway's update norm and cosine similarity z-scores are both significantly lower than the group, and its calibration loss increased, but its long-term trust posterior is not extremely high, suggesting some inconsistency in its behavior.",
+          "ciciot_diad_attack_client_2": "The gateway's cosine similarity z-score is significantly lower than the other gateways this round, indicating a potential anomaly, and its long-term trust posterior is only 0.466, suggesting some past suspicious behavior.",
+          "ciciot_diad_attack_client_3": "The gateway's update norm and cosine similarity z-scores are both significantly higher than the group, suggesting potential poisoning, but its long-term trust posterior is only 0.509, indicating some past rounds of normal behavior.",
+          "ciciot_diad_attack_client_4": "The gateway's update norm is significantly higher than the group, but its cosine similarity is only slightly above average, and its calibration loss remains unchanged, suggesting some but not overwhelming evidence of a targeted attack.",
+          "ciciot_diad_attack_client_5": "The gateway's update norm and cosine similarity z-scores are both significantly lower than the group, indicating potential poisoning, but its long-term trust posterior is not extremely high, suggesting some caution is warranted.",
+          "ciciot_diad_attack_client_6": "The gateway's update norm and cosine similarity z-scores are significantly higher than the group, suggesting potential poisoning, but its calibration loss remains unchanged, indicating some level of normal behavior.",
+          "ciciot_diad_attack_client_7": "The gateway's update norm and cosine similarity z-scores are both significantly lower than the group, and its calibration loss increased, but its long-term trust posterior is not extremely high, suggesting some inconsistency in its behavior.",
+          "ciciot_diad_attack_client_8": "The gateway's update norm and cosine similarity z-scores are both significantly higher than the group, suggesting potential poisoning, but the calibration loss remains unchanged, indicating some consistency with past behavior."
+        },
+        "fallback_triggered": false
+      },
+      {
+        "round": 5,
+        "actions": {
+          "ciciot_diad_attack_client_0": "downweight",
+          "ciciot_diad_attack_client_1": "downweight",
+          "ciciot_diad_attack_client_2": "downweight",
+          "ciciot_diad_attack_client_3": "downweight",
+          "ciciot_diad_attack_client_4": "downweight",
+          "ciciot_diad_attack_client_5": "downweight",
+          "ciciot_diad_attack_client_6": "downweight",
+          "ciciot_diad_attack_client_7": "downweight",
+          "ciciot_diad_attack_client_8": "downweight"
+        },
+        "scores": {
+          "ciciot_diad_attack_client_0": 0.35,
+          "ciciot_diad_attack_client_1": 0.35,
+          "ciciot_diad_attack_client_2": 0.35,
+          "ciciot_diad_attack_client_3": 0.4,
+          "ciciot_diad_attack_client_4": 0.35,
+          "ciciot_diad_attack_client_5": 0.3,
+          "ciciot_diad_attack_client_6": 0.35,
+          "ciciot_diad_attack_client_7": 0.35,
+          "ciciot_diad_attack_client_8": 0.35
+        },
+        "rationales": {
+          "ciciot_diad_attack_client_0": "The gateway's update norm is slightly lower than the group, but its cosine similarity is significantly higher, and its calibration loss worsened, which, combined with its relatively low long-term trust posterior, suggests a cautious downweighting of its update.",
+          "ciciot_diad_attack_client_1": "The gateway's update norm is significantly higher than the group, and its cosine similarity is significantly lower, indicating potential poisoning, while its calibration loss also worsened this round, outweighing its moderate long-term trust posterior.",
+          "ciciot_diad_attack_client_2": "The gateway's update norm z-score is significantly higher than the group, and its cosine similarity z-score is also above average, suggesting a potential anomaly, but its long-term trust posterior is only 0.437, indicating some past suspicious behavior, so we'll downweight its update to balance caution and past performance.",
+          "ciciot_diad_attack_client_3": "The gateway's update norm and cosine similarity z-scores are both significantly higher than the group, but its long-term trust posterior is only 0.479, indicating inconsistent behavior in the past, so we downweight its update to reflect this uncertainty.",
+          "ciciot_diad_attack_client_4": "The gateway's update norm and cosine similarity z-scores are both high, but its calibration loss worsened this round, and its long-term trust posterior is only 0.478, indicating some past rounds of suspicious behavior.",
+          "ciciot_diad_attack_client_5": "The gateway's update norm and cosine similarity z-scores are both significantly lower than the group, indicating potential poisoning, but its long-term trust posterior is not extremely high, suggesting some caution is warranted.",
+          "ciciot_diad_attack_client_6": "The gateway's update norm is slightly lower than the group, but its cosine similarity is extremely high, and its calibration loss worsened this round, which, combined with its relatively low long-term trust posterior, suggests a cautious downweighting of its update.",
+          "ciciot_diad_attack_client_7": "The gateway's long-term trust posterior is only 0.429, indicating some past suspicious behavior, and this round's digest shows a slightly worse calibration loss and deviating update norm and cosine similarity, suggesting potential poisoning.",
+          "ciciot_diad_attack_client_8": "The gateway's update norm and cosine similarity z-scores are both significantly lower than the group, and its calibration loss increased, but its long-term trust posterior is not extremely high, suggesting some inconsistency in its behavior."
+        },
+        "fallback_triggered": false
+      },
+      {
+        "round": 6,
+        "actions": {
+          "ciciot_diad_attack_client_0": "downweight",
+          "ciciot_diad_attack_client_1": "downweight",
+          "ciciot_diad_attack_client_2": "downweight",
+          "ciciot_diad_attack_client_3": "downweight",
+          "ciciot_diad_attack_client_4": "downweight",
+          "ciciot_diad_attack_client_5": "downweight",
+          "ciciot_diad_attack_client_6": "downweight",
+          "ciciot_diad_attack_client_7": "downweight",
+          "ciciot_diad_attack_client_8": "downweight"
+        },
+        "scores": {
+          "ciciot_diad_attack_client_0": 0.35,
+          "ciciot_diad_attack_client_1": 0.35,
+          "ciciot_diad_attack_client_2": 0.35,
+          "ciciot_diad_attack_client_3": 0.35,
+          "ciciot_diad_attack_client_4": 0.35,
+          "ciciot_diad_attack_client_5": 0.35,
+          "ciciot_diad_attack_client_6": 0.35,
+          "ciciot_diad_attack_client_7": 0.35,
+          "ciciot_diad_attack_client_8": 0.35
+        },
+        "rationales": {
+          "ciciot_diad_attack_client_0": "The gateway's update norm z-score is significantly lower than the other gateways this round, suggesting a potential outlier, but its cosine similarity z-score is higher, indicating some similarity, and its calibration loss is essentially unchanged, which, combined with its moderate long-term trust posterior, warrants downweighting the update rather than excluding it entirely.",
+          "ciciot_diad_attack_client_1": "The gateway's update norm is slightly above the group mean, but its cosine similarity is significantly below, and its calibration loss worsened this round, outweighing its moderate long-term trust posterior of 0.42.",
+          "ciciot_diad_attack_client_2": "The gateway's update norm is slightly above average, but its cosine similarity is significantly below average, and its long-term trust posterior is only 0.425, indicating some past suspicious behavior.",
+          "ciciot_diad_attack_client_3": "The gateway's update norm and cosine similarity z-scores are both significantly higher than the group, and its calibration loss worsened this round, but its long-term trust posterior is only 0.467, indicating inconsistent behavior in the past.",
+          "ciciot_diad_attack_client_4": "The gateway's update norm is significantly lower than the group, and its calibration loss increased, but its long-term trust posterior is not extremely high, suggesting some caution is warranted.",
+          "ciciot_diad_attack_client_5": "The gateway's update norm is significantly lower than the group, but its cosine similarity is higher, and its calibration loss is essentially unchanged, suggesting some normal behavior, but the long-term trust posterior is only 0.402, indicating some past suspicious activity.",
+          "ciciot_diad_attack_client_6": "The gateway's update norm is significantly higher than the group, and its calibration loss got slightly worse, but its long-term trust posterior is only 0.397, indicating a history of inconsistent behavior.",
+          "ciciot_diad_attack_client_7": "The gateway's update norm is slightly above the group mean, but its cosine similarity is significantly below, and its calibration loss worsened this round, outweighing its moderate long-term trust posterior of 0.418.",
+          "ciciot_diad_attack_client_8": "The gateway's update norm and cosine similarity z-scores are both slightly above average, but its calibration loss got slightly worse, and its long-term trust posterior is only 0.431, indicating some past rounds of suspicious behavior."
+        },
+        "fallback_triggered": false
+      },
+      {
+        "round": 7,
+        "actions": {
+          "ciciot_diad_attack_client_0": "downweight",
+          "ciciot_diad_attack_client_1": "downweight",
+          "ciciot_diad_attack_client_2": "downweight",
+          "ciciot_diad_attack_client_3": "downweight",
+          "ciciot_diad_attack_client_4": "downweight",
+          "ciciot_diad_attack_client_5": "downweight",
+          "ciciot_diad_attack_client_6": "downweight",
+          "ciciot_diad_attack_client_7": "downweight",
+          "ciciot_diad_attack_client_8": "downweight"
+        },
+        "scores": {
+          "ciciot_diad_attack_client_0": 0.35,
+          "ciciot_diad_attack_client_1": 0.35,
+          "ciciot_diad_attack_client_2": 0.35,
+          "ciciot_diad_attack_client_3": 0.35,
+          "ciciot_diad_attack_client_4": 0.35,
+          "ciciot_diad_attack_client_5": 0.35,
+          "ciciot_diad_attack_client_6": 0.35,
+          "ciciot_diad_attack_client_7": 0.35,
+          "ciciot_diad_attack_client_8": 0.35
+        },
+        "rationales": {
+          "ciciot_diad_attack_client_0": "The gateway's update norm and cosine similarity z-scores are both significantly higher than the group, but its calibration loss worsened this round, and its long-term trust posterior is only 0.449, indicating some past rounds of suspicious behavior.",
+          "ciciot_diad_attack_client_1": "The gateway's update norm and cosine similarity z-scores are both significantly lower than the group, and its calibration loss increased, but its long-term trust posterior is not extremely high, suggesting some inconsistency in its behavior.",
+          "ciciot_diad_attack_client_2": "The gateway's update norm and cosine similarity z-scores are both negative, indicating deviation from the group, and its calibration loss got slightly worse, but its long-term trust posterior is only 0.416, indicating some past rounds of suspicious behavior.",
+          "ciciot_diad_attack_client_3": "The gateway's update norm is significantly higher than the group, and its cosine similarity is significantly lower, suggesting potential poisoning, but its calibration loss is essentially unchanged, and its long-term trust posterior is only 0.45, indicating some past suspicious behavior.",
+          "ciciot_diad_attack_client_4": "The gateway's update norm and cosine similarity z-scores are both high, but its calibration loss worsened this round, and its long-term trust posterior is only 0.443, indicating some past rounds of suspicious behavior.",
+          "ciciot_diad_attack_client_5": "The gateway's update norm is significantly lower than the group, and its cosine similarity is unusually high, while its calibration loss also worsened, but its long-term trust posterior is still relatively low, indicating some past suspicious behavior.",
+          "ciciot_diad_attack_client_6": "The gateway's update norm and cosine similarity z-scores are slightly above the group mean, but its calibration loss worsened, and its long-term trust posterior is only 0.393, indicating inconsistent behavior in the past.",
+          "ciciot_diad_attack_client_7": "The gateway's update norm z-score is high, but its cosine similarity z-score is low, and its calibration loss got slightly worse, which, combined with its relatively low long-term trust posterior, suggests a cautious approach.",
+          "ciciot_diad_attack_client_8": "The gateway's update norm and cosine similarity z-scores are both significantly lower than the group, and its calibration loss increased, but its long-term trust posterior is not extremely high, suggesting some past rounds of normal behavior."
+        },
+        "fallback_triggered": false
+      },
+      {
+        "round": 8,
+        "actions": {
+          "ciciot_diad_attack_client_0": "downweight",
+          "ciciot_diad_attack_client_1": "downweight",
+          "ciciot_diad_attack_client_2": "downweight",
+          "ciciot_diad_attack_client_3": "downweight",
+          "ciciot_diad_attack_client_4": "downweight",
+          "ciciot_diad_attack_client_5": "downweight",
+          "ciciot_diad_attack_client_6": "downweight",
+          "ciciot_diad_attack_client_7": "downweight",
+          "ciciot_diad_attack_client_8": "downweight"
+        },
+        "scores": {
+          "ciciot_diad_attack_client_0": 0.35,
+          "ciciot_diad_attack_client_1": 0.35,
+          "ciciot_diad_attack_client_2": 0.35,
+          "ciciot_diad_attack_client_3": 0.35,
+          "ciciot_diad_attack_client_4": 0.35,
+          "ciciot_diad_attack_client_5": 0.42,
+          "ciciot_diad_attack_client_6": 0.45,
+          "ciciot_diad_attack_client_7": 0.35,
+          "ciciot_diad_attack_client_8": 0.35
+        },
+        "rationales": {
+          "ciciot_diad_attack_client_0": "The gateway's update norm is significantly lower than the group, while its cosine similarity is unusually high, suggesting potential poisoning, but its long-term trust posterior is not strong enough to fully trust its update",
+          "ciciot_diad_attack_client_1": "The gateway's update norm z-score is slightly above the group, but its cosine similarity z-score is significantly below, and its calibration loss got slightly worse, outweighing its relatively moderate long-term trust posterior of 0.406.",
+          "ciciot_diad_attack_client_2": "The gateway's update norm and cosine similarity z-scores are slightly above the group mean, but its calibration loss increased, and its long-term trust posterior is only 0.409, indicating some past rounds of suspicious behavior.",
+          "ciciot_diad_attack_client_3": "The gateway's update norm and cosine similarity z-scores are both significantly higher than the group, and its calibration loss worsened this round, but its long-term trust posterior is only 0.438, indicating some past rounds of suspicious behavior.",
+          "ciciot_diad_attack_client_4": "The gateway's update norm and cosine similarity z-scores are both significantly lower than the group, and its calibration loss got slightly worse, but its long-term trust posterior is not extremely high, suggesting some inconsistency in its behavior.",
+          "ciciot_diad_attack_client_5": "The gateway's update norm is slightly above the group mean, but its cosine similarity is below, and its calibration loss worsened, which, combined with its relatively low long-term trust posterior, suggests a cautious downweighting of its update.",
+          "ciciot_diad_attack_client_6": "The gateway's update norm is slightly above the group mean, but its cosine similarity is below, and its calibration loss worsened, which, combined with its relatively low long-term trust posterior, suggests a cautious approach.",
+          "ciciot_diad_attack_client_7": "The gateway's update norm is significantly lower than the group, while its cosine similarity is higher, and its calibration loss worsened, but its long-term trust posterior is only 0.404, indicating some past suspicious behavior.",
+          "ciciot_diad_attack_client_8": "The gateway's update has a very low cosine similarity z-score, indicating a significant deviation from the group, and its calibration loss got slightly worse, which, combined with its relatively low long-term trust posterior, suggests a potential attack."
+        },
+        "fallback_triggered": false
+      },
+      {
+        "round": 9,
+        "actions": {
+          "ciciot_diad_attack_client_0": "downweight",
+          "ciciot_diad_attack_client_1": "downweight",
+          "ciciot_diad_attack_client_2": "downweight",
+          "ciciot_diad_attack_client_3": "downweight",
+          "ciciot_diad_attack_client_4": "downweight",
+          "ciciot_diad_attack_client_5": "downweight",
+          "ciciot_diad_attack_client_6": "downweight",
+          "ciciot_diad_attack_client_7": "downweight",
+          "ciciot_diad_attack_client_8": "downweight"
+        },
+        "scores": {
+          "ciciot_diad_attack_client_0": 0.35,
+          "ciciot_diad_attack_client_1": 0.35,
+          "ciciot_diad_attack_client_2": 0.35,
+          "ciciot_diad_attack_client_3": 0.35,
+          "ciciot_diad_attack_client_4": 0.35,
+          "ciciot_diad_attack_client_5": 0.35,
+          "ciciot_diad_attack_client_6": 0.35,
+          "ciciot_diad_attack_client_7": 0.35,
+          "ciciot_diad_attack_client_8": 0.35
+        },
+        "rationales": {
+          "ciciot_diad_attack_client_0": "The gateway's update norm is slightly lower than the group, its cosine similarity is extremely high, and its calibration loss got slightly worse, but its long-term trust posterior is only 0.427, indicating some past rounds of suspicious behavior.",
+          "ciciot_diad_attack_client_1": "The gateway's update norm is significantly higher than the group, and its calibration loss got slightly worse, but its long-term trust posterior is only 0.401, indicating some past rounds of suspicious behavior.",
+          "ciciot_diad_attack_client_2": "The gateway's update norm is significantly higher than the group, and its cosine similarity is lower, indicating potential deviation from the group, while its calibration loss worsened, and its long-term trust posterior is only 0.404, suggesting some inconsistency and caution is warranted.",
+          "ciciot_diad_attack_client_3": "The gateway's update norm and cosine similarity z-scores are both significantly lower than the group, and its calibration loss increased this round, but its long-term trust posterior is not extremely high, suggesting some past rounds of suspicious behavior.",
+          "ciciot_diad_attack_client_4": "The gateway's update norm is slightly below the group mean, but its cosine similarity is significantly above, and its calibration loss worsened this round, which, combined with its relatively low long-term trust posterior, suggests a cautious approach.",
+          "ciciot_diad_attack_client_5": "The gateway's update norm is slightly lower than the group, but its cosine similarity is significantly higher, and its calibration loss worsened this round, which, combined with its relatively low long-term trust posterior, suggests a cautious downweighting of its update.",
+          "ciciot_diad_attack_client_6": "The gateway's update norm and cosine similarity z-scores are both slightly below average, and its calibration loss got slightly worse, but its long-term trust posterior is only 0.401, indicating some past rounds of suspicious behavior.",
+          "ciciot_diad_attack_client_7": "The gateway's update norm is significantly higher than the group, and its cosine similarity is lower, indicating potential deviation from the group, while its calibration loss worsened, and its long-term trust posterior is only 0.4, suggesting some inconsistency in its behavior.",
+          "ciciot_diad_attack_client_8": "The gateway's update norm and cosine similarity z-scores are both significantly lower than the group, and its calibration loss increased this round, but its long-term trust posterior is not extremely high, suggesting some past rounds of suspicious behavior."
+        },
+        "fallback_triggered": false
+      },
+      {
+        "round": 10,
+        "actions": {
+          "ciciot_diad_attack_client_0": "downweight",
+          "ciciot_diad_attack_client_1": "downweight",
+          "ciciot_diad_attack_client_2": "downweight",
+          "ciciot_diad_attack_client_3": "downweight",
+          "ciciot_diad_attack_client_4": "downweight",
+          "ciciot_diad_attack_client_5": "downweight",
+          "ciciot_diad_attack_client_6": "downweight",
+          "ciciot_diad_attack_client_7": "downweight",
+          "ciciot_diad_attack_client_8": "downweight"
+        },
+        "scores": {
+          "ciciot_diad_attack_client_0": 0.35,
+          "ciciot_diad_attack_client_1": 0.35,
+          "ciciot_diad_attack_client_2": 0.3,
+          "ciciot_diad_attack_client_3": 0.35,
+          "ciciot_diad_attack_client_4": 0.35,
+          "ciciot_diad_attack_client_5": 0.35,
+          "ciciot_diad_attack_client_6": 0.35,
+          "ciciot_diad_attack_client_7": 0.35,
+          "ciciot_diad_attack_client_8": 0.35
+        },
+        "rationales": {
+          "ciciot_diad_attack_client_0": "The gateway's update norm is significantly higher than the group, its cosine similarity is lower, and its calibration loss got much worse, but its long-term trust posterior is not very high, indicating some past rounds of suspicious behavior.",
+          "ciciot_diad_attack_client_1": "The gateway's update norm is slightly above average, but its cosine similarity is significantly below average, and its calibration loss got much worse, outweighing its long-term trust posterior of 0.397.",
+          "ciciot_diad_attack_client_2": "The gateway's update norm is significantly higher than the group, but its cosine similarity is lower, and its calibration loss got much worse, which, combined with its relatively low long-term trust posterior, suggests a potential attack, but not enough to exclude the update entirely.",
+          "ciciot_diad_attack_client_3": "The gateway's update norm is significantly lower than the group, but its cosine similarity is higher, and its calibration loss worsened, which, combined with its relatively low long-term trust posterior, suggests a cautious downweighting of its update.",
+          "ciciot_diad_attack_client_4": "The gateway's update norm is significantly lower than the group, while its cosine similarity is higher, and its calibration loss worsened, but its long-term trust posterior is only 0.416, indicating some past suspicious behavior.",
+          "ciciot_diad_attack_client_5": "The gateway's update norm is significantly lower than the group, and its calibration loss got slightly worse, but its long-term trust posterior is not very high, indicating some past rounds of suspicious behavior.",
+          "ciciot_diad_attack_client_6": "The gateway's update norm is significantly lower than the group, and its cosine similarity is extremely high, suggesting a potential outlier or anomaly, while its calibration loss also worsened this round, outweighing its moderate long-term trust posterior.",
+          "ciciot_diad_attack_client_7": "The gateway's update norm is significantly lower than the group, while its cosine similarity is higher, and its calibration loss worsened, but its long-term trust posterior is only 0.396, indicating inconsistent behavior in the past.",
+          "ciciot_diad_attack_client_8": "The gateway's update norm is significantly lower than the group, while its cosine similarity is higher, and its calibration loss worsened, but its long-term trust posterior is only 0.403, indicating some past suspicious behavior."
+        },
+        "fallback_triggered": false
+      },
+      {
+        "round": 11,
+        "actions": {
+          "ciciot_diad_attack_client_0": "downweight",
+          "ciciot_diad_attack_client_1": "downweight",
+          "ciciot_diad_attack_client_2": "downweight",
+          "ciciot_diad_attack_client_3": "downweight",
+          "ciciot_diad_attack_client_4": "downweight",
+          "ciciot_diad_attack_client_5": "downweight",
+          "ciciot_diad_attack_client_6": "downweight",
+          "ciciot_diad_attack_client_7": "downweight",
+          "ciciot_diad_attack_client_8": "downweight"
+        },
+        "scores": {
+          "ciciot_diad_attack_client_0": 0.6,
+          "ciciot_diad_attack_client_1": 0.35,
+          "ciciot_diad_attack_client_2": 0.55,
+          "ciciot_diad_attack_client_3": 0.35,
+          "ciciot_diad_attack_client_4": 0.35,
+          "ciciot_diad_attack_client_5": 0.35,
+          "ciciot_diad_attack_client_6": 0.35,
+          "ciciot_diad_attack_client_7": 0.35,
+          "ciciot_diad_attack_client_8": 0.35
+        },
+        "rationales": {
+          "ciciot_diad_attack_client_0": "The gateway's update norm and cosine similarity z-scores are both significantly higher than the group, suggesting potential poisoning, but its long-term trust posterior is not extremely high, indicating some past suspicious behavior.",
+          "ciciot_diad_attack_client_1": "The gateway's update norm and cosine similarity z-scores are both above 1, indicating deviation from the group, and its calibration loss worsened this round, but its long-term trust posterior is only 0.394, indicating inconsistent behavior in the past.",
+          "ciciot_diad_attack_client_2": "The gateway's update norm and cosine similarity z-scores are both significantly higher than the group, but its long-term trust posterior is only 0.39, indicating a history of inconsistent behavior.",
+          "ciciot_diad_attack_client_3": "The gateway's update norm and cosine similarity z-scores are both negative, indicating deviation from the group, but its calibration loss improved significantly, and its long-term trust posterior is only 0.414, suggesting some inconsistency in its behavior.",
+          "ciciot_diad_attack_client_4": "The gateway's update norm and cosine similarity z-scores are both negative, indicating deviation from the group, but its calibration loss improved significantly, and its long-term trust posterior is only 0.410, suggesting some inconsistency in its behavior.",
+          "ciciot_diad_attack_client_5": "The gateway's update norm and cosine similarity z-scores are both negative, indicating deviation from the group, but its calibration loss improved significantly, and its long-term trust posterior is only 0.393, suggesting some inconsistency in its behavior.",
+          "ciciot_diad_attack_client_6": "The gateway's update norm and cosine similarity z-scores are both negative, indicating deviation from the group, but its calibration loss improved significantly, and its long-term trust posterior is only 0.394, suggesting some inconsistency in its behavior.",
+          "ciciot_diad_attack_client_7": "The gateway's update norm and cosine similarity z-scores are both negative, indicating deviation from the group, but its calibration loss improved significantly, and its long-term trust posterior is only 0.393, suggesting some inconsistency in its behavior.",
+          "ciciot_diad_attack_client_8": "The gateway's update norm and cosine similarity z-scores are both negative, indicating deviation from the group, but its calibration loss improved significantly, and its long-term trust posterior is only 0.399, suggesting some inconsistency in its behavior."
+        },
+        "fallback_triggered": false
+      },
+      {
+        "round": 12,
+        "actions": {
+          "ciciot_diad_attack_client_0": "downweight",
+          "ciciot_diad_attack_client_1": "downweight",
+          "ciciot_diad_attack_client_2": "downweight",
+          "ciciot_diad_attack_client_3": "downweight",
+          "ciciot_diad_attack_client_4": "downweight",
+          "ciciot_diad_attack_client_5": "downweight",
+          "ciciot_diad_attack_client_6": "downweight",
+          "ciciot_diad_attack_client_7": "downweight",
+          "ciciot_diad_attack_client_8": "downweight"
+        },
+        "scores": {
+          "ciciot_diad_attack_client_0": 0.3,
+          "ciciot_diad_attack_client_1": 0.35,
+          "ciciot_diad_attack_client_2": 0.35,
+          "ciciot_diad_attack_client_3": 0.35,
+          "ciciot_diad_attack_client_4": 0.35,
+          "ciciot_diad_attack_client_5": 0.55,
+          "ciciot_diad_attack_client_6": 0.55,
+          "ciciot_diad_attack_client_7": 0.55,
+          "ciciot_diad_attack_client_8": 0.4
+        },
+        "rationales": {
+          "ciciot_diad_attack_client_0": "The gateway's update norm is slightly above average, but its cosine similarity is significantly below average, and its calibration loss got much worse, outweighing its long-term trust posterior of 0.436.",
+          "ciciot_diad_attack_client_1": "The gateway's update norm is significantly higher than the group, its cosine similarity is lower, and its calibration loss got much worse, but its long-term trust posterior is not very high, indicating some past rounds of suspicious behavior.",
+          "ciciot_diad_attack_client_2": "The gateway's update norm is significantly higher than the group, its cosine similarity is lower, and its calibration loss got much worse, but its long-term trust posterior is not extremely high, suggesting some inconsistency in its behavior over time.",
+          "ciciot_diad_attack_client_3": "The gateway's update norm is significantly lower than its peers, but its cosine similarity is higher, and its calibration loss improved, but its long-term trust posterior is only 0.409, indicating some past suspicious behavior.",
+          "ciciot_diad_attack_client_4": "The gateway's update norm is significantly lower than its peers, but its cosine similarity is higher, and its calibration loss improved, but its long-term trust posterior is only 0.405, indicating some past suspicious behavior.",
+          "ciciot_diad_attack_client_5": "The gateway's update norm is significantly lower than its peers, but its cosine similarity is higher, and its calibration loss improved substantially, which suggests some normal behavior, but the long-term trust posterior is only 39%, indicating a history of inconsistent behavior.",
+          "ciciot_diad_attack_client_6": "The gateway's update norm is significantly lower than its peers, but its cosine similarity is higher, and its calibration loss improved substantially, which suggests some normal behavior, but the long-term trust posterior is only 39%, indicating a history of inconsistent behavior.",
+          "ciciot_diad_attack_client_7": "The gateway's update norm is significantly lower than its peers, but its cosine similarity is higher, and its calibration loss improved substantially, which suggests some normal behavior, but the long-term trust posterior is only 39%, indicating a history of inconsistent behavior.",
+          "ciciot_diad_attack_client_8": "The gateway's update norm is significantly lower than its peers, but its cosine similarity is higher, and its calibration loss improved, but its long-term trust posterior is only 39.6%, so we downweight its update to reflect these mixed signals."
+        },
+        "fallback_triggered": false
+      },
+      {
+        "round": 13,
+        "actions": {
+          "ciciot_diad_attack_client_0": "exclude",
+          "ciciot_diad_attack_client_1": "downweight",
+          "ciciot_diad_attack_client_2": "downweight",
+          "ciciot_diad_attack_client_3": "downweight",
+          "ciciot_diad_attack_client_4": "downweight",
+          "ciciot_diad_attack_client_5": "downweight",
+          "ciciot_diad_attack_client_6": "downweight",
+          "ciciot_diad_attack_client_7": "downweight",
+          "ciciot_diad_attack_client_8": "downweight"
+        },
+        "scores": {
+          "ciciot_diad_attack_client_0": 0.0,
+          "ciciot_diad_attack_client_1": 0.35,
+          "ciciot_diad_attack_client_2": 0.35,
+          "ciciot_diad_attack_client_3": 0.6,
+          "ciciot_diad_attack_client_4": 0.55,
+          "ciciot_diad_attack_client_5": 0.55,
+          "ciciot_diad_attack_client_6": 0.35,
+          "ciciot_diad_attack_client_7": 0.55,
+          "ciciot_diad_attack_client_8": 0.35
+        },
+        "rationales": {
+          "ciciot_diad_attack_client_0": "The gateway's update norm and cosine similarity z-scores are both extreme, and its calibration loss got much worse, indicating a high likelihood of a targeted attack.",
+          "ciciot_diad_attack_client_1": "The gateway's update norm is slightly above the group mean, but its cosine similarity is significantly below, and its calibration loss worsened this round, outweighing its moderate long-term trust posterior of 0.389.",
+          "ciciot_diad_attack_client_2": "The gateway's update norm is significantly higher than the group, and its cosine similarity is lower, indicating potential deviation from the group, while its calibration loss worsened, and its long-term trust posterior is only 0.406, suggesting some inconsistency and caution is warranted.",
+          "ciciot_diad_attack_client_3": "The gateway's update norm is significantly lower than its peers, but its cosine similarity is unusually high, and its calibration loss improved substantially, which suggests a mix of suspicious and positive behavior, warranting a cautious downweighting of its update.",
+          "ciciot_diad_attack_client_4": "The gateway's update norm is significantly lower than its peers, but its cosine similarity is higher, and its calibration loss improved substantially, which suggests some normal behavior, but the long-term trust posterior is only 0.401, indicating some past rounds of suspicious behavior.",
+          "ciciot_diad_attack_client_5": "The gateway's update norm is significantly lower than its peers, but its cosine similarity is higher, and its calibration loss improved substantially, which suggests some normal behavior, but the long-term trust posterior is only 0.410, indicating some past rounds of suspicious behavior.",
+          "ciciot_diad_attack_client_6": "The gateway's update norm is significantly lower than its peers, but its cosine similarity is higher, and its calibration loss improved substantially, so while there are some red flags, they're not enough to exclude the update entirely, but its long-term trust posterior is also not high enough to fully trust it",
+          "ciciot_diad_attack_client_7": "The gateway's update norm is significantly lower than its peers, but its cosine similarity is unusually high, and its calibration loss improved substantially, so while there are some red flags, they're not enough to exclude the update entirely, but it's not fully trustworthy either.",
+          "ciciot_diad_attack_client_8": "The gateway's update norm is significantly lower than its peers, but its cosine similarity is higher, and its calibration loss improved substantially, but its long-term trust posterior is only 0.398, indicating some past rounds of suspicious behavior."
+        },
+        "fallback_triggered": false
+      },
+      {
+        "round": 14,
+        "actions": {
+          "ciciot_diad_attack_client_0": "exclude",
+          "ciciot_diad_attack_client_1": "exclude",
+          "ciciot_diad_attack_client_2": "downweight",
+          "ciciot_diad_attack_client_3": "downweight",
+          "ciciot_diad_attack_client_4": "downweight",
+          "ciciot_diad_attack_client_5": "downweight",
+          "ciciot_diad_attack_client_6": "downweight",
+          "ciciot_diad_attack_client_7": "downweight",
+          "ciciot_diad_attack_client_8": "downweight"
+        },
+        "scores": {
+          "ciciot_diad_attack_client_0": 0.0,
+          "ciciot_diad_attack_client_1": 0.0,
+          "ciciot_diad_attack_client_2": 0.35,
+          "ciciot_diad_attack_client_3": 0.35,
+          "ciciot_diad_attack_client_4": 0.35,
+          "ciciot_diad_attack_client_5": 0.35,
+          "ciciot_diad_attack_client_6": 0.35,
+          "ciciot_diad_attack_client_7": 0.55,
+          "ciciot_diad_attack_client_8": 0.55
+        },
+        "rationales": {
+          "ciciot_diad_attack_client_0": "The gateway's held-out calibration loss increased significantly this round, indicating a high likelihood of a targeted attack, and its long-term trust posterior is low, suggesting a history of potentially malicious behavior.",
+          "ciciot_diad_attack_client_1": "The gateway's held-out calibration loss increased significantly this round, indicating a high likelihood of a targeted attack, and its long-term trust posterior is low, suggesting a history of potentially malicious behavior.",
+          "ciciot_diad_attack_client_2": "The gateway's update norm is significantly higher than the group, its cosine similarity is lower, and its calibration loss got much worse, but its long-term trust posterior is not extremely high, suggesting some inconsistency in its behavior over time.",
+          "ciciot_diad_attack_client_3": "The gateway's update norm is significantly lower than its peers, but its cosine similarity is higher, and its calibration loss improved substantially, so while there are some red flags, they're not enough to exclude the update entirely, but its long-term trust posterior is also not high enough to fully trust it",
+          "ciciot_diad_attack_client_4": "The gateway's update norm is significantly lower than the group, but its cosine similarity is higher, and its calibration loss improved, but its long-term trust posterior is only 0.419, indicating some past suspicious behavior.",
+          "ciciot_diad_attack_client_5": "The gateway's update norm is significantly lower than its peers, but its cosine similarity is higher, and its calibration loss improved substantially, so while there are some red flags, they're not enough to exclude the update entirely, but its long-term trust posterior is also not high enough to fully trust it",
+          "ciciot_diad_attack_client_6": "The gateway's update norm is significantly lower than the group, but its cosine similarity is higher, and its calibration loss improved, but its long-term trust posterior is only 0.406, indicating some past suspicious behavior.",
+          "ciciot_diad_attack_client_7": "The gateway's update norm is significantly lower than its peers, but its cosine similarity is unusually high, and its calibration loss improved substantially, so while there are some red flags, they're not enough to exclude the update entirely, but its trustworthiness is not high enough to accept it fully",
+          "ciciot_diad_attack_client_8": "The gateway's update norm is significantly lower than the group, but its cosine similarity is higher, and its calibration loss improved substantially, but its long-term trust posterior is only 0.395, indicating some past rounds of suspicious behavior."
+        },
+        "fallback_triggered": false
+      },
+      {
+        "round": 15,
+        "actions": {
+          "ciciot_diad_attack_client_0": "downweight",
+          "ciciot_diad_attack_client_1": "downweight",
+          "ciciot_diad_attack_client_2": "downweight",
+          "ciciot_diad_attack_client_3": "downweight",
+          "ciciot_diad_attack_client_4": "downweight",
+          "ciciot_diad_attack_client_5": "downweight",
+          "ciciot_diad_attack_client_6": "downweight",
+          "ciciot_diad_attack_client_7": "downweight",
+          "ciciot_diad_attack_client_8": "downweight"
+        },
+        "scores": {
+          "ciciot_diad_attack_client_0": 0.2,
+          "ciciot_diad_attack_client_1": 0.3,
+          "ciciot_diad_attack_client_2": 0.35,
+          "ciciot_diad_attack_client_3": 0.35,
+          "ciciot_diad_attack_client_4": 0.35,
+          "ciciot_diad_attack_client_5": 0.35,
+          "ciciot_diad_attack_client_6": 0.35,
+          "ciciot_diad_attack_client_7": 0.35,
+          "ciciot_diad_attack_client_8": 0.35
+        },
+        "rationales": {
+          "ciciot_diad_attack_client_0": "The gateway's update norm and cosine similarity z-scores are both high, but its calibration loss significantly worsened, and its long-term trust posterior is low, indicating inconsistent behavior.",
+          "ciciot_diad_attack_client_1": "The gateway's update norm and cosine similarity z-scores are both high, but its calibration loss significantly worsened, and its long-term trust posterior is only 0.350, indicating some past rounds of suspicious behavior.",
+          "ciciot_diad_attack_client_2": "The gateway's update norm and cosine similarity z-scores are both high, but its calibration loss significantly worsened, and its long-term trust posterior is only 0.399, indicating inconsistent behavior in the past.",
+          "ciciot_diad_attack_client_3": "The gateway's update norm and cosine similarity z-scores are both significantly lower than the group, but its calibration loss improved substantially, and its long-term trust posterior is only 0.421, indicating some past suspicious behavior.",
+          "ciciot_diad_attack_client_4": "The gateway's update norm and cosine similarity z-scores are both negative, indicating deviation from the group, but its calibration loss improved significantly, and its long-term trust posterior is only 0.414, suggesting some inconsistency in its behavior.",
+          "ciciot_diad_attack_client_5": "The gateway's update norm and cosine similarity z-scores are both negative, indicating deviation from the group, but its calibration loss improved significantly, and its long-term trust posterior is only 0.421, suggesting some inconsistency in its behavior.",
+          "ciciot_diad_attack_client_6": "The gateway's update norm and cosine similarity z-scores are both negative, indicating deviation from the group, but its calibration loss improved significantly, and its long-term trust posterior is only 0.403, suggesting some inconsistency in its behavior.",
+          "ciciot_diad_attack_client_7": "The gateway's update norm and cosine similarity z-scores are both significantly lower than the group, but its calibration loss improved substantially, and its long-term trust posterior is only 0.441, indicating some past suspicious behavior.",
+          "ciciot_diad_attack_client_8": "The gateway's update norm and cosine similarity z-scores are both significantly lower than the group, but its calibration loss improved substantially, and its long-term trust posterior is only 0.413, indicating some past suspicious behavior."
+        },
+        "fallback_triggered": false
+      },
+      {
+        "round": 16,
+        "actions": {
+          "ciciot_diad_attack_client_0": "downweight",
+          "ciciot_diad_attack_client_1": "downweight",
+          "ciciot_diad_attack_client_2": "downweight",
+          "ciciot_diad_attack_client_3": "downweight",
+          "ciciot_diad_attack_client_4": "downweight",
+          "ciciot_diad_attack_client_5": "downweight",
+          "ciciot_diad_attack_client_6": "downweight",
+          "ciciot_diad_attack_client_7": "downweight",
+          "ciciot_diad_attack_client_8": "downweight"
+        },
+        "scores": {
+          "ciciot_diad_attack_client_0": 0.25,
+          "ciciot_diad_attack_client_1": 0.35,
+          "ciciot_diad_attack_client_2": 0.35,
+          "ciciot_diad_attack_client_3": 0.35,
+          "ciciot_diad_attack_client_4": 0.35,
+          "ciciot_diad_attack_client_5": 0.35,
+          "ciciot_diad_attack_client_6": 0.35,
+          "ciciot_diad_attack_client_7": 0.35,
+          "ciciot_diad_attack_client_8": 0.35
+        },
+        "rationales": {
+          "ciciot_diad_attack_client_0": "The gateway's update norm and cosine similarity z-scores are high, but its calibration loss significantly worsened, and its long-term trust posterior is low, indicating inconsistent behavior.",
+          "ciciot_diad_attack_client_1": "The gateway's update norm and cosine similarity z-scores are both high, but its calibration loss worsened this round, and its long-term trust posterior is only 0.348, indicating some past rounds of suspicious behavior.",
+          "ciciot_diad_attack_client_2": "The gateway's update norm and cosine similarity z-scores are both high, indicating a significant deviation from the group, but its long-term trust posterior is low, suggesting a history of inconsistent behavior, and its calibration loss worsened this round, which, combined, warrants downweighting the update.",
+          "ciciot_diad_attack_client_3": "The gateway's update norm and cosine similarity z-scores are both significantly lower than the group, but its calibration loss improved substantially, and its long-term trust posterior is only 0.415, indicating some past suspicious behavior.",
+          "ciciot_diad_attack_client_4": "The gateway's update norm and cosine similarity z-scores are both significantly lower than the group, but its calibration loss improved substantially, and its long-term trust posterior is only 0.409, indicating some past suspicious behavior.",
+          "ciciot_diad_attack_client_5": "The gateway's update norm and cosine similarity z-scores are both significantly lower than the group, but its calibration loss improved substantially, and its long-term trust posterior is only 0.415, indicating some past suspicious behavior.",
+          "ciciot_diad_attack_client_6": "The gateway's update norm and cosine similarity z-scores are both negative, indicating deviation from the group, but its calibration loss improved significantly, and its long-term trust posterior is only 0.399, suggesting some inconsistency in its behavior.",
+          "ciciot_diad_attack_client_7": "The gateway's update norm and cosine similarity z-scores are both negative, indicating deviation from the group, but its calibration loss improved significantly, and its long-term trust posterior is only 0.433, suggesting some inconsistency in its behavior.",
+          "ciciot_diad_attack_client_8": "The gateway's update norm and cosine similarity z-scores are both negative, indicating deviation from the group, but its calibration loss improved significantly, and its long-term trust posterior is only 0.409, suggesting some inconsistency in its behavior."
+        },
+        "fallback_triggered": false
+      },
+      {
+        "round": 17,
+        "actions": {
+          "ciciot_diad_attack_client_0": "exclude",
+          "ciciot_diad_attack_client_1": "downweight",
+          "ciciot_diad_attack_client_2": "downweight",
+          "ciciot_diad_attack_client_3": "downweight",
+          "ciciot_diad_attack_client_4": "downweight",
+          "ciciot_diad_attack_client_5": "downweight",
+          "ciciot_diad_attack_client_6": "downweight",
+          "ciciot_diad_attack_client_7": "downweight",
+          "ciciot_diad_attack_client_8": "downweight"
+        },
+        "scores": {
+          "ciciot_diad_attack_client_0": 0.0,
+          "ciciot_diad_attack_client_1": 0.25,
+          "ciciot_diad_attack_client_2": 0.35,
+          "ciciot_diad_attack_client_3": 0.55,
+          "ciciot_diad_attack_client_4": 0.35,
+          "ciciot_diad_attack_client_5": 0.35,
+          "ciciot_diad_attack_client_6": 0.4,
+          "ciciot_diad_attack_client_7": 0.35,
+          "ciciot_diad_attack_client_8": 0.35
+        },
+        "rationales": {
+          "ciciot_diad_attack_client_0": "The gateway's update norm and cosine similarity z-scores are both extreme, and its calibration loss got much worse, indicating a high likelihood of a targeted attack.",
+          "ciciot_diad_attack_client_1": "The gateway's update norm is significantly higher than the group, its cosine similarity is lower, and its calibration loss got much worse, but its long-term trust posterior is only 0.351, indicating some past rounds of normal behavior.",
+          "ciciot_diad_attack_client_2": "The gateway's update norm is significantly higher than the group, its cosine similarity is significantly lower, and its calibration loss got much worse, but its long-term trust posterior is only 0.393, indicating some past rounds of suspicious behavior.",
+          "ciciot_diad_attack_client_3": "The gateway's update norm is significantly lower than its peers, but its cosine similarity is higher, and its calibration loss improved substantially, which suggests some normal behavior, but the long-term trust posterior is only 0.410, indicating some past rounds of suspicious behavior.",
+          "ciciot_diad_attack_client_4": "The gateway's update norm is significantly lower than its peers, but its cosine similarity is higher, and its calibration loss improved substantially, but its long-term trust posterior is only 0.405, indicating some past rounds of suspicious behavior.",
+          "ciciot_diad_attack_client_5": "The gateway's update norm is significantly lower than the group, but its cosine similarity is higher, and its calibration loss improved, but its long-term trust posterior is only 0.410, indicating some past suspicious behavior.",
+          "ciciot_diad_attack_client_6": "The gateway's update norm is significantly lower than the group, but its cosine similarity is higher, and its calibration loss improved, but its long-term trust posterior is only 0.396, indicating some past suspicious behavior.",
+          "ciciot_diad_attack_client_7": "The gateway's update norm is significantly lower than its peers, but its cosine similarity is higher, and its calibration loss improved substantially, so while there are some red flags, they're not enough to exclude the update entirely, but its long-term trust posterior is also not high enough to fully trust it",
+          "ciciot_diad_attack_client_8": "The gateway's update norm is significantly lower than the group, but its cosine similarity is higher, and its calibration loss improved, but its long-term trust posterior is only 0.405, indicating some past rounds of suspicious behavior."
+        },
+        "fallback_triggered": false
+      },
+      {
+        "round": 18,
+        "actions": {
+          "ciciot_diad_attack_client_0": "exclude",
+          "ciciot_diad_attack_client_1": "exclude",
+          "ciciot_diad_attack_client_2": "exclude",
+          "ciciot_diad_attack_client_3": "downweight",
+          "ciciot_diad_attack_client_4": "downweight",
+          "ciciot_diad_attack_client_5": "downweight",
+          "ciciot_diad_attack_client_6": "downweight",
+          "ciciot_diad_attack_client_7": "downweight",
+          "ciciot_diad_attack_client_8": "downweight"
+        },
+        "scores": {
+          "ciciot_diad_attack_client_0": 0.0,
+          "ciciot_diad_attack_client_1": 0.0,
+          "ciciot_diad_attack_client_2": 0.0,
+          "ciciot_diad_attack_client_3": 0.35,
+          "ciciot_diad_attack_client_4": 0.35,
+          "ciciot_diad_attack_client_5": 0.35,
+          "ciciot_diad_attack_client_6": 0.4,
+          "ciciot_diad_attack_client_7": 0.55,
+          "ciciot_diad_attack_client_8": 0.35
+        },
+        "rationales": {
+          "ciciot_diad_attack_client_0": "The gateway's held-out calibration loss increased significantly this round, indicating a high likelihood of a targeted attack, and its long-term trust posterior is low, suggesting a history of potentially malicious behavior.",
+          "ciciot_diad_attack_client_1": "The gateway's held-out calibration loss increased significantly this round, indicating a high likelihood of a targeted attack, and its long-term trust posterior is low, suggesting a history of potentially malicious behavior.",
+          "ciciot_diad_attack_client_2": "The gateway's held-out calibration loss increased significantly this round, indicating a high likelihood of a targeted attack, and its long-term trust posterior is low, suggesting a history of potentially malicious behavior.",
+          "ciciot_diad_attack_client_3": "The gateway's update norm is significantly lower than its peers, but its cosine similarity is higher, and its calibration loss improved substantially, so while there are some red flags, they're not enough to exclude the update entirely, but its long-term trust posterior is also not high enough to fully trust it",
+          "ciciot_diad_attack_client_4": "The gateway's update norm is significantly lower than the group, but its cosine similarity is higher, and its calibration loss improved, but its long-term trust posterior is only 0.401, indicating some past suspicious behavior.",
+          "ciciot_diad_attack_client_5": "The gateway's update norm is significantly lower than its peers, but its cosine similarity is higher, and its calibration loss improved substantially, but its long-term trust posterior is only 40.6%, so we downweight its update to reflect these mixed signals.",
+          "ciciot_diad_attack_client_6": "The gateway's update norm is significantly lower than its peers, but its cosine similarity is higher, and its calibration loss improved substantially, so we downweight its update to reflect some, but not complete, distrust.",
+          "ciciot_diad_attack_client_7": "The gateway's update norm is significantly lower than its peers, but its cosine similarity is higher, and its calibration loss improved substantially, so while there are some red flags, they're not enough to exclude the update entirely, but its long-term trust posterior is also not high enough to fully trust it",
+          "ciciot_diad_attack_client_8": "The gateway's update norm is significantly lower than its peers, but its cosine similarity is higher, and its calibration loss improved substantially, but its long-term trust posterior is only 0.401, indicating some past rounds of suspicious behavior."
+        },
+        "fallback_triggered": false
+      },
+      {
+        "round": 19,
+        "actions": {
+          "ciciot_diad_attack_client_0": "downweight",
+          "ciciot_diad_attack_client_1": "downweight",
+          "ciciot_diad_attack_client_2": "downweight",
+          "ciciot_diad_attack_client_3": "downweight",
+          "ciciot_diad_attack_client_4": "downweight",
+          "ciciot_diad_attack_client_5": "downweight",
+          "ciciot_diad_attack_client_6": "downweight",
+          "ciciot_diad_attack_client_7": "downweight",
+          "ciciot_diad_attack_client_8": "downweight"
+        },
+        "scores": {
+          "ciciot_diad_attack_client_0": 0.35,
+          "ciciot_diad_attack_client_1": 0.2,
+          "ciciot_diad_attack_client_2": 0.2,
+          "ciciot_diad_attack_client_3": 0.35,
+          "ciciot_diad_attack_client_4": 0.55,
+          "ciciot_diad_attack_client_5": 0.35,
+          "ciciot_diad_attack_client_6": 0.35,
+          "ciciot_diad_attack_client_7": 0.55,
+          "ciciot_diad_attack_client_8": 0.35
+        },
+        "rationales": {
+          "ciciot_diad_attack_client_0": "The gateway's update norm is slightly above average, but its cosine similarity is significantly below average, and its calibration loss got much worse, outweighing its long-term trust posterior of 0.274.",
+          "ciciot_diad_attack_client_1": "The gateway's update norm is significantly higher than the group, its cosine similarity is lower, and its calibration loss got much worse, but its long-term trust posterior is still relatively low, indicating some past suspicious behavior.",
+          "ciciot_diad_attack_client_2": "The gateway's update norm is significantly higher than the group, its cosine similarity is lower, and its calibration loss got much worse, but its long-term trust posterior is only 0.356, indicating some past rounds of suspicious behavior.",
+          "ciciot_diad_attack_client_3": "The gateway's update norm is significantly lower than its peers, but its cosine similarity is higher, and its calibration loss improved, so while there are some red flags, they're not enough to exclude the update entirely, but its long-term trust posterior is also relatively low, so it's not fully trusted either.",
+          "ciciot_diad_attack_client_4": "The gateway's update norm is significantly lower than its peers, but its cosine similarity is unusually high, and its calibration loss improved slightly, so while there are some red flags, they're not enough to exclude the update entirely, but it's not fully trustworthy either.",
+          "ciciot_diad_attack_client_5": "The gateway's update norm is significantly lower than its peers, but its cosine similarity is higher, and its calibration loss improved, so we downweight its update to reflect some, but not complete, distrust.",
+          "ciciot_diad_attack_client_6": "The gateway's update norm is significantly lower than its peers, but its cosine similarity is unusually high, and its calibration loss improved slightly, so we'll downweight its update to reflect some caution, but not entirely exclude it, given its moderate long-term trust posterior.",
+          "ciciot_diad_attack_client_7": "The gateway's update norm is significantly lower than the group, but its cosine similarity is higher, and its calibration loss improved, but its long-term trust posterior is only 0.434, indicating some past suspicious behavior.",
+          "ciciot_diad_attack_client_8": "The gateway's update norm is significantly lower than its peers, but its cosine similarity is unusually high, and its calibration loss improved slightly, so while there are some red flags, they're not enough to exclude the update entirely, but its long-term trust posterior is also low, so it's not fully trusted"
+        },
+        "fallback_triggered": false
+      },
+      {
+        "round": 20,
+        "actions": {
+          "ciciot_diad_attack_client_0": "downweight",
+          "ciciot_diad_attack_client_1": "downweight",
+          "ciciot_diad_attack_client_2": "downweight",
+          "ciciot_diad_attack_client_3": "downweight",
+          "ciciot_diad_attack_client_4": "downweight",
+          "ciciot_diad_attack_client_5": "downweight",
+          "ciciot_diad_attack_client_6": "downweight",
+          "ciciot_diad_attack_client_7": "downweight",
+          "ciciot_diad_attack_client_8": "downweight"
+        },
+        "scores": {
+          "ciciot_diad_attack_client_0": 0.4,
+          "ciciot_diad_attack_client_1": 0.35,
+          "ciciot_diad_attack_client_2": 0.35,
+          "ciciot_diad_attack_client_3": 0.35,
+          "ciciot_diad_attack_client_4": 0.35,
+          "ciciot_diad_attack_client_5": 0.35,
+          "ciciot_diad_attack_client_6": 0.35,
+          "ciciot_diad_attack_client_7": 0.35,
+          "ciciot_diad_attack_client_8": 0.35
+        },
+        "rationales": {
+          "ciciot_diad_attack_client_0": "The gateway's update norm and cosine similarity z-scores are both high, indicating a significant deviation from the group, but its calibration loss actually improved, and its long-term trust posterior is low, suggesting a potential attack.",
+          "ciciot_diad_attack_client_1": "The gateway's update norm and cosine similarity z-scores are high, but its calibration loss significantly worsened, and its long-term trust posterior is low, indicating inconsistent behavior.",
+          "ciciot_diad_attack_client_2": "The gateway's update norm and cosine similarity z-scores are both high, indicating a significant deviation from the group, but its long-term trust posterior is low, suggesting inconsistent behavior in the past, and its calibration loss worsened this round, which, combined, warrants downweighting the update.",
+          "ciciot_diad_attack_client_3": "The gateway's update norm and cosine similarity z-scores are both negative, indicating deviation from the group, but its calibration loss improved significantly, and its long-term trust posterior is only 0.415, suggesting some inconsistency in its behavior.",
+          "ciciot_diad_attack_client_4": "The gateway's update norm and cosine similarity z-scores are both negative, indicating deviation from the group, but its calibration loss improved significantly, and its long-term trust posterior is only 0.415, suggesting some inconsistency in its behavior.",
+          "ciciot_diad_attack_client_5": "The gateway's update norm and cosine similarity z-scores are both significantly lower than the group, but its calibration loss improved substantially, and its long-term trust posterior is only 0.4, indicating some past suspicious behavior.",
+          "ciciot_diad_attack_client_6": "The gateway's update norm and cosine similarity z-scores are both negative, indicating deviation from the group, but its calibration loss improved significantly, and its long-term trust posterior is only 0.398, suggesting some inconsistency in its behavior.",
+          "ciciot_diad_attack_client_7": "The gateway's update norm and cosine similarity z-scores are both significantly lower than the group, but its calibration loss improved substantially, and its long-term trust posterior is only 0.446, indicating some past suspicious behavior.",
+          "ciciot_diad_attack_client_8": "The gateway's update norm and cosine similarity z-scores are both significantly lower than the group, but its calibration loss improved substantially, and its long-term trust posterior is only 0.396, indicating some past suspicious behavior."
+        },
+        "fallback_triggered": false
+      },
+      {
+        "round": 21,
+        "actions": {
+          "ciciot_diad_attack_client_0": "exclude",
+          "ciciot_diad_attack_client_1": "exclude",
+          "ciciot_diad_attack_client_2": "exclude",
+          "ciciot_diad_attack_client_3": "downweight",
+          "ciciot_diad_attack_client_4": "downweight",
+          "ciciot_diad_attack_client_5": "downweight",
+          "ciciot_diad_attack_client_6": "downweight",
+          "ciciot_diad_attack_client_7": "downweight",
+          "ciciot_diad_attack_client_8": "downweight"
+        },
+        "scores": {
+          "ciciot_diad_attack_client_0": 0.0,
+          "ciciot_diad_attack_client_1": 0.0,
+          "ciciot_diad_attack_client_2": 0.0,
+          "ciciot_diad_attack_client_3": 0.55,
+          "ciciot_diad_attack_client_4": 0.55,
+          "ciciot_diad_attack_client_5": 0.55,
+          "ciciot_diad_attack_client_6": 0.55,
+          "ciciot_diad_attack_client_7": 0.6,
+          "ciciot_diad_attack_client_8": 0.55
+        },
+        "rationales": {
+          "ciciot_diad_attack_client_0": "The gateway's held-out calibration loss increased significantly this round, indicating a high likelihood of a targeted attack, and its long-term trust posterior is low, suggesting a history of potentially malicious behavior.",
+          "ciciot_diad_attack_client_1": "The gateway's held-out calibration loss increased significantly this round, indicating a high likelihood of a targeted attack, and its long-term trust posterior is low, suggesting a history of potentially malicious behavior.",
+          "ciciot_diad_attack_client_2": "The gateway's held-out calibration loss increased significantly this round, indicating a high likelihood of a targeted attack, and its long-term trust posterior is low, suggesting a history of potentially malicious behavior.",
+          "ciciot_diad_attack_client_3": "The gateway's update norm is significantly lower than its peers, but its cosine similarity is higher, and its calibration loss improved substantially, which suggests some normal behavior, but the long-term trust posterior is only 0.410, indicating some past rounds of suspicious behavior.",
+          "ciciot_diad_attack_client_4": "The gateway's update norm is significantly lower than its peers, but its cosine similarity is higher, and its calibration loss improved substantially, so while there are some red flags, they're not enough to exclude the update entirely, but it's not fully trustworthy either.",
+          "ciciot_diad_attack_client_5": "The gateway's update norm is significantly lower than its peers, but its cosine similarity is higher, and its calibration loss improved substantially, which suggests some normal behavior, but the long-term trust posterior is only 39.7%, indicating a history of inconsistent behavior.",
+          "ciciot_diad_attack_client_6": "The gateway's update norm is significantly lower than its peers, but its cosine similarity is higher, and its calibration loss improved substantially, so while there are some red flags, the gateway's long-term trust posterior is also relatively high, suggesting it's not entirely malicious.",
+          "ciciot_diad_attack_client_7": "The gateway's update norm is significantly lower than the group, but its cosine similarity is higher, and its calibration loss improved substantially, which suggests some normal behavior, but the long-term trust posterior is only 0.438, indicating some past rounds of suspicious behavior.",
+          "ciciot_diad_attack_client_8": "The gateway's update norm is significantly lower than its peers, but its cosine similarity is higher, and its calibration loss improved substantially, which suggests some normal behavior, but the long-term trust posterior is only 0.393, indicating a history of inconsistent behavior."
+        },
+        "fallback_triggered": false
+      },
+      {
+        "round": 22,
+        "actions": {
+          "ciciot_diad_attack_client_0": "downweight",
+          "ciciot_diad_attack_client_1": "downweight",
+          "ciciot_diad_attack_client_2": "downweight",
+          "ciciot_diad_attack_client_3": "downweight",
+          "ciciot_diad_attack_client_4": "downweight",
+          "ciciot_diad_attack_client_5": "downweight",
+          "ciciot_diad_attack_client_6": "downweight",
+          "ciciot_diad_attack_client_7": "downweight",
+          "ciciot_diad_attack_client_8": "downweight"
+        },
+        "scores": {
+          "ciciot_diad_attack_client_0": 0.35,
+          "ciciot_diad_attack_client_1": 0.35,
+          "ciciot_diad_attack_client_2": 0.35,
+          "ciciot_diad_attack_client_3": 0.55,
+          "ciciot_diad_attack_client_4": 0.55,
+          "ciciot_diad_attack_client_5": 0.6,
+          "ciciot_diad_attack_client_6": 0.35,
+          "ciciot_diad_attack_client_7": 0.6,
+          "ciciot_diad_attack_client_8": 0.35
+        },
+        "rationales": {
+          "ciciot_diad_attack_client_0": "The gateway's update norm is significantly higher than the group, but its cosine similarity is lower, and its calibration loss got much worse, which, combined with its relatively low long-term trust posterior, suggests a potential attack, but not enough to exclude the update entirely.",
+          "ciciot_diad_attack_client_1": "The gateway's update norm is significantly higher than the group, but its cosine similarity is lower, and its calibration loss got much worse, which, combined with its relatively low long-term trust posterior, suggests a potential attack, but not enough to exclude the update entirely.",
+          "ciciot_diad_attack_client_2": "The gateway's update norm is significantly higher than the group, its cosine similarity is significantly lower, and its calibration loss got much worse, but its long-term trust posterior is only 0.318, indicating inconsistent behavior in the past.",
+          "ciciot_diad_attack_client_3": "The gateway's update norm is significantly lower than its peers, but its cosine similarity is unusually high, and its calibration loss improved substantially, so while there are some red flags, they're not enough to exclude the update entirely, but it's not fully trustworthy either.",
+          "ciciot_diad_attack_client_4": "The gateway's update norm is significantly lower than its peers, but its cosine similarity is higher, and its calibration loss improved, so while there are some red flags, they're not enough to exclude the update entirely, but its long-term trust posterior is also not high enough to fully trust it",
+          "ciciot_diad_attack_client_5": "The gateway's update norm is significantly lower than its peers, but its cosine similarity is unusually high, and its calibration loss improved substantially, so while there are some red flags, they're not enough to exclude the update entirely, but it's not fully trustworthy either.",
+          "ciciot_diad_attack_client_6": "The gateway's update norm is significantly lower than its peers, but its cosine similarity is higher, and its calibration loss improved, but its long-term trust posterior is only 0.411, indicating some past suspicious behavior.",
+          "ciciot_diad_attack_client_7": "The gateway's update norm is significantly lower than its peers, but its cosine similarity is unusually high, and its calibration loss improved substantially, so while there are some red flags, they're not enough to exclude the update entirely, but it's not fully trustworthy either.",
+          "ciciot_diad_attack_client_8": "The gateway's update norm is significantly lower than its peers, but its cosine similarity is higher, and its calibration loss improved, so while there are some red flags, they're not enough to exclude the update entirely, but its long-term trust posterior is also relatively low, so it's not fully trusted either."
+        },
+        "fallback_triggered": false
+      },
+      {
+        "round": 23,
+        "actions": {
+          "ciciot_diad_attack_client_0": "downweight",
+          "ciciot_diad_attack_client_1": "downweight",
+          "ciciot_diad_attack_client_2": "downweight",
+          "ciciot_diad_attack_client_3": "downweight",
+          "ciciot_diad_attack_client_4": "downweight",
+          "ciciot_diad_attack_client_5": "downweight",
+          "ciciot_diad_attack_client_6": "downweight",
+          "ciciot_diad_attack_client_7": "downweight",
+          "ciciot_diad_attack_client_8": "downweight"
+        },
+        "scores": {
+          "ciciot_diad_attack_client_0": 0.45,
+          "ciciot_diad_attack_client_1": 0.55,
+          "ciciot_diad_attack_client_2": 0.35,
+          "ciciot_diad_attack_client_3": 0.35,
+          "ciciot_diad_attack_client_4": 0.35,
+          "ciciot_diad_attack_client_5": 0.35,
+          "ciciot_diad_attack_client_6": 0.35,
+          "ciciot_diad_attack_client_7": 0.35,
+          "ciciot_diad_attack_client_8": 0.35
+        },
+        "rationales": {
+          "ciciot_diad_attack_client_0": "The gateway's update norm and cosine similarity z-scores are both high, indicating a significant deviation from the group, but its calibration loss actually improved, and its long-term trust posterior is low, suggesting a cautious approach is warranted.",
+          "ciciot_diad_attack_client_1": "The gateway's update norm and cosine similarity z-scores are both high, indicating a significant deviation from the group, but its calibration loss actually improved, and its long-term trust posterior is relatively low, suggesting some inconsistency in its behavior.",
+          "ciciot_diad_attack_client_2": "The gateway's update norm and cosine similarity z-scores are both above average, but its calibration loss got slightly worse, and its long-term trust posterior is only 0.325, indicating inconsistent behavior in the past.",
+          "ciciot_diad_attack_client_3": "The gateway's update norm and cosine similarity z-scores are both low, indicating deviation from the group, but its calibration loss improved significantly, suggesting it's still behaving normally, and its long-term trust posterior is only 0.437, indicating some past rounds of suspicious behavior.",
+          "ciciot_diad_attack_client_4": "The gateway's update norm and cosine similarity z-scores are both negative, indicating deviation from the group, but its calibration loss improved significantly, and its long-term trust posterior is only 0.437, suggesting some inconsistency in its behavior.",
+          "ciciot_diad_attack_client_5": "The gateway's update norm and cosine similarity z-scores are both negative, indicating deviation from the group, but its calibration loss improved significantly, and its long-term trust posterior is only 0.431, suggesting some inconsistency in its behavior.",
+          "ciciot_diad_attack_client_6": "The gateway's update norm and cosine similarity z-scores are both significantly lower than the group, but its calibration loss improved substantially, and its long-term trust posterior is only 0.407, indicating some past suspicious behavior.",
+          "ciciot_diad_attack_client_7": "The gateway's update norm and cosine similarity z-scores are both negative, indicating deviation from the group, but its calibration loss improved significantly, and its long-term trust posterior is only 0.468, suggesting some inconsistency in its behavior.",
+          "ciciot_diad_attack_client_8": "The gateway's update norm and cosine similarity z-scores are both significantly lower than the group, but its calibration loss improved substantially, and its long-term trust posterior is only 0.406, indicating some past suspicious behavior."
+        },
+        "fallback_triggered": false
+      },
+      {
+        "round": 24,
+        "actions": {
+          "ciciot_diad_attack_client_0": "downweight",
+          "ciciot_diad_attack_client_1": "exclude",
+          "ciciot_diad_attack_client_2": "downweight",
+          "ciciot_diad_attack_client_3": "downweight",
+          "ciciot_diad_attack_client_4": "downweight",
+          "ciciot_diad_attack_client_5": "downweight",
+          "ciciot_diad_attack_client_6": "downweight",
+          "ciciot_diad_attack_client_7": "downweight",
+          "ciciot_diad_attack_client_8": "downweight"
+        },
+        "scores": {
+          "ciciot_diad_attack_client_0": 0.35,
+          "ciciot_diad_attack_client_1": 0.0,
+          "ciciot_diad_attack_client_2": 0.35,
+          "ciciot_diad_attack_client_3": 0.55,
+          "ciciot_diad_attack_client_4": 0.55,
+          "ciciot_diad_attack_client_5": 0.55,
+          "ciciot_diad_attack_client_6": 0.35,
+          "ciciot_diad_attack_client_7": 0.6,
+          "ciciot_diad_attack_client_8": 0.55
+        },
+        "rationales": {
+          "ciciot_diad_attack_client_0": "The gateway's update norm is significantly higher than the group, and its cosine similarity is significantly lower, indicating potential poisoning, while its calibration loss also worsened this round, outweighing its moderate long-term trust posterior of 0.306.",
+          "ciciot_diad_attack_client_1": "The gateway's update norm was significantly higher than the group, its cosine similarity was significantly lower, and its calibration loss got much worse, indicating a high likelihood of a targeted attack.",
+          "ciciot_diad_attack_client_2": "The gateway's update norm is significantly higher than the group, but its cosine similarity is lower, and its calibration loss worsened, which, combined with its relatively low long-term trust posterior, suggests a cautious downweighting of its update.",
+          "ciciot_diad_attack_client_3": "The gateway's update norm is significantly lower than its peers, but its cosine similarity is higher, and its calibration loss improved substantially, so while there are some red flags, they're not enough to exclude the update entirely, but its long-term trust posterior is also not high enough to fully trust it",
+          "ciciot_diad_attack_client_4": "The gateway's update norm is significantly lower than its peers, but its cosine similarity is higher, and its calibration loss improved substantially, so while there are some red flags, they're not enough to exclude the update entirely, but its long-term trust posterior is also not high enough to fully trust it",
+          "ciciot_diad_attack_client_5": "The gateway's update norm is significantly lower than its peers, but its cosine similarity is higher, and its calibration loss improved substantially, so while there are some red flags, they're not enough to exclude the update entirely, but its long-term trust posterior is also not high enough to fully trust it",
+          "ciciot_diad_attack_client_6": "The gateway's update norm is significantly lower than its peers, but its cosine similarity is higher, and its calibration loss improved substantially, but its long-term trust posterior is only 0.404, indicating some past rounds of suspicious behavior.",
+          "ciciot_diad_attack_client_7": "The gateway's update norm is significantly lower than its peers, but its cosine similarity is higher, and its calibration loss improved substantially, so while there are some red flags, they're not enough to exclude the update entirely, but it's not fully trustworthy either.",
+          "ciciot_diad_attack_client_8": "The gateway's update norm is significantly lower than its peers, but its cosine similarity is unusually high, and its calibration loss improved substantially, so while there are some red flags, they're not enough to exclude the update entirely, but its trustworthiness is not high enough to accept it fully"
+        },
+        "fallback_triggered": false
+      }
+    ]
+  }
+}

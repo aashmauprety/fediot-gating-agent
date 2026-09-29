@@ -1,0 +1,1296 @@
+{
+  "description": "Real confidence-gated escalation test, CIC IoT-DIAD 2024 device-ID (59 classes)",
+  "n_classes": 59,
+  "baseline_macro_f1": 0.2926797491880409,
+  "confidence_threshold": 0.15,
+  "n_confident": 10801,
+  "n_uncertain_total": 876,
+  "n_uncertain_evaluated": 150,
+  "classifier_top1_correct": 28,
+  "rule_based_correct": 0,
+  "rule_based_escalated": 150,
+  "llm_correct": 27,
+  "llm_escalated": 0,
+  "llm_errors": 8,
+  "llm_wall_clock_seconds": 523.9268951416016,
+  "per_case": [
+    {
+      "true_label": "Amazon Echo Show",
+      "classifier_top1": "Amazon Echo Studio",
+      "top1_confidence": 0.09624502062797546,
+      "llm_predicted": "Amazon Echo Studio",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Amazon Echo Studio and Google Nest Mini Speaker are very close in probability, but the Echo Studio has a slightly higher probability, and given the similarity in names, it's likely the correct answer.",
+      "correct": false
+    },
+    {
+      "true_label": "Borun/Sichuan-AI Camera",
+      "classifier_top1": "Wyze Camera",
+      "top1_confidence": 0.12092964351177216,
+      "llm_predicted": "Wyze Camera",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "Wyze Camera has the highest probability among the top candidates, and the other classes are relatively far behind, suggesting it's the most likely correct class",
+      "correct": false
+    },
+    {
+      "true_label": "Netatmo Camera",
+      "classifier_top1": "Arlo Base Station",
+      "top1_confidence": 0.12256959080696106,
+      "llm_predicted": "Arlo Base Station",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Arlo Base Station and Arlo Q Indoor Camera have very similar probabilities, but the Base Station is slightly more likely, and both are more likely than the other options, suggesting this is likely an Arlo device, and the Base Station is the most probable of the two",
+      "correct": false
+    },
+    {
+      "true_label": "Smart Board",
+      "classifier_top1": "Yi Outdoor Camera",
+      "top1_confidence": 0.14471474289894104,
+      "llm_predicted": "Yi Outdoor Camera",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Yi Outdoor Camera has the highest probability and is a type of device that is often confused with other smart cameras, so it's likely the correct classification",
+      "correct": false
+    },
+    {
+      "true_label": "AMCREST WiFi Camera",
+      "classifier_top1": "Eufy HomeBase 2",
+      "top1_confidence": 0.12090586870908737,
+      "llm_predicted": "Eufy HomeBase 2",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Eufy HomeBase 2 has the highest probability and is a type of smart home device, which is consistent with the other top candidates being various types of smart devices or cameras.",
+      "correct": false
+    },
+    {
+      "true_label": "Netatmo Camera",
+      "classifier_top1": "Netatmo Camera",
+      "top1_confidence": 0.13971200585365295,
+      "llm_predicted": "Netatmo Camera",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Netatmo Camera has the highest probability, and while the other camera classes are close, they are distinct enough to suggest that the classifier is leaning towards a camera device, making Netatmo the most likely correct choice.",
+      "correct": true
+    },
+    {
+      "true_label": "iRobot Roomba",
+      "classifier_top1": "Amazon Plug",
+      "top1_confidence": 0.13052424788475037,
+      "llm_predicted": "Amazon Plug",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Amazon Plug has the highest probability and is a device that is often confused with other smart devices, so it's likely the correct label",
+      "correct": false
+    },
+    {
+      "true_label": "Rbcior Camera",
+      "classifier_top1": "Teckin Plug 2",
+      "top1_confidence": 0.10677537322044373,
+      "llm_predicted": "Teckin Plug 2",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Teckin Plug 2 has the highest probability and is a specific device type, making it the most likely correct answer.",
+      "correct": false
+    },
+    {
+      "true_label": "Teckin Light Strip",
+      "classifier_top1": "Yutron Plug 1",
+      "top1_confidence": 0.14022070169448853,
+      "llm_predicted": "Yutron Plug 1",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Yutron Plug 1 class has a clear lead over the other candidates, with a significant gap in probability, suggesting it is the most likely correct classification.",
+      "correct": false
+    },
+    {
+      "true_label": "Netatmo Camera",
+      "classifier_top1": "Amazon Echo Show",
+      "top1_confidence": 0.10398347675800323,
+      "llm_predicted": "Arlo Base Station",
+      "llm_action": "override",
+      "llm_rationale": "The Arlo Base Station and Arlo Q Indoor Camera are both Arlo products, suggesting the classifier is confident in the Arlo brand but uncertain about the specific model, making Arlo Base Station the most likely correct choice",
+      "correct": false
+    },
+    {
+      "true_label": "Wemo smart plug 2 (Wemo id: Wemo.Mini.4A3)",
+      "classifier_top1": "Wemo smart plug 2 (Wemo id: Wemo.Mini.4A3)",
+      "top1_confidence": 0.11693670600652695,
+      "llm_predicted": "Wemo smart plug 2 (Wemo id: Wemo.Mini.4A3)",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Wemo smart plug 2 has the highest probability and is a specific device model, making it the most likely correct answer.",
+      "correct": true
+    },
+    {
+      "true_label": "Netatmo Camera",
+      "classifier_top1": "Amazon Echo Show",
+      "top1_confidence": 0.11649482697248459,
+      "llm_predicted": "Amazon Echo Show",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Amazon Echo Show and Echo Dot 1 are both Amazon Echo devices, which suggests the classifier is likely confused between these two classes, but the Echo Show has a slightly higher probability, so it's the most likely correct answer",
+      "correct": false
+    },
+    {
+      "true_label": "Govee Smart Humidifer",
+      "classifier_top1": "Govee Smart Humidifer",
+      "top1_confidence": 0.1451161503791809,
+      "llm_predicted": "Govee Smart Humidifer",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Govee Smart Humidifer has a significantly higher probability than the other candidates, suggesting it is the most likely correct class.",
+      "correct": true
+    },
+    {
+      "true_label": "Yi Outdoor Camera",
+      "classifier_top1": "Google Nest Mini Speaker",
+      "top1_confidence": 0.11893587559461594,
+      "llm_predicted": "Google Nest Mini Speaker",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Google Nest Mini Speaker has the highest probability and is a distinct device type from the other candidates, which are all cameras, making it the most likely correct choice.",
+      "correct": false
+    },
+    {
+      "true_label": "Smart Board",
+      "classifier_top1": "Philips Hue Bridge",
+      "top1_confidence": 0.1443127691745758,
+      "llm_predicted": "Philips Hue Bridge",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Philips Hue Bridge has the highest probability and is a distinct device type from the other candidates, making it the most likely correct choice.",
+      "correct": false
+    },
+    {
+      "true_label": "GoSund Smart Plug WP3 (1)",
+      "classifier_top1": "Lumiman bulb",
+      "top1_confidence": 0.13985534012317657,
+      "llm_predicted": "Lumiman bulb",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Lumiman bulb has a slightly higher probability than the other top candidates, and given the similarity in names between GoSund products, it's reasonable to lean towards the Lumiman bulb as the most likely correct class.",
+      "correct": false
+    },
+    {
+      "true_label": "LIFX Lightbulb",
+      "classifier_top1": "Levoit Air Purifier",
+      "top1_confidence": 0.13596472144126892,
+      "llm_predicted": "Levoit Air Purifier",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Levoit Air Purifier has the highest probability among the top candidates, and given the similarity in product categories, it's likely the correct classification.",
+      "correct": false
+    },
+    {
+      "true_label": "Borun/Sichuan-AI Camera",
+      "classifier_top1": "Borun/Sichuan-AI Camera",
+      "top1_confidence": 0.0898689478635788,
+      "llm_predicted": "Borun/Sichuan-AI Camera",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Borun/Sichuan-AI Camera has a slightly higher probability than the other top candidates, suggesting it is the most likely correct class.",
+      "correct": true
+    },
+    {
+      "true_label": "Levoit Air Purifier",
+      "classifier_top1": "AMCREST WiFi Camera",
+      "top1_confidence": 0.14810901880264282,
+      "llm_predicted": "AMCREST WiFi Camera",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The AMCREST WiFi Camera has a significantly higher probability than the other candidates, suggesting it is the most likely correct class.",
+      "correct": false
+    },
+    {
+      "true_label": "Gosund Smart Plug WP3 (2)",
+      "classifier_top1": "Teckin Plug 2",
+      "top1_confidence": 0.11303812265396118,
+      "llm_predicted": "Teckin Plug 2",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Teckin Plug 2 has the highest probability and is the only class with a clear majority, making it the most likely correct choice.",
+      "correct": false
+    },
+    {
+      "true_label": "Google Nest Mini Speaker",
+      "classifier_top1": "Borun/Sichuan-AI Camera",
+      "top1_confidence": 0.13743795454502106,
+      "llm_predicted": "Borun/Sichuan-AI Camera",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Borun/Sichuan-AI Camera has a significantly higher probability than the other candidates, suggesting it is the most likely correct class.",
+      "correct": false
+    },
+    {
+      "true_label": "Yi Outdoor Camera",
+      "classifier_top1": "Teckin Plug 2",
+      "top1_confidence": 0.14487984776496887,
+      "llm_predicted": "Teckin Plug 2",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Teckin Plug 2 has the highest probability and is a specific device type, making it the most likely correct choice.",
+      "correct": false
+    },
+    {
+      "true_label": "Yi Outdoor Camera",
+      "classifier_top1": "Eufy HomeBase 2",
+      "top1_confidence": 0.1251906007528305,
+      "llm_predicted": "Eufy HomeBase 2",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Eufy HomeBase 2 and Yi Outdoor Camera have very similar probabilities, but the Eufy HomeBase 2 is the top candidate, suggesting it is the most likely correct class.",
+      "correct": false
+    },
+    {
+      "true_label": "Wyze Camera",
+      "classifier_top1": "Amazon Echo Show",
+      "top1_confidence": 0.14825233817100525,
+      "llm_predicted": "Amazon Echo Show",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Amazon Echo Show and Echo Dot 1 are both smart speakers from the same manufacturer, and the classifier's probabilities suggest a strong likelihood of one of these two classes being correct, with the Echo Show having a slightly higher probability.",
+      "correct": false
+    },
+    {
+      "true_label": "Teckin Light Strip",
+      "classifier_top1": "HeimVision SmartLife Radio/Lamp",
+      "top1_confidence": 0.14050446450710297,
+      "llm_predicted": "HeimVision SmartLife Radio/Lamp",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The HeimVision SmartLife Radio/Lamp has the highest probability and is the only class with a clear majority, making it the most likely correct choice.",
+      "correct": false
+    },
+    {
+      "true_label": "Sonos One Speaker",
+      "classifier_top1": "Sonos One Speaker",
+      "top1_confidence": 0.11957871913909912,
+      "llm_predicted": "Sonos One Speaker",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Sonos One Speaker has the highest probability among the top candidates, and its probability is significantly higher than the others, suggesting it is the most likely correct class.",
+      "correct": true
+    },
+    {
+      "true_label": "Cocoon Smart HVAC Fan",
+      "classifier_top1": "Teckin Plug 1",
+      "top1_confidence": 0.1422838568687439,
+      "llm_predicted": "Teckin Plug 1",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Teckin Plug 1 has the highest probability and is a specific type of device, suggesting it is the most likely correct classification.",
+      "correct": false
+    },
+    {
+      "true_label": "Yutron Plug 2",
+      "classifier_top1": "Teckin Light Strip",
+      "top1_confidence": 0.149626225233078,
+      "llm_predicted": "Teckin Light Strip",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Teckin Light Strip and Teckin Plug 2 have very similar names, suggesting the classifier is likely confused between these two classes, so I'm choosing the one with the slightly higher probability.",
+      "correct": false
+    },
+    {
+      "true_label": "Netatmo Camera",
+      "classifier_top1": "HeimVision SmartLife Radio/Lamp",
+      "top1_confidence": 0.08982448279857635,
+      "llm_predicted": "HeimVision SmartLife Radio/Lamp",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The HeimVision SmartLife Radio/Lamp has the highest probability and is a device type that is often confused with other smart devices, so it's likely the correct label despite being a close call",
+      "correct": false
+    },
+    {
+      "true_label": "Smart Board",
+      "classifier_top1": "Yi Outdoor Camera",
+      "top1_confidence": 0.134221613407135,
+      "llm_predicted": "Yi Outdoor Camera",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Yi Outdoor Camera has the highest probability among the top candidates, suggesting it is the most likely correct class.",
+      "correct": false
+    },
+    {
+      "true_label": "AMCREST WiFi Camera",
+      "classifier_top1": "AMCREST WiFi Camera",
+      "top1_confidence": 0.14721937477588654,
+      "llm_predicted": "AMCREST WiFi Camera",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The AMCREST WiFi Camera has the highest probability and is a specific type of device, making it the most likely correct answer among the top candidates.",
+      "correct": true
+    },
+    {
+      "true_label": "Amazon Plug",
+      "classifier_top1": "Arlo Base Station",
+      "top1_confidence": 0.11376385390758514,
+      "llm_predicted": "Arlo Base Station",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Arlo Base Station and Amazon Plug have very similar probabilities, but the Arlo Base Station is slightly more likely, and both are types of smart home devices, making it a reasonable guess.",
+      "correct": false
+    },
+    {
+      "true_label": "Globe Lamp ESP_B1680C",
+      "classifier_top1": "GoSund Bulb",
+      "top1_confidence": 0.13033542037010193,
+      "llm_predicted": "GoSund Smart plug WP2 (1)",
+      "llm_action": "override",
+      "llm_rationale": "Given the high similarity between the GoSund Smart plug WP2 (1) and GoSund Smart plug WP2 (3) classes, and the fact that they are the top two candidates, it's likely that the classifier is confused between these two classes, so I'm choosing the one with the slightly higher probability.",
+      "correct": false
+    },
+    {
+      "true_label": "Sonos One Speaker",
+      "classifier_top1": "Sonos One Speaker",
+      "top1_confidence": 0.13662421703338623,
+      "llm_predicted": "Sonos One Speaker",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Sonos One Speaker has the highest probability and is a device that is likely to be connected to a network, making it a plausible candidate for this sample.",
+      "correct": true
+    },
+    {
+      "true_label": "Smart Board",
+      "classifier_top1": "Google Nest Mini Speaker",
+      "top1_confidence": 0.12004870921373367,
+      "llm_predicted": "Google Nest Mini Speaker",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Google Nest Mini Speaker has the highest probability among the top candidates, and its probability is significantly higher than the others, suggesting it is the most likely correct class.",
+      "correct": false
+    },
+    {
+      "true_label": "Wyze Camera",
+      "classifier_top1": "Wyze Camera",
+      "top1_confidence": 0.14860600233078003,
+      "llm_predicted": "Wyze Camera",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Wyze Camera and Arlo Base Station are the top two candidates, and given their similar names and functionality, it's reasonable to choose the Wyze Camera as the most likely correct class.",
+      "correct": true
+    },
+    {
+      "true_label": "Rbcior Camera",
+      "classifier_top1": "Yi Outdoor Camera",
+      "top1_confidence": 0.1490904986858368,
+      "llm_predicted": "Yi Outdoor Camera",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Yi Outdoor Camera has the highest probability, and given the context of the sample being a network traffic classification, it's likely a device-specific classification, making Yi Outdoor Camera the most plausible choice.",
+      "correct": false
+    },
+    {
+      "true_label": "SIMCAM 1S (AMPAKTec)",
+      "classifier_top1": "SIMCAM 1S (AMPAKTec)",
+      "top1_confidence": 0.14180412888526917,
+      "llm_predicted": "SIMCAM 1S (AMPAKTec)",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The SIMCAM 1S has a slightly higher probability than the other top candidates, and given the similarity in names, it's likely a case of mislabeled or misclassified traffic for a similar device.",
+      "correct": true
+    },
+    {
+      "true_label": "GoSund Smart plug WP2 (3)",
+      "classifier_top1": "Wemo smart plug 2 (Wemo id: Wemo.Mini.4A3)",
+      "top1_confidence": 0.14559520781040192,
+      "llm_predicted": "Wemo smart plug 2 (Wemo id: Wemo.Mini.4A3)",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Wemo smart plug 2 has the highest probability and is the only class with a clear majority, making it the most likely correct choice.",
+      "correct": false
+    },
+    {
+      "true_label": "Borun/Sichuan-AI Camera",
+      "classifier_top1": "Luohe Cam Dog",
+      "top1_confidence": 0.09789382666349411,
+      "llm_predicted": "Luohe Cam Dog",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "Given the high probability of 'Luohe Cam Dog' and the relatively low probabilities of the other camera classes, it's likely that this is a misclassified device, possibly due to its unusual name, but it's the most likely correct answer among the top candidates.",
+      "correct": false
+    },
+    {
+      "true_label": "Govee Smart Humidifer",
+      "classifier_top1": "Amazon Plug",
+      "top1_confidence": 0.11230640113353729,
+      "llm_predicted": "Amazon Plug",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "Given the high similarity in probability between Amazon Plug and Yutron Plug 2, and the fact that they are both types of smart plugs, it's reasonable to choose Amazon Plug as the most likely correct class.",
+      "correct": false
+    },
+    {
+      "true_label": "Amazon Plug",
+      "classifier_top1": "iRobot Roomba",
+      "top1_confidence": 0.11044599115848541,
+      "llm_predicted": "iRobot Roomba",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The iRobot Roomba has the highest probability and is a distinct device type from the other candidates, making it the most likely correct choice.",
+      "correct": false
+    },
+    {
+      "true_label": "Netatmo Camera",
+      "classifier_top1": "Arlo Q Indoor Camera",
+      "top1_confidence": 0.13134726881980896,
+      "llm_predicted": "Arlo Q Indoor Camera",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Arlo Q Indoor Camera has the highest probability among the top candidates, and given the similarity in names between the Arlo Q and Arlo Base Station, it's likely the classifier is simply distinguishing between the two devices",
+      "correct": false
+    },
+    {
+      "true_label": "Netatmo Camera",
+      "classifier_top1": "Eufy HomeBase 2",
+      "top1_confidence": 0.11180570721626282,
+      "llm_predicted": "Eufy HomeBase 2",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Eufy HomeBase 2 has a significantly higher probability than the other candidates, suggesting it is the most likely correct class.",
+      "correct": false
+    },
+    {
+      "true_label": "Levoit Air Purifier",
+      "classifier_top1": "Levoit Air Purifier",
+      "top1_confidence": 0.14168532192707062,
+      "llm_predicted": "Levoit Air Purifier",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Levoit Air Purifier has the highest probability and is a distinct device type, making it the most likely correct choice",
+      "correct": true
+    },
+    {
+      "true_label": "Netatmo Weather Station",
+      "classifier_top1": "Arlo Base Station",
+      "top1_confidence": 0.13861891627311707,
+      "llm_predicted": "Arlo Base Station",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Arlo Base Station and iRobot Roomba have very similar probabilities, but given the context of a network traffic classification, it's more likely that the Arlo Base Station is the correct class, as it's a device that would typically be connected to a network, whereas a Roomba is a standalone device.",
+      "correct": false
+    },
+    {
+      "true_label": "Home Eye Camera",
+      "classifier_top1": "AMCREST WiFi Camera",
+      "top1_confidence": 0.1433437466621399,
+      "llm_predicted": "AMCREST WiFi Camera",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The AMCREST WiFi Camera has the highest probability and is a specific type of device, suggesting it's the most likely correct class",
+      "correct": false
+    },
+    {
+      "true_label": "Yi Indoor Camera",
+      "classifier_top1": "Yi Outdoor Camera",
+      "top1_confidence": 0.12428083270788193,
+      "llm_predicted": "Yi Outdoor Camera",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Yi Outdoor Camera has the highest probability and is the only class that is a type of camera, which is a common theme among the top candidates.",
+      "correct": false
+    },
+    {
+      "true_label": "Gosund Power strip (1)",
+      "classifier_top1": "Teckin Plug 2",
+      "top1_confidence": 0.1418353170156479,
+      "llm_predicted": "Teckin Plug 2",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Teckin Plug 2 has the highest probability and is a specific model of smart plug, making it the most likely correct class among the top candidates.",
+      "correct": false
+    },
+    {
+      "true_label": "TP-Link Tapo Camera",
+      "classifier_top1": "Govee Smart Humidifer",
+      "top1_confidence": 0.11522545665502548,
+      "llm_predicted": "Govee Smart Humidifer",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Govee Smart Humidifer has a slightly higher probability than the TP-Link Tapo Camera, and given the similarity in device types (smart home devices), it's reasonable to lean towards the Govee Smart Humidifer as the correct class.",
+      "correct": false
+    },
+    {
+      "true_label": "SIMCAM 1S (AMPAKTec)",
+      "classifier_top1": "Yi Outdoor Camera",
+      "top1_confidence": 0.14145278930664062,
+      "llm_predicted": "Yi Outdoor Camera",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Yi Outdoor Camera has the highest probability and is a distinct class from the other top candidates, which are all similar smart home devices, suggesting it is the most likely correct class.",
+      "correct": false
+    },
+    {
+      "true_label": "Smart Board",
+      "classifier_top1": "Raspberry Pi 4-2 GB",
+      "top1_confidence": 0.10839405655860901,
+      "llm_predicted": "Raspberry Pi 4-2 GB",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Raspberry Pi 4-2 GB has the highest probability and is a distinct device type, making it the most likely correct classification",
+      "correct": false
+    },
+    {
+      "true_label": "SmartThings Hub",
+      "classifier_top1": "Raspberry Pi 4-2 GB",
+      "top1_confidence": 0.13998296856880188,
+      "llm_predicted": "Raspberry Pi 4-2 GB",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Raspberry Pi 4-2 GB has the highest probability and is a distinct device type, making it the most likely correct choice",
+      "correct": false
+    },
+    {
+      "true_label": "AeoTec Smart Home Hub",
+      "classifier_top1": "Yi Outdoor Camera",
+      "top1_confidence": 0.09243402630090714,
+      "llm_predicted": "Yi Outdoor Camera",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Yi Outdoor Camera has a slightly higher probability than the other top candidates, and given the context of the class names, it's likely that the classifier is correctly identifying a smart home device, and the Yi Outdoor Camera is the most plausible match given its name and the presence of other smart speaker devices in the top candidates.",
+      "correct": false
+    },
+    {
+      "true_label": "Rbcior Camera",
+      "classifier_top1": "Google Nest Mini Speaker",
+      "top1_confidence": 0.1429005116224289,
+      "llm_predicted": "Google Nest Mini Speaker",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Google Nest Mini Speaker has the highest probability and is a distinct device type from the other candidates, making it the most likely correct choice.",
+      "correct": false
+    },
+    {
+      "true_label": "Netatmo Camera",
+      "classifier_top1": "Amazon Echo Studio",
+      "top1_confidence": 0.09916139394044876,
+      "llm_predicted": "Amazon Echo Studio",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Amazon Echo Studio has the highest probability among the top candidates, and its similarity to other Echo devices suggests it's a plausible choice given the classifier's uncertainty.",
+      "correct": false
+    },
+    {
+      "true_label": "Amazon Echo Dot 1",
+      "classifier_top1": "harman kardon (Ampak Technology)",
+      "top1_confidence": 0.13270188868045807,
+      "llm_predicted": "Raspberry Pi 4-2 GB",
+      "llm_action": "override",
+      "llm_rationale": "The Raspberry Pi 4-2 GB has a slightly higher probability than the Yi Outdoor Camera, and given the similarity in device types (small, internet-connected devices), it's reasonable to lean towards this class.",
+      "correct": false
+    },
+    {
+      "true_label": "Nest Indoor Camera",
+      "classifier_top1": "Teckin Light Strip",
+      "top1_confidence": 0.09846291691064835,
+      "llm_predicted": "Teckin Light Strip",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Teckin Light Strip and Raspberry Pi 4-2 GB are very close in probability, but given the context of a network traffic classification, it's more likely that a device like the Teckin Light Strip is being classified, rather than a computer like the Raspberry Pi.",
+      "correct": false
+    },
+    {
+      "true_label": "Amazon Echo Studio",
+      "classifier_top1": "AMCREST WiFi Camera",
+      "top1_confidence": 0.13024014234542847,
+      "llm_predicted": "AMCREST WiFi Camera",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The AMCREST WiFi Camera has the highest probability, and given the similarity in names and device types, it's likely the correct classification.",
+      "correct": false
+    },
+    {
+      "true_label": "Borun/Sichuan-AI Camera",
+      "classifier_top1": "Yi Outdoor Camera",
+      "top1_confidence": 0.14268894493579865,
+      "llm_predicted": "Yi Outdoor Camera",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Yi Outdoor Camera has the highest probability among the top candidates, and the other classes are relatively far behind, suggesting it's the most likely correct class.",
+      "correct": false
+    },
+    {
+      "true_label": "AMCREST WiFi Camera",
+      "classifier_top1": "Arlo Base Station",
+      "top1_confidence": 0.10662521421909332,
+      "llm_predicted": "Arlo Base Station",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Arlo Base Station has the highest probability, and given the other Arlo device is also in the top 5, it's likely the classifier is confident in the Arlo brand, but not the specific model",
+      "correct": false
+    },
+    {
+      "true_label": "Amazon Plug",
+      "classifier_top1": "Arlo Base Station",
+      "top1_confidence": 0.12120657414197922,
+      "llm_predicted": "Arlo Base Station",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Arlo Base Station has the highest probability and is a type of IoT device, which is consistent with the other top candidates being various IoT devices",
+      "correct": false
+    },
+    {
+      "true_label": "Home Eye Camera",
+      "classifier_top1": "Home Eye Camera",
+      "top1_confidence": 0.13356274366378784,
+      "llm_predicted": "Home Eye Camera",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Home Eye Camera has the highest probability and is the only device that is explicitly described as a camera, making it the most likely correct class.",
+      "correct": true
+    },
+    {
+      "true_label": "Smart Board",
+      "classifier_top1": "Amazon Echo Show",
+      "top1_confidence": 0.13975051045417786,
+      "llm_predicted": "Amazon Echo Show",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "Given the high probability of the Amazon Echo Show and the Raspberry Pi 4-2 GB being tied, it's likely that the classifier is confused between these two visually similar devices, so I'll choose the Amazon Echo Show as the most likely correct class.",
+      "correct": false
+    },
+    {
+      "true_label": "Teckin Plug 1",
+      "classifier_top1": "Teckin Plug 1",
+      "top1_confidence": 0.14074479043483734,
+      "llm_predicted": "Teckin Plug 1",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Teckin Plug 1 has a slightly higher probability than the other two very similar candidates, the Teckin Light Strip and the Yi Outdoor Camera, suggesting it is the most likely correct class.",
+      "correct": true
+    },
+    {
+      "true_label": "Netatmo Weather Station",
+      "classifier_top1": "Netatmo Weather Station",
+      "top1_confidence": 0.13919903337955475,
+      "llm_predicted": "Netatmo Weather Station",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Netatmo Weather Station has a significantly higher probability than the other candidates, suggesting it is the most likely correct class.",
+      "correct": true
+    },
+    {
+      "true_label": "Yutron Plug 1",
+      "classifier_top1": "Govee Smart Humidifer",
+      "top1_confidence": 0.12684226036071777,
+      "llm_predicted": "Govee Smart Humidifer",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Govee Smart Humidifer has a slightly higher probability than the Teckin Plug 2, and given the similarity in product type, it's reasonable to assume this is the correct class.",
+      "correct": false
+    },
+    {
+      "true_label": "AMCREST WiFi Camera",
+      "classifier_top1": "Eufy HomeBase 2",
+      "top1_confidence": 0.12333668023347855,
+      "llm_predicted": "Eufy HomeBase 2",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Eufy HomeBase 2 has a significantly higher probability than the other candidates, suggesting it is the most likely correct class.",
+      "correct": false
+    },
+    {
+      "true_label": "Arlo Base Station",
+      "classifier_top1": "Arlo Base Station",
+      "top1_confidence": 0.14750853180885315,
+      "llm_predicted": "Arlo Base Station",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Arlo Base Station has the highest probability and is a device that is often confused with other smart home devices, so it's likely the correct classification",
+      "correct": true
+    },
+    {
+      "true_label": "LG Smart TV",
+      "classifier_top1": "LG Smart TV",
+      "top1_confidence": 0.111027792096138,
+      "llm_predicted": "Borun/Sichuan-AI Camera",
+      "llm_action": "override",
+      "llm_rationale": "The Borun/Sichuan-AI Camera has the highest probability among the top two candidates, which are very close in probability, but the other three classes are significantly less likely, suggesting that the classifier is leaning towards this class.",
+      "correct": false
+    },
+    {
+      "true_label": "Wyze Camera",
+      "classifier_top1": "Google Nest Mini Speaker",
+      "top1_confidence": 0.10857485234737396,
+      "llm_predicted": "Luohe Cam Dog",
+      "llm_action": "override",
+      "llm_rationale": "The Luohe Cam Dog has a higher probability than the other non-camera devices, suggesting it's the most likely correct class, despite being a relatively low-probability candidate",
+      "correct": false
+    },
+    {
+      "true_label": "iRobot Roomba",
+      "classifier_top1": "Levoit Air Purifier",
+      "top1_confidence": 0.132725328207016,
+      "llm_predicted": "Luohe Cam Dog",
+      "llm_action": "override",
+      "llm_rationale": "The Luohe Cam Dog has a slightly higher probability than the other top candidates, and given the similarity in names between the other devices, it's possible that the classifier is correctly identifying a device with a similar name, making it the most likely correct choice.",
+      "correct": false
+    },
+    {
+      "true_label": "iRobot Roomba",
+      "classifier_top1": "Levoit Air Purifier",
+      "top1_confidence": 0.10251054912805557,
+      "llm_predicted": "Levoit Air Purifier",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Levoit Air Purifier has the highest probability, and given the specificity of the class name, it's likely the correct classification.",
+      "correct": false
+    },
+    {
+      "true_label": "Teckin Plug 2",
+      "classifier_top1": "Teckin Plug 2",
+      "top1_confidence": 0.14605513215065002,
+      "llm_predicted": "Teckin Plug 2",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Teckin Plug 2 has the highest probability and is a specific model of smart plug, which is a common device type that could be confused with other similar devices.",
+      "correct": true
+    },
+    {
+      "true_label": "iRobot Roomba",
+      "classifier_top1": "Arlo Q Indoor Camera",
+      "top1_confidence": 0.13450878858566284,
+      "llm_predicted": "Arlo Q Indoor Camera",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Arlo Q Indoor Camera has the highest probability and is a type of device that is often confused with other smart home devices, so it's likely the correct classification.",
+      "correct": false
+    },
+    {
+      "true_label": "Gosund Power strip (1)",
+      "classifier_top1": "Yutron Plug 1",
+      "top1_confidence": 0.14841829240322113,
+      "llm_predicted": "Yutron Plug 1",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "Given the high probability of Yutron Plug 1 and GoSund Bulb being very close in probability, it's likely a classification ambiguity between two similar device types, so I'm choosing the slightly more probable one.",
+      "correct": false
+    },
+    {
+      "true_label": "Levoit Air Purifier",
+      "classifier_top1": "Levoit Air Purifier",
+      "top1_confidence": 0.1315586417913437,
+      "llm_predicted": "Levoit Air Purifier",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Levoit Air Purifier has a clear lead in probability, suggesting it is the most likely correct class, despite the relatively low confidence level.",
+      "correct": true
+    },
+    {
+      "true_label": "Arlo Base Station",
+      "classifier_top1": "Arlo Base Station",
+      "top1_confidence": 0.10903853923082352,
+      "llm_predicted": "Arlo Base Station",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Arlo Base Station has a slightly higher probability than the other top candidates, and given the similarity in names between the Amazon Echo devices, it's reasonable to lean towards the Arlo device as the most likely correct class.",
+      "correct": true
+    },
+    {
+      "true_label": "Philips Hue Bridge",
+      "classifier_top1": "Philips Hue Bridge",
+      "top1_confidence": 0.12173611670732498,
+      "llm_predicted": "Philips Hue Bridge",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Philips Hue Bridge has the highest probability and is a common smart home device, making it the most likely correct class",
+      "correct": true
+    },
+    {
+      "true_label": "AMCREST WiFi Camera",
+      "classifier_top1": "Arlo Base Station",
+      "top1_confidence": 0.12994995713233948,
+      "llm_predicted": "Arlo Base Station",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Arlo Base Station has the highest probability, and while the other classes are close, they are all distinct device types, suggesting the Arlo Base Station is the most likely correct classification",
+      "correct": false
+    },
+    {
+      "true_label": "LIFX Lightbulb",
+      "classifier_top1": "Govee Smart Humidifer",
+      "top1_confidence": 0.13784843683242798,
+      "llm_predicted": "Govee Smart Humidifer",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "Given the similarity in probabilities between the top three candidates, and the fact that they are all smart home devices, it's reasonable to choose the Govee Smart Humidifer as the most likely correct class, but this case should be escalated for further review to ensure accuracy.",
+      "correct": false
+    },
+    {
+      "true_label": "Wyze Camera",
+      "classifier_top1": "Amazon Echo Dot 1",
+      "top1_confidence": 0.12764613330364227,
+      "llm_predicted": "Wyze Camera",
+      "llm_action": "override",
+      "llm_rationale": "The Wyze Camera and Arlo Base Station are both IoT devices, and the classifier's probabilities suggest a strong likelihood of one of these two classes being correct, with the Wyze Camera having a slightly higher probability",
+      "correct": true
+    },
+    {
+      "true_label": "SIMCAM 1S (AMPAKTec)",
+      "classifier_top1": "Yi Outdoor Camera",
+      "top1_confidence": 0.1436639130115509,
+      "llm_predicted": "Yi Outdoor Camera",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Yi Outdoor Camera has the highest probability among the top candidates, and the other classes are all similar smart home devices, suggesting that the classifier's uncertainty is likely due to minor variations in device type rather than a fundamentally different class.",
+      "correct": false
+    },
+    {
+      "true_label": "Gosund Power strip (1)",
+      "classifier_top1": "Teckin Plug 2",
+      "top1_confidence": 0.1261521577835083,
+      "llm_predicted": "Teckin Plug 2",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Teckin Plug 2 has the highest probability and is a specific model of smart plug, making it the most likely correct class among the top candidates.",
+      "correct": false
+    },
+    {
+      "true_label": "Wyze Camera",
+      "classifier_top1": "Eufy HomeBase 2",
+      "top1_confidence": 0.11133860796689987,
+      "llm_predicted": "Eufy HomeBase 2",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "Given the close probabilities between Eufy HomeBase 2 and Luohe Cam Dog, and the fact that they are both types of smart home devices, it's likely that the classifier is confused between these two classes, so it's best to escalate this case to a human for further review.",
+      "correct": false
+    },
+    {
+      "true_label": "Netatmo Weather Station",
+      "classifier_top1": "Teckin Light Strip",
+      "top1_confidence": 0.13663648068904877,
+      "llm_predicted": "Teckin Light Strip",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Teckin Light Strip and Teckin Plug 2 are both from the same manufacturer, suggesting the classifier is likely confused between two similar products from the same vendor.",
+      "correct": false
+    },
+    {
+      "true_label": "Cocoon Smart HVAC Fan",
+      "classifier_top1": "Levoit Air Purifier",
+      "top1_confidence": 0.1360761523246765,
+      "llm_predicted": "Levoit Air Purifier",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Levoit Air Purifier has the highest probability and is a distinct device type, making it the most likely correct choice",
+      "correct": false
+    },
+    {
+      "true_label": "AMCREST WiFi Camera",
+      "classifier_top1": "Google Nest Mini Speaker",
+      "top1_confidence": 0.10822389274835587,
+      "llm_predicted": "Google Nest Mini Speaker",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Google Nest Mini Speaker has the highest probability, and while the other classes are plausible, they are significantly less likely, suggesting this is the most probable correct answer.",
+      "correct": false
+    },
+    {
+      "true_label": "Teckin Plug 1",
+      "classifier_top1": "Lumiman bulb",
+      "top1_confidence": 0.12725341320037842,
+      "llm_predicted": "Lumiman bulb",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "Given the very close probabilities between Lumiman bulb and Yutron Plug 1, it's likely a classification error between two similar device types, so I'm choosing the bulb as the most likely correct class",
+      "correct": false
+    },
+    {
+      "true_label": "Globe Lamp ESP_B1680C",
+      "classifier_top1": "iRobot Roomba",
+      "top1_confidence": 0.11360955983400345,
+      "llm_predicted": "iRobot Roomba",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The iRobot Roomba and GoSund Smart plug WP2 are tied for the highest probability, suggesting a strong likelihood of a device from one of these two classes, but the exact tie makes it difficult to choose between them without more information.",
+      "correct": false
+    },
+    {
+      "true_label": "Cocoon Smart HVAC Fan",
+      "classifier_top1": "Netatmo Weather Station",
+      "top1_confidence": 0.11474181711673737,
+      "llm_predicted": "Netatmo Weather Station",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The top two candidates are very close in probability, but Netatmo Weather Station and AMCREST WiFi Camera are both IoT devices, suggesting they may be similar enough to be confused for each other, so I'm leaning towards the slightly more probable Netatmo Weather Station.",
+      "correct": false
+    },
+    {
+      "true_label": "AMCREST WiFi Camera",
+      "classifier_top1": "Amazon Plug",
+      "top1_confidence": 0.12826226651668549,
+      "llm_predicted": "Amazon Plug",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The two GoSund Smart plug WP2 classes are likely a result of the classifier being confused between the two, but Amazon Plug has a slightly higher probability and is a more general class, making it the most likely correct choice",
+      "correct": false
+    },
+    {
+      "true_label": "Raspberry Pi 4-2 GB",
+      "classifier_top1": "Google Nest Mini Speaker",
+      "top1_confidence": 0.14783021807670593,
+      "llm_predicted": "Google Nest Mini Speaker",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Google Nest Mini Speaker has the highest probability and is a common device type, making it the most likely correct classification.",
+      "correct": false
+    },
+    {
+      "true_label": "Wyze Camera",
+      "classifier_top1": "Netatmo Camera",
+      "top1_confidence": 0.10534415394067764,
+      "llm_predicted": "Netatmo Camera",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Netatmo Camera has the highest probability and is a distinct device type, making it the most likely correct choice among the top candidates.",
+      "correct": false
+    },
+    {
+      "true_label": "AMCREST WiFi Camera",
+      "classifier_top1": "Yutron Plug 1",
+      "top1_confidence": 0.10929146409034729,
+      "llm_predicted": "Levoit Air Purifier",
+      "llm_action": "override",
+      "llm_rationale": "The Levoit Air Purifier is the second-highest probability and is a distinct device type, making it a more likely correct answer than the other options, which are all either similar devices or have lower probabilities.",
+      "correct": false
+    },
+    {
+      "true_label": "SIMCAM 1S (AMPAKTec)",
+      "classifier_top1": "Teckin Plug 1",
+      "top1_confidence": 0.13701163232326508,
+      "llm_predicted": "Teckin Plug 1",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "Given the high similarity in probabilities between the top 3 candidates, which are all smart plugs or devices from the same manufacturer (Teckin), it's reasonable to choose the most specific class, Teckin Plug 1.",
+      "correct": false
+    },
+    {
+      "true_label": "Smart Board",
+      "classifier_top1": "Atomi Coffee Maker",
+      "top1_confidence": 0.1163019984960556,
+      "llm_predicted": "Atomi Coffee Maker",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Atomi Coffee Maker has the highest probability, and given the other candidates are all IoT devices, it's plausible the classifier is confused between a coffee maker and a smart speaker/light bulb, so the coffee maker is the most likely correct answer.",
+      "correct": false
+    },
+    {
+      "true_label": "TP-Link Tapo Camera",
+      "classifier_top1": "TP-Link Tapo Camera",
+      "top1_confidence": 0.14756256341934204,
+      "llm_predicted": "TP-Link Tapo Camera",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The TP-Link Tapo Camera has the highest probability among the top candidates, and its name suggests it's a device with a camera, which is distinct from the other top candidates that are all speakers.",
+      "correct": true
+    },
+    {
+      "true_label": "AeoTec Smart Home Hub",
+      "classifier_top1": "Arlo Base Station",
+      "top1_confidence": 0.1078655794262886,
+      "llm_predicted": "Arlo Base Station",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Arlo Base Station and Yi Outdoor Camera have very similar probabilities, but given the similarity in names, it's likely that the classifier is confused between these two classes, so I'm choosing the Arlo Base Station as the most likely correct class.",
+      "correct": false
+    },
+    {
+      "true_label": "iRobot Roomba",
+      "classifier_top1": "Yutron Plug 1",
+      "top1_confidence": 0.14736807346343994,
+      "llm_predicted": "Yutron Plug 1",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Yutron Plug 1 has a significantly higher probability than the other classes, suggesting it is the most likely correct classification.",
+      "correct": false
+    },
+    {
+      "true_label": "Amazon Echo Studio",
+      "classifier_top1": "Raspberry Pi 4-2 GB",
+      "top1_confidence": 0.13266673684120178,
+      "llm_predicted": "Raspberry Pi 4-2 GB",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Raspberry Pi 4-2 GB has the highest probability and is a distinct device type, making it the most likely correct classification.",
+      "correct": false
+    },
+    {
+      "true_label": "AMCREST WiFi Camera",
+      "classifier_top1": "Eufy HomeBase 2",
+      "top1_confidence": 0.14657491445541382,
+      "llm_predicted": "Eufy HomeBase 2",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Eufy HomeBase 2 has the highest probability and is a type of smart home device, which is consistent with the other candidates being various types of cameras or devices, making it the most likely correct choice.",
+      "correct": false
+    },
+    {
+      "true_label": "TP-Link Tapo Camera",
+      "classifier_top1": "AeoTec Smart Home Hub",
+      "top1_confidence": 0.13024310767650604,
+      "llm_predicted": "AeoTec Smart Home Hub",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The AeoTec Smart Home Hub has the highest probability among the top candidates, and its probability is significantly higher than the others, suggesting it is the most likely correct class.",
+      "correct": false
+    },
+    {
+      "true_label": "Yi Outdoor Camera",
+      "classifier_top1": "Wemo smart plug 2 (Wemo id: Wemo.Mini.4A3)",
+      "top1_confidence": 0.14513106644153595,
+      "llm_predicted": "Wemo smart plug 2 (Wemo id: Wemo.Mini.4A3)",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Wemo smart plug 2 has the highest probability and is a specific device model, making it the most likely correct answer.",
+      "correct": false
+    },
+    {
+      "true_label": "Amazon Plug",
+      "classifier_top1": "Wyze Camera",
+      "top1_confidence": 0.14304104447364807,
+      "llm_predicted": "Wyze Camera",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Wyze Camera has the highest probability and is a common IoT device, making it the most likely correct class",
+      "correct": false
+    },
+    {
+      "true_label": "Borun/Sichuan-AI Camera",
+      "classifier_top1": "Luohe Cam Dog",
+      "top1_confidence": 0.13358423113822937,
+      "llm_predicted": "Luohe Cam Dog",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Luohe Cam Dog has a significantly higher probability than the other candidates, suggesting it is the most likely correct class.",
+      "correct": false
+    },
+    {
+      "true_label": "GoSund Smart Plug WP2 (2)",
+      "classifier_top1": "Teckin Plug 2",
+      "top1_confidence": 0.14501473307609558,
+      "llm_predicted": "Teckin Plug 2",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Teckin Plug 2 has the highest probability and is the only class with a clear majority, making it the most likely correct choice.",
+      "correct": false
+    },
+    {
+      "true_label": "Sonos One Speaker",
+      "classifier_top1": "Yi Outdoor Camera",
+      "top1_confidence": 0.12143310904502869,
+      "llm_predicted": "Yi Outdoor Camera",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Yi Outdoor Camera has the highest probability and is a specific type of device, making it a more likely correct answer than the other general smart home devices",
+      "correct": false
+    },
+    {
+      "true_label": "Sonos One Speaker",
+      "classifier_top1": "Philips Hue Bridge",
+      "top1_confidence": 0.12290193885564804,
+      "llm_predicted": "Philips Hue Bridge",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Philips Hue Bridge has a slightly higher probability than the LG Smart TV, and given the similarity in names between the Arlo Q and Arlo Base Station, it's likely that the classifier is correctly identifying a Philips Hue device",
+      "correct": false
+    },
+    {
+      "true_label": "TP-Link Tapo Camera",
+      "classifier_top1": "Govee Smart Humidifer",
+      "top1_confidence": 0.12743744254112244,
+      "llm_predicted": "Govee Smart Humidifer",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Govee Smart Humidifer has a significantly higher probability than the other candidates, suggesting it is the most likely correct class.",
+      "correct": false
+    },
+    {
+      "true_label": "Borun/Sichuan-AI Camera",
+      "classifier_top1": "Wyze Camera",
+      "top1_confidence": 0.10085786134004593,
+      "llm_predicted": "Wyze Camera",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Wyze Camera has the highest probability and is a relatively common device type, making it the most likely correct choice",
+      "correct": false
+    },
+    {
+      "true_label": "Amazon Plug",
+      "classifier_top1": "Levoit Air Purifier",
+      "top1_confidence": 0.13339728116989136,
+      "llm_predicted": "Levoit Air Purifier",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Levoit Air Purifier has the highest probability and is distinct from the other plug-related classes, making it the most likely correct choice.",
+      "correct": false
+    },
+    {
+      "true_label": "Amazon Plug",
+      "classifier_top1": "Netatmo Weather Station",
+      "top1_confidence": 0.13799960911273956,
+      "llm_predicted": "Netatmo Weather Station",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Netatmo Weather Station and Arlo Base Station have very similar probabilities, but given the distinct device types, it's likely one of these two is correct, and the Netatmo Weather Station has a slightly higher probability.",
+      "correct": false
+    },
+    {
+      "true_label": "TP-Link Tapo Camera",
+      "classifier_top1": "TP-Link Tapo Camera",
+      "top1_confidence": 0.12946249544620514,
+      "llm_predicted": "TP-Link Tapo Camera",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Tapo Camera and Yutron Plug 2 are the top two candidates, and given their similar names and the fact that they are both IoT devices, it's likely that the classifier is confused between these two classes, but the Tapo Camera has a slightly higher probability, so it's the most likely correct answer.",
+      "correct": true
+    },
+    {
+      "true_label": "Teckin Plug 1",
+      "classifier_top1": "SIMCAM 1S (AMPAKTec)",
+      "top1_confidence": 0.14128626883029938,
+      "llm_predicted": "SIMCAM 1S (AMPAKTec)",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The SIMCAM 1S has a slightly higher probability than the other top candidates, and given the similarity in names and types (all are IoT devices), it's reasonable to choose this one.",
+      "correct": false
+    },
+    {
+      "true_label": "Netatmo Weather Station",
+      "classifier_top1": "Arlo Base Station",
+      "top1_confidence": 0.14588674902915955,
+      "llm_predicted": "Arlo Base Station",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Arlo Base Station has the highest probability and is a device that is often confused with other smart home devices, so it's likely the correct classification",
+      "correct": false
+    },
+    {
+      "true_label": "SIMCAM 1S (AMPAKTec)",
+      "classifier_top1": "SIMCAM 1S (AMPAKTec)",
+      "top1_confidence": 0.1499323844909668,
+      "llm_predicted": "SIMCAM 1S (AMPAKTec)",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The SIMCAM 1S has a slightly higher probability than the other top candidates, and given the context of network traffic, it's more likely that a camera would be sending data than a smart plug or light strip.",
+      "correct": true
+    },
+    {
+      "true_label": "LG Smart TV",
+      "classifier_top1": "AMCREST WiFi Camera",
+      "top1_confidence": 0.11347834765911102,
+      "llm_predicted": "AMCREST WiFi Camera",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The AMCREST WiFi Camera has a significantly higher probability than the other top candidates, suggesting it is the most likely correct class.",
+      "correct": false
+    },
+    {
+      "true_label": "SIMCAM 1S (AMPAKTec)",
+      "classifier_top1": "Yi Outdoor Camera",
+      "top1_confidence": 0.1415562927722931,
+      "llm_predicted": "Yi Outdoor Camera",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Yi Outdoor Camera has the highest probability and is the only class with a clear majority, making it the most likely correct choice.",
+      "correct": false
+    },
+    {
+      "true_label": "Philips Hue Bridge",
+      "classifier_top1": "LG Smart TV",
+      "top1_confidence": 0.13621866703033447,
+      "llm_predicted": "LG Smart TV",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The LG Smart TV and Philips Hue Bridge have identical probabilities, suggesting a tie, but given the similarity in device types, I'm leaning towards the LG Smart TV as the more likely correct answer.",
+      "correct": false
+    },
+    {
+      "true_label": "Gosund Smart Plug WP3 (2)",
+      "classifier_top1": "Wemo smart plug 2 (Wemo id: Wemo.Mini.4A3)",
+      "top1_confidence": 0.13797934353351593,
+      "llm_predicted": "Wemo smart plug 2 (Wemo id: Wemo.Mini.4A3)",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Wemo smart plug 2 has the highest probability and is a distinct class from the other candidates, which are all similar smart plugs from different brands.",
+      "correct": false
+    },
+    {
+      "true_label": "Amazon Echo Spot",
+      "classifier_top1": "Arlo Base Station",
+      "top1_confidence": 0.13583379983901978,
+      "llm_predicted": "Arlo Base Station",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Arlo Base Station has the highest probability, and given the context of network traffic, it's likely a device-related classification, making it the most plausible choice.",
+      "correct": false
+    },
+    {
+      "true_label": "Levoit Air Purifier",
+      "classifier_top1": "Yutron Plug 1",
+      "top1_confidence": 0.12314283102750778,
+      "llm_predicted": "Yutron Plug 1",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Yutron Plug 1 has a significantly higher probability than the other candidates, suggesting it is the most likely correct class.",
+      "correct": false
+    },
+    {
+      "true_label": "HeimVision SmartLife Radio/Lamp",
+      "classifier_top1": "Lumiman bulb",
+      "top1_confidence": 0.1477382630109787,
+      "llm_predicted": "Lumiman bulb",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Lumiman bulb has a significantly higher probability than the other candidates, suggesting it is the most likely correct class.",
+      "correct": false
+    },
+    {
+      "true_label": "Yi Indoor 2 Camera",
+      "classifier_top1": "Sonos One Speaker",
+      "top1_confidence": 0.13359130918979645,
+      "llm_predicted": "Sonos One Speaker",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Sonos One Speaker and Yi Indoor 2 Camera have very similar probabilities, but the Sonos One Speaker has a slightly higher probability, suggesting it is the most likely correct class.",
+      "correct": false
+    },
+    {
+      "true_label": "Amazon Echo Dot 1",
+      "classifier_top1": "SmartThings Hub",
+      "top1_confidence": 0.14062318205833435,
+      "llm_predicted": "SmartThings Hub",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The SmartThings Hub has the highest probability, and while the other classes are close, they are not as likely to be confused with a SmartThings Hub, so it's a reasonable guess",
+      "correct": false
+    },
+    {
+      "true_label": "Sonos One Speaker",
+      "classifier_top1": "Philips Hue Bridge",
+      "top1_confidence": 0.13692080974578857,
+      "llm_predicted": "Philips Hue Bridge",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Philips Hue Bridge has the highest probability and is a distinct device type from the other candidates, which are all cameras or a camera base station, suggesting it is the most likely correct classification.",
+      "correct": false
+    },
+    {
+      "true_label": "Arlo Base Station",
+      "classifier_top1": "Arlo Base Station",
+      "top1_confidence": 0.14981377124786377,
+      "llm_predicted": "Arlo Base Station",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Arlo Base Station has the highest probability, and given the other candidates are all smart home devices, it's likely the correct classification",
+      "correct": true
+    },
+    {
+      "true_label": "Yi Indoor Camera",
+      "classifier_top1": "Yi Outdoor Camera",
+      "top1_confidence": 0.11003979295492172,
+      "llm_predicted": "Yi Outdoor Camera",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Yi Outdoor Camera and Yi Indoor Camera are both from the same brand, suggesting the classifier is likely confused between these two similar devices.",
+      "correct": false
+    },
+    {
+      "true_label": "LampUX RGB",
+      "classifier_top1": "Yutron Plug 1",
+      "top1_confidence": 0.12277104705572128,
+      "llm_predicted": "Yutron Plug 1",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Yutron Plug 1 has a clear lead in probability, suggesting it's the most likely correct class, despite the relatively low confidence level.",
+      "correct": false
+    },
+    {
+      "true_label": "TP-Link Tapo Camera",
+      "classifier_top1": "Amazon Echo Show",
+      "top1_confidence": 0.12324322015047073,
+      "llm_predicted": "Amazon Echo Show",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Amazon Echo Show has the highest probability and is the most specific class, suggesting it's the most likely correct answer",
+      "correct": false
+    },
+    {
+      "true_label": "Globe Lamp ESP_B1680C",
+      "classifier_top1": "Levoit Air Purifier",
+      "top1_confidence": 0.13277886807918549,
+      "llm_predicted": "Luohe Cam Dog",
+      "llm_action": "override",
+      "llm_rationale": "The Luohe Cam Dog and Levoit Air Purifier are very close in probability, but given the similarity in names, it's likely the classifier is confused between these two device types, so I'll choose the Luohe Cam Dog as the most likely correct class.",
+      "correct": false
+    },
+    {
+      "true_label": "Levoit Air Purifier",
+      "classifier_top1": "Teckin Plug 2",
+      "top1_confidence": 0.14241574704647064,
+      "llm_predicted": "Teckin Plug 2",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "Given the high probability of two very similar classes (Teckin Plug 2 and Teckin Light Strip) being tied, it's likely that the classifier is confused between these two, but Teckin Plug 2 is slightly more likely, so it's the best choice",
+      "correct": false
+    },
+    {
+      "true_label": "SmartThings Hub",
+      "classifier_top1": "Arlo Base Station",
+      "top1_confidence": 0.14760592579841614,
+      "llm_predicted": "Arlo Base Station",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Arlo Base Station has the highest probability and is a device that is often confused with other smart home devices, so it's a reasonable guess despite the relatively low confidence.",
+      "correct": false
+    },
+    {
+      "true_label": "AeoTec Smart Home Hub",
+      "classifier_top1": "SmartThings Hub",
+      "top1_confidence": 0.13308492302894592,
+      "llm_predicted": "SmartThings Hub",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "Given the close probabilities between SmartThings Hub and Google Nest Mini Speaker, it's likely a device from the same manufacturer or category is being misclassified, so I'll choose the SmartThings Hub as the most likely correct class.",
+      "correct": false
+    },
+    {
+      "true_label": "LG Smart TV",
+      "classifier_top1": "LG Smart TV",
+      "top1_confidence": 0.14565572142601013,
+      "llm_predicted": "LG Smart TV",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The LG Smart TV has the highest probability and is a more general category, making it more likely to be the correct classification given the other candidates are all specific smart home devices.",
+      "correct": true
+    },
+    {
+      "true_label": "DCS8000LHA1 D-Link Mini Camera",
+      "classifier_top1": "DCS8000LHA1 D-Link Mini Camera",
+      "top1_confidence": 0.11949491500854492,
+      "llm_predicted": "DCS8000LHA1 D-Link Mini Camera",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The D-Link Mini Camera has the highest probability among the top three candidates, which are all devices with a similar form factor and purpose, making it the most likely correct class.",
+      "correct": true
+    },
+    {
+      "true_label": "Sonos One Speaker",
+      "classifier_top1": "Philips Hue Bridge",
+      "top1_confidence": 0.10858938097953796,
+      "llm_predicted": "Philips Hue Bridge",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "Given the close probabilities between Philips Hue Bridge and LG Smart TV, and the fact that both are smart home devices, it's reasonable to choose the Philips Hue Bridge as the most likely correct class, but this is a close call and could be escalated for further review.",
+      "correct": false
+    },
+    {
+      "true_label": "Eufy HomeBase 2",
+      "classifier_top1": "Eufy HomeBase 2",
+      "top1_confidence": 0.13043712079524994,
+      "llm_predicted": "Eufy HomeBase 2",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Eufy HomeBase 2 has the highest probability and is the only class with a clear lead, making it the most likely correct choice.",
+      "correct": true
+    },
+    {
+      "true_label": "Home Eye Camera",
+      "classifier_top1": "Arlo Base Station",
+      "top1_confidence": 0.13363103568553925,
+      "llm_predicted": "Arlo Base Station",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The Arlo Base Station has the highest probability, and given the context of network traffic, it's reasonable to assume this is a device-related classification, making the Arlo Base Station the most likely correct choice.",
+      "correct": false
+    },
+    {
+      "true_label": "Teckin Plug 1",
+      "classifier_top1": "Teckin Plug 1",
+      "top1_confidence": 0.13937833905220032,
+      "llm_predicted": "Teckin Plug 1",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "Given the high similarity in probabilities between Teckin Plug 1 and Yi Outdoor Camera, it's likely that the classifier is confused between these two device types, but Teckin Plug 1 has a slightly higher probability, so it's the most likely correct answer.",
+      "correct": true
+    },
+    {
+      "true_label": "Netatmo Camera",
+      "classifier_top1": "Amazon Echo Show",
+      "top1_confidence": 0.12065008282661438,
+      "llm_predicted": "Amazon Echo Show",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "Given the high probability of two very similar device types (Amazon Echo Show and Arlo Base Station) being confused, it's reasonable to choose the one with the most specific and likely match for a device with a display.",
+      "correct": false
+    }
+  ]
+}

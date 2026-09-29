@@ -1,0 +1,146 @@
+{
+  "description": "Real CIC IoT 2023 attack-type head, federated (9 random-partition clients, no device identifier available), no attack, no gating",
+  "num_rounds": 25,
+  "num_classes": 8,
+  "classes": [
+    "Benign",
+    "BruteForce",
+    "DDoS",
+    "DoS",
+    "Mirai",
+    "Recon",
+    "Spoofing",
+    "Web-based"
+  ],
+  "n_per_class": 4000,
+  "total_samples": 32000,
+  "wall_clock_seconds": 7.843112945556641,
+  "rounds": [
+    {
+      "round": 0,
+      "macro_f1": 0.41636917826233705,
+      "targeted_success_rate": null
+    },
+    {
+      "round": 1,
+      "macro_f1": 0.48443641580975183,
+      "targeted_success_rate": null
+    },
+    {
+      "round": 2,
+      "macro_f1": 0.5495794819762788,
+      "targeted_success_rate": null
+    },
+    {
+      "round": 3,
+      "macro_f1": 0.5818358938170569,
+      "targeted_success_rate": null
+    },
+    {
+      "round": 4,
+      "macro_f1": 0.592711352524573,
+      "targeted_success_rate": null
+    },
+    {
+      "round": 5,
+      "macro_f1": 0.5988987176750944,
+      "targeted_success_rate": null
+    },
+    {
+      "round": 6,
+      "macro_f1": 0.6150429273448716,
+      "targeted_success_rate": null
+    },
+    {
+      "round": 7,
+      "macro_f1": 0.6240748308072381,
+      "targeted_success_rate": null
+    },
+    {
+      "round": 8,
+      "macro_f1": 0.6397142425501559,
+      "targeted_success_rate": null
+    },
+    {
+      "round": 9,
+      "macro_f1": 0.648038804527362,
+      "targeted_success_rate": null
+    },
+    {
+      "round": 10,
+      "macro_f1": 0.6479301857588255,
+      "targeted_success_rate": null
+    },
+    {
+      "round": 11,
+      "macro_f1": 0.6554698573989459,
+      "targeted_success_rate": null
+    },
+    {
+      "round": 12,
+      "macro_f1": 0.6637088353493201,
+      "targeted_success_rate": null
+    },
+    {
+      "round": 13,
+      "macro_f1": 0.6648970174913424,
+      "targeted_success_rate": null
+    },
+    {
+      "round": 14,
+      "macro_f1": 0.6680050775427359,
+      "targeted_success_rate": null
+    },
+    {
+      "round": 15,
+      "macro_f1": 0.6715324208929228,
+      "targeted_success_rate": null
+    },
+    {
+      "round": 16,
+      "macro_f1": 0.6676068242668205,
+      "targeted_success_rate": null
+    },
+    {
+      "round": 17,
+      "macro_f1": 0.6743850427845675,
+      "targeted_success_rate": null
+    },
+    {
+      "round": 18,
+      "macro_f1": 0.6771929527778872,
+      "targeted_success_rate": null
+    },
+    {
+      "round": 19,
+      "macro_f1": 0.6803702556909397,
+      "targeted_success_rate": null
+    },
+    {
+      "round": 20,
+      "macro_f1": 0.6803236280352956,
+      "targeted_success_rate": null
+    },
+    {
+      "round": 21,
+      "macro_f1": 0.6796215411578908,
+      "targeted_success_rate": null
+    },
+    {
+      "round": 22,
+      "macro_f1": 0.6797891534831979,
+      "targeted_success_rate": null
+    },
+    {
+      "round": 23,
+      "macro_f1": 0.6834055364585938,
+      "targeted_success_rate": null
+    },
+    {
+      "round": 24,
+      "macro_f1": 0.6837623724730657,
+      "targeted_success_rate": null
+    }
+  ],
+  "final_macro_f1": 0.6837623724730657
+}

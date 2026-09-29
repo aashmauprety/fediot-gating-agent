@@ -1,0 +1,1356 @@
+{
+  "description": "Real confidence-gated escalation, WITH raw feature evidence, CIC IoT-DIAD 2024 device-ID",
+  "n_classes": 59,
+  "baseline_macro_f1": 0.2926797491880409,
+  "confidence_threshold": 0.15,
+  "n_uncertain_evaluated": 150,
+  "classifier_top1_correct": 28,
+  "llm_correct": 20,
+  "llm_escalated": 22,
+  "llm_errors": 3,
+  "n_overrides": 89,
+  "n_overrides_correct": 12,
+  "llm_wall_clock_seconds": 697.2794029712677,
+  "features_shown": [
+    "src_port",
+    "dst_port",
+    "port_class_dst",
+    "l4_tcp",
+    "l4_udp",
+    "ttl",
+    "eth_size",
+    "tcp_window_size",
+    "payload_entropy",
+    "payload_length",
+    "inter_arrival_time",
+    "jitter",
+    "http_response_code",
+    "dns_query_type",
+    "icmp_type"
+  ],
+  "per_case": [
+    {
+      "true_label": "Amazon Echo Show",
+      "classifier_top1": "Amazon Echo Studio",
+      "top1_confidence": 0.09624502062797546,
+      "llm_predicted": "TP-Link Tapo Camera",
+      "llm_action": "override",
+      "llm_rationale": "The destination port is 53, which is the DNS port, and the payload length is 41, which is consistent with a DNS query response, suggesting this is likely a camera device sending a DNS query.",
+      "correct": false
+    },
+    {
+      "true_label": "Borun/Sichuan-AI Camera",
+      "classifier_top1": "Wyze Camera",
+      "top1_confidence": 0.12092964351177216,
+      "llm_predicted": "Borun/Sichuan-AI Camera",
+      "llm_action": "override",
+      "llm_rationale": "The dst_port value of 1341 is consistent with the typical port used by the Borun/Sichuan-AI Camera's cloud API.",
+      "correct": true
+    },
+    {
+      "true_label": "Netatmo Camera",
+      "classifier_top1": "Arlo Base Station",
+      "top1_confidence": 0.12256959080696106,
+      "llm_predicted": "Wemo smart plug 1 (Wemo id: Wemo.Mini.AD3)",
+      "llm_action": "override",
+      "llm_rationale": "The destination port is 443, which is the standard port for HTTPS, but the payload length is 1428, which is unusually large for a typical HTTPS request, suggesting this might be a device's cloud API communication, consistent with the Wemo smart plug's behavior.",
+      "correct": false
+    },
+    {
+      "true_label": "Smart Board",
+      "classifier_top1": "Yi Outdoor Camera",
+      "top1_confidence": 0.14471474289894104,
+      "llm_predicted": "Raspberry Pi 4-2 GB",
+      "llm_action": "override",
+      "llm_rationale": "The high TCP window size of 61.14 KB is consistent with the typical large window sizes used by Linux-based devices like the Raspberry Pi.",
+      "correct": false
+    },
+    {
+      "true_label": "Smart Board",
+      "classifier_top1": "Amazon Echo Dot 1",
+      "top1_confidence": 0.13954786956310272,
+      "llm_predicted": "Arlo Base Station",
+      "llm_action": "override",
+      "llm_rationale": "The destination port is 443, which is the standard port for HTTPS, and is commonly used by cloud-connected devices like the Arlo Base Station.",
+      "correct": false
+    },
+    {
+      "true_label": "AMCREST WiFi Camera",
+      "classifier_top1": "Eufy HomeBase 2",
+      "top1_confidence": 0.12090586870908737,
+      "llm_predicted": "AMCREST WiFi Camera",
+      "llm_action": "override",
+      "llm_rationale": "The dst_port value of 8814 is consistent with the typical port used by the AMCREST WiFi Camera's cloud API.",
+      "correct": true
+    },
+    {
+      "true_label": "Netatmo Camera",
+      "classifier_top1": "Netatmo Camera",
+      "top1_confidence": 0.13971200585365295,
+      "llm_predicted": "Netatmo Camera",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The high payload entropy (-7.087e-08) and short payload length (1.252e-06) suggest encrypted traffic, which is consistent with the Netatmo Camera's use of HTTPS.",
+      "correct": true
+    },
+    {
+      "true_label": "iRobot Roomba",
+      "classifier_top1": "Amazon Plug",
+      "top1_confidence": 0.13052424788475037,
+      "llm_predicted": "Amazon Plug",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The destination port 443 is a strong indicator of HTTPS traffic, which is commonly used by Amazon devices for cloud connectivity.",
+      "correct": false
+    },
+    {
+      "true_label": "Rbcior Camera",
+      "classifier_top1": "Teckin Plug 2",
+      "top1_confidence": 0.10677537322044373,
+      "llm_predicted": "Teckin Plug 2",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The dst_port value of 8883 is consistent with the Teckin Plug 2's known cloud API port, which is typically used for device control and monitoring.",
+      "correct": false
+    },
+    {
+      "true_label": "Teckin Light Strip",
+      "classifier_top1": "Yutron Plug 1",
+      "top1_confidence": 0.14022070169448853,
+      "llm_predicted": "Lumiman bulb",
+      "llm_action": "override",
+      "llm_rationale": "The dst_port value of 8886 is consistent with the known port used by the Lumiman bulb's cloud API.",
+      "correct": false
+    },
+    {
+      "true_label": "Netatmo Camera",
+      "classifier_top1": "Amazon Echo Show",
+      "top1_confidence": 0.10398347675800323,
+      "llm_predicted": "Arlo Q Indoor Camera",
+      "llm_action": "override",
+      "llm_rationale": "The presence of a TCP connection (l4_tcp = 1) and a large TCP window size (2.611e+04) suggests a device that is capable of handling large amounts of data, consistent with the Arlo Q Indoor Camera's ability to stream video.",
+      "correct": false
+    },
+    {
+      "true_label": "Wemo smart plug 2 (Wemo id: Wemo.Mini.4A3)",
+      "classifier_top1": "Wemo smart plug 2 (Wemo id: Wemo.Mini.4A3)",
+      "top1_confidence": 0.11693670600652695,
+      "llm_predicted": "Borun/Sichuan-AI Camera",
+      "llm_action": "override",
+      "llm_rationale": "The TTL value of 255 is unusual for a typical IoT device, but is consistent with a camera, which often has a high TTL to ensure packets reach the destination",
+      "correct": false
+    },
+    {
+      "true_label": "Netatmo Camera",
+      "classifier_top1": "Amazon Echo Show",
+      "top1_confidence": 0.11649482697248459,
+      "llm_predicted": "Amazon Echo Show",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The presence of a TCP connection to port 443, a common HTTPS port, and a relatively large TCP window size of 29000, is consistent with the Amazon Echo Show's known behavior of using HTTPS for its cloud API.",
+      "correct": false
+    },
+    {
+      "true_label": "Govee Smart Humidifer",
+      "classifier_top1": "Govee Smart Humidifer",
+      "top1_confidence": 0.1451161503791809,
+      "llm_predicted": "Yutron Plug 1",
+      "llm_action": "override",
+      "llm_rationale": "The dst_port value of 8883 is consistent with the Yutron Plug 1's known use of the MQTT protocol, which typically uses port 8883.",
+      "correct": false
+    },
+    {
+      "true_label": "Yi Outdoor Camera",
+      "classifier_top1": "Google Nest Mini Speaker",
+      "top1_confidence": 0.11893587559461594,
+      "llm_predicted": "Borun/Sichuan-AI Camera",
+      "llm_action": "override",
+      "llm_rationale": "The dst_port value of 3.21e+04 is consistent with the typical port range used by IP cameras, which is often in the range of 30000-60000.",
+      "correct": false
+    },
+    {
+      "true_label": "Smart Board",
+      "classifier_top1": "Philips Hue Bridge",
+      "top1_confidence": 0.1443127691745758,
+      "llm_predicted": "AMCREST WiFi Camera",
+      "llm_action": "override",
+      "llm_rationale": "The presence of UDP traffic (l4_udp = 1) and a destination port of 443, which is typically associated with HTTPS, suggests that this traffic is likely related to a camera, which often uses UDP for video streaming and HTTPS for control and configuration.",
+      "correct": false
+    },
+    {
+      "true_label": "Amazon Echo Dot 1",
+      "classifier_top1": "Amazon Echo Dot 1",
+      "top1_confidence": 0.13900288939476013,
+      "llm_predicted": "Arlo Base Station",
+      "llm_action": "override",
+      "llm_rationale": "The high dst_port value (6.03e+04) is consistent with the typical port range used by Arlo devices for their cloud API.",
+      "correct": false
+    },
+    {
+      "true_label": "GoSund Smart Plug WP3 (1)",
+      "classifier_top1": "Lumiman bulb",
+      "top1_confidence": 0.13985534012317657,
+      "llm_predicted": "Lumiman bulb",
+      "llm_action": "escalate_to_human",
+      "llm_rationale": "The dst_port value of 8886 is unusual for a typical IoT device, and the high TTL value of 255 is also suspicious, suggesting this traffic may not be from a typical IoT device.",
+      "correct": null
+    },
+    {
+      "true_label": "LIFX Lightbulb",
+      "classifier_top1": "Levoit Air Purifier",
+      "top1_confidence": 0.13596472144126892,
+      "llm_predicted": "Levoit Air Purifier",
+      "llm_action": "escalate_to_human",
+      "llm_rationale": "The TTL value of 255 is unusual for most IoT devices, which typically have a TTL of 64 or lower, making it difficult to determine the correct class based on the provided features.",
+      "correct": null
+    },
+    {
+      "true_label": "Borun/Sichuan-AI Camera",
+      "classifier_top1": "Borun/Sichuan-AI Camera",
+      "top1_confidence": 0.0898689478635788,
+      "llm_predicted": "Wyze Camera",
+      "llm_action": "override",
+      "llm_rationale": "The dst_port value of 1340 is consistent with the Wyze Camera's known port usage, which is typically 1340 for its cloud API.",
+      "correct": false
+    },
+    {
+      "true_label": "Levoit Air Purifier",
+      "classifier_top1": "AMCREST WiFi Camera",
+      "top1_confidence": 0.14810901880264282,
+      "llm_predicted": "AMCREST WiFi Camera",
+      "llm_action": "escalate_to_human",
+      "llm_rationale": "The src_port value of 0.0004498 and dst_port value of -1.299e-05, along with the l4_tcp and l4_udp values of 0, suggest a non-standard or possibly spoofed packet, which is inconsistent with the typical behavior of any of the listed IoT devices.",
+      "correct": null
+    },
+    {
+      "true_label": "Gosund Smart Plug WP3 (2)",
+      "classifier_top1": "Teckin Plug 2",
+      "top1_confidence": 0.11303812265396118,
+      "llm_predicted": "GoSund Bulb",
+      "llm_action": "override",
+      "llm_rationale": "The dst_port value of 8886 is consistent with the GoSund Bulb's known cloud API port, which is typically used for device control and monitoring.",
+      "correct": false
+    },
+    {
+      "true_label": "Google Nest Mini Speaker",
+      "classifier_top1": "Borun/Sichuan-AI Camera",
+      "top1_confidence": 0.13743795454502106,
+      "llm_predicted": "Borun/Sichuan-AI Camera",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The source and destination port being 5353, which is the SSDP port, is consistent with the Borun/Sichuan-AI Camera class, which is known to use SSDP for device discovery.",
+      "correct": false
+    },
+    {
+      "true_label": "Yi Outdoor Camera",
+      "classifier_top1": "Teckin Plug 2",
+      "top1_confidence": 0.14487984776496887,
+      "llm_predicted": "Teckin Plug 2",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The src_port value of 0.0004498 is consistent with the typical behavior of IoT devices, which often use ephemeral ports for communication, and Teckin Plug 2 is a known IoT device.",
+      "correct": false
+    },
+    {
+      "true_label": "Yi Outdoor Camera",
+      "classifier_top1": "Eufy HomeBase 2",
+      "top1_confidence": 0.1251906007528305,
+      "llm_predicted": "Yi Outdoor Camera",
+      "llm_action": "override",
+      "llm_rationale": "The presence of UDP traffic (l4_udp = 1) and the dst_port value of 3.21e+04, which is a common port for outdoor security cameras, suggests that this sample is likely from a Yi Outdoor Camera.",
+      "correct": true
+    },
+    {
+      "true_label": "Wyze Camera",
+      "classifier_top1": "Amazon Echo Show",
+      "top1_confidence": 0.14825233817100525,
+      "llm_predicted": "Wyze Camera",
+      "llm_action": "override",
+      "llm_rationale": "The presence of UDP protocol (l4_udp = 0) and a dst_port of 8443, which is a common port for Wyze Camera's cloud API, suggests that this traffic is consistent with a Wyze Camera.",
+      "correct": true
+    },
+    {
+      "true_label": "Teckin Light Strip",
+      "classifier_top1": "HeimVision SmartLife Radio/Lamp",
+      "top1_confidence": 0.14050446450710297,
+      "llm_predicted": "Govee Smart Humidifer",
+      "llm_action": "override",
+      "llm_rationale": "The destination port is 53, which is the DNS port, and the payload entropy is low, suggesting this is likely a DNS query, which is consistent with the Govee Smart Humidifier's behavior.",
+      "correct": false
+    },
+    {
+      "true_label": "Sonos One Speaker",
+      "classifier_top1": "Sonos One Speaker",
+      "top1_confidence": 0.11957871913909912,
+      "llm_predicted": "LG Smart TV",
+      "llm_action": "override",
+      "llm_rationale": "The dst_port value of 5408 is consistent with the typical port range used by LG Smart TVs for their web service",
+      "correct": false
+    },
+    {
+      "true_label": "Cocoon Smart HVAC Fan",
+      "classifier_top1": "Teckin Plug 1",
+      "top1_confidence": 0.1422838568687439,
+      "llm_predicted": "Teckin Plug 1",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The very low payload length and entropy, combined with the presence of an ICMP type 3 (Destination Unreachable) packet, suggests that this traffic is likely a simple device ping or probe, consistent with the behavior of a smart plug like the Teckin Plug 1.",
+      "correct": false
+    },
+    {
+      "true_label": "Yutron Plug 2",
+      "classifier_top1": "Teckin Light Strip",
+      "top1_confidence": 0.149626225233078,
+      "llm_predicted": "Yutron Plug 1",
+      "llm_action": "override",
+      "llm_rationale": "The dst_port value of 6667 is consistent with the Yutron Plug 1's known use of the telnet protocol, which is typically associated with port 23, but 6667 is also a known telnet port used by some devices.",
+      "correct": false
+    },
+    {
+      "true_label": "Smart Board",
+      "classifier_top1": "Yi Outdoor Camera",
+      "top1_confidence": 0.134221613407135,
+      "llm_predicted": "Raspberry Pi 4-2 GB",
+      "llm_action": "override",
+      "llm_rationale": "The presence of a UDP packet (l4_udp = 1) and a high payload entropy (payload_entropy = 3.579) suggests that this traffic is likely related to a device with a Linux-based OS, such as the Raspberry Pi 4-2 GB.",
+      "correct": false
+    },
+    {
+      "true_label": "AMCREST WiFi Camera",
+      "classifier_top1": "AMCREST WiFi Camera",
+      "top1_confidence": 0.14721937477588654,
+      "llm_predicted": "AMCREST WiFi Camera",
+      "llm_action": "escalate_to_human",
+      "llm_rationale": "The dst_port value of 8811 is consistent with the SSDP protocol, which is typically used for IoT device discovery, but none of the top candidate classes are explicitly associated with SSDP, and the other features do not strongly suggest any of the top candidates.",
+      "correct": null
+    },
+    {
+      "true_label": "Amazon Plug",
+      "classifier_top1": "Arlo Base Station",
+      "top1_confidence": 0.11376385390758514,
+      "llm_predicted": "Raspberry Pi 4-2 GB",
+      "llm_action": "override",
+      "llm_rationale": "The unusually high TCP window size of 49,150 bytes is consistent with the typical behavior of a Raspberry Pi device, which often uses large TCP windows to optimize data transfer.",
+      "correct": false
+    },
+    {
+      "true_label": "Globe Lamp ESP_B1680C",
+      "classifier_top1": "GoSund Bulb",
+      "top1_confidence": 0.13033542037010193,
+      "llm_predicted": "GoSund Bulb",
+      "llm_action": "escalate_to_human",
+      "llm_rationale": "The src_port value of 0.0004498 is unusual and does not match any typical IoT device port numbers, and the dst_port value is also very low, suggesting this traffic may not be related to any of the top candidate classes",
+      "correct": null
+    },
+    {
+      "true_label": "Sonos One Speaker",
+      "classifier_top1": "Sonos One Speaker",
+      "top1_confidence": 0.13662421703338623,
+      "llm_predicted": "Arlo Base Station",
+      "llm_action": "override",
+      "llm_rationale": "The high dst_port value of 5.368e+04 is consistent with the typical port range used by Arlo devices for their cloud API",
+      "correct": false
+    },
+    {
+      "true_label": "Smart Board",
+      "classifier_top1": "Google Nest Mini Speaker",
+      "top1_confidence": 0.12004870921373367,
+      "llm_predicted": "Yi Outdoor Camera",
+      "llm_action": "override",
+      "llm_rationale": "The high TTL value of 241 is unusual for a typical IoT device, but is consistent with the Yi Outdoor Camera, which is known to use a non-standard TTL value for its video streaming protocol.",
+      "correct": false
+    },
+    {
+      "true_label": "Wyze Camera",
+      "classifier_top1": "Wyze Camera",
+      "top1_confidence": 0.14860600233078003,
+      "llm_predicted": "Raspberry Pi 4-2 GB",
+      "llm_action": "override",
+      "llm_rationale": "The very low TCP window size (0) and TTL (-6.557e-07) values are consistent with a Linux-based device like the Raspberry Pi, which often has unusual network stack settings.",
+      "correct": false
+    },
+    {
+      "true_label": "Rbcior Camera",
+      "classifier_top1": "Yi Outdoor Camera",
+      "top1_confidence": 0.1490904986858368,
+      "llm_predicted": "Raspberry Pi 4-2 GB",
+      "llm_action": "override",
+      "llm_rationale": "The unusually high TCP window size of 61.14 KB is consistent with the typical behavior of a Raspberry Pi device, which often uses a large TCP window size to optimize network performance.",
+      "correct": false
+    },
+    {
+      "true_label": "SIMCAM 1S (AMPAKTec)",
+      "classifier_top1": "SIMCAM 1S (AMPAKTec)",
+      "top1_confidence": 0.14180412888526917,
+      "llm_predicted": "Teckin Plug 1",
+      "llm_action": "override",
+      "llm_rationale": "The dst_port value of 8944 is consistent with the typical port used by Teckin devices for their cloud API",
+      "correct": false
+    },
+    {
+      "true_label": "GoSund Smart plug WP2 (3)",
+      "classifier_top1": "Wemo smart plug 2 (Wemo id: Wemo.Mini.4A3)",
+      "top1_confidence": 0.14559520781040192,
+      "llm_predicted": "Wemo smart plug 2 (Wemo id: Wemo.Mini.4A3)",
+      "llm_action": "escalate_to_human",
+      "llm_rationale": "The dst_port value of 6667 is unusual for a typical IoT device, as it's not a standard port for any of the listed devices, and the TTL of 255 is also suspiciously high, suggesting this may be a mislabeled or spoofed packet",
+      "correct": null
+    },
+    {
+      "true_label": "Borun/Sichuan-AI Camera",
+      "classifier_top1": "Luohe Cam Dog",
+      "top1_confidence": 0.09789382666349411,
+      "llm_predicted": "Luohe Cam Dog",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The dst_port value of 9001 is consistent with the typical SSDP port used by many IoT devices, which is a strong indicator of the Luohe Cam Dog class.",
+      "correct": false
+    },
+    {
+      "true_label": "Govee Smart Humidifer",
+      "classifier_top1": "Amazon Plug",
+      "top1_confidence": 0.11230640113353729,
+      "llm_predicted": "Amazon Plug",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The dst_port value of 8883 is a strong indicator of Amazon's proprietary protocol, which is used for communication with Amazon devices.",
+      "correct": false
+    },
+    {
+      "true_label": "Amazon Plug",
+      "classifier_top1": "iRobot Roomba",
+      "top1_confidence": 0.11044599115848541,
+      "llm_predicted": "Yi Outdoor Camera",
+      "llm_action": "override",
+      "llm_rationale": "The high TCP window size (3.456e+04) and the destination port (5.415e+04) are consistent with the Yi Outdoor Camera's typical behavior of using large TCP window sizes and non-standard ports for its video streaming protocol.",
+      "correct": false
+    },
+    {
+      "true_label": "Netatmo Camera",
+      "classifier_top1": "Arlo Q Indoor Camera",
+      "top1_confidence": 0.13134726881980896,
+      "llm_predicted": "Arlo Q Indoor Camera",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The high payload entropy (3.584) and relatively small payload length (1428) suggest encrypted traffic, which is consistent with the Arlo Q Indoor Camera's cloud API protocol.",
+      "correct": false
+    },
+    {
+      "true_label": "Netatmo Camera",
+      "classifier_top1": "Eufy HomeBase 2",
+      "top1_confidence": 0.11180570721626282,
+      "llm_predicted": "AMCREST WiFi Camera",
+      "llm_action": "override",
+      "llm_rationale": "The dst_port value of 4500 is consistent with the Multicast DNS (mDNS) protocol, which is commonly used by IoT devices such as the AMCREST WiFi Camera.",
+      "correct": false
+    },
+    {
+      "true_label": "Levoit Air Purifier",
+      "classifier_top1": "Levoit Air Purifier",
+      "top1_confidence": 0.14168532192707062,
+      "llm_predicted": "Levoit Air Purifier",
+      "llm_action": "escalate_to_human",
+      "llm_rationale": "The src_port value of 0.0004498 is unusual and does not match any typical IoT device behavior, and the dst_port value is essentially 0, which is also unusual.",
+      "correct": null
+    },
+    {
+      "true_label": "Netatmo Weather Station",
+      "classifier_top1": "Arlo Base Station",
+      "top1_confidence": 0.13861891627311707,
+      "llm_predicted": "Arlo Base Station",
+      "llm_action": "escalate_to_human",
+      "llm_rationale": "The src_port value of 0.0004498 is unusual for a typical IoT device, and the dst_port value is essentially 0, which doesn't match any of the typical port numbers associated with the top candidate classes.",
+      "correct": null
+    },
+    {
+      "true_label": "Home Eye Camera",
+      "classifier_top1": "AMCREST WiFi Camera",
+      "top1_confidence": 0.1433437466621399,
+      "llm_predicted": "AMCREST WiFi Camera",
+      "llm_action": "escalate_to_human",
+      "llm_rationale": "The src_port value of 0.0004498 is unusual, as most IoT devices use a fixed port number, but the dst_port value of -1.299e-05 is essentially 0, which is consistent with a device that doesn't typically use a specific port, but the combination of these values and the other raw features (e.g. payload_entropy, payload_length) don't clearly match any of the top candidate classes.",
+      "correct": null
+    },
+    {
+      "true_label": "Yi Indoor Camera",
+      "classifier_top1": "Yi Outdoor Camera",
+      "top1_confidence": 0.12428083270788193,
+      "llm_predicted": "Yi Outdoor Camera",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The presence of a high payload entropy (-7.087e-08) and a relatively small payload length (1.252e-06) suggests encrypted traffic, which is consistent with the Yi Outdoor Camera's likely use of HTTPS for cloud connectivity.",
+      "correct": false
+    },
+    {
+      "true_label": "Gosund Power strip (1)",
+      "classifier_top1": "Teckin Plug 2",
+      "top1_confidence": 0.1418353170156479,
+      "llm_predicted": "Wemo smart plug 2 (Wemo id: Wemo.Mini.4A3)",
+      "llm_action": "override",
+      "llm_rationale": "The dst_port value of 8886 is consistent with the Wemo Mini's known port usage, which is typically 8886 for its cloud API.",
+      "correct": false
+    },
+    {
+      "true_label": "TP-Link Tapo Camera",
+      "classifier_top1": "Govee Smart Humidifer",
+      "top1_confidence": 0.11522545665502548,
+      "llm_predicted": "Govee Smart Humidifer",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The source port is 53, which is the DNS port, and the payload entropy is relatively low, suggesting this might be a DNS query, which is consistent with the Govee Smart Humidifer's expected behavior",
+      "correct": false
+    },
+    {
+      "true_label": "SIMCAM 1S (AMPAKTec)",
+      "classifier_top1": "Yi Outdoor Camera",
+      "top1_confidence": 0.14145278930664062,
+      "llm_predicted": "Wemo smart plug 2 (Wemo id: Wemo.Mini.4A3)",
+      "llm_action": "override",
+      "llm_rationale": "The dst_port value of 2.515e+04 is consistent with the Wemo smart plug 2's known port usage, which is typically around 2.5k.",
+      "correct": false
+    },
+    {
+      "true_label": "Smart Board",
+      "classifier_top1": "Raspberry Pi 4-2 GB",
+      "top1_confidence": 0.10839405655860901,
+      "llm_predicted": "Raspberry Pi 4-2 GB",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The high TCP window size of 6.114e+04 suggests a Linux-based device, which is consistent with the Raspberry Pi 4-2 GB.",
+      "correct": false
+    },
+    {
+      "true_label": "SmartThings Hub",
+      "classifier_top1": "Raspberry Pi 4-2 GB",
+      "top1_confidence": 0.13998296856880188,
+      "llm_predicted": "Arlo Base Station",
+      "llm_action": "override",
+      "llm_rationale": "The presence of a destination port of 443, which is typically associated with HTTPS, and the relatively high TCP window size of 40800, which is consistent with a device that is capable of handling large amounts of network traffic, are both consistent with the Arlo Base Station class.",
+      "correct": false
+    },
+    {
+      "true_label": "AeoTec Smart Home Hub",
+      "classifier_top1": "Yi Outdoor Camera",
+      "top1_confidence": 0.09243402630090714,
+      "llm_predicted": "Yi Outdoor Camera",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The high payload entropy (-7.087e-08) and short payload length (1.252e-06) suggest encrypted traffic, which is consistent with the Yi Outdoor Camera's likely use of HTTPS for cloud connectivity.",
+      "correct": false
+    },
+    {
+      "true_label": "Rbcior Camera",
+      "classifier_top1": "Google Nest Mini Speaker",
+      "top1_confidence": 0.1429005116224289,
+      "llm_predicted": "Teckin Plug 2",
+      "llm_action": "override",
+      "llm_rationale": "The dst_port value of 8883 is consistent with the Teckin Plug 2's known cloud API port, which is typically used for device control and monitoring.",
+      "correct": false
+    },
+    {
+      "true_label": "Netatmo Camera",
+      "classifier_top1": "Amazon Echo Studio",
+      "top1_confidence": 0.09916139394044876,
+      "llm_predicted": "Amazon Echo Studio",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The presence of a high payload entropy (3.582) and a relatively small TCP window size (408) suggests encrypted traffic, which is consistent with the Amazon Echo Studio's known behavior of using HTTPS for its cloud API.",
+      "correct": false
+    },
+    {
+      "true_label": "Amazon Echo Dot 1",
+      "classifier_top1": "harman kardon (Ampak Technology)",
+      "top1_confidence": 0.13270188868045807,
+      "llm_predicted": "Raspberry Pi 4-2 GB",
+      "llm_action": "override",
+      "llm_rationale": "The unusually high TTL value of 233 is consistent with the typical behavior of Raspberry Pi devices, which often have a default TTL of 255 but can be configured to a higher value.",
+      "correct": false
+    },
+    {
+      "true_label": "Nest Indoor Camera",
+      "classifier_top1": "Teckin Light Strip",
+      "top1_confidence": 0.09846291691064835,
+      "llm_predicted": "Raspberry Pi 4-2 GB",
+      "llm_action": "override",
+      "llm_rationale": "The presence of a TCP window size of 2881, which is unusually large for a typical IoT device, is consistent with the Raspberry Pi 4-2 GB, which is a general-purpose computing device with a larger memory capacity.",
+      "correct": false
+    },
+    {
+      "true_label": "Amazon Echo Studio",
+      "classifier_top1": "AMCREST WiFi Camera",
+      "top1_confidence": 0.13024014234542847,
+      "llm_predicted": "SmartThings Hub",
+      "llm_action": "override",
+      "llm_rationale": "The presence of a TCP connection (l4_tcp = 1) and a relatively small payload length (payload_length = 11) suggests a control or management communication, consistent with the SmartThings Hub's role in controlling and managing IoT devices.",
+      "correct": false
+    },
+    {
+      "true_label": "Amazon Plug",
+      "classifier_top1": "Amazon Echo Dot 1",
+      "top1_confidence": 0.11524392664432526,
+      "llm_predicted": "Arlo Base Station",
+      "llm_action": "override",
+      "llm_rationale": "The high dst_port value (5.856e+04) is consistent with the Arlo Base Station's typical port usage, which is often in the range of 50,000 to 60,000.",
+      "correct": false
+    },
+    {
+      "true_label": "Borun/Sichuan-AI Camera",
+      "classifier_top1": "Yi Outdoor Camera",
+      "top1_confidence": 0.14268894493579865,
+      "llm_predicted": "Borun/Sichuan-AI Camera",
+      "llm_action": "override",
+      "llm_rationale": "The destination port is 53, which is the standard DNS port, and the payload entropy is low, suggesting this is likely a DNS query, which is consistent with the Borun/Sichuan-AI Camera's expected behavior.",
+      "correct": true
+    },
+    {
+      "true_label": "AMCREST WiFi Camera",
+      "classifier_top1": "Arlo Base Station",
+      "top1_confidence": 0.10662521421909332,
+      "llm_predicted": "Arlo Base Station",
+      "llm_action": "escalate_to_human",
+      "llm_rationale": "The src_port value of 0.0004498 is unusual and does not match any typical IoT device behavior, and the dst_port value is also very low, suggesting this traffic may not be related to any of the top candidate classes",
+      "correct": null
+    },
+    {
+      "true_label": "Amazon Plug",
+      "classifier_top1": "Arlo Base Station",
+      "top1_confidence": 0.12120657414197922,
+      "llm_predicted": "Raspberry Pi 4-2 GB",
+      "llm_action": "override",
+      "llm_rationale": "The unusually high TCP window size of 61.14 KB is consistent with the typical large buffer sizes found in Linux-based systems like the Raspberry Pi 4-2 GB.",
+      "correct": false
+    },
+    {
+      "true_label": "Home Eye Camera",
+      "classifier_top1": "Home Eye Camera",
+      "top1_confidence": 0.13356274366378784,
+      "llm_predicted": "TP-Link Tapo Camera",
+      "llm_action": "override",
+      "llm_rationale": "The dst_port value of 123 is consistent with the SSDP protocol, which is commonly used by IoT devices like the TP-Link Tapo Camera for device discovery and configuration.",
+      "correct": false
+    },
+    {
+      "true_label": "Smart Board",
+      "classifier_top1": "Amazon Echo Show",
+      "top1_confidence": 0.13975051045417786,
+      "llm_predicted": "Arlo Base Station",
+      "llm_action": "override",
+      "llm_rationale": "The high dst_port value of 54074 is consistent with the Arlo Base Station's known use of a non-standard port for its management interface.",
+      "correct": false
+    },
+    {
+      "true_label": "Teckin Plug 1",
+      "classifier_top1": "Teckin Plug 1",
+      "top1_confidence": 0.14074479043483734,
+      "llm_predicted": "Wemo smart plug 2 (Wemo id: Wemo.Mini.4A3)",
+      "llm_action": "override",
+      "llm_rationale": "The dst_port value of 1.148e+04 is consistent with the Wemo smart plug's known port usage, which is typically in the range of 1.00x+04.",
+      "correct": false
+    },
+    {
+      "true_label": "Netatmo Weather Station",
+      "classifier_top1": "Netatmo Weather Station",
+      "top1_confidence": 0.13919903337955475,
+      "llm_predicted": "Netatmo Weather Station",
+      "llm_action": "escalate_to_human",
+      "llm_rationale": "The src_port value of 0.0004498 is unusual and does not match any of the typical port numbers associated with the top candidate classes, suggesting that the traffic may not be from a known IoT device.",
+      "correct": null
+    },
+    {
+      "true_label": "Yutron Plug 1",
+      "classifier_top1": "Govee Smart Humidifer",
+      "top1_confidence": 0.12684226036071777,
+      "llm_predicted": "Teckin Plug 2",
+      "llm_action": "override",
+      "llm_rationale": "The dst_port value of 8886 is consistent with the known port used by Teckin devices for cloud communication",
+      "correct": false
+    },
+    {
+      "true_label": "AMCREST WiFi Camera",
+      "classifier_top1": "Eufy HomeBase 2",
+      "top1_confidence": 0.12333668023347855,
+      "llm_predicted": "AMCREST WiFi Camera",
+      "llm_action": "override",
+      "llm_rationale": "The presence of UDP traffic (l4_udp = 1) and a destination port (dst_port = 8815) that is not a standard HTTP or DNS port, but is instead a port commonly used by IP cameras, suggests that this sample is likely from an IP camera, consistent with the AMCREST WiFi Camera class.",
+      "correct": true
+    },
+    {
+      "true_label": "Arlo Base Station",
+      "classifier_top1": "Arlo Base Station",
+      "top1_confidence": 0.14750853180885315,
+      "llm_predicted": "Arlo Base Station",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The high TCP window size (45820) and low payload entropy (-7.087e-08) suggest a device that is likely to be sending large amounts of data in a controlled manner, consistent with the behavior of an Arlo Base Station, which is known to send periodic video feeds.",
+      "correct": true
+    },
+    {
+      "true_label": "LG Smart TV",
+      "classifier_top1": "LG Smart TV",
+      "top1_confidence": 0.111027792096138,
+      "llm_predicted": "Borun/Sichuan-AI Camera",
+      "llm_action": "override",
+      "llm_rationale": "The presence of a UDP packet (l4_udp = 1) and a destination port of 53, which is typically used for DNS queries, suggests that this traffic is likely related to the Borun/Sichuan-AI Camera, which is known to use DNS for discovery and configuration.",
+      "correct": false
+    },
+    {
+      "true_label": "Wyze Camera",
+      "classifier_top1": "Google Nest Mini Speaker",
+      "top1_confidence": 0.10857485234737396,
+      "llm_predicted": "Luohe Cam Dog",
+      "llm_action": "override",
+      "llm_rationale": "The presence of UDP traffic (l4_udp = 1) and a relatively low payload length (payload_length = 4) suggests a typical IoT camera behavior, which is consistent with the Luohe Cam Dog class.",
+      "correct": false
+    },
+    {
+      "true_label": "iRobot Roomba",
+      "classifier_top1": "Levoit Air Purifier",
+      "top1_confidence": 0.132725328207016,
+      "llm_predicted": "Luohe Cam Dog",
+      "llm_action": "override",
+      "llm_rationale": "The dst_port value of -1.299e-05 is consistent with a UDP port, which is typical for IoT devices like security cameras, and the low payload entropy and length suggest a likely video stream",
+      "correct": false
+    },
+    {
+      "true_label": "iRobot Roomba",
+      "classifier_top1": "Levoit Air Purifier",
+      "top1_confidence": 0.10251054912805557,
+      "llm_predicted": "Levoit Air Purifier",
+      "llm_action": "escalate_to_human",
+      "llm_rationale": "The src_port value of 0.0004498 is unusual and does not match any typical IoT device behavior, suggesting that the traffic may not be from a known device.",
+      "correct": null
+    },
+    {
+      "true_label": "Teckin Plug 2",
+      "classifier_top1": "Teckin Plug 2",
+      "top1_confidence": 0.14605513215065002,
+      "llm_predicted": "Yutron Plug 1",
+      "llm_action": "override",
+      "llm_rationale": "The presence of UDP traffic (l4_udp = 1) and a destination port of 6667, which is a common port for UPnP/SSDP, is consistent with the Yutron Plug 1 class.",
+      "correct": false
+    },
+    {
+      "true_label": "iRobot Roomba",
+      "classifier_top1": "Arlo Q Indoor Camera",
+      "top1_confidence": 0.13450878858566284,
+      "llm_predicted": "iRobot Roomba",
+      "llm_action": "override",
+      "llm_rationale": "The presence of UDP traffic (l4_udp = 1) and a destination port in the range of 1024-49151 (port_class_dst = 2) is consistent with the typical behavior of an iRobot Roomba, which uses UDP for its communication with the base station.",
+      "correct": true
+    },
+    {
+      "true_label": "Gosund Power strip (1)",
+      "classifier_top1": "Yutron Plug 1",
+      "top1_confidence": 0.14841829240322113,
+      "llm_predicted": "Govee Smart Humidifer",
+      "llm_action": "override",
+      "llm_rationale": "The dst_port value of 8886 is consistent with the Govee Smart Humidifier's known cloud API port, which is typically used for device control and monitoring.",
+      "correct": false
+    },
+    {
+      "true_label": "Levoit Air Purifier",
+      "classifier_top1": "Levoit Air Purifier",
+      "top1_confidence": 0.1315586417913437,
+      "llm_predicted": "Levoit Air Purifier",
+      "llm_action": "escalate_to_human",
+      "llm_rationale": "The src_port value of 0.0004498 is unusual and does not match any typical IoT device port numbers, and the dst_port value is also very low, suggesting this traffic may not be related to any of the top candidate classes.",
+      "correct": null
+    },
+    {
+      "true_label": "Arlo Base Station",
+      "classifier_top1": "Arlo Base Station",
+      "top1_confidence": 0.10903853923082352,
+      "llm_predicted": "Arlo Base Station",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The high TTL value of 231 is unusual for typical IoT devices, but is consistent with the Arlo Base Station, which is known to use a non-standard TTL value for its UPnP announcements.",
+      "correct": true
+    },
+    {
+      "true_label": "Philips Hue Bridge",
+      "classifier_top1": "Philips Hue Bridge",
+      "top1_confidence": 0.12173611670732498,
+      "llm_predicted": "Philips Hue Bridge",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The source and destination port being 1900, a known SSDP port, is consistent with the Philips Hue Bridge's behavior.",
+      "correct": true
+    },
+    {
+      "true_label": "AMCREST WiFi Camera",
+      "classifier_top1": "Arlo Base Station",
+      "top1_confidence": 0.12994995713233948,
+      "llm_predicted": "Arlo Base Station",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The presence of a TTL of 64, which is a common value for many IoT devices, and the relatively low payload entropy of 3.04, which suggests plaintext traffic, are consistent with the Arlo Base Station class.",
+      "correct": false
+    },
+    {
+      "true_label": "LIFX Lightbulb",
+      "classifier_top1": "Govee Smart Humidifer",
+      "top1_confidence": 0.13784843683242798,
+      "llm_predicted": "LIFX Lightbulb",
+      "llm_action": "override",
+      "llm_rationale": "The dst_port value of 5.67e+04 is consistent with the LIFX Lightbulb's known use of port 5674 for its cloud API.",
+      "correct": true
+    },
+    {
+      "true_label": "Wyze Camera",
+      "classifier_top1": "Amazon Echo Dot 1",
+      "top1_confidence": 0.12764613330364227,
+      "llm_predicted": "Wyze Camera",
+      "llm_action": "override",
+      "llm_rationale": "The high payload entropy (-7.087e-08) and short payload length (1.252e-06) suggest encrypted traffic, which is consistent with the Wyze Camera's use of HTTPS for cloud connectivity.",
+      "correct": true
+    },
+    {
+      "true_label": "SIMCAM 1S (AMPAKTec)",
+      "classifier_top1": "Yi Outdoor Camera",
+      "top1_confidence": 0.1436639130115509,
+      "llm_predicted": "Teckin Plug 1",
+      "llm_action": "override",
+      "llm_rationale": "The dst_port value of 2.515e+04 is consistent with the typical port used by Teckin devices, which often use UDP on port 1900 for SSDP discovery.",
+      "correct": false
+    },
+    {
+      "true_label": "Gosund Power strip (1)",
+      "classifier_top1": "Teckin Plug 2",
+      "top1_confidence": 0.1261521577835083,
+      "llm_predicted": "Wemo smart plug 2 (Wemo id: Wemo.Mini.4A3)",
+      "llm_action": "override",
+      "llm_rationale": "The dst_port value of 8886 is consistent with the Wemo Mini's known port usage, which is typically 8886 for its cloud API.",
+      "correct": false
+    },
+    {
+      "true_label": "Wyze Camera",
+      "classifier_top1": "Eufy HomeBase 2",
+      "top1_confidence": 0.11133860796689987,
+      "llm_predicted": "Luohe Cam Dog",
+      "llm_action": "override",
+      "llm_rationale": "The dst_port value of 1e+04 is consistent with the typical port used by the Luohe Cam Dog, which is a common IoT camera device.",
+      "correct": false
+    },
+    {
+      "true_label": "Netatmo Weather Station",
+      "classifier_top1": "Teckin Light Strip",
+      "top1_confidence": 0.13663648068904877,
+      "llm_predicted": "Teckin Light Strip",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The dst_port value is very close to 0, which is consistent with the typical behavior of IoT devices like the Teckin Light Strip, which often use port 0 for UPnP and SSDP discovery.",
+      "correct": false
+    },
+    {
+      "true_label": "Arlo Base Station",
+      "classifier_top1": "Amazon Echo Dot 1",
+      "top1_confidence": 0.11297325789928436,
+      "llm_predicted": "TP-Link Tapo Camera",
+      "llm_action": "override",
+      "llm_rationale": "The dst_port value of 5353 is consistent with the SSDP protocol, which is commonly used by IP cameras for discovery and configuration, and is a key feature of the TP-Link Tapo Camera.",
+      "correct": false
+    },
+    {
+      "true_label": "Cocoon Smart HVAC Fan",
+      "classifier_top1": "Levoit Air Purifier",
+      "top1_confidence": 0.1360761523246765,
+      "llm_predicted": "Levoit Air Purifier",
+      "llm_action": "escalate_to_human",
+      "llm_rationale": "The src_port value of 0.0004498 is unusual and does not match any typical IoT device behavior, and the dst_port value is essentially 0, which is also unusual.",
+      "correct": null
+    },
+    {
+      "true_label": "AMCREST WiFi Camera",
+      "classifier_top1": "Google Nest Mini Speaker",
+      "top1_confidence": 0.10822389274835587,
+      "llm_predicted": "Luohe Cam Dog",
+      "llm_action": "override",
+      "llm_rationale": "The dst_port value of 8802 is consistent with the typical port used by IP cameras, which is a strong indicator of the Luohe Cam Dog class.",
+      "correct": false
+    },
+    {
+      "true_label": "Teckin Plug 1",
+      "classifier_top1": "Lumiman bulb",
+      "top1_confidence": 0.12725341320037842,
+      "llm_predicted": "Lumiman bulb",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The dst_port value of 8886 is consistent with the SSDP protocol, which is commonly used by Lumiman bulbs for discovery and configuration.",
+      "correct": false
+    },
+    {
+      "true_label": "Globe Lamp ESP_B1680C",
+      "classifier_top1": "iRobot Roomba",
+      "top1_confidence": 0.11360955983400345,
+      "llm_predicted": "GoSund Smart plug WP2 (3)",
+      "llm_action": "override",
+      "llm_rationale": "The dst_port value of 6667 is consistent with the GoSund Smart plug WP2 (3) using the telnet protocol, which is unusual for most IoT devices but consistent with this specific class.",
+      "correct": false
+    },
+    {
+      "true_label": "Cocoon Smart HVAC Fan",
+      "classifier_top1": "Netatmo Weather Station",
+      "top1_confidence": 0.11474181711673737,
+      "llm_predicted": "Netatmo Weather Station",
+      "llm_action": "escalate_to_human",
+      "llm_rationale": "The src_port value of 0.0004498 is unusual, as most IoT devices use standard port numbers, and the dst_port value of -1.299e-05 is also suspiciously low, suggesting this traffic may not be consistent with any of the top candidate classes.",
+      "correct": null
+    },
+    {
+      "true_label": "AMCREST WiFi Camera",
+      "classifier_top1": "Amazon Plug",
+      "top1_confidence": 0.12826226651668549,
+      "llm_predicted": "Amazon Plug",
+      "llm_action": "escalate_to_human",
+      "llm_rationale": "The src_port value of 0.0004498 is unusual for IoT devices, which typically use specific ports for their services, and the dst_port value of -1.299e-05 is also suspiciously low, suggesting this traffic may not be consistent with any of the top candidate classes.",
+      "correct": null
+    },
+    {
+      "true_label": "Raspberry Pi 4-2 GB",
+      "classifier_top1": "Google Nest Mini Speaker",
+      "top1_confidence": 0.14783021807670593,
+      "llm_predicted": "Yi Outdoor Camera",
+      "llm_action": "override",
+      "llm_rationale": "The high payload entropy (3.583) and large payload length (1250) are consistent with video streaming traffic, which is typical of an outdoor camera.",
+      "correct": false
+    },
+    {
+      "true_label": "Wyze Camera",
+      "classifier_top1": "Netatmo Camera",
+      "top1_confidence": 0.10534415394067764,
+      "llm_predicted": "Raspberry Pi 4-2 GB",
+      "llm_action": "override",
+      "llm_rationale": "The high TCP window size (2.909e+04) is consistent with the typical behavior of a Linux-based device like the Raspberry Pi, which often has larger TCP window sizes compared to consumer IoT devices.",
+      "correct": false
+    },
+    {
+      "true_label": "AMCREST WiFi Camera",
+      "classifier_top1": "Yutron Plug 1",
+      "top1_confidence": 0.10929146409034729,
+      "llm_predicted": "Raspberry Pi 4-2 GB",
+      "llm_action": "override",
+      "llm_rationale": "The payload entropy of 0.9179 is unusually high, suggesting encrypted traffic, which is consistent with the Raspberry Pi's ability to run a full-fledged OS and potentially encrypt data.",
+      "correct": false
+    },
+    {
+      "true_label": "SIMCAM 1S (AMPAKTec)",
+      "classifier_top1": "Teckin Plug 1",
+      "top1_confidence": 0.13701163232326508,
+      "llm_predicted": "Yi Outdoor Camera",
+      "llm_action": "override",
+      "llm_rationale": "The dst_port value of 8944 is consistent with the Yi Outdoor Camera's known port usage, which is typically 8944 for its cloud API.",
+      "correct": false
+    },
+    {
+      "true_label": "Smart Board",
+      "classifier_top1": "Atomi Coffee Maker",
+      "top1_confidence": 0.1163019984960556,
+      "llm_predicted": "Atomi Coffee Maker",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The presence of a TCP connection (l4_tcp = 1) and a large TCP window size (6.114e+04) suggests a device that is capable of handling large data transfers, which is consistent with the behavior of a coffee maker that may need to send or receive large amounts of data to or from a cloud service.",
+      "correct": false
+    },
+    {
+      "true_label": "TP-Link Tapo Camera",
+      "classifier_top1": "TP-Link Tapo Camera",
+      "top1_confidence": 0.14756256341934204,
+      "llm_predicted": "TP-Link Tapo Camera",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The dst_port value of 443 is consistent with the typical HTTPS port used by cloud-connected devices, which is a common trait of IoT cameras like the TP-Link Tapo Camera.",
+      "correct": true
+    },
+    {
+      "true_label": "Smart Board",
+      "classifier_top1": "Amazon Echo Dot 1",
+      "top1_confidence": 0.13211511075496674,
+      "llm_predicted": "Wyze Camera",
+      "llm_action": "override",
+      "llm_rationale": "The high TCP window size (6.114e+04) and low payload entropy (-7.087e-08) suggest a device that is likely to be sending a large amount of data in a controlled manner, consistent with a camera's behavior.",
+      "correct": false
+    },
+    {
+      "true_label": "AeoTec Smart Home Hub",
+      "classifier_top1": "Arlo Base Station",
+      "top1_confidence": 0.1078655794262886,
+      "llm_predicted": "Amazon Echo Dot 1",
+      "llm_action": "override",
+      "llm_rationale": "The destination port is 443, which is the standard port for HTTPS, and is commonly used by smart speakers like the Amazon Echo Dot 1 for cloud communication.",
+      "correct": false
+    },
+    {
+      "true_label": "iRobot Roomba",
+      "classifier_top1": "Yutron Plug 1",
+      "top1_confidence": 0.14736807346343994,
+      "llm_predicted": "Yutron Plug 1",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The source port value of 0.0004498 is consistent with the typical behavior of IoT devices, such as smart plugs, which often use ephemeral ports for communication.",
+      "correct": false
+    },
+    {
+      "true_label": "Amazon Echo Studio",
+      "classifier_top1": "Raspberry Pi 4-2 GB",
+      "top1_confidence": 0.13266673684120178,
+      "llm_predicted": "Raspberry Pi 4-2 GB",
+      "llm_action": "escalate_to_human",
+      "llm_rationale": "The extremely low TTL value (-6.557e-07) and zero TCP window size suggest a device with unusual or custom network stack behavior, which doesn't match the typical characteristics of any of the top candidate classes.",
+      "correct": null
+    },
+    {
+      "true_label": "AMCREST WiFi Camera",
+      "classifier_top1": "Eufy HomeBase 2",
+      "top1_confidence": 0.14657491445541382,
+      "llm_predicted": "AMCREST WiFi Camera",
+      "llm_action": "override",
+      "llm_rationale": "The dst_port value of 8814 is consistent with the typical port used by the AMCREST WiFi Camera's cloud API.",
+      "correct": true
+    },
+    {
+      "true_label": "TP-Link Tapo Camera",
+      "classifier_top1": "AeoTec Smart Home Hub",
+      "top1_confidence": 0.13024310767650604,
+      "llm_predicted": "AeoTec Smart Home Hub",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The high TCP window size (2.816e+04) and the presence of a TCP connection (l4_tcp = 1) suggest a device with a relatively large buffer, consistent with a smart home hub like AeoTec.",
+      "correct": false
+    },
+    {
+      "true_label": "Yi Outdoor Camera",
+      "classifier_top1": "Wemo smart plug 2 (Wemo id: Wemo.Mini.4A3)",
+      "top1_confidence": 0.14513106644153595,
+      "llm_predicted": "Teckin Plug 1",
+      "llm_action": "override",
+      "llm_rationale": "The dst_port value of 3.82e+04 is consistent with the typical port range used by Teckin smart plugs (typically 30000-40000)",
+      "correct": false
+    },
+    {
+      "true_label": "Amazon Plug",
+      "classifier_top1": "Wyze Camera",
+      "top1_confidence": 0.14304104447364807,
+      "llm_predicted": "Wyze Camera",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The presence of a high payload entropy (-7.087e-08) and a relatively small payload length (1.252e-06) suggests encrypted traffic, which is consistent with the Wyze Camera's cloud API protocol, which likely uses HTTPS (dst_port = 443)",
+      "correct": false
+    },
+    {
+      "true_label": "Borun/Sichuan-AI Camera",
+      "classifier_top1": "Luohe Cam Dog",
+      "top1_confidence": 0.13358423113822937,
+      "llm_predicted": "Luohe Cam Dog",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The dst_port value of 7788 is consistent with the typical SSDP port used by many IoT devices, which is a strong indicator of the Luohe Cam Dog class.",
+      "correct": false
+    },
+    {
+      "true_label": "GoSund Smart Plug WP2 (2)",
+      "classifier_top1": "Teckin Plug 2",
+      "top1_confidence": 0.14501473307609558,
+      "llm_predicted": "GoSund Smart plug WP2 (3)",
+      "llm_action": "override",
+      "llm_rationale": "The dst_port value of 6667 is consistent with the GoSund Smart plug WP2 (3) protocol, which typically uses port 6667 for communication.",
+      "correct": false
+    },
+    {
+      "true_label": "Sonos One Speaker",
+      "classifier_top1": "Yi Outdoor Camera",
+      "top1_confidence": 0.12143310904502869,
+      "llm_predicted": "Yi Outdoor Camera",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The presence of a TCP connection (l4_tcp = 1) and a destination port of 443, which is typically used for HTTPS, is consistent with the Yi Outdoor Camera's expected behavior.",
+      "correct": false
+    },
+    {
+      "true_label": "Sonos One Speaker",
+      "classifier_top1": "Philips Hue Bridge",
+      "top1_confidence": 0.12290193885564804,
+      "llm_predicted": "Arlo Q Indoor Camera",
+      "llm_action": "override",
+      "llm_rationale": "The presence of UDP traffic (l4_udp = 1) and a high payload entropy (payload_entropy = 3.349) suggests that this traffic is likely video stream data, consistent with the Arlo Q Indoor Camera's known behavior.",
+      "correct": false
+    },
+    {
+      "true_label": "TP-Link Tapo Camera",
+      "classifier_top1": "Govee Smart Humidifer",
+      "top1_confidence": 0.12743744254112244,
+      "llm_predicted": "Govee Smart Humidifer",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The source port is 53, which is the DNS port, and the payload entropy is relatively low, suggesting this might be a DNS query, which is consistent with the Govee Smart Humidifer's expected behavior",
+      "correct": false
+    },
+    {
+      "true_label": "Borun/Sichuan-AI Camera",
+      "classifier_top1": "Wyze Camera",
+      "top1_confidence": 0.10085786134004593,
+      "llm_predicted": "Luohe Cam Dog",
+      "llm_action": "override",
+      "llm_rationale": "The dst_port value of 8877 is consistent with the typical port used by the Luohe Cam Dog device, which is often seen using this port for its UPnP/SSDP discovery protocol.",
+      "correct": false
+    },
+    {
+      "true_label": "Amazon Plug",
+      "classifier_top1": "Levoit Air Purifier",
+      "top1_confidence": 0.13339728116989136,
+      "llm_predicted": "Amazon Plug",
+      "llm_action": "override",
+      "llm_rationale": "The destination port is 53, which is the DNS port, and the presence of a DNS query type (dns_query_type = 1) suggests that this traffic is likely related to an Amazon device, which often uses DNS for cloud connectivity.",
+      "correct": true
+    },
+    {
+      "true_label": "Amazon Plug",
+      "classifier_top1": "Netatmo Weather Station",
+      "top1_confidence": 0.13799960911273956,
+      "llm_predicted": "Arlo Q Indoor Camera",
+      "llm_action": "override",
+      "llm_rationale": "The high payload entropy (3.081) and relatively short payload length (31) suggest encrypted traffic, which is consistent with the Arlo Q Indoor Camera's use of HTTPS for its cloud API, which is typically accessed on port 443 (src_port = 443).",
+      "correct": false
+    },
+    {
+      "true_label": "TP-Link Tapo Camera",
+      "classifier_top1": "TP-Link Tapo Camera",
+      "top1_confidence": 0.12946249544620514,
+      "llm_predicted": "TP-Link Tapo Camera",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The source port is 53, which is the DNS port, and the destination port is a high number, but the presence of a DNS query type (1) in the raw features suggests that this traffic is likely related to a device that uses DNS for its cloud connectivity, such as the TP-Link Tapo Camera.",
+      "correct": true
+    },
+    {
+      "true_label": "Teckin Plug 1",
+      "classifier_top1": "SIMCAM 1S (AMPAKTec)",
+      "top1_confidence": 0.14128626883029938,
+      "llm_predicted": "Yi Outdoor Camera",
+      "llm_action": "override",
+      "llm_rationale": "The presence of UDP traffic (l4_udp = 1) and a relatively high payload entropy (payload_entropy = 1.352) suggests that this traffic is likely video or image data, consistent with the Yi Outdoor Camera's expected behavior.",
+      "correct": false
+    },
+    {
+      "true_label": "Netatmo Weather Station",
+      "classifier_top1": "Arlo Base Station",
+      "top1_confidence": 0.14588674902915955,
+      "llm_predicted": "Arlo Base Station",
+      "llm_action": "escalate_to_human",
+      "llm_rationale": "The src_port value of 0.0004498 is unusual for a typical IoT device, and the dst_port value of -1.299e-05 is essentially 0, which doesn't match the typical port numbers used by the listed devices.",
+      "correct": null
+    },
+    {
+      "true_label": "SIMCAM 1S (AMPAKTec)",
+      "classifier_top1": "SIMCAM 1S (AMPAKTec)",
+      "top1_confidence": 0.1499323844909668,
+      "llm_predicted": "Yi Outdoor Camera",
+      "llm_action": "override",
+      "llm_rationale": "The presence of UDP traffic (l4_udp = 1) and a relatively high payload entropy (payload_entropy = 1.578) suggests that this traffic is likely video or image data, consistent with the Yi Outdoor Camera's expected behavior.",
+      "correct": false
+    },
+    {
+      "true_label": "LG Smart TV",
+      "classifier_top1": "AMCREST WiFi Camera",
+      "top1_confidence": 0.11347834765911102,
+      "llm_predicted": "AMCREST WiFi Camera",
+      "llm_action": "escalate_to_human",
+      "llm_rationale": "The src_port value of 0.0004498 is unusual for a typical IoT device, and the dst_port value of -1.299e-05 is essentially 0, which doesn't match the typical port numbers used by the top candidate classes.",
+      "correct": null
+    },
+    {
+      "true_label": "SIMCAM 1S (AMPAKTec)",
+      "classifier_top1": "Yi Outdoor Camera",
+      "top1_confidence": 0.1415562927722931,
+      "llm_predicted": "Wemo smart plug 2 (Wemo id: Wemo.Mini.4A3)",
+      "llm_action": "override",
+      "llm_rationale": "The dst_port value of 2.515e+04 is consistent with the Wemo smart plug 2's known port usage, which is typically around 2.5k.",
+      "correct": false
+    },
+    {
+      "true_label": "Philips Hue Bridge",
+      "classifier_top1": "LG Smart TV",
+      "top1_confidence": 0.13621866703033447,
+      "llm_predicted": "Yi Outdoor Camera",
+      "llm_action": "override",
+      "llm_rationale": "The presence of a high TCP window size (4338) and a relatively low payload entropy (3.428) suggests a device that is likely to be sending a large amount of data in a controlled manner, consistent with the Yi Outdoor Camera's typical behavior of sending video feeds.",
+      "correct": false
+    },
+    {
+      "true_label": "Gosund Smart Plug WP3 (2)",
+      "classifier_top1": "Wemo smart plug 2 (Wemo id: Wemo.Mini.4A3)",
+      "top1_confidence": 0.13797934353351593,
+      "llm_predicted": "Wemo smart plug 2 (Wemo id: Wemo.Mini.4A3)",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The source port is 0, which is a common characteristic of UPnP/SSDP traffic, and Wemo devices are known to use UPnP for discovery and configuration.",
+      "correct": false
+    },
+    {
+      "true_label": "Amazon Echo Spot",
+      "classifier_top1": "Arlo Base Station",
+      "top1_confidence": 0.13583379983901978,
+      "llm_predicted": "Raspberry Pi 4-2 GB",
+      "llm_action": "override",
+      "llm_rationale": "The unusually high TTL value of 232 is consistent with the typical behavior of a Linux-based device like the Raspberry Pi, which often has a higher TTL than consumer IoT devices.",
+      "correct": false
+    },
+    {
+      "true_label": "Levoit Air Purifier",
+      "classifier_top1": "Yutron Plug 1",
+      "top1_confidence": 0.12314283102750778,
+      "llm_predicted": "Luohe Cam Dog",
+      "llm_action": "override",
+      "llm_rationale": "The dst_port value of -1.299e-05 is consistent with a UDP-based IoT camera, which is typical of the Luohe Cam Dog device.",
+      "correct": false
+    },
+    {
+      "true_label": "HeimVision SmartLife Radio/Lamp",
+      "classifier_top1": "Lumiman bulb",
+      "top1_confidence": 0.1477382630109787,
+      "llm_predicted": "Lumiman bulb",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The dst_port value of 8886 is consistent with the known port used by Lumiman bulbs for their cloud API, which is 8886.",
+      "correct": false
+    },
+    {
+      "true_label": "Smart Board",
+      "classifier_top1": "Amazon Echo Dot 1",
+      "top1_confidence": 0.12147815525531769,
+      "llm_predicted": "Raspberry Pi 4-2 GB",
+      "llm_action": "override",
+      "llm_rationale": "The high TCP window size (6.114e+04) and TTL (122) are consistent with a Linux-based device like the Raspberry Pi, which is more typical than the other candidates.",
+      "correct": false
+    },
+    {
+      "true_label": "Yi Indoor 2 Camera",
+      "classifier_top1": "Sonos One Speaker",
+      "top1_confidence": 0.13359130918979645,
+      "llm_predicted": "LIFX Lightbulb",
+      "llm_action": "override",
+      "llm_rationale": "The destination port is 36194, which is consistent with the LIFX Lightbulb's known port usage, and the payload entropy is low, suggesting plaintext traffic, which is typical for LIFX's control protocol.",
+      "correct": false
+    },
+    {
+      "true_label": "Amazon Echo Dot 1",
+      "classifier_top1": "SmartThings Hub",
+      "top1_confidence": 0.14062318205833435,
+      "llm_predicted": "SmartThings Hub",
+      "llm_action": "escalate_to_human",
+      "llm_rationale": "The dst_port value of 54864 is unusual for a typical IoT device, and the high TCP window size and low payload entropy suggest a potentially non-standard or encrypted protocol, making it difficult to determine the correct class based on the provided features.",
+      "correct": null
+    },
+    {
+      "true_label": "Sonos One Speaker",
+      "classifier_top1": "Philips Hue Bridge",
+      "top1_confidence": 0.13692080974578857,
+      "llm_predicted": "Arlo Q Indoor Camera",
+      "llm_action": "override",
+      "llm_rationale": "The presence of UDP traffic (l4_udp = 1) and a high payload entropy (payload_entropy = 3.353) suggests that this traffic is likely video stream data, consistent with the Arlo Q Indoor Camera's known behavior.",
+      "correct": false
+    },
+    {
+      "true_label": "Arlo Base Station",
+      "classifier_top1": "Arlo Base Station",
+      "top1_confidence": 0.14981377124786377,
+      "llm_predicted": "Arlo Base Station",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The presence of a high TCP window size (3213) and a relatively low payload entropy (-7.087e-08) suggests a device that is likely to be sending a large amount of data in a controlled manner, consistent with the behavior of an Arlo Base Station, which is known to send periodic updates to the cloud.",
+      "correct": true
+    },
+    {
+      "true_label": "Yi Indoor Camera",
+      "classifier_top1": "Yi Outdoor Camera",
+      "top1_confidence": 0.11003979295492172,
+      "llm_predicted": "Yi Outdoor Camera",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The high payload entropy (-7.087e-08) and short payload length (1.252e-06) suggest encrypted traffic, which is consistent with the Yi Outdoor Camera's cloud API typically using HTTPS.",
+      "correct": false
+    },
+    {
+      "true_label": "LampUX RGB",
+      "classifier_top1": "Yutron Plug 1",
+      "top1_confidence": 0.12277104705572128,
+      "llm_predicted": "Globe Lamp ESP_B1680C",
+      "llm_action": "override",
+      "llm_rationale": "The presence of a UDP protocol (l4_udp = 0) and a TTL of -6.557e-07, which is likely a truncated or invalid value, is consistent with the ESP_B1680C class, which is a type of IoT device that often uses UDP and may have unusual TTL values due to its firmware or hardware limitations.",
+      "correct": false
+    },
+    {
+      "true_label": "TP-Link Tapo Camera",
+      "classifier_top1": "Amazon Echo Show",
+      "top1_confidence": 0.12324322015047073,
+      "llm_predicted": "Raspberry Pi 4-2 GB",
+      "llm_action": "override",
+      "llm_rationale": "The presence of a TCP window size of 0, which is unusual for a consumer IoT device, is consistent with the Raspberry Pi 4-2 GB, which is a Linux-based device that often uses TCP with a small window size.",
+      "correct": false
+    },
+    {
+      "true_label": "Globe Lamp ESP_B1680C",
+      "classifier_top1": "Levoit Air Purifier",
+      "top1_confidence": 0.13277886807918549,
+      "llm_predicted": "Levoit Air Purifier",
+      "llm_action": "escalate_to_human",
+      "llm_rationale": "The src_port value of 0.0004498 is unusual for a typical IoT device, and the dst_port value is essentially 0, which doesn't match the typical port numbers used by the top candidate classes.",
+      "correct": null
+    },
+    {
+      "true_label": "Levoit Air Purifier",
+      "classifier_top1": "Teckin Plug 2",
+      "top1_confidence": 0.14241574704647064,
+      "llm_predicted": "Teckin Plug 2",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The src_port value of 0.0004498 is consistent with the typical behavior of IoT devices, which often use ephemeral ports for communication, and is a strong indicator of the Teckin Plug 2 class.",
+      "correct": false
+    },
+    {
+      "true_label": "SmartThings Hub",
+      "classifier_top1": "Arlo Base Station",
+      "top1_confidence": 0.14760592579841614,
+      "llm_predicted": "SmartThings Hub",
+      "llm_action": "override",
+      "llm_rationale": "The high dst_port value of 5.313e+04 is consistent with the SmartThings Hub's known behavior of using a non-standard port for its cloud API.",
+      "correct": true
+    },
+    {
+      "true_label": "AeoTec Smart Home Hub",
+      "classifier_top1": "SmartThings Hub",
+      "top1_confidence": 0.13308492302894592,
+      "llm_predicted": "TP-Link Tapo Camera",
+      "llm_action": "override",
+      "llm_rationale": "The destination port is 443, which is the standard port for HTTPS, and is commonly used by IP cameras for remote access, which is consistent with the TP-Link Tapo Camera class.",
+      "correct": false
+    },
+    {
+      "true_label": "LG Smart TV",
+      "classifier_top1": "LG Smart TV",
+      "top1_confidence": 0.14565572142601013,
+      "llm_predicted": "LG Smart TV",
+      "llm_action": "escalate_to_human",
+      "llm_rationale": "The src_port value of 0.0004498 is unusual for a typical IoT device, and the dst_port value is essentially 0, which doesn't match any of the typical port numbers associated with the top candidate classes.",
+      "correct": null
+    },
+    {
+      "true_label": "DCS8000LHA1 D-Link Mini Camera",
+      "classifier_top1": "DCS8000LHA1 D-Link Mini Camera",
+      "top1_confidence": 0.11949491500854492,
+      "llm_predicted": "Raspberry Pi 4-2 GB",
+      "llm_action": "override",
+      "llm_rationale": "The presence of a TCP connection (l4_tcp = 1) and a large TCP window size (tcp_window_size = 5281) suggests a device with a capable operating system, consistent with a Raspberry Pi.",
+      "correct": false
+    },
+    {
+      "true_label": "Sonos One Speaker",
+      "classifier_top1": "Philips Hue Bridge",
+      "top1_confidence": 0.10858938097953796,
+      "llm_predicted": "AMCREST WiFi Camera",
+      "llm_action": "override",
+      "llm_rationale": "The presence of UDP traffic (l4_udp = 1) and a high payload entropy (payload_entropy = 3.357) suggests that this traffic is likely related to a camera, which often uses UDP for video streaming and has high entropy due to the compressed video data.",
+      "correct": false
+    },
+    {
+      "true_label": "Eufy HomeBase 2",
+      "classifier_top1": "Eufy HomeBase 2",
+      "top1_confidence": 0.13043712079524994,
+      "llm_predicted": "Eufy HomeBase 2",
+      "llm_action": "confirm_top1",
+      "llm_rationale": "The source port is 53, which is the DNS port, and the destination port is a high number, which is consistent with a device's cloud API, and Eufy HomeBase 2 is known to use DNS for cloud connectivity.",
+      "correct": true
+    },
+    {
+      "true_label": "Home Eye Camera",
+      "classifier_top1": "Arlo Base Station",
+      "top1_confidence": 0.13363103568553925,
+      "llm_predicted": "Raspberry Pi 4-2 GB",
+      "llm_action": "override",
+      "llm_rationale": "The very low TCP window size (0) and TTL (-6.557e-07) values are consistent with a Linux-based device like the Raspberry Pi, which often has unusual network stack settings.",
+      "correct": false
+    },
+    {
+      "true_label": "Teckin Plug 1",
+      "classifier_top1": "Teckin Plug 1",
+      "top1_confidence": 0.13937833905220032,
+      "llm_predicted": "Yi Outdoor Camera",
+      "llm_action": "override",
+      "llm_rationale": "The presence of UDP traffic (l4_udp = 1) and a relatively high payload entropy (payload_entropy = 1.352) suggests that this traffic is likely video streaming, which is consistent with the Yi Outdoor Camera's expected behavior.",
+      "correct": false
+    },
+    {
+      "true_label": "Netatmo Camera",
+      "classifier_top1": "Amazon Echo Show",
+      "top1_confidence": 0.12065008282661438,
+      "llm_predicted": "Amazon Echo Studio",
+      "llm_action": "override",
+      "llm_rationale": "The high payload entropy (3.584) and relatively small payload length (1428) suggest encrypted traffic, which is consistent with the Amazon Echo Studio's known behavior of using HTTPS for its cloud API.",
+      "correct": false
+    }
+  ]
+}

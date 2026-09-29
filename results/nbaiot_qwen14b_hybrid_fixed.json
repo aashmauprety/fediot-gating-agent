@@ -1,0 +1,2838 @@
+{
+  "description": "N-BaIoT, qwen2.5:14b hybrid Gating Agent with the full fix set (z-scored cosine, worded calib_loss_delta, force_accept_round0, warmup, trust_decay) -- generalizing the CIC IoT-DIAD 2024 result to a second dataset.",
+  "reference_rule_based_bayesian": {
+    "D=0": 0.3204,
+    "D=10": 0.9858,
+    "D=20": 0.988
+  },
+  "reference_qwen14b_singleturn_old_prompt": {
+    "D=0": 0.9963,
+    "D=10": 0.386
+  },
+  "reference_8b_hybrid_old_prompt_calibrated": {
+    "D=0": 0.1846,
+    "D=10": 0.1742
+  },
+  "runs": [
+    {
+      "label": "N-BaIoT, qwen2.5:14b hybrid + fixes, D=0",
+      "delay": 0,
+      "final_macro_f1": 0.9958301079128521,
+      "wall_clock_seconds": 2647.1555161476135,
+      "n_fallback_rounds": 0,
+      "n_rounds": 25,
+      "malicious_clients": [
+        "Danmini_Doorbell",
+        "Ecobee_Thermostat",
+        "Ennio_Doorbell"
+      ],
+      "gating_history": [
+        {
+          "round": 0,
+          "actions": {
+            "Danmini_Doorbell": "accept",
+            "Ecobee_Thermostat": "accept",
+            "Ennio_Doorbell": "accept",
+            "Philips_B120N10_Baby_Monitor": "accept",
+            "Provision_PT_737E_Security_Camera": "accept",
+            "Provision_PT_838_Security_Camera": "accept",
+            "Samsung_SNH_1011_N_Webcam": "accept",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "accept",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "accept"
+          },
+          "scores": {
+            "Danmini_Doorbell": 1.0,
+            "Ecobee_Thermostat": 1.0,
+            "Ennio_Doorbell": 1.0,
+            "Philips_B120N10_Baby_Monitor": 1.0,
+            "Provision_PT_737E_Security_Camera": 1.0,
+            "Provision_PT_838_Security_Camera": 1.0,
+            "Samsung_SNH_1011_N_Webcam": 1.0,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 1.0,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 1.0
+          },
+          "rationales": {
+            "Danmini_Doorbell": "round 0: no previous global update exists yet, cosine similarity to it is undefined -- trivially accepted without consulting the policy or updating the trust posterior, not a real gating judgment",
+            "Ecobee_Thermostat": "round 0: no previous global update exists yet, cosine similarity to it is undefined -- trivially accepted without consulting the policy or updating the trust posterior, not a real gating judgment",
+            "Ennio_Doorbell": "round 0: no previous global update exists yet, cosine similarity to it is undefined -- trivially accepted without consulting the policy or updating the trust posterior, not a real gating judgment",
+            "Philips_B120N10_Baby_Monitor": "round 0: no previous global update exists yet, cosine similarity to it is undefined -- trivially accepted without consulting the policy or updating the trust posterior, not a real gating judgment",
+            "Provision_PT_737E_Security_Camera": "round 0: no previous global update exists yet, cosine similarity to it is undefined -- trivially accepted without consulting the policy or updating the trust posterior, not a real gating judgment",
+            "Provision_PT_838_Security_Camera": "round 0: no previous global update exists yet, cosine similarity to it is undefined -- trivially accepted without consulting the policy or updating the trust posterior, not a real gating judgment",
+            "Samsung_SNH_1011_N_Webcam": "round 0: no previous global update exists yet, cosine similarity to it is undefined -- trivially accepted without consulting the policy or updating the trust posterior, not a real gating judgment",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "round 0: no previous global update exists yet, cosine similarity to it is undefined -- trivially accepted without consulting the policy or updating the trust posterior, not a real gating judgment",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "round 0: no previous global update exists yet, cosine similarity to it is undefined -- trivially accepted without consulting the policy or updating the trust posterior, not a real gating judgment"
+          },
+          "fallback_triggered": false
+        },
+        {
+          "round": 1,
+          "actions": {
+            "Danmini_Doorbell": "downweight",
+            "Ecobee_Thermostat": "downweight",
+            "Ennio_Doorbell": "downweight",
+            "Philips_B120N10_Baby_Monitor": "accept",
+            "Provision_PT_737E_Security_Camera": "accept",
+            "Provision_PT_838_Security_Camera": "accept",
+            "Samsung_SNH_1011_N_Webcam": "downweight",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "accept",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "accept"
+          },
+          "scores": {
+            "Danmini_Doorbell": 0.5,
+            "Ecobee_Thermostat": 0.5,
+            "Ennio_Doorbell": 0.5,
+            "Philips_B120N10_Baby_Monitor": 1.0,
+            "Provision_PT_737E_Security_Camera": 1.0,
+            "Provision_PT_838_Security_Camera": 1.0,
+            "Samsung_SNH_1011_N_Webcam": 0.5,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 1.0,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 1.0
+          },
+          "rationales": {
+            "Danmini_Doorbell": "update norm z-score and calibration loss change indicate significant deviation (early-round warmup active, scale=1.40)",
+            "Ecobee_Thermostat": "update norm z-score and calibration loss change indicate significant deviation (early-round warmup active, scale=1.40)",
+            "Ennio_Doorbell": "update norm z-score and calibration loss change indicate significant deviation (early-round warmup active, scale=1.40)",
+            "Philips_B120N10_Baby_Monitor": "cosine similarity z-score is moderately negative, while calibration loss improved unusually much (early-round warmup active, scale=1.40)",
+            "Provision_PT_737E_Security_Camera": "update norm z-score is notably negative while cosine similarity is slightly positive, with calibration loss improving significantly (early-round warmup active, scale=1.40)",
+            "Provision_PT_838_Security_Camera": "cosine similarity z-score is moderately high while update norm z-score is moderately low, and calibration loss improved significantly which is unusual for an attack but still notable (early-round warmup active, scale=1.40)",
+            "Samsung_SNH_1011_N_Webcam": "Both z-scores are far from zero and the calibration loss significantly worsened. (early-round warmup active, scale=1.40)",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "update norm z-score is a significant outlier (early-round warmup active, scale=1.40)",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "cosine similarity z-score is somewhat low, but not extremely so (early-round warmup active, scale=1.40)"
+          },
+          "fallback_triggered": false
+        },
+        {
+          "round": 2,
+          "actions": {
+            "Danmini_Doorbell": "exclude",
+            "Ecobee_Thermostat": "exclude",
+            "Ennio_Doorbell": "exclude",
+            "Philips_B120N10_Baby_Monitor": "downweight",
+            "Provision_PT_737E_Security_Camera": "downweight",
+            "Provision_PT_838_Security_Camera": "downweight",
+            "Samsung_SNH_1011_N_Webcam": "downweight",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "downweight",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "downweight"
+          },
+          "scores": {
+            "Danmini_Doorbell": 0.0,
+            "Ecobee_Thermostat": 0.0,
+            "Ennio_Doorbell": 0.0,
+            "Philips_B120N10_Baby_Monitor": 0.5,
+            "Provision_PT_737E_Security_Camera": 0.5,
+            "Provision_PT_838_Security_Camera": 0.5,
+            "Samsung_SNH_1011_N_Webcam": 0.5,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 0.5,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 0.5
+          },
+          "rationales": {
+            "Danmini_Doorbell": "Both z-scores are far from zero and calibration loss significantly worsened. (early-round warmup active, scale=1.30)",
+            "Ecobee_Thermostat": "Both z-scores are far from zero and calibration loss significantly worsened. (early-round warmup active, scale=1.30)",
+            "Ennio_Doorbell": "Both update norm and cosine similarity z-scores are far from zero, and calibration loss significantly worsened. (early-round warmup active, scale=1.30)",
+            "Philips_B120N10_Baby_Monitor": "cosine similarity z-score is high and calibration loss change is unusual (early-round warmup active, scale=1.30)",
+            "Provision_PT_737E_Security_Camera": "cosine similarity z-score is a strong outlier and calibration loss change is unusual (early-round warmup active, scale=1.30)",
+            "Provision_PT_838_Security_Camera": "cosine similarity z-score is a strong outlier while update norm z-score is also notably different, despite calibration loss improving significantly which is unusual for an outlier (early-round warmup active, scale=1.30)",
+            "Samsung_SNH_1011_N_Webcam": "calibration loss got much worse while cosine similarity z-score is near normal (early-round warmup active, scale=1.30)",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "cosine similarity z-score is a strong outlier while update norm z-score is also deviant, and calibration loss change is unusual (early-round warmup active, scale=1.30)",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "cosine similarity z-score is a strong outlier while update norm z-score is also somewhat deviant, and calibration loss change is unusually good (early-round warmup active, scale=1.30)"
+          },
+          "fallback_triggered": false
+        },
+        {
+          "round": 3,
+          "actions": {
+            "Danmini_Doorbell": "exclude",
+            "Ecobee_Thermostat": "exclude",
+            "Ennio_Doorbell": "exclude",
+            "Philips_B120N10_Baby_Monitor": "accept",
+            "Provision_PT_737E_Security_Camera": "accept",
+            "Provision_PT_838_Security_Camera": "accept",
+            "Samsung_SNH_1011_N_Webcam": "downweight",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "accept",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "accept"
+          },
+          "scores": {
+            "Danmini_Doorbell": 0.0,
+            "Ecobee_Thermostat": 0.0,
+            "Ennio_Doorbell": 0.0,
+            "Philips_B120N10_Baby_Monitor": 1.0,
+            "Provision_PT_737E_Security_Camera": 1.0,
+            "Provision_PT_838_Security_Camera": 1.0,
+            "Samsung_SNH_1011_N_Webcam": 0.5,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 1.0,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 1.0
+          },
+          "rationales": {
+            "Danmini_Doorbell": "Both z-scores are far from zero and calibration loss significantly worsened. (early-round warmup active, scale=1.20)",
+            "Ecobee_Thermostat": "Both z-scores are far from zero and calibration loss significantly worsened. (early-round warmup active, scale=1.20)",
+            "Ennio_Doorbell": "Both z-scores are far from zero and calibration loss significantly worsened. (early-round warmup active, scale=1.20)",
+            "Philips_B120N10_Baby_Monitor": "update norm z-score is moderately deviant while cosine similarity z-score is slightly deviant (early-round warmup active, scale=1.20)",
+            "Provision_PT_737E_Security_Camera": "cosine similarity z-score is relatively high compared to other gateways this round (early-round warmup active, scale=1.20)",
+            "Provision_PT_838_Security_Camera": "update norm and cosine similarity z-scores are moderately deviant from the group this round (early-round warmup active, scale=1.20)",
+            "Samsung_SNH_1011_N_Webcam": "calibration loss got much worse (early-round warmup active, scale=1.20)",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "update norm z-score is moderately deviant while cosine similarity z-score is slightly deviant (early-round warmup active, scale=1.20)",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "cosine similarity z-score is relatively high while update norm z-score is relatively low (early-round warmup active, scale=1.20)"
+          },
+          "fallback_triggered": false
+        },
+        {
+          "round": 4,
+          "actions": {
+            "Danmini_Doorbell": "exclude",
+            "Ecobee_Thermostat": "exclude",
+            "Ennio_Doorbell": "exclude",
+            "Philips_B120N10_Baby_Monitor": "exclude",
+            "Provision_PT_737E_Security_Camera": "exclude",
+            "Provision_PT_838_Security_Camera": "accept",
+            "Samsung_SNH_1011_N_Webcam": "exclude",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "accept",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "accept"
+          },
+          "scores": {
+            "Danmini_Doorbell": 0.0,
+            "Ecobee_Thermostat": 0.0,
+            "Ennio_Doorbell": 0.0,
+            "Philips_B120N10_Baby_Monitor": 0.0,
+            "Provision_PT_737E_Security_Camera": 0.0,
+            "Provision_PT_838_Security_Camera": 1.0,
+            "Samsung_SNH_1011_N_Webcam": 0.0,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 1.0,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 1.0
+          },
+          "rationales": {
+            "Danmini_Doorbell": "Both z-scores are far from zero and calibration loss significantly worsened. (early-round warmup active, scale=1.10)",
+            "Ecobee_Thermostat": "Both z-scores are far from zero and the calibration loss significantly worsened. (early-round warmup active, scale=1.10)",
+            "Ennio_Doorbell": "Both z-scores are significantly deviant and calibration loss worsened substantially. (early-round warmup active, scale=1.10)",
+            "Philips_B120N10_Baby_Monitor": "cosine similarity z-score and calibration loss change indicate significant deviation (early-round warmup active, scale=1.10)",
+            "Provision_PT_737E_Security_Camera": "cosine similarity z-score and calibration loss change are both significant outliers (early-round warmup active, scale=1.10)",
+            "Provision_PT_838_Security_Camera": "cosine similarity z-score is somewhat high, but update norm z-score is also low, and calibration loss is unchanged (early-round warmup active, scale=1.10)",
+            "Samsung_SNH_1011_N_Webcam": "Both z-scores are notably negative and calibration loss significantly worsened. (early-round warmup active, scale=1.10)",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "update norm z-score is a notable outlier (early-round warmup active, scale=1.10)",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "cosine similarity z-score is relatively high while update norm z-score is relatively low (early-round warmup active, scale=1.10)"
+          },
+          "fallback_triggered": false
+        },
+        {
+          "round": 5,
+          "actions": {
+            "Danmini_Doorbell": "exclude",
+            "Ecobee_Thermostat": "exclude",
+            "Ennio_Doorbell": "exclude",
+            "Philips_B120N10_Baby_Monitor": "accept",
+            "Provision_PT_737E_Security_Camera": "accept",
+            "Provision_PT_838_Security_Camera": "exclude",
+            "Samsung_SNH_1011_N_Webcam": "exclude",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "downweight",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "downweight"
+          },
+          "scores": {
+            "Danmini_Doorbell": 0.0,
+            "Ecobee_Thermostat": 0.0,
+            "Ennio_Doorbell": 0.0,
+            "Philips_B120N10_Baby_Monitor": 1.0,
+            "Provision_PT_737E_Security_Camera": 1.0,
+            "Provision_PT_838_Security_Camera": 0.0,
+            "Samsung_SNH_1011_N_Webcam": 0.0,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 0.5,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 0.5
+          },
+          "rationales": {
+            "Danmini_Doorbell": "Both z-scores are far from zero and calibration loss significantly worsened.",
+            "Ecobee_Thermostat": "update norm and cosine similarity z-scores are significant outliers, and calibration loss got much worse",
+            "Ennio_Doorbell": "Both z-scores are significantly deviant and calibration loss worsened substantially.",
+            "Philips_B120N10_Baby_Monitor": "update norm z-score is notably low compared to other gateways this round",
+            "Provision_PT_737E_Security_Camera": "update norm z-score is moderately deviant",
+            "Provision_PT_838_Security_Camera": "cosine similarity z-score and calibration loss change indicate significant deviation",
+            "Samsung_SNH_1011_N_Webcam": "calibration loss got much worse and update norm z-score is significantly negative",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "cosine similarity z-score is somewhat high while update norm z-score is somewhat low, indicating deviation from the group",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "cosine similarity z-score is relatively high while update norm z-score is relatively low"
+          },
+          "fallback_triggered": false
+        },
+        {
+          "round": 6,
+          "actions": {
+            "Danmini_Doorbell": "exclude",
+            "Ecobee_Thermostat": "exclude",
+            "Ennio_Doorbell": "exclude",
+            "Philips_B120N10_Baby_Monitor": "exclude",
+            "Provision_PT_737E_Security_Camera": "downweight",
+            "Provision_PT_838_Security_Camera": "accept",
+            "Samsung_SNH_1011_N_Webcam": "exclude",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "accept",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "downweight"
+          },
+          "scores": {
+            "Danmini_Doorbell": 0.0,
+            "Ecobee_Thermostat": 0.0,
+            "Ennio_Doorbell": 0.0,
+            "Philips_B120N10_Baby_Monitor": 0.0,
+            "Provision_PT_737E_Security_Camera": 0.5,
+            "Provision_PT_838_Security_Camera": 1.0,
+            "Samsung_SNH_1011_N_Webcam": 0.0,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 1.0,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 0.5
+          },
+          "rationales": {
+            "Danmini_Doorbell": "Both z-scores are significantly deviant and calibration loss worsened substantially.",
+            "Ecobee_Thermostat": "update norm z-score and calibration loss change indicate significant deviation",
+            "Ennio_Doorbell": "Both z-scores are far from zero and calibration loss significantly worsened.",
+            "Philips_B120N10_Baby_Monitor": "cosine similarity z-score and calibration loss change indicate significant deviation",
+            "Provision_PT_737E_Security_Camera": "cosine similarity z-score is a strong outlier",
+            "Provision_PT_838_Security_Camera": "update norm z-score is moderately deviant",
+            "Samsung_SNH_1011_N_Webcam": "cosine similarity z-score and calibration loss change indicate significant deviation",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "update norm z-score is somewhat deviant but not extremely so",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "cosine similarity z-score is somewhat high and calibration loss got slightly worse"
+          },
+          "fallback_triggered": false
+        },
+        {
+          "round": 7,
+          "actions": {
+            "Danmini_Doorbell": "exclude",
+            "Ecobee_Thermostat": "exclude",
+            "Ennio_Doorbell": "exclude",
+            "Philips_B120N10_Baby_Monitor": "exclude",
+            "Provision_PT_737E_Security_Camera": "downweight",
+            "Provision_PT_838_Security_Camera": "downweight",
+            "Samsung_SNH_1011_N_Webcam": "exclude",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "downweight",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "downweight"
+          },
+          "scores": {
+            "Danmini_Doorbell": 0.0,
+            "Ecobee_Thermostat": 0.0,
+            "Ennio_Doorbell": 0.0,
+            "Philips_B120N10_Baby_Monitor": 0.0,
+            "Provision_PT_737E_Security_Camera": 0.5,
+            "Provision_PT_838_Security_Camera": 0.5,
+            "Samsung_SNH_1011_N_Webcam": 0.0,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 0.5,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 0.5
+          },
+          "rationales": {
+            "Danmini_Doorbell": "update norm z-score and significant increase in held-out loss",
+            "Ecobee_Thermostat": "update norm z-score and calibration loss change indicate significant deviation",
+            "Ennio_Doorbell": "Both z-scores are significantly deviant and calibration loss worsened substantially.",
+            "Philips_B120N10_Baby_Monitor": "Both z-scores are far from 0 and calibration loss significantly worsened.",
+            "Provision_PT_737E_Security_Camera": "update norm z-score is moderately deviant while cosine similarity z-score is slightly deviant, and calibration loss slightly worsened",
+            "Provision_PT_838_Security_Camera": "cosine similarity z-score is relatively high and update norm z-score is relatively low, with calibration loss also slightly worsening",
+            "Samsung_SNH_1011_N_Webcam": "calibration loss got much worse while cosine similarity z-score is near normal",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "update norm z-score is moderately deviant while cosine similarity z-score is slightly deviant",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "update norm z-score is moderately deviant while calibration loss slightly worsened"
+          },
+          "fallback_triggered": false
+        },
+        {
+          "round": 8,
+          "actions": {
+            "Danmini_Doorbell": "exclude",
+            "Ecobee_Thermostat": "exclude",
+            "Ennio_Doorbell": "exclude",
+            "Philips_B120N10_Baby_Monitor": "accept",
+            "Provision_PT_737E_Security_Camera": "downweight",
+            "Provision_PT_838_Security_Camera": "downweight",
+            "Samsung_SNH_1011_N_Webcam": "exclude",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "accept",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "accept"
+          },
+          "scores": {
+            "Danmini_Doorbell": 0.0,
+            "Ecobee_Thermostat": 0.0,
+            "Ennio_Doorbell": 0.0,
+            "Philips_B120N10_Baby_Monitor": 1.0,
+            "Provision_PT_737E_Security_Camera": 0.5,
+            "Provision_PT_838_Security_Camera": 0.5,
+            "Samsung_SNH_1011_N_Webcam": 0.0,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 1.0,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 1.0
+          },
+          "rationales": {
+            "Danmini_Doorbell": "Both z-scores are significantly deviant and calibration loss worsened substantially.",
+            "Ecobee_Thermostat": "Both z-scores are far from zero and calibration loss significantly worsened.",
+            "Ennio_Doorbell": "Both z-scores are significantly deviant and calibration loss worsened substantially.",
+            "Philips_B120N10_Baby_Monitor": "update norm z-score is moderately deviant",
+            "Provision_PT_737E_Security_Camera": "cosine similarity z-score is relatively high while update norm z-score is relatively low",
+            "Provision_PT_838_Security_Camera": "cosine similarity z-score is relatively high and update norm z-score is relatively low, with calibration loss also slightly worsening",
+            "Samsung_SNH_1011_N_Webcam": "cosine similarity z-score and calibration loss change indicate significant deviation",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "cosine similarity z-score is a notable outlier",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "update norm z-score is moderately deviant while cosine similarity is slightly deviant, with calibration loss showing a small negative change"
+          },
+          "fallback_triggered": false
+        },
+        {
+          "round": 9,
+          "actions": {
+            "Danmini_Doorbell": "exclude",
+            "Ecobee_Thermostat": "exclude",
+            "Ennio_Doorbell": "exclude",
+            "Philips_B120N10_Baby_Monitor": "downweight",
+            "Provision_PT_737E_Security_Camera": "accept",
+            "Provision_PT_838_Security_Camera": "accept",
+            "Samsung_SNH_1011_N_Webcam": "exclude",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "accept",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "downweight"
+          },
+          "scores": {
+            "Danmini_Doorbell": 0.0,
+            "Ecobee_Thermostat": 0.0,
+            "Ennio_Doorbell": 0.0,
+            "Philips_B120N10_Baby_Monitor": 0.5,
+            "Provision_PT_737E_Security_Camera": 1.0,
+            "Provision_PT_838_Security_Camera": 1.0,
+            "Samsung_SNH_1011_N_Webcam": 0.0,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 1.0,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 0.5
+          },
+          "rationales": {
+            "Danmini_Doorbell": "Both z-scores are significantly deviant and calibration loss worsened substantially.",
+            "Ecobee_Thermostat": "Both z-scores are significantly deviant and calibration loss worsened substantially.",
+            "Ennio_Doorbell": "Both z-scores are far from zero and the calibration loss significantly worsened.",
+            "Philips_B120N10_Baby_Monitor": "cosine similarity z-score is relatively high and update norm z-score is relatively low, with calibration loss also slightly worsening",
+            "Provision_PT_737E_Security_Camera": "update norm z-score is notably low while cosine similarity z-score and calibration loss change are minor",
+            "Provision_PT_838_Security_Camera": "update norm z-score is somewhat deviant",
+            "Samsung_SNH_1011_N_Webcam": "cosine similarity z-score and calibration loss change indicate significant deviation",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "update norm z-score is moderately deviant while cosine similarity z-score is slightly deviant, but calibration loss is unchanged",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "update norm z-score is moderately deviant while calibration loss slightly worsened"
+          },
+          "fallback_triggered": false
+        },
+        {
+          "round": 10,
+          "actions": {
+            "Danmini_Doorbell": "exclude",
+            "Ecobee_Thermostat": "exclude",
+            "Ennio_Doorbell": "exclude",
+            "Philips_B120N10_Baby_Monitor": "downweight",
+            "Provision_PT_737E_Security_Camera": "downweight",
+            "Provision_PT_838_Security_Camera": "downweight",
+            "Samsung_SNH_1011_N_Webcam": "exclude",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "accept",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "accept"
+          },
+          "scores": {
+            "Danmini_Doorbell": 0.0,
+            "Ecobee_Thermostat": 0.0,
+            "Ennio_Doorbell": 0.0,
+            "Philips_B120N10_Baby_Monitor": 0.5,
+            "Provision_PT_737E_Security_Camera": 0.5,
+            "Provision_PT_838_Security_Camera": 0.5,
+            "Samsung_SNH_1011_N_Webcam": 0.0,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 1.0,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 1.0
+          },
+          "rationales": {
+            "Danmini_Doorbell": "update norm z-score is a strong outlier while calibration loss significantly worsened",
+            "Ecobee_Thermostat": "update norm z-score is a strong outlier while calibration loss significantly worsened",
+            "Ennio_Doorbell": "update norm z-score and calibration loss change indicate significant deviation",
+            "Philips_B120N10_Baby_Monitor": "cosine similarity z-score and update norm z-score are both significantly negative, and calibration loss slightly worsened.",
+            "Provision_PT_737E_Security_Camera": "cosine similarity z-score is relatively high and update norm z-score is relatively low, with calibration loss slightly worsening",
+            "Provision_PT_838_Security_Camera": "cosine similarity z-score and calibration loss change are borderline anomalous",
+            "Samsung_SNH_1011_N_Webcam": "Both z-scores are significantly negative and calibration loss got much worse.",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "update norm z-score is somewhat deviant but not extremely so",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "update norm z-score is notably low compared to other gateways this round"
+          },
+          "fallback_triggered": false
+        },
+        {
+          "round": 11,
+          "actions": {
+            "Danmini_Doorbell": "exclude",
+            "Ecobee_Thermostat": "exclude",
+            "Ennio_Doorbell": "exclude",
+            "Philips_B120N10_Baby_Monitor": "downweight",
+            "Provision_PT_737E_Security_Camera": "downweight",
+            "Provision_PT_838_Security_Camera": "downweight",
+            "Samsung_SNH_1011_N_Webcam": "exclude",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "accept",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "accept"
+          },
+          "scores": {
+            "Danmini_Doorbell": 0.0,
+            "Ecobee_Thermostat": 0.0,
+            "Ennio_Doorbell": 0.0,
+            "Philips_B120N10_Baby_Monitor": 0.5,
+            "Provision_PT_737E_Security_Camera": 0.5,
+            "Provision_PT_838_Security_Camera": 0.5,
+            "Samsung_SNH_1011_N_Webcam": 0.0,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 1.0,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 1.0
+          },
+          "rationales": {
+            "Danmini_Doorbell": "update norm z-score is a strong outlier while calibration loss significantly worsened",
+            "Ecobee_Thermostat": "Both z-scores are far from zero and calibration loss significantly worsened.",
+            "Ennio_Doorbell": "Both z-scores are significantly deviant and calibration loss worsened substantially.",
+            "Philips_B120N10_Baby_Monitor": "cosine similarity z-score and change in calibration loss both indicate deviation from the group this round",
+            "Provision_PT_737E_Security_Camera": "cosine similarity z-score is relatively high and update norm z-score is relatively low, with calibration loss also slightly worsening",
+            "Provision_PT_838_Security_Camera": "cosine similarity z-score is relatively high while update norm z-score is relatively low, and calibration loss slightly worsened",
+            "Samsung_SNH_1011_N_Webcam": "cosine similarity z-score and calibration loss change are both significant indicators of anomaly",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "update norm z-score is somewhat deviant but not extremely so",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "both update norm z-score and cosine similarity z-score are moderately deviant but not extreme"
+          },
+          "fallback_triggered": false
+        },
+        {
+          "round": 12,
+          "actions": {
+            "Danmini_Doorbell": "exclude",
+            "Ecobee_Thermostat": "exclude",
+            "Ennio_Doorbell": "exclude",
+            "Philips_B120N10_Baby_Monitor": "downweight",
+            "Provision_PT_737E_Security_Camera": "accept",
+            "Provision_PT_838_Security_Camera": "accept",
+            "Samsung_SNH_1011_N_Webcam": "exclude",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "accept",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "accept"
+          },
+          "scores": {
+            "Danmini_Doorbell": 0.0,
+            "Ecobee_Thermostat": 0.0,
+            "Ennio_Doorbell": 0.0,
+            "Philips_B120N10_Baby_Monitor": 0.5,
+            "Provision_PT_737E_Security_Camera": 1.0,
+            "Provision_PT_838_Security_Camera": 1.0,
+            "Samsung_SNH_1011_N_Webcam": 0.0,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 1.0,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 1.0
+          },
+          "rationales": {
+            "Danmini_Doorbell": "Both z-scores are far from zero and calibration loss significantly worsened.",
+            "Ecobee_Thermostat": "update norm z-score and calibration loss change indicate significant deviation",
+            "Ennio_Doorbell": "Both z-scores are far from zero and calibration loss significantly worsened.",
+            "Philips_B120N10_Baby_Monitor": "Both z-scores deviate moderately from the group, and the calibration loss slightly worsened.",
+            "Provision_PT_737E_Security_Camera": "update norm z-score is notably low compared to other gateways this round",
+            "Provision_PT_838_Security_Camera": "update norm z-score is significantly negative while cosine similarity z-score is slightly positive, with calibration loss slightly worsening",
+            "Samsung_SNH_1011_N_Webcam": "calibration loss got much worse and update norm z-score is significantly negative",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "cosine similarity z-score is somewhat high while update norm z-score is somewhat low",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "cosine similarity z-score is somewhat high, but other metrics are normal"
+          },
+          "fallback_triggered": false
+        },
+        {
+          "round": 13,
+          "actions": {
+            "Danmini_Doorbell": "exclude",
+            "Ecobee_Thermostat": "exclude",
+            "Ennio_Doorbell": "exclude",
+            "Philips_B120N10_Baby_Monitor": "downweight",
+            "Provision_PT_737E_Security_Camera": "downweight",
+            "Provision_PT_838_Security_Camera": "downweight",
+            "Samsung_SNH_1011_N_Webcam": "exclude",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "accept",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "accept"
+          },
+          "scores": {
+            "Danmini_Doorbell": 0.0,
+            "Ecobee_Thermostat": 0.0,
+            "Ennio_Doorbell": 0.0,
+            "Philips_B120N10_Baby_Monitor": 0.5,
+            "Provision_PT_737E_Security_Camera": 0.5,
+            "Provision_PT_838_Security_Camera": 0.5,
+            "Samsung_SNH_1011_N_Webcam": 0.0,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 1.0,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 1.0
+          },
+          "rationales": {
+            "Danmini_Doorbell": "update norm z-score and calibration loss change indicate significant deviation",
+            "Ecobee_Thermostat": "update norm z-score and calibration loss change indicate significant deviation",
+            "Ennio_Doorbell": "Both z-scores are far from zero and the calibration loss significantly worsened.",
+            "Philips_B120N10_Baby_Monitor": "cosine similarity z-score is a strong outlier this round",
+            "Provision_PT_737E_Security_Camera": "Both z-scores deviate moderately from the group, and the calibration loss slightly worsened.",
+            "Provision_PT_838_Security_Camera": "cosine similarity z-score is relatively high and update norm z-score is relatively low, with calibration loss slightly worsening.",
+            "Samsung_SNH_1011_N_Webcam": "Both update norm and cosine similarity z-scores are outliers, and calibration loss significantly worsened.",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "Both z-scores are slightly negative but still within normal range",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "update norm z-score is notably low compared to other gateways this round"
+          },
+          "fallback_triggered": false
+        },
+        {
+          "round": 14,
+          "actions": {
+            "Danmini_Doorbell": "exclude",
+            "Ecobee_Thermostat": "exclude",
+            "Ennio_Doorbell": "exclude",
+            "Philips_B120N10_Baby_Monitor": "exclude",
+            "Provision_PT_737E_Security_Camera": "accept",
+            "Provision_PT_838_Security_Camera": "accept",
+            "Samsung_SNH_1011_N_Webcam": "exclude",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "downweight",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "downweight"
+          },
+          "scores": {
+            "Danmini_Doorbell": 0.0,
+            "Ecobee_Thermostat": 0.0,
+            "Ennio_Doorbell": 0.0,
+            "Philips_B120N10_Baby_Monitor": 0.0,
+            "Provision_PT_737E_Security_Camera": 1.0,
+            "Provision_PT_838_Security_Camera": 1.0,
+            "Samsung_SNH_1011_N_Webcam": 0.0,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 0.5,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 0.5
+          },
+          "rationales": {
+            "Danmini_Doorbell": "update norm z-score and calibration loss change indicate significant deviation",
+            "Ecobee_Thermostat": "update norm z-score is high and calibration loss got much worse",
+            "Ennio_Doorbell": "Both z-scores are far from zero and the calibration loss significantly worsened.",
+            "Philips_B120N10_Baby_Monitor": "cosine similarity z-score and calibration loss change indicate significant deviation",
+            "Provision_PT_737E_Security_Camera": "update norm z-score is notably low compared to other gateways this round",
+            "Provision_PT_838_Security_Camera": "Both z-scores are moderately deviant, and the calibration loss slightly worsened.",
+            "Samsung_SNH_1011_N_Webcam": "Both z-scores deviate significantly from zero and the calibration loss worsened substantially.",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "cosine similarity z-score is relatively high and update norm z-score is relatively low, with calibration loss slightly worsening.",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "cosine similarity z-score is relatively high while update norm z-score is relatively low"
+          },
+          "fallback_triggered": false
+        },
+        {
+          "round": 15,
+          "actions": {
+            "Danmini_Doorbell": "exclude",
+            "Ecobee_Thermostat": "exclude",
+            "Ennio_Doorbell": "exclude",
+            "Philips_B120N10_Baby_Monitor": "exclude",
+            "Provision_PT_737E_Security_Camera": "accept",
+            "Provision_PT_838_Security_Camera": "downweight",
+            "Samsung_SNH_1011_N_Webcam": "exclude",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "accept",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "downweight"
+          },
+          "scores": {
+            "Danmini_Doorbell": 0.0,
+            "Ecobee_Thermostat": 0.0,
+            "Ennio_Doorbell": 0.0,
+            "Philips_B120N10_Baby_Monitor": 0.0,
+            "Provision_PT_737E_Security_Camera": 1.0,
+            "Provision_PT_838_Security_Camera": 0.5,
+            "Samsung_SNH_1011_N_Webcam": 0.0,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 1.0,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 0.5
+          },
+          "rationales": {
+            "Danmini_Doorbell": "Both update norm and cosine similarity z-scores are high, and calibration loss significantly worsened.",
+            "Ecobee_Thermostat": "Both update norm and cosine similarity z-scores are high, and calibration loss significantly worsened.",
+            "Ennio_Doorbell": "update norm z-score and calibration loss change indicate significant deviation",
+            "Philips_B120N10_Baby_Monitor": "Both z-scores are far from 0 and calibration loss significantly worsened.",
+            "Provision_PT_737E_Security_Camera": "update norm z-score is moderately deviant while cosine similarity z-score is slightly deviant, and calibration loss slightly worsened",
+            "Provision_PT_838_Security_Camera": "update norm z-score is moderately deviant while cosine similarity z-score is slightly deviant, and calibration loss slightly worsened",
+            "Samsung_SNH_1011_N_Webcam": "Both z-scores are notably negative and calibration loss significantly worsened.",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "cosine similarity z-score is notably low compared to other gateways this round",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "cosine similarity z-score is a strong outlier this round"
+          },
+          "fallback_triggered": false
+        },
+        {
+          "round": 16,
+          "actions": {
+            "Danmini_Doorbell": "exclude",
+            "Ecobee_Thermostat": "exclude",
+            "Ennio_Doorbell": "exclude",
+            "Philips_B120N10_Baby_Monitor": "exclude",
+            "Provision_PT_737E_Security_Camera": "accept",
+            "Provision_PT_838_Security_Camera": "downweight",
+            "Samsung_SNH_1011_N_Webcam": "exclude",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "accept",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "downweight"
+          },
+          "scores": {
+            "Danmini_Doorbell": 0.0,
+            "Ecobee_Thermostat": 0.0,
+            "Ennio_Doorbell": 0.0,
+            "Philips_B120N10_Baby_Monitor": 0.0,
+            "Provision_PT_737E_Security_Camera": 1.0,
+            "Provision_PT_838_Security_Camera": 0.5,
+            "Samsung_SNH_1011_N_Webcam": 0.0,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 1.0,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 0.5
+          },
+          "rationales": {
+            "Danmini_Doorbell": "Both z-scores are far from zero and calibration loss significantly worsened.",
+            "Ecobee_Thermostat": "Both z-scores are significantly deviant and calibration loss worsened substantially.",
+            "Ennio_Doorbell": "Both z-scores are far from zero and calibration loss significantly worsened.",
+            "Philips_B120N10_Baby_Monitor": "cosine similarity z-score and calibration loss change indicate significant deviation",
+            "Provision_PT_737E_Security_Camera": "update norm z-score is moderately deviant while cosine similarity z-score is slightly deviant, and calibration loss slightly worsened",
+            "Provision_PT_838_Security_Camera": "cosine similarity z-score is a strong outlier",
+            "Samsung_SNH_1011_N_Webcam": "calibration loss got much worse and update norm z-score is significantly negative",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "cosine similarity z-score is somewhat high while update norm z-score is somewhat low",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "update norm z-score is moderately deviant while calibration loss slightly worsened"
+          },
+          "fallback_triggered": false
+        },
+        {
+          "round": 17,
+          "actions": {
+            "Danmini_Doorbell": "exclude",
+            "Ecobee_Thermostat": "exclude",
+            "Ennio_Doorbell": "exclude",
+            "Philips_B120N10_Baby_Monitor": "downweight",
+            "Provision_PT_737E_Security_Camera": "downweight",
+            "Provision_PT_838_Security_Camera": "exclude",
+            "Samsung_SNH_1011_N_Webcam": "exclude",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "downweight",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "downweight"
+          },
+          "scores": {
+            "Danmini_Doorbell": 0.0,
+            "Ecobee_Thermostat": 0.0,
+            "Ennio_Doorbell": 0.0,
+            "Philips_B120N10_Baby_Monitor": 0.5,
+            "Provision_PT_737E_Security_Camera": 0.5,
+            "Provision_PT_838_Security_Camera": 0.0,
+            "Samsung_SNH_1011_N_Webcam": 0.0,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 0.5,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 0.5
+          },
+          "rationales": {
+            "Danmini_Doorbell": "update norm z-score is high and calibration loss got much worse",
+            "Ecobee_Thermostat": "Both z-scores are significantly deviant and calibration loss worsened substantially.",
+            "Ennio_Doorbell": "update norm z-score and calibration loss change indicate significant deviation",
+            "Philips_B120N10_Baby_Monitor": "Both z-scores are moderately deviant, and the calibration loss slightly worsened.",
+            "Provision_PT_737E_Security_Camera": "Both update norm and cosine similarity z-scores are outliers, and calibration loss significantly worsened. (long-term posterior mean=0.71 over 8 rounds downgrades exclude to downweight)",
+            "Provision_PT_838_Security_Camera": "cosine similarity z-score and calibration loss change indicate significant deviation",
+            "Samsung_SNH_1011_N_Webcam": "cosine similarity z-score and calibration loss change indicate significant deviation",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "cosine similarity z-score is relatively high while update norm z-score is relatively low",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "Both z-scores are moderately deviant, and the calibration loss slightly worsened."
+          },
+          "fallback_triggered": false
+        },
+        {
+          "round": 18,
+          "actions": {
+            "Danmini_Doorbell": "exclude",
+            "Ecobee_Thermostat": "exclude",
+            "Ennio_Doorbell": "exclude",
+            "Philips_B120N10_Baby_Monitor": "downweight",
+            "Provision_PT_737E_Security_Camera": "downweight",
+            "Provision_PT_838_Security_Camera": "downweight",
+            "Samsung_SNH_1011_N_Webcam": "exclude",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "accept",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "accept"
+          },
+          "scores": {
+            "Danmini_Doorbell": 0.0,
+            "Ecobee_Thermostat": 0.0,
+            "Ennio_Doorbell": 0.0,
+            "Philips_B120N10_Baby_Monitor": 0.5,
+            "Provision_PT_737E_Security_Camera": 0.5,
+            "Provision_PT_838_Security_Camera": 0.5,
+            "Samsung_SNH_1011_N_Webcam": 0.0,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 1.0,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 1.0
+          },
+          "rationales": {
+            "Danmini_Doorbell": "update norm z-score is a strong outlier while calibration loss significantly worsened",
+            "Ecobee_Thermostat": "update norm z-score and calibration loss change are both significant",
+            "Ennio_Doorbell": "update norm z-score and calibration loss change indicate significant deviation",
+            "Philips_B120N10_Baby_Monitor": "cosine similarity z-score is a strong outlier",
+            "Provision_PT_737E_Security_Camera": "cosine similarity z-score and slight increase in calibration loss",
+            "Provision_PT_838_Security_Camera": "cosine similarity z-score and calibration loss change are slightly worse than normal",
+            "Samsung_SNH_1011_N_Webcam": "update norm z-score and cosine similarity z-score are strong outliers, and calibration loss got much worse",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "update norm z-score is moderately deviant",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "Both z-scores are moderately negative, and the calibration loss slightly worsened."
+          },
+          "fallback_triggered": false
+        },
+        {
+          "round": 19,
+          "actions": {
+            "Danmini_Doorbell": "exclude",
+            "Ecobee_Thermostat": "exclude",
+            "Ennio_Doorbell": "exclude",
+            "Philips_B120N10_Baby_Monitor": "downweight",
+            "Provision_PT_737E_Security_Camera": "downweight",
+            "Provision_PT_838_Security_Camera": "downweight",
+            "Samsung_SNH_1011_N_Webcam": "exclude",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "accept",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "accept"
+          },
+          "scores": {
+            "Danmini_Doorbell": 0.0,
+            "Ecobee_Thermostat": 0.0,
+            "Ennio_Doorbell": 0.0,
+            "Philips_B120N10_Baby_Monitor": 0.5,
+            "Provision_PT_737E_Security_Camera": 0.5,
+            "Provision_PT_838_Security_Camera": 0.5,
+            "Samsung_SNH_1011_N_Webcam": 0.0,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 1.0,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 1.0
+          },
+          "rationales": {
+            "Danmini_Doorbell": "Both update norm and cosine similarity z-scores are high, and calibration loss significantly worsened.",
+            "Ecobee_Thermostat": "update norm z-score and calibration loss change indicate significant deviation",
+            "Ennio_Doorbell": "Both update norm and cosine similarity z-scores are high, and calibration loss significantly worsened.",
+            "Philips_B120N10_Baby_Monitor": "cosine similarity z-score and calibration loss change are slightly worse than normal",
+            "Provision_PT_737E_Security_Camera": "Both z-scores are moderately deviant and calibration loss slightly worsened.",
+            "Provision_PT_838_Security_Camera": "update norm z-score is a notable outlier",
+            "Samsung_SNH_1011_N_Webcam": "Both z-scores are far from 0 and calibration loss significantly worsened.",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "update norm z-score is moderately deviant",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "update norm z-score is moderately deviant"
+          },
+          "fallback_triggered": false
+        },
+        {
+          "round": 20,
+          "actions": {
+            "Danmini_Doorbell": "exclude",
+            "Ecobee_Thermostat": "exclude",
+            "Ennio_Doorbell": "exclude",
+            "Philips_B120N10_Baby_Monitor": "downweight",
+            "Provision_PT_737E_Security_Camera": "downweight",
+            "Provision_PT_838_Security_Camera": "accept",
+            "Samsung_SNH_1011_N_Webcam": "exclude",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "accept",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "accept"
+          },
+          "scores": {
+            "Danmini_Doorbell": 0.0,
+            "Ecobee_Thermostat": 0.0,
+            "Ennio_Doorbell": 0.0,
+            "Philips_B120N10_Baby_Monitor": 0.5,
+            "Provision_PT_737E_Security_Camera": 0.5,
+            "Provision_PT_838_Security_Camera": 1.0,
+            "Samsung_SNH_1011_N_Webcam": 0.0,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 1.0,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 1.0
+          },
+          "rationales": {
+            "Danmini_Doorbell": "Both z-scores are far from zero and calibration loss significantly worsened.",
+            "Ecobee_Thermostat": "update norm z-score is high and calibration loss got much worse",
+            "Ennio_Doorbell": "Both z-scores are far from zero and the calibration loss significantly worsened.",
+            "Philips_B120N10_Baby_Monitor": "update norm z-score is moderately deviant while cosine similarity z-score is slightly deviant, and calibration loss slightly worsened",
+            "Provision_PT_737E_Security_Camera": "update norm z-score is a significant outlier",
+            "Provision_PT_838_Security_Camera": "update norm z-score is moderately deviant",
+            "Samsung_SNH_1011_N_Webcam": "Both update norm and cosine similarity z-scores are outliers, and calibration loss significantly worsened.",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "cosine similarity z-score is somewhat high, but other metrics are normal",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "update norm z-score is moderately deviant"
+          },
+          "fallback_triggered": false
+        },
+        {
+          "round": 21,
+          "actions": {
+            "Danmini_Doorbell": "exclude",
+            "Ecobee_Thermostat": "exclude",
+            "Ennio_Doorbell": "exclude",
+            "Philips_B120N10_Baby_Monitor": "exclude",
+            "Provision_PT_737E_Security_Camera": "accept",
+            "Provision_PT_838_Security_Camera": "accept",
+            "Samsung_SNH_1011_N_Webcam": "exclude",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "downweight",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "accept"
+          },
+          "scores": {
+            "Danmini_Doorbell": 0.0,
+            "Ecobee_Thermostat": 0.0,
+            "Ennio_Doorbell": 0.0,
+            "Philips_B120N10_Baby_Monitor": 0.0,
+            "Provision_PT_737E_Security_Camera": 1.0,
+            "Provision_PT_838_Security_Camera": 1.0,
+            "Samsung_SNH_1011_N_Webcam": 0.0,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 0.5,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 1.0
+          },
+          "rationales": {
+            "Danmini_Doorbell": "update norm z-score is high while cosine similarity z-score is normal, and calibration loss got much worse",
+            "Ecobee_Thermostat": "update norm z-score is a strong outlier while calibration loss significantly worsened",
+            "Ennio_Doorbell": "Both z-scores are significantly deviant and calibration loss worsened substantially.",
+            "Philips_B120N10_Baby_Monitor": "Both update norm and cosine similarity z-scores are extreme outliers, and calibration loss significantly worsened.",
+            "Provision_PT_737E_Security_Camera": "update norm z-score is moderately deviant while cosine similarity z-score is slightly deviant, and calibration loss slightly worsened",
+            "Provision_PT_838_Security_Camera": "update norm z-score is moderately deviant",
+            "Samsung_SNH_1011_N_Webcam": "Both z-scores are far from 0 and calibration loss significantly worsened.",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "cosine similarity z-score is notably low compared to other gateways this round",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "update norm z-score is moderately deviant"
+          },
+          "fallback_triggered": false
+        },
+        {
+          "round": 22,
+          "actions": {
+            "Danmini_Doorbell": "exclude",
+            "Ecobee_Thermostat": "exclude",
+            "Ennio_Doorbell": "exclude",
+            "Philips_B120N10_Baby_Monitor": "exclude",
+            "Provision_PT_737E_Security_Camera": "downweight",
+            "Provision_PT_838_Security_Camera": "downweight",
+            "Samsung_SNH_1011_N_Webcam": "exclude",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "accept",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "accept"
+          },
+          "scores": {
+            "Danmini_Doorbell": 0.0,
+            "Ecobee_Thermostat": 0.0,
+            "Ennio_Doorbell": 0.0,
+            "Philips_B120N10_Baby_Monitor": 0.0,
+            "Provision_PT_737E_Security_Camera": 0.5,
+            "Provision_PT_838_Security_Camera": 0.5,
+            "Samsung_SNH_1011_N_Webcam": 0.0,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 1.0,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 1.0
+          },
+          "rationales": {
+            "Danmini_Doorbell": "update norm and cosine similarity z-scores are significant outliers, and calibration loss got much worse",
+            "Ecobee_Thermostat": "update norm z-score is high and calibration loss got much worse",
+            "Ennio_Doorbell": "Both z-scores are far from zero and calibration loss significantly worsened.",
+            "Philips_B120N10_Baby_Monitor": "cosine similarity z-score and calibration loss change indicate significant deviation",
+            "Provision_PT_737E_Security_Camera": "cosine similarity z-score is a strong outlier",
+            "Provision_PT_838_Security_Camera": "cosine similarity z-score is relatively high and update norm z-score is relatively low, with calibration loss also slightly worsening",
+            "Samsung_SNH_1011_N_Webcam": "Both update norm and cosine similarity z-scores deviate significantly from the group, and the calibration loss got much worse.",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "update norm z-score is notably low compared to other gateways this round",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "update norm z-score is notably low compared to other gateways this round"
+          },
+          "fallback_triggered": false
+        },
+        {
+          "round": 23,
+          "actions": {
+            "Danmini_Doorbell": "exclude",
+            "Ecobee_Thermostat": "exclude",
+            "Ennio_Doorbell": "exclude",
+            "Philips_B120N10_Baby_Monitor": "downweight",
+            "Provision_PT_737E_Security_Camera": "downweight",
+            "Provision_PT_838_Security_Camera": "downweight",
+            "Samsung_SNH_1011_N_Webcam": "exclude",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "accept",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "downweight"
+          },
+          "scores": {
+            "Danmini_Doorbell": 0.0,
+            "Ecobee_Thermostat": 0.0,
+            "Ennio_Doorbell": 0.0,
+            "Philips_B120N10_Baby_Monitor": 0.5,
+            "Provision_PT_737E_Security_Camera": 0.5,
+            "Provision_PT_838_Security_Camera": 0.5,
+            "Samsung_SNH_1011_N_Webcam": 0.0,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 1.0,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 0.5
+          },
+          "rationales": {
+            "Danmini_Doorbell": "update norm z-score is a strong outlier while calibration loss significantly worsened",
+            "Ecobee_Thermostat": "update norm z-score is a strong outlier while calibration loss significantly worsened",
+            "Ennio_Doorbell": "Both z-scores are far from zero and calibration loss significantly worsened.",
+            "Philips_B120N10_Baby_Monitor": "update norm z-score and cosine similarity z-score deviate moderately from the group, with calibration loss also slightly worsening",
+            "Provision_PT_737E_Security_Camera": "cosine similarity z-score and slight increase in calibration loss",
+            "Provision_PT_838_Security_Camera": "cosine similarity z-score is relatively high while update norm z-score is relatively low",
+            "Samsung_SNH_1011_N_Webcam": "cosine similarity z-score and calibration loss change indicate significant deviation",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "Both z-scores are moderately deviant but not extreme, and calibration loss is unchanged",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "cosine similarity z-score is relatively high and update norm z-score is relatively low, with calibration loss slightly worsening."
+          },
+          "fallback_triggered": false
+        },
+        {
+          "round": 24,
+          "actions": {
+            "Danmini_Doorbell": "exclude",
+            "Ecobee_Thermostat": "exclude",
+            "Ennio_Doorbell": "exclude",
+            "Philips_B120N10_Baby_Monitor": "accept",
+            "Provision_PT_737E_Security_Camera": "downweight",
+            "Provision_PT_838_Security_Camera": "accept",
+            "Samsung_SNH_1011_N_Webcam": "accept",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "accept",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "downweight"
+          },
+          "scores": {
+            "Danmini_Doorbell": 0.0,
+            "Ecobee_Thermostat": 0.0,
+            "Ennio_Doorbell": 0.0,
+            "Philips_B120N10_Baby_Monitor": 1.0,
+            "Provision_PT_737E_Security_Camera": 0.5,
+            "Provision_PT_838_Security_Camera": 1.0,
+            "Samsung_SNH_1011_N_Webcam": 1.0,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 1.0,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 0.5
+          },
+          "rationales": {
+            "Danmini_Doorbell": "Both z-scores are far from zero and calibration loss significantly worsened.",
+            "Ecobee_Thermostat": "update norm z-score and calibration loss change indicate significant deviation",
+            "Ennio_Doorbell": "update norm z-score is a strong outlier while calibration loss significantly worsened",
+            "Philips_B120N10_Baby_Monitor": "update norm z-score is moderately deviant while cosine similarity is normal and calibration loss change is slight",
+            "Provision_PT_737E_Security_Camera": "cosine similarity z-score is relatively high and update norm z-score is relatively low, with calibration loss also slightly worsening",
+            "Provision_PT_838_Security_Camera": "The update norm z-score is moderately deviant while the cosine similarity z-score is slightly deviant, but the calibration loss is unchanged.",
+            "Samsung_SNH_1011_N_Webcam": "update norm z-score is moderately deviant",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "both z-scores are moderately deviant but not extreme",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "Both z-scores are moderately deviant, and calibration loss slightly worsened."
+          },
+          "fallback_triggered": false
+        }
+      ]
+    },
+    {
+      "label": "N-BaIoT, qwen2.5:14b hybrid + fixes, D=10",
+      "delay": 10,
+      "final_macro_f1": 0.9974129478409436,
+      "wall_clock_seconds": 854.7913529872894,
+      "n_fallback_rounds": 0,
+      "n_rounds": 25,
+      "malicious_clients": [
+        "Danmini_Doorbell",
+        "Ecobee_Thermostat",
+        "Ennio_Doorbell"
+      ],
+      "gating_history": [
+        {
+          "round": 0,
+          "actions": {
+            "Danmini_Doorbell": "accept",
+            "Ecobee_Thermostat": "accept",
+            "Ennio_Doorbell": "accept",
+            "Philips_B120N10_Baby_Monitor": "accept",
+            "Provision_PT_737E_Security_Camera": "accept",
+            "Provision_PT_838_Security_Camera": "accept",
+            "Samsung_SNH_1011_N_Webcam": "accept",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "accept",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "accept"
+          },
+          "scores": {
+            "Danmini_Doorbell": 1.0,
+            "Ecobee_Thermostat": 1.0,
+            "Ennio_Doorbell": 1.0,
+            "Philips_B120N10_Baby_Monitor": 1.0,
+            "Provision_PT_737E_Security_Camera": 1.0,
+            "Provision_PT_838_Security_Camera": 1.0,
+            "Samsung_SNH_1011_N_Webcam": 1.0,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 1.0,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 1.0
+          },
+          "rationales": {
+            "Danmini_Doorbell": "round 0: no previous global update exists yet, cosine similarity to it is undefined -- trivially accepted without consulting the policy or updating the trust posterior, not a real gating judgment",
+            "Ecobee_Thermostat": "round 0: no previous global update exists yet, cosine similarity to it is undefined -- trivially accepted without consulting the policy or updating the trust posterior, not a real gating judgment",
+            "Ennio_Doorbell": "round 0: no previous global update exists yet, cosine similarity to it is undefined -- trivially accepted without consulting the policy or updating the trust posterior, not a real gating judgment",
+            "Philips_B120N10_Baby_Monitor": "round 0: no previous global update exists yet, cosine similarity to it is undefined -- trivially accepted without consulting the policy or updating the trust posterior, not a real gating judgment",
+            "Provision_PT_737E_Security_Camera": "round 0: no previous global update exists yet, cosine similarity to it is undefined -- trivially accepted without consulting the policy or updating the trust posterior, not a real gating judgment",
+            "Provision_PT_838_Security_Camera": "round 0: no previous global update exists yet, cosine similarity to it is undefined -- trivially accepted without consulting the policy or updating the trust posterior, not a real gating judgment",
+            "Samsung_SNH_1011_N_Webcam": "round 0: no previous global update exists yet, cosine similarity to it is undefined -- trivially accepted without consulting the policy or updating the trust posterior, not a real gating judgment",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "round 0: no previous global update exists yet, cosine similarity to it is undefined -- trivially accepted without consulting the policy or updating the trust posterior, not a real gating judgment",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "round 0: no previous global update exists yet, cosine similarity to it is undefined -- trivially accepted without consulting the policy or updating the trust posterior, not a real gating judgment"
+          },
+          "fallback_triggered": false
+        },
+        {
+          "round": 1,
+          "actions": {
+            "Danmini_Doorbell": "accept",
+            "Ecobee_Thermostat": "accept",
+            "Ennio_Doorbell": "downweight",
+            "Philips_B120N10_Baby_Monitor": "accept",
+            "Provision_PT_737E_Security_Camera": "accept",
+            "Provision_PT_838_Security_Camera": "accept",
+            "Samsung_SNH_1011_N_Webcam": "downweight",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "accept",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "accept"
+          },
+          "scores": {
+            "Danmini_Doorbell": 1.0,
+            "Ecobee_Thermostat": 1.0,
+            "Ennio_Doorbell": 0.5,
+            "Philips_B120N10_Baby_Monitor": 1.0,
+            "Provision_PT_737E_Security_Camera": 1.0,
+            "Provision_PT_838_Security_Camera": 1.0,
+            "Samsung_SNH_1011_N_Webcam": 0.5,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 1.0,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 1.0
+          },
+          "rationales": {
+            "Danmini_Doorbell": "update norm z-score is relatively high, but cosine similarity z-score is near normal and calibration loss improved significantly, reducing overall anomaly suspicion. (early-round warmup active, scale=1.40)",
+            "Ecobee_Thermostat": "update norm and cosine similarity z-scores are moderately above average but not extreme (early-round warmup active, scale=1.40)",
+            "Ennio_Doorbell": "cosine similarity z-score and calibration loss change are both highly anomalous (early-round warmup active, scale=1.40)",
+            "Philips_B120N10_Baby_Monitor": "Both update norm and cosine similarity z-scores are moderately high, and calibration loss slightly worsened. (early-round warmup active, scale=1.40)",
+            "Provision_PT_737E_Security_Camera": "cosine similarity z-score is slightly above zero, but not indicative of an attack (early-round warmup active, scale=1.40)",
+            "Provision_PT_838_Security_Camera": "update norm z-score is somewhat high (early-round warmup active, scale=1.40)",
+            "Samsung_SNH_1011_N_Webcam": "Both z-scores are significantly negative and calibration loss got much worse. (early-round warmup active, scale=1.40)",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "update norm z-score is a strong outlier while cosine similarity is normal and calibration loss improved significantly (early-round warmup active, scale=1.40)",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "cosine similarity z-score is relatively high at +0.76 (early-round warmup active, scale=1.40)"
+          },
+          "fallback_triggered": false
+        },
+        {
+          "round": 2,
+          "actions": {
+            "Danmini_Doorbell": "accept",
+            "Ecobee_Thermostat": "accept",
+            "Ennio_Doorbell": "exclude",
+            "Philips_B120N10_Baby_Monitor": "accept",
+            "Provision_PT_737E_Security_Camera": "accept",
+            "Provision_PT_838_Security_Camera": "accept",
+            "Samsung_SNH_1011_N_Webcam": "exclude",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "accept",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "accept"
+          },
+          "scores": {
+            "Danmini_Doorbell": 1.0,
+            "Ecobee_Thermostat": 1.0,
+            "Ennio_Doorbell": 0.0,
+            "Philips_B120N10_Baby_Monitor": 1.0,
+            "Provision_PT_737E_Security_Camera": 1.0,
+            "Provision_PT_838_Security_Camera": 1.0,
+            "Samsung_SNH_1011_N_Webcam": 0.0,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 1.0,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 1.0
+          },
+          "rationales": {
+            "Danmini_Doorbell": "Both update norm and cosine similarity z-scores are moderately high, and calibration loss slightly worsened. (early-round warmup active, scale=1.30)",
+            "Ecobee_Thermostat": "cosine similarity z-score is moderately high, while update norm z-score is moderately low and calibration loss slightly worsened. (early-round warmup active, scale=1.30)",
+            "Ennio_Doorbell": "Both z-scores are far from zero and the calibration loss significantly worsened. (early-round warmup active, scale=1.30)",
+            "Philips_B120N10_Baby_Monitor": "update norm z-score is high at +0.97 (early-round warmup active, scale=1.30)",
+            "Provision_PT_737E_Security_Camera": "cosine similarity z-score is moderately high (early-round warmup active, scale=1.30)",
+            "Provision_PT_838_Security_Camera": "calibration loss got slightly worse (early-round warmup active, scale=1.30)",
+            "Samsung_SNH_1011_N_Webcam": "Both z-scores are far from zero and calibration loss significantly worsened. (early-round warmup active, scale=1.30)",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "update norm z-score is a strong outlier (early-round warmup active, scale=1.30)",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "cosine similarity z-score is relatively high and update norm z-score is relatively low, with calibration loss also slightly worsening. (early-round warmup active, scale=1.30)"
+          },
+          "fallback_triggered": false
+        },
+        {
+          "round": 3,
+          "actions": {
+            "Danmini_Doorbell": "downweight",
+            "Ecobee_Thermostat": "accept",
+            "Ennio_Doorbell": "exclude",
+            "Philips_B120N10_Baby_Monitor": "downweight",
+            "Provision_PT_737E_Security_Camera": "accept",
+            "Provision_PT_838_Security_Camera": "accept",
+            "Samsung_SNH_1011_N_Webcam": "exclude",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "accept",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "accept"
+          },
+          "scores": {
+            "Danmini_Doorbell": 0.5,
+            "Ecobee_Thermostat": 1.0,
+            "Ennio_Doorbell": 0.0,
+            "Philips_B120N10_Baby_Monitor": 0.5,
+            "Provision_PT_737E_Security_Camera": 1.0,
+            "Provision_PT_838_Security_Camera": 1.0,
+            "Samsung_SNH_1011_N_Webcam": 0.0,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 1.0,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 1.0
+          },
+          "rationales": {
+            "Danmini_Doorbell": "cosine similarity z-score and calibration loss change are both significant indicators of anomaly. (early-round warmup active, scale=1.20)",
+            "Ecobee_Thermostat": "cosine similarity z-score is notably high (early-round warmup active, scale=1.20)",
+            "Ennio_Doorbell": "Both update norm and cosine similarity z-scores are far from zero, and calibration loss significantly worsened. (early-round warmup active, scale=1.20)",
+            "Philips_B120N10_Baby_Monitor": "cosine similarity z-score and calibration loss change indicate significant deviation (early-round warmup active, scale=1.20)",
+            "Provision_PT_737E_Security_Camera": "update norm z-score is slightly deviant but not highly anomalous (early-round warmup active, scale=1.20)",
+            "Provision_PT_838_Security_Camera": "update norm z-score is a strong outlier (early-round warmup active, scale=1.20)",
+            "Samsung_SNH_1011_N_Webcam": "update norm and cosine similarity z-scores are strong outliers, and calibration loss got much worse (early-round warmup active, scale=1.20)",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "update norm z-score is a strong outlier (early-round warmup active, scale=1.20)",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "cosine similarity z-score is relatively high, deviating from the group this round (early-round warmup active, scale=1.20)"
+          },
+          "fallback_triggered": false
+        },
+        {
+          "round": 4,
+          "actions": {
+            "Danmini_Doorbell": "accept",
+            "Ecobee_Thermostat": "accept",
+            "Ennio_Doorbell": "exclude",
+            "Philips_B120N10_Baby_Monitor": "accept",
+            "Provision_PT_737E_Security_Camera": "accept",
+            "Provision_PT_838_Security_Camera": "accept",
+            "Samsung_SNH_1011_N_Webcam": "exclude",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "accept",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "accept"
+          },
+          "scores": {
+            "Danmini_Doorbell": 1.0,
+            "Ecobee_Thermostat": 1.0,
+            "Ennio_Doorbell": 0.0,
+            "Philips_B120N10_Baby_Monitor": 1.0,
+            "Provision_PT_737E_Security_Camera": 1.0,
+            "Provision_PT_838_Security_Camera": 1.0,
+            "Samsung_SNH_1011_N_Webcam": 0.0,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 1.0,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 1.0
+          },
+          "rationales": {
+            "Danmini_Doorbell": "calibration loss got slightly worse, indicating minor deviation (early-round warmup active, scale=1.10)",
+            "Ecobee_Thermostat": "update norm z-score is a strong outlier while cosine similarity z-score is moderately high and calibration loss slightly worsened (early-round warmup active, scale=1.10)",
+            "Ennio_Doorbell": "Both z-scores are strong outliers and calibration loss got much worse (early-round warmup active, scale=1.10)",
+            "Philips_B120N10_Baby_Monitor": "update norm z-score is somewhat high, while calibration loss slightly worsened (early-round warmup active, scale=1.10)",
+            "Provision_PT_737E_Security_Camera": "cosine similarity z-score is moderately high and calibration loss got slightly worse (early-round warmup active, scale=1.10)",
+            "Provision_PT_838_Security_Camera": "update norm z-score is moderately high (early-round warmup active, scale=1.10)",
+            "Samsung_SNH_1011_N_Webcam": "cosine similarity z-score and calibration loss change are both significant outliers (early-round warmup active, scale=1.10)",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "update norm z-score is moderately deviant while cosine similarity z-score is slightly deviant, with calibration loss showing a minor increase (early-round warmup active, scale=1.10)",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "The update norm z-score is a strong outlier while the calibration loss is unchanged. (early-round warmup active, scale=1.10)"
+          },
+          "fallback_triggered": false
+        },
+        {
+          "round": 5,
+          "actions": {
+            "Danmini_Doorbell": "downweight",
+            "Ecobee_Thermostat": "downweight",
+            "Ennio_Doorbell": "exclude",
+            "Philips_B120N10_Baby_Monitor": "downweight",
+            "Provision_PT_737E_Security_Camera": "downweight",
+            "Provision_PT_838_Security_Camera": "accept",
+            "Samsung_SNH_1011_N_Webcam": "exclude",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "accept",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "accept"
+          },
+          "scores": {
+            "Danmini_Doorbell": 0.5,
+            "Ecobee_Thermostat": 0.5,
+            "Ennio_Doorbell": 0.0,
+            "Philips_B120N10_Baby_Monitor": 0.5,
+            "Provision_PT_737E_Security_Camera": 0.5,
+            "Provision_PT_838_Security_Camera": 1.0,
+            "Samsung_SNH_1011_N_Webcam": 0.0,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 1.0,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 1.0
+          },
+          "rationales": {
+            "Danmini_Doorbell": "cosine similarity z-score is relatively high at +1.09",
+            "Ecobee_Thermostat": "Both z-scores are moderately deviant, and the calibration loss slightly worsened.",
+            "Ennio_Doorbell": "Both z-scores are far from zero and calibration loss significantly worsened.",
+            "Philips_B120N10_Baby_Monitor": "calibration loss got much worse",
+            "Provision_PT_737E_Security_Camera": "cosine similarity z-score is significantly negative and calibration loss got slightly worse",
+            "Provision_PT_838_Security_Camera": "Both z-scores are slightly above average but not extreme, and the calibration loss change is minor.",
+            "Samsung_SNH_1011_N_Webcam": "Both z-scores are far from zero and calibration loss significantly worsened.",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "update norm z-score is a strong outlier",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "cosine similarity z-score is moderately high, while update norm z-score is moderately low and calibration loss slightly worsened."
+          },
+          "fallback_triggered": false
+        },
+        {
+          "round": 6,
+          "actions": {
+            "Danmini_Doorbell": "downweight",
+            "Ecobee_Thermostat": "accept",
+            "Ennio_Doorbell": "exclude",
+            "Philips_B120N10_Baby_Monitor": "accept",
+            "Provision_PT_737E_Security_Camera": "accept",
+            "Provision_PT_838_Security_Camera": "downweight",
+            "Samsung_SNH_1011_N_Webcam": "exclude",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "accept",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "downweight"
+          },
+          "scores": {
+            "Danmini_Doorbell": 0.5,
+            "Ecobee_Thermostat": 1.0,
+            "Ennio_Doorbell": 0.0,
+            "Philips_B120N10_Baby_Monitor": 1.0,
+            "Provision_PT_737E_Security_Camera": 1.0,
+            "Provision_PT_838_Security_Camera": 0.5,
+            "Samsung_SNH_1011_N_Webcam": 0.0,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 1.0,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 0.5
+          },
+          "rationales": {
+            "Danmini_Doorbell": "cosine similarity z-score is notably low, indicating deviation from the group this round.",
+            "Ecobee_Thermostat": "update norm and cosine similarity z-scores deviate from the group but not drastically",
+            "Ennio_Doorbell": "Both z-scores are significantly deviant and calibration loss worsened substantially.",
+            "Philips_B120N10_Baby_Monitor": "Both z-scores are moderately deviant and calibration loss slightly worsened.",
+            "Provision_PT_737E_Security_Camera": "update norm z-score is somewhat high",
+            "Provision_PT_838_Security_Camera": "update norm and cosine similarity z-scores are moderately high, and calibration loss slightly worsened",
+            "Samsung_SNH_1011_N_Webcam": "Both z-scores are far from zero and calibration loss significantly worsened.",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "update norm z-score is a significant outlier",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "cosine similarity z-score and change in calibration loss both indicate deviation from the group."
+          },
+          "fallback_triggered": false
+        },
+        {
+          "round": 7,
+          "actions": {
+            "Danmini_Doorbell": "downweight",
+            "Ecobee_Thermostat": "accept",
+            "Ennio_Doorbell": "exclude",
+            "Philips_B120N10_Baby_Monitor": "exclude",
+            "Provision_PT_737E_Security_Camera": "accept",
+            "Provision_PT_838_Security_Camera": "accept",
+            "Samsung_SNH_1011_N_Webcam": "exclude",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "accept",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "accept"
+          },
+          "scores": {
+            "Danmini_Doorbell": 0.5,
+            "Ecobee_Thermostat": 1.0,
+            "Ennio_Doorbell": 0.0,
+            "Philips_B120N10_Baby_Monitor": 0.0,
+            "Provision_PT_737E_Security_Camera": 1.0,
+            "Provision_PT_838_Security_Camera": 1.0,
+            "Samsung_SNH_1011_N_Webcam": 0.0,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 1.0,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 1.0
+          },
+          "rationales": {
+            "Danmini_Doorbell": "update norm z-score is moderately high and cosine similarity z-score is slightly high, with calibration loss slightly worsening",
+            "Ecobee_Thermostat": "cosine similarity z-score is relatively high at +1.12",
+            "Ennio_Doorbell": "cosine similarity z-score and calibration loss change indicate significant deviation and harm.",
+            "Philips_B120N10_Baby_Monitor": "calibration loss got much worse while update norm z-score is a significant outlier",
+            "Provision_PT_737E_Security_Camera": "cosine similarity z-score is slightly negative, indicating deviation from the group but not severely.",
+            "Provision_PT_838_Security_Camera": "update norm z-score is somewhat high, but other metrics are normal",
+            "Samsung_SNH_1011_N_Webcam": "update norm z-score and calibration loss change indicate significant deviation",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "update norm z-score is notably low compared to other gateways this round",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "update norm z-score is a strong outlier"
+          },
+          "fallback_triggered": false
+        },
+        {
+          "round": 8,
+          "actions": {
+            "Danmini_Doorbell": "accept",
+            "Ecobee_Thermostat": "downweight",
+            "Ennio_Doorbell": "exclude",
+            "Philips_B120N10_Baby_Monitor": "downweight",
+            "Provision_PT_737E_Security_Camera": "accept",
+            "Provision_PT_838_Security_Camera": "downweight",
+            "Samsung_SNH_1011_N_Webcam": "exclude",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "accept",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "downweight"
+          },
+          "scores": {
+            "Danmini_Doorbell": 1.0,
+            "Ecobee_Thermostat": 0.5,
+            "Ennio_Doorbell": 0.0,
+            "Philips_B120N10_Baby_Monitor": 0.5,
+            "Provision_PT_737E_Security_Camera": 1.0,
+            "Provision_PT_838_Security_Camera": 0.5,
+            "Samsung_SNH_1011_N_Webcam": 0.0,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 1.0,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 0.5
+          },
+          "rationales": {
+            "Danmini_Doorbell": "update norm z-score is moderately high",
+            "Ecobee_Thermostat": "cosine similarity z-score is relatively high at +1.44",
+            "Ennio_Doorbell": "Both z-scores are far from 0 and calibration loss significantly worsened.",
+            "Philips_B120N10_Baby_Monitor": "Both the update norm and cosine similarity z-scores are moderately deviant, and the calibration loss slightly worsened.",
+            "Provision_PT_737E_Security_Camera": "calibration loss got slightly worse, though z-scores are near zero",
+            "Provision_PT_838_Security_Camera": "The update norm and cosine similarity z-scores deviate moderately from the group, and the calibration loss slightly worsened.",
+            "Samsung_SNH_1011_N_Webcam": "update norm z-score is a strong outlier while calibration loss got much worse",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "cosine similarity z-score is moderately high",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "update norm z-score is a strong outlier while cosine similarity is mildly elevated"
+          },
+          "fallback_triggered": false
+        },
+        {
+          "round": 9,
+          "actions": {
+            "Danmini_Doorbell": "downweight",
+            "Ecobee_Thermostat": "downweight",
+            "Ennio_Doorbell": "exclude",
+            "Philips_B120N10_Baby_Monitor": "downweight",
+            "Provision_PT_737E_Security_Camera": "accept",
+            "Provision_PT_838_Security_Camera": "downweight",
+            "Samsung_SNH_1011_N_Webcam": "exclude",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "accept",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "accept"
+          },
+          "scores": {
+            "Danmini_Doorbell": 0.5,
+            "Ecobee_Thermostat": 0.5,
+            "Ennio_Doorbell": 0.0,
+            "Philips_B120N10_Baby_Monitor": 0.5,
+            "Provision_PT_737E_Security_Camera": 1.0,
+            "Provision_PT_838_Security_Camera": 0.5,
+            "Samsung_SNH_1011_N_Webcam": 0.0,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 1.0,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 1.0
+          },
+          "rationales": {
+            "Danmini_Doorbell": "cosine similarity z-score is relatively high at +1.78",
+            "Ecobee_Thermostat": "cosine similarity z-score and calibration loss change are notably negative",
+            "Ennio_Doorbell": "Both z-scores are far from 0 and calibration loss significantly worsened.",
+            "Philips_B120N10_Baby_Monitor": "Both update norm and cosine similarity z-scores are high, and calibration loss slightly worsened.",
+            "Provision_PT_737E_Security_Camera": "update norm and cosine similarity z-scores are moderately high, and calibration loss slightly worsened",
+            "Provision_PT_838_Security_Camera": "cosine similarity z-score is notably low, indicating deviation from other gateways this round",
+            "Samsung_SNH_1011_N_Webcam": "update norm z-score and cosine similarity z-score are both significant outliers, and calibration loss got much worse",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "update norm z-score is a strong outlier",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "update norm z-score is moderately deviant"
+          },
+          "fallback_triggered": false
+        },
+        {
+          "round": 10,
+          "actions": {
+            "Danmini_Doorbell": "exclude",
+            "Ecobee_Thermostat": "downweight",
+            "Ennio_Doorbell": "exclude",
+            "Philips_B120N10_Baby_Monitor": "accept",
+            "Provision_PT_737E_Security_Camera": "downweight",
+            "Provision_PT_838_Security_Camera": "downweight",
+            "Samsung_SNH_1011_N_Webcam": "exclude",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "accept",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "downweight"
+          },
+          "scores": {
+            "Danmini_Doorbell": 0.0,
+            "Ecobee_Thermostat": 0.5,
+            "Ennio_Doorbell": 0.0,
+            "Philips_B120N10_Baby_Monitor": 1.0,
+            "Provision_PT_737E_Security_Camera": 0.5,
+            "Provision_PT_838_Security_Camera": 0.5,
+            "Samsung_SNH_1011_N_Webcam": 0.0,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 1.0,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 0.5
+          },
+          "rationales": {
+            "Danmini_Doorbell": "Both z-scores are significantly deviant and calibration loss worsened substantially.",
+            "Ecobee_Thermostat": "Both z-scores are far from zero and calibration loss significantly worsened. (long-term posterior mean=0.72 over 6 rounds downgrades exclude to downweight)",
+            "Ennio_Doorbell": "Both z-scores are significantly deviant and calibration loss worsened substantially.",
+            "Philips_B120N10_Baby_Monitor": "update norm z-score is moderately deviant",
+            "Provision_PT_737E_Security_Camera": "Both z-scores are far from zero and calibration loss significantly worsened. (long-term posterior mean=0.84 over 6 rounds downgrades exclude to downweight)",
+            "Provision_PT_838_Security_Camera": "cosine similarity z-score is relatively high and update norm z-score is relatively low, with calibration loss slightly worsening.",
+            "Samsung_SNH_1011_N_Webcam": "calibration loss got much worse and update norm z-score is a significant outlier",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "update norm z-score is moderately deviant while cosine similarity z-score is slightly deviant, but calibration loss is unchanged",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "update norm and cosine similarity z-scores deviate from the group, with calibration loss slightly worsening"
+          },
+          "fallback_triggered": false
+        },
+        {
+          "round": 11,
+          "actions": {
+            "Danmini_Doorbell": "downweight",
+            "Ecobee_Thermostat": "downweight",
+            "Ennio_Doorbell": "downweight",
+            "Philips_B120N10_Baby_Monitor": "accept",
+            "Provision_PT_737E_Security_Camera": "accept",
+            "Provision_PT_838_Security_Camera": "accept",
+            "Samsung_SNH_1011_N_Webcam": "exclude",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "accept",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "accept"
+          },
+          "scores": {
+            "Danmini_Doorbell": 0.5,
+            "Ecobee_Thermostat": 0.5,
+            "Ennio_Doorbell": 0.5,
+            "Philips_B120N10_Baby_Monitor": 1.0,
+            "Provision_PT_737E_Security_Camera": 1.0,
+            "Provision_PT_838_Security_Camera": 1.0,
+            "Samsung_SNH_1011_N_Webcam": 0.0,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 1.0,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 1.0
+          },
+          "rationales": {
+            "Danmini_Doorbell": "Both update norm and cosine similarity z-scores are moderately high, and calibration loss slightly worsened.",
+            "Ecobee_Thermostat": "Both update norm and cosine similarity z-scores are moderately high, and calibration loss slightly worsened.",
+            "Ennio_Doorbell": "Both update norm and cosine similarity z-scores are moderately high, and calibration loss slightly worsened.",
+            "Philips_B120N10_Baby_Monitor": "cosine similarity z-score is moderately negative, indicating deviation from the group",
+            "Provision_PT_737E_Security_Camera": "Both z-scores are close to 0, and calibration loss improved significantly, which is unusual but not necessarily indicative of an attack.",
+            "Provision_PT_838_Security_Camera": "Both z-scores are moderately negative but not extreme, and the calibration loss improvement is unusual but not necessarily indicative of an attack.",
+            "Samsung_SNH_1011_N_Webcam": "Both z-scores are notably negative and calibration loss significantly worsened.",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "cosine similarity z-score is moderately deviant",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "Both z-scores are moderately negative but not extreme, and the calibration loss improvement is unusual but not necessarily indicative of an attack."
+          },
+          "fallback_triggered": false
+        },
+        {
+          "round": 12,
+          "actions": {
+            "Danmini_Doorbell": "exclude",
+            "Ecobee_Thermostat": "exclude",
+            "Ennio_Doorbell": "exclude",
+            "Philips_B120N10_Baby_Monitor": "exclude",
+            "Provision_PT_737E_Security_Camera": "downweight",
+            "Provision_PT_838_Security_Camera": "downweight",
+            "Samsung_SNH_1011_N_Webcam": "exclude",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "downweight",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "downweight"
+          },
+          "scores": {
+            "Danmini_Doorbell": 0.0,
+            "Ecobee_Thermostat": 0.0,
+            "Ennio_Doorbell": 0.0,
+            "Philips_B120N10_Baby_Monitor": 0.0,
+            "Provision_PT_737E_Security_Camera": 0.5,
+            "Provision_PT_838_Security_Camera": 0.5,
+            "Samsung_SNH_1011_N_Webcam": 0.0,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 0.5,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 0.5
+          },
+          "rationales": {
+            "Danmini_Doorbell": "Both update norm and cosine similarity z-scores are far from zero, and calibration loss significantly worsened.",
+            "Ecobee_Thermostat": "Both z-scores are far from zero and calibration loss significantly worsened.",
+            "Ennio_Doorbell": "Both z-scores are far from zero and calibration loss significantly worsened.",
+            "Philips_B120N10_Baby_Monitor": "cosine similarity z-score is a strong outlier while calibration loss improved unusually, contradicting expected behavior",
+            "Provision_PT_737E_Security_Camera": "cosine similarity z-score is high and calibration loss change is unusual (long-term posterior mean=0.81 over 7 rounds downgrades exclude to downweight)",
+            "Provision_PT_838_Security_Camera": "update norm z-score is a notable outlier",
+            "Samsung_SNH_1011_N_Webcam": "cosine similarity z-score and calibration loss change indicate significant deviation",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "cosine similarity z-score is a strong outlier while update norm z-score is also deviant, and calibration loss change is unusual (long-term posterior mean=0.89 over 7 rounds downgrades exclude to downweight)",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "cosine similarity z-score is high and calibration loss change is unusual"
+          },
+          "fallback_triggered": false
+        },
+        {
+          "round": 13,
+          "actions": {
+            "Danmini_Doorbell": "exclude",
+            "Ecobee_Thermostat": "exclude",
+            "Ennio_Doorbell": "exclude",
+            "Philips_B120N10_Baby_Monitor": "downweight",
+            "Provision_PT_737E_Security_Camera": "accept",
+            "Provision_PT_838_Security_Camera": "downweight",
+            "Samsung_SNH_1011_N_Webcam": "exclude",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "downweight",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "accept"
+          },
+          "scores": {
+            "Danmini_Doorbell": 0.0,
+            "Ecobee_Thermostat": 0.0,
+            "Ennio_Doorbell": 0.0,
+            "Philips_B120N10_Baby_Monitor": 0.5,
+            "Provision_PT_737E_Security_Camera": 1.0,
+            "Provision_PT_838_Security_Camera": 0.5,
+            "Samsung_SNH_1011_N_Webcam": 0.0,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 0.5,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 1.0
+          },
+          "rationales": {
+            "Danmini_Doorbell": "Both z-scores are significantly deviant and calibration loss worsened substantially.",
+            "Ecobee_Thermostat": "Both update norm and cosine similarity z-scores are far from zero, and calibration loss significantly worsened.",
+            "Ennio_Doorbell": "Both z-scores are far from zero and the calibration loss significantly worsened.",
+            "Philips_B120N10_Baby_Monitor": "The update norm and cosine similarity z-scores deviate moderately from the group this round.",
+            "Provision_PT_737E_Security_Camera": "update norm z-score is moderately deviant while cosine similarity z-score is slightly deviant, and calibration loss slightly worsened",
+            "Provision_PT_838_Security_Camera": "cosine similarity z-score is a strong outlier while update norm z-score is somewhat deviant, and calibration loss slightly worsened",
+            "Samsung_SNH_1011_N_Webcam": "Both update norm and cosine similarity z-scores are far from zero, and calibration loss got much worse.",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "The update norm and cosine similarity z-scores deviate from the group, but not extremely.",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "update norm z-score is moderately deviant while cosine similarity z-score is slightly deviant, with calibration loss showing a minor increase"
+          },
+          "fallback_triggered": false
+        },
+        {
+          "round": 14,
+          "actions": {
+            "Danmini_Doorbell": "exclude",
+            "Ecobee_Thermostat": "exclude",
+            "Ennio_Doorbell": "exclude",
+            "Philips_B120N10_Baby_Monitor": "exclude",
+            "Provision_PT_737E_Security_Camera": "downweight",
+            "Provision_PT_838_Security_Camera": "accept",
+            "Samsung_SNH_1011_N_Webcam": "exclude",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "accept",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "accept"
+          },
+          "scores": {
+            "Danmini_Doorbell": 0.0,
+            "Ecobee_Thermostat": 0.0,
+            "Ennio_Doorbell": 0.0,
+            "Philips_B120N10_Baby_Monitor": 0.0,
+            "Provision_PT_737E_Security_Camera": 0.5,
+            "Provision_PT_838_Security_Camera": 1.0,
+            "Samsung_SNH_1011_N_Webcam": 0.0,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 1.0,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 1.0
+          },
+          "rationales": {
+            "Danmini_Doorbell": "Both z-scores are significantly deviant and calibration loss worsened substantially.",
+            "Ecobee_Thermostat": "Both z-scores are far from zero and calibration loss significantly worsened.",
+            "Ennio_Doorbell": "Both z-scores are far from zero and the calibration loss significantly worsened.",
+            "Philips_B120N10_Baby_Monitor": "cosine similarity z-score and calibration loss change are both significant outliers",
+            "Provision_PT_737E_Security_Camera": "cosine similarity z-score is a strong outlier",
+            "Provision_PT_838_Security_Camera": "update norm z-score is moderately deviant",
+            "Samsung_SNH_1011_N_Webcam": "cosine similarity z-score and calibration loss change indicate significant deviation",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "The update norm and cosine similarity z-scores deviate from zero but not extremely, with no significant change in calibration loss.",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "update norm z-score is moderately deviant while cosine similarity z-score is slightly deviant, but calibration loss is unchanged"
+          },
+          "fallback_triggered": false
+        },
+        {
+          "round": 15,
+          "actions": {
+            "Danmini_Doorbell": "exclude",
+            "Ecobee_Thermostat": "exclude",
+            "Ennio_Doorbell": "exclude",
+            "Philips_B120N10_Baby_Monitor": "accept",
+            "Provision_PT_737E_Security_Camera": "accept",
+            "Provision_PT_838_Security_Camera": "downweight",
+            "Samsung_SNH_1011_N_Webcam": "exclude",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "downweight",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "accept"
+          },
+          "scores": {
+            "Danmini_Doorbell": 0.0,
+            "Ecobee_Thermostat": 0.0,
+            "Ennio_Doorbell": 0.0,
+            "Philips_B120N10_Baby_Monitor": 1.0,
+            "Provision_PT_737E_Security_Camera": 1.0,
+            "Provision_PT_838_Security_Camera": 0.5,
+            "Samsung_SNH_1011_N_Webcam": 0.0,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 0.5,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 1.0
+          },
+          "rationales": {
+            "Danmini_Doorbell": "update norm z-score and calibration loss change indicate significant deviation",
+            "Ecobee_Thermostat": "update norm z-score and significant increase in held-out loss",
+            "Ennio_Doorbell": "Both z-scores are far from zero and the calibration loss significantly worsened.",
+            "Philips_B120N10_Baby_Monitor": "update norm z-score is notably low compared to other gateways this round",
+            "Provision_PT_737E_Security_Camera": "update norm z-score is notably low while others are within normal range",
+            "Provision_PT_838_Security_Camera": "cosine similarity z-score is somewhat high and calibration loss got slightly worse",
+            "Samsung_SNH_1011_N_Webcam": "calibration loss got much worse and update norm z-score is significantly negative",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "cosine similarity z-score is somewhat high while update norm z-score is somewhat low",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "update norm z-score is moderately deviant"
+          },
+          "fallback_triggered": false
+        },
+        {
+          "round": 16,
+          "actions": {
+            "Danmini_Doorbell": "exclude",
+            "Ecobee_Thermostat": "exclude",
+            "Ennio_Doorbell": "exclude",
+            "Philips_B120N10_Baby_Monitor": "downweight",
+            "Provision_PT_737E_Security_Camera": "downweight",
+            "Provision_PT_838_Security_Camera": "accept",
+            "Samsung_SNH_1011_N_Webcam": "exclude",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "accept",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "accept"
+          },
+          "scores": {
+            "Danmini_Doorbell": 0.0,
+            "Ecobee_Thermostat": 0.0,
+            "Ennio_Doorbell": 0.0,
+            "Philips_B120N10_Baby_Monitor": 0.5,
+            "Provision_PT_737E_Security_Camera": 0.5,
+            "Provision_PT_838_Security_Camera": 1.0,
+            "Samsung_SNH_1011_N_Webcam": 0.0,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 1.0,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 1.0
+          },
+          "rationales": {
+            "Danmini_Doorbell": "update norm z-score and calibration loss change indicate significant deviation",
+            "Ecobee_Thermostat": "Both z-scores are significantly deviant and calibration loss worsened substantially.",
+            "Ennio_Doorbell": "Both z-scores are far from zero and calibration loss significantly worsened.",
+            "Philips_B120N10_Baby_Monitor": "cosine similarity z-score is a strong outlier",
+            "Provision_PT_737E_Security_Camera": "cosine similarity z-score is relatively high and update norm z-score is relatively low, with calibration loss also slightly worsening",
+            "Provision_PT_838_Security_Camera": "update norm z-score is notably low compared to other gateways this round",
+            "Samsung_SNH_1011_N_Webcam": "Both update norm and cosine similarity z-scores are outliers, and calibration loss significantly worsened.",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "update norm and cosine similarity z-scores are slightly deviant but not severely, with no significant change in calibration loss",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "update norm z-score is moderately deviant while cosine similarity z-score is slightly deviant, but calibration loss is unchanged"
+          },
+          "fallback_triggered": false
+        },
+        {
+          "round": 17,
+          "actions": {
+            "Danmini_Doorbell": "exclude",
+            "Ecobee_Thermostat": "exclude",
+            "Ennio_Doorbell": "exclude",
+            "Philips_B120N10_Baby_Monitor": "downweight",
+            "Provision_PT_737E_Security_Camera": "downweight",
+            "Provision_PT_838_Security_Camera": "downweight",
+            "Samsung_SNH_1011_N_Webcam": "exclude",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "accept",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "downweight"
+          },
+          "scores": {
+            "Danmini_Doorbell": 0.0,
+            "Ecobee_Thermostat": 0.0,
+            "Ennio_Doorbell": 0.0,
+            "Philips_B120N10_Baby_Monitor": 0.5,
+            "Provision_PT_737E_Security_Camera": 0.5,
+            "Provision_PT_838_Security_Camera": 0.5,
+            "Samsung_SNH_1011_N_Webcam": 0.0,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 1.0,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 0.5
+          },
+          "rationales": {
+            "Danmini_Doorbell": "Both z-scores are significantly deviant and calibration loss worsened substantially.",
+            "Ecobee_Thermostat": "update norm z-score is a strong outlier while calibration loss significantly worsened",
+            "Ennio_Doorbell": "update norm z-score and significant increase in held-out loss",
+            "Philips_B120N10_Baby_Monitor": "Both z-scores are moderately deviant and calibration loss increased slightly.",
+            "Provision_PT_737E_Security_Camera": "update norm and cosine similarity z-scores deviate moderately from the group, with calibration loss slightly worsening",
+            "Provision_PT_838_Security_Camera": "cosine similarity z-score is a strong outlier",
+            "Samsung_SNH_1011_N_Webcam": "cosine similarity z-score and calibration loss change indicate significant deviation",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "cosine similarity z-score is somewhat high, but other metrics are normal",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "Both z-scores are moderately deviant and calibration loss slightly worsened."
+          },
+          "fallback_triggered": false
+        },
+        {
+          "round": 18,
+          "actions": {
+            "Danmini_Doorbell": "exclude",
+            "Ecobee_Thermostat": "exclude",
+            "Ennio_Doorbell": "exclude",
+            "Philips_B120N10_Baby_Monitor": "downweight",
+            "Provision_PT_737E_Security_Camera": "accept",
+            "Provision_PT_838_Security_Camera": "downweight",
+            "Samsung_SNH_1011_N_Webcam": "exclude",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "downweight",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "accept"
+          },
+          "scores": {
+            "Danmini_Doorbell": 0.0,
+            "Ecobee_Thermostat": 0.0,
+            "Ennio_Doorbell": 0.0,
+            "Philips_B120N10_Baby_Monitor": 0.5,
+            "Provision_PT_737E_Security_Camera": 1.0,
+            "Provision_PT_838_Security_Camera": 0.5,
+            "Samsung_SNH_1011_N_Webcam": 0.0,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 0.5,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 1.0
+          },
+          "rationales": {
+            "Danmini_Doorbell": "Both z-scores are significantly deviant and calibration loss worsened substantially.",
+            "Ecobee_Thermostat": "Both z-scores are significantly deviant and calibration loss worsened substantially.",
+            "Ennio_Doorbell": "Both z-scores are far from zero and the calibration loss significantly worsened.",
+            "Philips_B120N10_Baby_Monitor": "update norm z-score and cosine similarity z-score deviate from the group, with calibration loss also slightly worsening",
+            "Provision_PT_737E_Security_Camera": "update norm z-score is moderately deviant while cosine similarity z-score is slightly deviant, and calibration loss slightly worsened",
+            "Provision_PT_838_Security_Camera": "cosine similarity z-score is relatively high while update norm z-score is relatively low, and calibration loss slightly worsened",
+            "Samsung_SNH_1011_N_Webcam": "Both update norm and cosine similarity z-scores are outliers, and calibration loss significantly worsened.",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "update norm z-score is moderately deviant while cosine similarity z-score is slightly deviant, and calibration loss slightly worsened",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "update norm z-score is a notable outlier"
+          },
+          "fallback_triggered": false
+        },
+        {
+          "round": 19,
+          "actions": {
+            "Danmini_Doorbell": "exclude",
+            "Ecobee_Thermostat": "exclude",
+            "Ennio_Doorbell": "exclude",
+            "Philips_B120N10_Baby_Monitor": "accept",
+            "Provision_PT_737E_Security_Camera": "downweight",
+            "Provision_PT_838_Security_Camera": "accept",
+            "Samsung_SNH_1011_N_Webcam": "downweight",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "accept",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "downweight"
+          },
+          "scores": {
+            "Danmini_Doorbell": 0.0,
+            "Ecobee_Thermostat": 0.0,
+            "Ennio_Doorbell": 0.0,
+            "Philips_B120N10_Baby_Monitor": 1.0,
+            "Provision_PT_737E_Security_Camera": 0.5,
+            "Provision_PT_838_Security_Camera": 1.0,
+            "Samsung_SNH_1011_N_Webcam": 0.5,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 1.0,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 0.5
+          },
+          "rationales": {
+            "Danmini_Doorbell": "update norm z-score is high and calibration loss got much worse",
+            "Ecobee_Thermostat": "update norm z-score and calibration loss change indicate significant deviation",
+            "Ennio_Doorbell": "Both z-scores are far from zero and the calibration loss significantly worsened.",
+            "Philips_B120N10_Baby_Monitor": "update norm z-score is moderately deviant while cosine similarity z-score is slightly deviant, and calibration loss slightly worsened",
+            "Provision_PT_737E_Security_Camera": "cosine similarity z-score is relatively high and update norm z-score is relatively low, with calibration loss also slightly worsening",
+            "Provision_PT_838_Security_Camera": "update norm z-score is significantly negative",
+            "Samsung_SNH_1011_N_Webcam": "calibration loss got much worse and update norm z-score is significantly negative",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "update norm z-score is somewhat deviant but not extremely so",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "cosine similarity z-score is somewhat high while update norm z-score is somewhat low"
+          },
+          "fallback_triggered": false
+        },
+        {
+          "round": 20,
+          "actions": {
+            "Danmini_Doorbell": "exclude",
+            "Ecobee_Thermostat": "exclude",
+            "Ennio_Doorbell": "exclude",
+            "Philips_B120N10_Baby_Monitor": "accept",
+            "Provision_PT_737E_Security_Camera": "downweight",
+            "Provision_PT_838_Security_Camera": "downweight",
+            "Samsung_SNH_1011_N_Webcam": "exclude",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "downweight",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "accept"
+          },
+          "scores": {
+            "Danmini_Doorbell": 0.0,
+            "Ecobee_Thermostat": 0.0,
+            "Ennio_Doorbell": 0.0,
+            "Philips_B120N10_Baby_Monitor": 1.0,
+            "Provision_PT_737E_Security_Camera": 0.5,
+            "Provision_PT_838_Security_Camera": 0.5,
+            "Samsung_SNH_1011_N_Webcam": 0.0,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 0.5,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 1.0
+          },
+          "rationales": {
+            "Danmini_Doorbell": "Both z-scores are significantly deviant and calibration loss worsened substantially.",
+            "Ecobee_Thermostat": "update norm z-score is high and calibration loss got much worse",
+            "Ennio_Doorbell": "Both z-scores are significantly deviant and calibration loss worsened substantially.",
+            "Philips_B120N10_Baby_Monitor": "cosine similarity z-score is relatively high at +0.88",
+            "Provision_PT_737E_Security_Camera": "cosine similarity z-score is a strong outlier this round",
+            "Provision_PT_838_Security_Camera": "cosine similarity z-score is somewhat high while update norm z-score is somewhat low",
+            "Samsung_SNH_1011_N_Webcam": "Both update norm and cosine similarity z-scores are far from zero, and calibration loss significantly worsened.",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "The update norm z-score is significantly negative while the cosine similarity z-score is notably positive, indicating deviation from the group.",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "update norm and cosine similarity z-scores are slightly deviant but not extreme"
+          },
+          "fallback_triggered": false
+        },
+        {
+          "round": 21,
+          "actions": {
+            "Danmini_Doorbell": "exclude",
+            "Ecobee_Thermostat": "exclude",
+            "Ennio_Doorbell": "exclude",
+            "Philips_B120N10_Baby_Monitor": "downweight",
+            "Provision_PT_737E_Security_Camera": "downweight",
+            "Provision_PT_838_Security_Camera": "downweight",
+            "Samsung_SNH_1011_N_Webcam": "exclude",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "accept",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "downweight"
+          },
+          "scores": {
+            "Danmini_Doorbell": 0.0,
+            "Ecobee_Thermostat": 0.0,
+            "Ennio_Doorbell": 0.0,
+            "Philips_B120N10_Baby_Monitor": 0.5,
+            "Provision_PT_737E_Security_Camera": 0.5,
+            "Provision_PT_838_Security_Camera": 0.5,
+            "Samsung_SNH_1011_N_Webcam": 0.0,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 1.0,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 0.5
+          },
+          "rationales": {
+            "Danmini_Doorbell": "update norm z-score is high and calibration loss got much worse",
+            "Ecobee_Thermostat": "update norm z-score and calibration loss change indicate significant deviation",
+            "Ennio_Doorbell": "update norm z-score is high and calibration loss got much worse",
+            "Philips_B120N10_Baby_Monitor": "cosine similarity z-score is relatively high and update norm z-score is relatively low, with calibration loss also slightly worsening",
+            "Provision_PT_737E_Security_Camera": "cosine similarity z-score is relatively high and calibration loss got slightly worse",
+            "Provision_PT_838_Security_Camera": "cosine similarity z-score and slight increase in calibration loss",
+            "Samsung_SNH_1011_N_Webcam": "Both z-scores are significantly negative and calibration loss got much worse.",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "update norm z-score is moderately deviant",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "cosine similarity z-score is a strong outlier while update norm z-score is somewhat unusual"
+          },
+          "fallback_triggered": false
+        },
+        {
+          "round": 22,
+          "actions": {
+            "Danmini_Doorbell": "exclude",
+            "Ecobee_Thermostat": "exclude",
+            "Ennio_Doorbell": "exclude",
+            "Philips_B120N10_Baby_Monitor": "accept",
+            "Provision_PT_737E_Security_Camera": "downweight",
+            "Provision_PT_838_Security_Camera": "accept",
+            "Samsung_SNH_1011_N_Webcam": "exclude",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "accept",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "downweight"
+          },
+          "scores": {
+            "Danmini_Doorbell": 0.0,
+            "Ecobee_Thermostat": 0.0,
+            "Ennio_Doorbell": 0.0,
+            "Philips_B120N10_Baby_Monitor": 1.0,
+            "Provision_PT_737E_Security_Camera": 0.5,
+            "Provision_PT_838_Security_Camera": 1.0,
+            "Samsung_SNH_1011_N_Webcam": 0.0,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 1.0,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 0.5
+          },
+          "rationales": {
+            "Danmini_Doorbell": "Both z-scores are significantly deviant and calibration loss worsened substantially.",
+            "Ecobee_Thermostat": "Both the update norm and cosine similarity z-scores are far from zero, and the calibration loss significantly worsened.",
+            "Ennio_Doorbell": "Both z-scores are far from zero and calibration loss significantly worsened.",
+            "Philips_B120N10_Baby_Monitor": "update norm z-score is moderately deviant",
+            "Provision_PT_737E_Security_Camera": "cosine similarity z-score is a strong outlier",
+            "Provision_PT_838_Security_Camera": "update norm z-score is notably low compared to other gateways this round",
+            "Samsung_SNH_1011_N_Webcam": "Both update norm and cosine similarity z-scores are far from zero, and calibration loss got much worse.",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "cosine similarity z-score is somewhat high, but other metrics are normal",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "The update norm z-score is significantly negative while the cosine similarity z-score is notably positive, indicating deviation from the group."
+          },
+          "fallback_triggered": false
+        },
+        {
+          "round": 23,
+          "actions": {
+            "Danmini_Doorbell": "exclude",
+            "Ecobee_Thermostat": "exclude",
+            "Ennio_Doorbell": "exclude",
+            "Philips_B120N10_Baby_Monitor": "downweight",
+            "Provision_PT_737E_Security_Camera": "accept",
+            "Provision_PT_838_Security_Camera": "downweight",
+            "Samsung_SNH_1011_N_Webcam": "exclude",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "accept",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "accept"
+          },
+          "scores": {
+            "Danmini_Doorbell": 0.0,
+            "Ecobee_Thermostat": 0.0,
+            "Ennio_Doorbell": 0.0,
+            "Philips_B120N10_Baby_Monitor": 0.5,
+            "Provision_PT_737E_Security_Camera": 1.0,
+            "Provision_PT_838_Security_Camera": 0.5,
+            "Samsung_SNH_1011_N_Webcam": 0.0,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 1.0,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 1.0
+          },
+          "rationales": {
+            "Danmini_Doorbell": "update norm z-score and calibration loss change indicate significant deviation",
+            "Ecobee_Thermostat": "update norm z-score and calibration loss change indicate significant deviation",
+            "Ennio_Doorbell": "Both z-scores are far from zero and the calibration loss significantly worsened.",
+            "Philips_B120N10_Baby_Monitor": "cosine similarity z-score is relatively high and update norm z-score is relatively low, with calibration loss also slightly worsening",
+            "Provision_PT_737E_Security_Camera": "update norm z-score is significantly negative while cosine similarity z-score and calibration loss change are minor",
+            "Provision_PT_838_Security_Camera": "cosine similarity z-score is relatively high and update norm z-score is relatively low, with calibration loss also slightly worsening",
+            "Samsung_SNH_1011_N_Webcam": "calibration loss got much worse and update norm z-score is significantly negative",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "update norm z-score is a notable outlier",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "update norm z-score is slightly deviant but not severely"
+          },
+          "fallback_triggered": false
+        },
+        {
+          "round": 24,
+          "actions": {
+            "Danmini_Doorbell": "exclude",
+            "Ecobee_Thermostat": "exclude",
+            "Ennio_Doorbell": "exclude",
+            "Philips_B120N10_Baby_Monitor": "downweight",
+            "Provision_PT_737E_Security_Camera": "downweight",
+            "Provision_PT_838_Security_Camera": "accept",
+            "Samsung_SNH_1011_N_Webcam": "exclude",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "accept",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "accept"
+          },
+          "scores": {
+            "Danmini_Doorbell": 0.0,
+            "Ecobee_Thermostat": 0.0,
+            "Ennio_Doorbell": 0.0,
+            "Philips_B120N10_Baby_Monitor": 0.5,
+            "Provision_PT_737E_Security_Camera": 0.5,
+            "Provision_PT_838_Security_Camera": 1.0,
+            "Samsung_SNH_1011_N_Webcam": 0.0,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 1.0,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 1.0
+          },
+          "rationales": {
+            "Danmini_Doorbell": "update norm z-score is a strong outlier while calibration loss significantly worsened",
+            "Ecobee_Thermostat": "Both update norm and cosine similarity z-scores are high outliers, and calibration loss significantly worsened.",
+            "Ennio_Doorbell": "update norm z-score is a strong outlier while calibration loss significantly worsened",
+            "Philips_B120N10_Baby_Monitor": "Both z-scores are moderately deviant, and the calibration loss slightly worsened.",
+            "Provision_PT_737E_Security_Camera": "Both z-scores are moderately deviant, and the calibration loss slightly worsened.",
+            "Provision_PT_838_Security_Camera": "both z-scores are notably negative but not extremely so",
+            "Samsung_SNH_1011_N_Webcam": "calibration loss got much worse and update norm z-score is a significant outlier",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "update norm z-score is moderately deviant while calibration loss slightly worsened",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "Both z-scores are moderately negative, and the calibration loss slightly worsened."
+          },
+          "fallback_triggered": false
+        }
+      ]
+    },
+    {
+      "label": "N-BaIoT, qwen2.5:14b hybrid + fixes, D=20",
+      "delay": 20,
+      "final_macro_f1": 0.9960987641191158,
+      "wall_clock_seconds": 1407.2082130908966,
+      "n_fallback_rounds": 0,
+      "n_rounds": 25,
+      "malicious_clients": [
+        "Danmini_Doorbell",
+        "Ecobee_Thermostat",
+        "Ennio_Doorbell"
+      ],
+      "gating_history": [
+        {
+          "round": 0,
+          "actions": {
+            "Danmini_Doorbell": "accept",
+            "Ecobee_Thermostat": "accept",
+            "Ennio_Doorbell": "accept",
+            "Philips_B120N10_Baby_Monitor": "accept",
+            "Provision_PT_737E_Security_Camera": "accept",
+            "Provision_PT_838_Security_Camera": "accept",
+            "Samsung_SNH_1011_N_Webcam": "accept",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "accept",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "accept"
+          },
+          "scores": {
+            "Danmini_Doorbell": 1.0,
+            "Ecobee_Thermostat": 1.0,
+            "Ennio_Doorbell": 1.0,
+            "Philips_B120N10_Baby_Monitor": 1.0,
+            "Provision_PT_737E_Security_Camera": 1.0,
+            "Provision_PT_838_Security_Camera": 1.0,
+            "Samsung_SNH_1011_N_Webcam": 1.0,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 1.0,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 1.0
+          },
+          "rationales": {
+            "Danmini_Doorbell": "round 0: no previous global update exists yet, cosine similarity to it is undefined -- trivially accepted without consulting the policy or updating the trust posterior, not a real gating judgment",
+            "Ecobee_Thermostat": "round 0: no previous global update exists yet, cosine similarity to it is undefined -- trivially accepted without consulting the policy or updating the trust posterior, not a real gating judgment",
+            "Ennio_Doorbell": "round 0: no previous global update exists yet, cosine similarity to it is undefined -- trivially accepted without consulting the policy or updating the trust posterior, not a real gating judgment",
+            "Philips_B120N10_Baby_Monitor": "round 0: no previous global update exists yet, cosine similarity to it is undefined -- trivially accepted without consulting the policy or updating the trust posterior, not a real gating judgment",
+            "Provision_PT_737E_Security_Camera": "round 0: no previous global update exists yet, cosine similarity to it is undefined -- trivially accepted without consulting the policy or updating the trust posterior, not a real gating judgment",
+            "Provision_PT_838_Security_Camera": "round 0: no previous global update exists yet, cosine similarity to it is undefined -- trivially accepted without consulting the policy or updating the trust posterior, not a real gating judgment",
+            "Samsung_SNH_1011_N_Webcam": "round 0: no previous global update exists yet, cosine similarity to it is undefined -- trivially accepted without consulting the policy or updating the trust posterior, not a real gating judgment",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "round 0: no previous global update exists yet, cosine similarity to it is undefined -- trivially accepted without consulting the policy or updating the trust posterior, not a real gating judgment",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "round 0: no previous global update exists yet, cosine similarity to it is undefined -- trivially accepted without consulting the policy or updating the trust posterior, not a real gating judgment"
+          },
+          "fallback_triggered": false
+        },
+        {
+          "round": 1,
+          "actions": {
+            "Danmini_Doorbell": "accept",
+            "Ecobee_Thermostat": "accept",
+            "Ennio_Doorbell": "downweight",
+            "Philips_B120N10_Baby_Monitor": "accept",
+            "Provision_PT_737E_Security_Camera": "accept",
+            "Provision_PT_838_Security_Camera": "accept",
+            "Samsung_SNH_1011_N_Webcam": "downweight",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "accept",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "accept"
+          },
+          "scores": {
+            "Danmini_Doorbell": 1.0,
+            "Ecobee_Thermostat": 1.0,
+            "Ennio_Doorbell": 0.5,
+            "Philips_B120N10_Baby_Monitor": 1.0,
+            "Provision_PT_737E_Security_Camera": 1.0,
+            "Provision_PT_838_Security_Camera": 1.0,
+            "Samsung_SNH_1011_N_Webcam": 0.5,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 1.0,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 1.0
+          },
+          "rationales": {
+            "Danmini_Doorbell": "update norm z-score is relatively high, but cosine similarity z-score is near normal and calibration loss improved significantly, reducing overall anomaly suspicion. (early-round warmup active, scale=1.40)",
+            "Ecobee_Thermostat": "update norm and cosine similarity z-scores are moderately above average but not extreme (early-round warmup active, scale=1.40)",
+            "Ennio_Doorbell": "cosine similarity z-score and calibration loss change are both highly anomalous (early-round warmup active, scale=1.40)",
+            "Philips_B120N10_Baby_Monitor": "Both update norm and cosine similarity z-scores are moderately high, and calibration loss slightly worsened. (early-round warmup active, scale=1.40)",
+            "Provision_PT_737E_Security_Camera": "cosine similarity z-score is slightly above zero, but not indicative of an attack (early-round warmup active, scale=1.40)",
+            "Provision_PT_838_Security_Camera": "update norm z-score is somewhat high (early-round warmup active, scale=1.40)",
+            "Samsung_SNH_1011_N_Webcam": "Both z-scores are significantly negative and calibration loss got much worse. (early-round warmup active, scale=1.40)",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "update norm z-score is a strong outlier while cosine similarity is normal and calibration loss improved significantly (early-round warmup active, scale=1.40)",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "cosine similarity z-score is relatively high at +0.76 (early-round warmup active, scale=1.40)"
+          },
+          "fallback_triggered": false
+        },
+        {
+          "round": 2,
+          "actions": {
+            "Danmini_Doorbell": "accept",
+            "Ecobee_Thermostat": "accept",
+            "Ennio_Doorbell": "exclude",
+            "Philips_B120N10_Baby_Monitor": "accept",
+            "Provision_PT_737E_Security_Camera": "accept",
+            "Provision_PT_838_Security_Camera": "accept",
+            "Samsung_SNH_1011_N_Webcam": "exclude",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "accept",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "accept"
+          },
+          "scores": {
+            "Danmini_Doorbell": 1.0,
+            "Ecobee_Thermostat": 1.0,
+            "Ennio_Doorbell": 0.0,
+            "Philips_B120N10_Baby_Monitor": 1.0,
+            "Provision_PT_737E_Security_Camera": 1.0,
+            "Provision_PT_838_Security_Camera": 1.0,
+            "Samsung_SNH_1011_N_Webcam": 0.0,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 1.0,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 1.0
+          },
+          "rationales": {
+            "Danmini_Doorbell": "Both update norm and cosine similarity z-scores are moderately high, and calibration loss slightly worsened. (early-round warmup active, scale=1.30)",
+            "Ecobee_Thermostat": "cosine similarity z-score is moderately high, while update norm z-score is moderately low and calibration loss slightly worsened. (early-round warmup active, scale=1.30)",
+            "Ennio_Doorbell": "Both z-scores are far from zero and the calibration loss significantly worsened. (early-round warmup active, scale=1.30)",
+            "Philips_B120N10_Baby_Monitor": "update norm z-score is high at +0.97 (early-round warmup active, scale=1.30)",
+            "Provision_PT_737E_Security_Camera": "cosine similarity z-score is moderately high (early-round warmup active, scale=1.30)",
+            "Provision_PT_838_Security_Camera": "calibration loss got slightly worse (early-round warmup active, scale=1.30)",
+            "Samsung_SNH_1011_N_Webcam": "Both z-scores are far from zero and calibration loss significantly worsened. (early-round warmup active, scale=1.30)",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "update norm z-score is a strong outlier (early-round warmup active, scale=1.30)",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "cosine similarity z-score is relatively high and update norm z-score is relatively low, with calibration loss also slightly worsening. (early-round warmup active, scale=1.30)"
+          },
+          "fallback_triggered": false
+        },
+        {
+          "round": 3,
+          "actions": {
+            "Danmini_Doorbell": "downweight",
+            "Ecobee_Thermostat": "accept",
+            "Ennio_Doorbell": "exclude",
+            "Philips_B120N10_Baby_Monitor": "downweight",
+            "Provision_PT_737E_Security_Camera": "accept",
+            "Provision_PT_838_Security_Camera": "accept",
+            "Samsung_SNH_1011_N_Webcam": "exclude",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "accept",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "accept"
+          },
+          "scores": {
+            "Danmini_Doorbell": 0.5,
+            "Ecobee_Thermostat": 1.0,
+            "Ennio_Doorbell": 0.0,
+            "Philips_B120N10_Baby_Monitor": 0.5,
+            "Provision_PT_737E_Security_Camera": 1.0,
+            "Provision_PT_838_Security_Camera": 1.0,
+            "Samsung_SNH_1011_N_Webcam": 0.0,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 1.0,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 1.0
+          },
+          "rationales": {
+            "Danmini_Doorbell": "cosine similarity z-score and calibration loss change are both significant indicators of anomaly. (early-round warmup active, scale=1.20)",
+            "Ecobee_Thermostat": "cosine similarity z-score is notably high (early-round warmup active, scale=1.20)",
+            "Ennio_Doorbell": "Both update norm and cosine similarity z-scores are far from zero, and calibration loss significantly worsened. (early-round warmup active, scale=1.20)",
+            "Philips_B120N10_Baby_Monitor": "cosine similarity z-score and calibration loss change indicate significant deviation (early-round warmup active, scale=1.20)",
+            "Provision_PT_737E_Security_Camera": "update norm z-score is slightly deviant but not highly anomalous (early-round warmup active, scale=1.20)",
+            "Provision_PT_838_Security_Camera": "update norm z-score is a strong outlier (early-round warmup active, scale=1.20)",
+            "Samsung_SNH_1011_N_Webcam": "update norm and cosine similarity z-scores are strong outliers, and calibration loss got much worse (early-round warmup active, scale=1.20)",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "update norm z-score is a strong outlier (early-round warmup active, scale=1.20)",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "cosine similarity z-score is relatively high, deviating from the group this round (early-round warmup active, scale=1.20)"
+          },
+          "fallback_triggered": false
+        },
+        {
+          "round": 4,
+          "actions": {
+            "Danmini_Doorbell": "accept",
+            "Ecobee_Thermostat": "accept",
+            "Ennio_Doorbell": "exclude",
+            "Philips_B120N10_Baby_Monitor": "accept",
+            "Provision_PT_737E_Security_Camera": "accept",
+            "Provision_PT_838_Security_Camera": "accept",
+            "Samsung_SNH_1011_N_Webcam": "exclude",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "accept",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "accept"
+          },
+          "scores": {
+            "Danmini_Doorbell": 1.0,
+            "Ecobee_Thermostat": 1.0,
+            "Ennio_Doorbell": 0.0,
+            "Philips_B120N10_Baby_Monitor": 1.0,
+            "Provision_PT_737E_Security_Camera": 1.0,
+            "Provision_PT_838_Security_Camera": 1.0,
+            "Samsung_SNH_1011_N_Webcam": 0.0,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 1.0,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 1.0
+          },
+          "rationales": {
+            "Danmini_Doorbell": "calibration loss got slightly worse, indicating minor deviation (early-round warmup active, scale=1.10)",
+            "Ecobee_Thermostat": "update norm z-score is a strong outlier while cosine similarity z-score is moderately high and calibration loss slightly worsened (early-round warmup active, scale=1.10)",
+            "Ennio_Doorbell": "Both z-scores are strong outliers and calibration loss got much worse (early-round warmup active, scale=1.10)",
+            "Philips_B120N10_Baby_Monitor": "update norm z-score is somewhat high, while calibration loss slightly worsened (early-round warmup active, scale=1.10)",
+            "Provision_PT_737E_Security_Camera": "cosine similarity z-score is moderately high and calibration loss got slightly worse (early-round warmup active, scale=1.10)",
+            "Provision_PT_838_Security_Camera": "update norm z-score is moderately high (early-round warmup active, scale=1.10)",
+            "Samsung_SNH_1011_N_Webcam": "cosine similarity z-score and calibration loss change are both significant outliers (early-round warmup active, scale=1.10)",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "update norm z-score is moderately deviant while cosine similarity z-score is slightly deviant, with calibration loss showing a minor increase (early-round warmup active, scale=1.10)",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "The update norm z-score is a strong outlier while the calibration loss is unchanged. (early-round warmup active, scale=1.10)"
+          },
+          "fallback_triggered": false
+        },
+        {
+          "round": 5,
+          "actions": {
+            "Danmini_Doorbell": "downweight",
+            "Ecobee_Thermostat": "downweight",
+            "Ennio_Doorbell": "exclude",
+            "Philips_B120N10_Baby_Monitor": "downweight",
+            "Provision_PT_737E_Security_Camera": "downweight",
+            "Provision_PT_838_Security_Camera": "accept",
+            "Samsung_SNH_1011_N_Webcam": "exclude",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "accept",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "accept"
+          },
+          "scores": {
+            "Danmini_Doorbell": 0.5,
+            "Ecobee_Thermostat": 0.5,
+            "Ennio_Doorbell": 0.0,
+            "Philips_B120N10_Baby_Monitor": 0.5,
+            "Provision_PT_737E_Security_Camera": 0.5,
+            "Provision_PT_838_Security_Camera": 1.0,
+            "Samsung_SNH_1011_N_Webcam": 0.0,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 1.0,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 1.0
+          },
+          "rationales": {
+            "Danmini_Doorbell": "cosine similarity z-score is relatively high at +1.09",
+            "Ecobee_Thermostat": "Both z-scores are moderately deviant, and the calibration loss slightly worsened.",
+            "Ennio_Doorbell": "Both z-scores are far from zero and calibration loss significantly worsened.",
+            "Philips_B120N10_Baby_Monitor": "calibration loss got much worse",
+            "Provision_PT_737E_Security_Camera": "cosine similarity z-score is significantly negative and calibration loss got slightly worse",
+            "Provision_PT_838_Security_Camera": "Both z-scores are slightly above average but not extreme, and the calibration loss change is minor.",
+            "Samsung_SNH_1011_N_Webcam": "Both z-scores are far from zero and calibration loss significantly worsened.",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "update norm z-score is a strong outlier",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "cosine similarity z-score is moderately high, while update norm z-score is moderately low and calibration loss slightly worsened."
+          },
+          "fallback_triggered": false
+        },
+        {
+          "round": 6,
+          "actions": {
+            "Danmini_Doorbell": "downweight",
+            "Ecobee_Thermostat": "accept",
+            "Ennio_Doorbell": "exclude",
+            "Philips_B120N10_Baby_Monitor": "accept",
+            "Provision_PT_737E_Security_Camera": "accept",
+            "Provision_PT_838_Security_Camera": "downweight",
+            "Samsung_SNH_1011_N_Webcam": "exclude",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "accept",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "downweight"
+          },
+          "scores": {
+            "Danmini_Doorbell": 0.5,
+            "Ecobee_Thermostat": 1.0,
+            "Ennio_Doorbell": 0.0,
+            "Philips_B120N10_Baby_Monitor": 1.0,
+            "Provision_PT_737E_Security_Camera": 1.0,
+            "Provision_PT_838_Security_Camera": 0.5,
+            "Samsung_SNH_1011_N_Webcam": 0.0,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 1.0,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 0.5
+          },
+          "rationales": {
+            "Danmini_Doorbell": "cosine similarity z-score is notably low, indicating deviation from the group this round.",
+            "Ecobee_Thermostat": "update norm and cosine similarity z-scores deviate from the group but not drastically",
+            "Ennio_Doorbell": "Both z-scores are significantly deviant and calibration loss worsened substantially.",
+            "Philips_B120N10_Baby_Monitor": "Both z-scores are moderately deviant and calibration loss slightly worsened.",
+            "Provision_PT_737E_Security_Camera": "update norm z-score is somewhat high",
+            "Provision_PT_838_Security_Camera": "update norm and cosine similarity z-scores are moderately high, and calibration loss slightly worsened",
+            "Samsung_SNH_1011_N_Webcam": "Both z-scores are far from zero and calibration loss significantly worsened.",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "update norm z-score is a significant outlier",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "cosine similarity z-score and change in calibration loss both indicate deviation from the group."
+          },
+          "fallback_triggered": false
+        },
+        {
+          "round": 7,
+          "actions": {
+            "Danmini_Doorbell": "downweight",
+            "Ecobee_Thermostat": "accept",
+            "Ennio_Doorbell": "exclude",
+            "Philips_B120N10_Baby_Monitor": "exclude",
+            "Provision_PT_737E_Security_Camera": "accept",
+            "Provision_PT_838_Security_Camera": "accept",
+            "Samsung_SNH_1011_N_Webcam": "exclude",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "accept",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "accept"
+          },
+          "scores": {
+            "Danmini_Doorbell": 0.5,
+            "Ecobee_Thermostat": 1.0,
+            "Ennio_Doorbell": 0.0,
+            "Philips_B120N10_Baby_Monitor": 0.0,
+            "Provision_PT_737E_Security_Camera": 1.0,
+            "Provision_PT_838_Security_Camera": 1.0,
+            "Samsung_SNH_1011_N_Webcam": 0.0,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 1.0,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 1.0
+          },
+          "rationales": {
+            "Danmini_Doorbell": "update norm z-score is moderately high and cosine similarity z-score is slightly high, with calibration loss slightly worsening",
+            "Ecobee_Thermostat": "cosine similarity z-score is relatively high at +1.12",
+            "Ennio_Doorbell": "cosine similarity z-score and calibration loss change indicate significant deviation and harm.",
+            "Philips_B120N10_Baby_Monitor": "calibration loss got much worse while update norm z-score is a significant outlier",
+            "Provision_PT_737E_Security_Camera": "cosine similarity z-score is slightly negative, indicating deviation from the group but not severely.",
+            "Provision_PT_838_Security_Camera": "update norm z-score is somewhat high, but other metrics are normal",
+            "Samsung_SNH_1011_N_Webcam": "update norm z-score and calibration loss change indicate significant deviation",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "update norm z-score is notably low compared to other gateways this round",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "update norm z-score is a strong outlier"
+          },
+          "fallback_triggered": false
+        },
+        {
+          "round": 8,
+          "actions": {
+            "Danmini_Doorbell": "accept",
+            "Ecobee_Thermostat": "downweight",
+            "Ennio_Doorbell": "exclude",
+            "Philips_B120N10_Baby_Monitor": "downweight",
+            "Provision_PT_737E_Security_Camera": "accept",
+            "Provision_PT_838_Security_Camera": "downweight",
+            "Samsung_SNH_1011_N_Webcam": "exclude",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "accept",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "downweight"
+          },
+          "scores": {
+            "Danmini_Doorbell": 1.0,
+            "Ecobee_Thermostat": 0.5,
+            "Ennio_Doorbell": 0.0,
+            "Philips_B120N10_Baby_Monitor": 0.5,
+            "Provision_PT_737E_Security_Camera": 1.0,
+            "Provision_PT_838_Security_Camera": 0.5,
+            "Samsung_SNH_1011_N_Webcam": 0.0,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 1.0,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 0.5
+          },
+          "rationales": {
+            "Danmini_Doorbell": "update norm z-score is moderately high",
+            "Ecobee_Thermostat": "cosine similarity z-score is relatively high at +1.44",
+            "Ennio_Doorbell": "Both z-scores are far from 0 and calibration loss significantly worsened.",
+            "Philips_B120N10_Baby_Monitor": "Both the update norm and cosine similarity z-scores are moderately deviant, and the calibration loss slightly worsened.",
+            "Provision_PT_737E_Security_Camera": "calibration loss got slightly worse, though z-scores are near zero",
+            "Provision_PT_838_Security_Camera": "The update norm and cosine similarity z-scores deviate moderately from the group, and the calibration loss slightly worsened.",
+            "Samsung_SNH_1011_N_Webcam": "update norm z-score is a strong outlier while calibration loss got much worse",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "cosine similarity z-score is moderately high",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "update norm z-score is a strong outlier while cosine similarity is mildly elevated"
+          },
+          "fallback_triggered": false
+        },
+        {
+          "round": 9,
+          "actions": {
+            "Danmini_Doorbell": "downweight",
+            "Ecobee_Thermostat": "downweight",
+            "Ennio_Doorbell": "exclude",
+            "Philips_B120N10_Baby_Monitor": "downweight",
+            "Provision_PT_737E_Security_Camera": "accept",
+            "Provision_PT_838_Security_Camera": "downweight",
+            "Samsung_SNH_1011_N_Webcam": "exclude",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "accept",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "accept"
+          },
+          "scores": {
+            "Danmini_Doorbell": 0.5,
+            "Ecobee_Thermostat": 0.5,
+            "Ennio_Doorbell": 0.0,
+            "Philips_B120N10_Baby_Monitor": 0.5,
+            "Provision_PT_737E_Security_Camera": 1.0,
+            "Provision_PT_838_Security_Camera": 0.5,
+            "Samsung_SNH_1011_N_Webcam": 0.0,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 1.0,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 1.0
+          },
+          "rationales": {
+            "Danmini_Doorbell": "cosine similarity z-score is relatively high at +1.78",
+            "Ecobee_Thermostat": "cosine similarity z-score and calibration loss change are notably negative",
+            "Ennio_Doorbell": "Both z-scores are far from 0 and calibration loss significantly worsened.",
+            "Philips_B120N10_Baby_Monitor": "Both update norm and cosine similarity z-scores are high, and calibration loss slightly worsened.",
+            "Provision_PT_737E_Security_Camera": "update norm and cosine similarity z-scores are moderately high, and calibration loss slightly worsened",
+            "Provision_PT_838_Security_Camera": "cosine similarity z-score is notably low, indicating deviation from other gateways this round",
+            "Samsung_SNH_1011_N_Webcam": "update norm z-score and cosine similarity z-score are both significant outliers, and calibration loss got much worse",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "update norm z-score is a strong outlier",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "update norm z-score is moderately deviant"
+          },
+          "fallback_triggered": false
+        },
+        {
+          "round": 10,
+          "actions": {
+            "Danmini_Doorbell": "downweight",
+            "Ecobee_Thermostat": "accept",
+            "Ennio_Doorbell": "downweight",
+            "Philips_B120N10_Baby_Monitor": "downweight",
+            "Provision_PT_737E_Security_Camera": "downweight",
+            "Provision_PT_838_Security_Camera": "downweight",
+            "Samsung_SNH_1011_N_Webcam": "exclude",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "accept",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "accept"
+          },
+          "scores": {
+            "Danmini_Doorbell": 0.5,
+            "Ecobee_Thermostat": 1.0,
+            "Ennio_Doorbell": 0.5,
+            "Philips_B120N10_Baby_Monitor": 0.5,
+            "Provision_PT_737E_Security_Camera": 0.5,
+            "Provision_PT_838_Security_Camera": 0.5,
+            "Samsung_SNH_1011_N_Webcam": 0.0,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 1.0,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 1.0
+          },
+          "rationales": {
+            "Danmini_Doorbell": "update norm z-score is a strong outlier while cosine similarity z-score and calibration loss change are mild anomalies",
+            "Ecobee_Thermostat": "Both z-scores are moderately negative, and the calibration loss slightly worsened.",
+            "Ennio_Doorbell": "calibration loss got much worse",
+            "Philips_B120N10_Baby_Monitor": "cosine similarity z-score is notably low while update norm z-score is moderately high, and calibration loss slightly worsened",
+            "Provision_PT_737E_Security_Camera": "cosine similarity z-score and calibration loss change indicate significant deviation (long-term posterior mean=0.84 over 6 rounds downgrades exclude to downweight)",
+            "Provision_PT_838_Security_Camera": "cosine similarity z-score is a strong outlier",
+            "Samsung_SNH_1011_N_Webcam": "cosine similarity z-score and calibration loss change are both significant outliers",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "update norm z-score is a significant outlier",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "update norm z-score is significantly negative while cosine similarity z-score is moderately positive"
+          },
+          "fallback_triggered": false
+        },
+        {
+          "round": 11,
+          "actions": {
+            "Danmini_Doorbell": "accept",
+            "Ecobee_Thermostat": "accept",
+            "Ennio_Doorbell": "downweight",
+            "Philips_B120N10_Baby_Monitor": "accept",
+            "Provision_PT_737E_Security_Camera": "accept",
+            "Provision_PT_838_Security_Camera": "exclude",
+            "Samsung_SNH_1011_N_Webcam": "downweight",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "accept",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "downweight"
+          },
+          "scores": {
+            "Danmini_Doorbell": 1.0,
+            "Ecobee_Thermostat": 1.0,
+            "Ennio_Doorbell": 0.5,
+            "Philips_B120N10_Baby_Monitor": 1.0,
+            "Provision_PT_737E_Security_Camera": 1.0,
+            "Provision_PT_838_Security_Camera": 0.0,
+            "Samsung_SNH_1011_N_Webcam": 0.5,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 1.0,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 0.5
+          },
+          "rationales": {
+            "Danmini_Doorbell": "update norm z-score is slightly deviant but not severely, with calibration loss only slightly worsening",
+            "Ecobee_Thermostat": "calibration loss got slightly worse and both z-scores are slightly negative but within normal range",
+            "Ennio_Doorbell": "cosine similarity z-score is relatively high at +1.64",
+            "Philips_B120N10_Baby_Monitor": "update norm z-score is somewhat high but cosine similarity z-score and calibration loss are normal",
+            "Provision_PT_737E_Security_Camera": "update norm z-score is somewhat high",
+            "Provision_PT_838_Security_Camera": "Both z-scores are high and calibration loss significantly worsened.",
+            "Samsung_SNH_1011_N_Webcam": "calibration loss got much worse",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "update norm z-score is a strong outlier",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "cosine similarity z-score is a strong outlier"
+          },
+          "fallback_triggered": false
+        },
+        {
+          "round": 12,
+          "actions": {
+            "Danmini_Doorbell": "accept",
+            "Ecobee_Thermostat": "accept",
+            "Ennio_Doorbell": "exclude",
+            "Philips_B120N10_Baby_Monitor": "downweight",
+            "Provision_PT_737E_Security_Camera": "downweight",
+            "Provision_PT_838_Security_Camera": "downweight",
+            "Samsung_SNH_1011_N_Webcam": "exclude",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "accept",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "accept"
+          },
+          "scores": {
+            "Danmini_Doorbell": 1.0,
+            "Ecobee_Thermostat": 1.0,
+            "Ennio_Doorbell": 0.0,
+            "Philips_B120N10_Baby_Monitor": 0.5,
+            "Provision_PT_737E_Security_Camera": 0.5,
+            "Provision_PT_838_Security_Camera": 0.5,
+            "Samsung_SNH_1011_N_Webcam": 0.0,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 1.0,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 1.0
+          },
+          "rationales": {
+            "Danmini_Doorbell": "update norm z-score is somewhat high, but cosine similarity z-score is near normal and calibration loss change is minor",
+            "Ecobee_Thermostat": "calibration loss got slightly worse and cosine similarity z-score is slightly higher",
+            "Ennio_Doorbell": "cosine similarity z-score and calibration loss change indicate significant deviation",
+            "Philips_B120N10_Baby_Monitor": "Both update norm and cosine similarity z-scores are moderately high, and calibration loss slightly worsened.",
+            "Provision_PT_737E_Security_Camera": "cosine similarity z-score and calibration loss change are slightly worse than normal",
+            "Provision_PT_838_Security_Camera": "cosine similarity z-score is somewhat deviant from the group this round",
+            "Samsung_SNH_1011_N_Webcam": "Both z-scores are high outliers and calibration loss significantly worsened.",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "update norm z-score is significantly negative",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "update norm z-score is significantly negative while cosine similarity z-score is moderately negative and calibration loss slightly worsened"
+          },
+          "fallback_triggered": false
+        },
+        {
+          "round": 13,
+          "actions": {
+            "Danmini_Doorbell": "exclude",
+            "Ecobee_Thermostat": "downweight",
+            "Ennio_Doorbell": "exclude",
+            "Philips_B120N10_Baby_Monitor": "accept",
+            "Provision_PT_737E_Security_Camera": "accept",
+            "Provision_PT_838_Security_Camera": "accept",
+            "Samsung_SNH_1011_N_Webcam": "exclude",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "accept",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "downweight"
+          },
+          "scores": {
+            "Danmini_Doorbell": 0.0,
+            "Ecobee_Thermostat": 0.5,
+            "Ennio_Doorbell": 0.0,
+            "Philips_B120N10_Baby_Monitor": 1.0,
+            "Provision_PT_737E_Security_Camera": 1.0,
+            "Provision_PT_838_Security_Camera": 1.0,
+            "Samsung_SNH_1011_N_Webcam": 0.0,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 1.0,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 0.5
+          },
+          "rationales": {
+            "Danmini_Doorbell": "update norm z-score is high while calibration loss got much worse",
+            "Ecobee_Thermostat": "The update norm and cosine similarity z-scores deviate significantly from the group, with a slight worsening in calibration loss.",
+            "Ennio_Doorbell": "Both z-scores are far from 0 and calibration loss significantly worsened.",
+            "Philips_B120N10_Baby_Monitor": "update norm z-score is somewhat high",
+            "Provision_PT_737E_Security_Camera": "update norm z-score is moderately high",
+            "Provision_PT_838_Security_Camera": "update norm z-score is significantly negative while cosine similarity z-score is near normal, with a slight worsening in calibration loss",
+            "Samsung_SNH_1011_N_Webcam": "cosine similarity z-score and calibration loss change are both highly anomalous",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "update norm z-score is a strong outlier",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "cosine similarity z-score is relatively high and calibration loss got slightly worse"
+          },
+          "fallback_triggered": false
+        },
+        {
+          "round": 14,
+          "actions": {
+            "Danmini_Doorbell": "downweight",
+            "Ecobee_Thermostat": "accept",
+            "Ennio_Doorbell": "exclude",
+            "Philips_B120N10_Baby_Monitor": "exclude",
+            "Provision_PT_737E_Security_Camera": "downweight",
+            "Provision_PT_838_Security_Camera": "downweight",
+            "Samsung_SNH_1011_N_Webcam": "exclude",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "accept",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "downweight"
+          },
+          "scores": {
+            "Danmini_Doorbell": 0.5,
+            "Ecobee_Thermostat": 1.0,
+            "Ennio_Doorbell": 0.0,
+            "Philips_B120N10_Baby_Monitor": 0.0,
+            "Provision_PT_737E_Security_Camera": 0.5,
+            "Provision_PT_838_Security_Camera": 0.5,
+            "Samsung_SNH_1011_N_Webcam": 0.0,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 1.0,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 0.5
+          },
+          "rationales": {
+            "Danmini_Doorbell": "cosine similarity z-score is notably low, indicating deviation from the group this round.",
+            "Ecobee_Thermostat": "update norm z-score is relatively high, indicating deviation from other gateways this round",
+            "Ennio_Doorbell": "Both z-scores are significantly negative and the calibration loss got much worse.",
+            "Philips_B120N10_Baby_Monitor": "cosine similarity z-score and calibration loss change are both significant indicators of anomaly",
+            "Provision_PT_737E_Security_Camera": "cosine similarity z-score is relatively high and calibration loss got slightly worse",
+            "Provision_PT_838_Security_Camera": "cosine similarity z-score is a strong outlier",
+            "Samsung_SNH_1011_N_Webcam": "update norm z-score is a strong outlier while calibration loss significantly worsened",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "update norm and cosine similarity z-scores are somewhat deviant but not extremely so",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "Both z-scores are moderately deviant and calibration loss slightly worsened."
+          },
+          "fallback_triggered": false
+        },
+        {
+          "round": 15,
+          "actions": {
+            "Danmini_Doorbell": "downweight",
+            "Ecobee_Thermostat": "accept",
+            "Ennio_Doorbell": "downweight",
+            "Philips_B120N10_Baby_Monitor": "exclude",
+            "Provision_PT_737E_Security_Camera": "downweight",
+            "Provision_PT_838_Security_Camera": "accept",
+            "Samsung_SNH_1011_N_Webcam": "exclude",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "accept",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "accept"
+          },
+          "scores": {
+            "Danmini_Doorbell": 0.5,
+            "Ecobee_Thermostat": 1.0,
+            "Ennio_Doorbell": 0.5,
+            "Philips_B120N10_Baby_Monitor": 0.0,
+            "Provision_PT_737E_Security_Camera": 0.5,
+            "Provision_PT_838_Security_Camera": 1.0,
+            "Samsung_SNH_1011_N_Webcam": 0.0,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 1.0,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 1.0
+          },
+          "rationales": {
+            "Danmini_Doorbell": "update norm z-score is a strong outlier",
+            "Ecobee_Thermostat": "cosine similarity z-score is moderately high",
+            "Ennio_Doorbell": "cosine similarity z-score is moderately high",
+            "Philips_B120N10_Baby_Monitor": "cosine similarity z-score and calibration loss change are both highly anomalous",
+            "Provision_PT_737E_Security_Camera": "update norm z-score is a significant outlier",
+            "Provision_PT_838_Security_Camera": "Both z-scores are close to 0 and calibration loss is unchanged",
+            "Samsung_SNH_1011_N_Webcam": "cosine similarity z-score and calibration loss change are both significant indicators of anomaly.",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "update norm z-score is a significant outlier",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "update norm z-score is moderately negative, indicating deviation from the group"
+          },
+          "fallback_triggered": false
+        },
+        {
+          "round": 16,
+          "actions": {
+            "Danmini_Doorbell": "accept",
+            "Ecobee_Thermostat": "downweight",
+            "Ennio_Doorbell": "exclude",
+            "Philips_B120N10_Baby_Monitor": "downweight",
+            "Provision_PT_737E_Security_Camera": "accept",
+            "Provision_PT_838_Security_Camera": "downweight",
+            "Samsung_SNH_1011_N_Webcam": "exclude",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "accept",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "downweight"
+          },
+          "scores": {
+            "Danmini_Doorbell": 1.0,
+            "Ecobee_Thermostat": 0.5,
+            "Ennio_Doorbell": 0.0,
+            "Philips_B120N10_Baby_Monitor": 0.5,
+            "Provision_PT_737E_Security_Camera": 1.0,
+            "Provision_PT_838_Security_Camera": 0.5,
+            "Samsung_SNH_1011_N_Webcam": 0.0,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 1.0,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 0.5
+          },
+          "rationales": {
+            "Danmini_Doorbell": "Both z-scores are slightly negative but still close to zero, and the calibration loss change is minor.",
+            "Ecobee_Thermostat": "both z-scores are notably deviant from zero, though not extremely so",
+            "Ennio_Doorbell": "update norm z-score is a strong outlier while calibration loss significantly worsened",
+            "Philips_B120N10_Baby_Monitor": "cosine similarity z-score is notably low, while update norm z-score is near neutral and calibration loss change is minor but negative.",
+            "Provision_PT_737E_Security_Camera": "update norm z-score is somewhat high, while cosine similarity z-score is near normal and calibration loss change is slight",
+            "Provision_PT_838_Security_Camera": "cosine similarity z-score is relatively high while update norm z-score is relatively low",
+            "Samsung_SNH_1011_N_Webcam": "Both z-scores are far from zero and calibration loss significantly worsened.",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "cosine similarity z-score is relatively high at +1.12",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "update norm and cosine similarity z-scores deviate significantly from the group, with calibration loss also worsening slightly"
+          },
+          "fallback_triggered": false
+        },
+        {
+          "round": 17,
+          "actions": {
+            "Danmini_Doorbell": "downweight",
+            "Ecobee_Thermostat": "accept",
+            "Ennio_Doorbell": "downweight",
+            "Philips_B120N10_Baby_Monitor": "downweight",
+            "Provision_PT_737E_Security_Camera": "downweight",
+            "Provision_PT_838_Security_Camera": "accept",
+            "Samsung_SNH_1011_N_Webcam": "downweight",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "accept",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "downweight"
+          },
+          "scores": {
+            "Danmini_Doorbell": 0.5,
+            "Ecobee_Thermostat": 1.0,
+            "Ennio_Doorbell": 0.5,
+            "Philips_B120N10_Baby_Monitor": 0.5,
+            "Provision_PT_737E_Security_Camera": 0.5,
+            "Provision_PT_838_Security_Camera": 1.0,
+            "Samsung_SNH_1011_N_Webcam": 0.5,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 1.0,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 0.5
+          },
+          "rationales": {
+            "Danmini_Doorbell": "update norm z-score is a strong outlier",
+            "Ecobee_Thermostat": "Both z-scores are notably negative, and the calibration loss slightly worsened.",
+            "Ennio_Doorbell": "Both z-scores are moderately deviant, and the calibration loss slightly worsened.",
+            "Philips_B120N10_Baby_Monitor": "Both update norm and cosine similarity z-scores are moderately high, and calibration loss slightly worsened.",
+            "Provision_PT_737E_Security_Camera": "calibration loss got much worse despite normal z-scores for update norm and cosine similarity",
+            "Provision_PT_838_Security_Camera": "cosine similarity z-score is moderately high and calibration loss slightly worsened",
+            "Samsung_SNH_1011_N_Webcam": "cosine similarity z-score is relatively high at +1.15",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "cosine similarity z-score is moderately deviant while update norm z-score is normal, and calibration loss slightly worsened",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "cosine similarity z-score and update norm z-score are both significantly negative, and calibration loss slightly worsened."
+          },
+          "fallback_triggered": false
+        },
+        {
+          "round": 18,
+          "actions": {
+            "Danmini_Doorbell": "downweight",
+            "Ecobee_Thermostat": "downweight",
+            "Ennio_Doorbell": "exclude",
+            "Philips_B120N10_Baby_Monitor": "accept",
+            "Provision_PT_737E_Security_Camera": "accept",
+            "Provision_PT_838_Security_Camera": "accept",
+            "Samsung_SNH_1011_N_Webcam": "exclude",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "accept",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "accept"
+          },
+          "scores": {
+            "Danmini_Doorbell": 0.5,
+            "Ecobee_Thermostat": 0.5,
+            "Ennio_Doorbell": 0.0,
+            "Philips_B120N10_Baby_Monitor": 1.0,
+            "Provision_PT_737E_Security_Camera": 1.0,
+            "Provision_PT_838_Security_Camera": 1.0,
+            "Samsung_SNH_1011_N_Webcam": 0.0,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 1.0,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 1.0
+          },
+          "rationales": {
+            "Danmini_Doorbell": "Both update norm and cosine similarity z-scores are moderately high, and calibration loss slightly worsened.",
+            "Ecobee_Thermostat": "cosine similarity z-score is notably low, indicating deviation from the group this round.",
+            "Ennio_Doorbell": "update norm z-score is a strong outlier and calibration loss got much worse",
+            "Philips_B120N10_Baby_Monitor": "update norm z-score is somewhat high, but cosine similarity z-score is near normal and calibration loss change is slight",
+            "Provision_PT_737E_Security_Camera": "both z-scores are moderately deviant but not extreme",
+            "Provision_PT_838_Security_Camera": "update norm z-score is slightly below normal",
+            "Samsung_SNH_1011_N_Webcam": "Both update norm and cosine similarity z-scores are high, and calibration loss significantly worsened.",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "Both z-scores are notably negative but not extremely so",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "cosine similarity z-score is notably low compared to other gateways this round"
+          },
+          "fallback_triggered": false
+        },
+        {
+          "round": 19,
+          "actions": {
+            "Danmini_Doorbell": "downweight",
+            "Ecobee_Thermostat": "downweight",
+            "Ennio_Doorbell": "exclude",
+            "Philips_B120N10_Baby_Monitor": "accept",
+            "Provision_PT_737E_Security_Camera": "downweight",
+            "Provision_PT_838_Security_Camera": "accept",
+            "Samsung_SNH_1011_N_Webcam": "exclude",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "downweight",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "downweight"
+          },
+          "scores": {
+            "Danmini_Doorbell": 0.5,
+            "Ecobee_Thermostat": 0.5,
+            "Ennio_Doorbell": 0.0,
+            "Philips_B120N10_Baby_Monitor": 1.0,
+            "Provision_PT_737E_Security_Camera": 0.5,
+            "Provision_PT_838_Security_Camera": 1.0,
+            "Samsung_SNH_1011_N_Webcam": 0.0,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 0.5,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 0.5
+          },
+          "rationales": {
+            "Danmini_Doorbell": "update norm z-score is relatively high",
+            "Ecobee_Thermostat": "Both update norm and cosine similarity z-scores are moderately high, and calibration loss slightly worsened.",
+            "Ennio_Doorbell": "Both z-scores are significantly negative and calibration loss got much worse.",
+            "Philips_B120N10_Baby_Monitor": "cosine similarity z-score is slightly higher than normal",
+            "Provision_PT_737E_Security_Camera": "cosine similarity z-score is relatively high compared to other gateways this round",
+            "Provision_PT_838_Security_Camera": "cosine similarity z-score is moderately high",
+            "Samsung_SNH_1011_N_Webcam": "cosine similarity z-score and significant increase in held-out loss indicate anomaly",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "update norm and cosine similarity z-scores deviate moderately from the group, with calibration loss slightly worsening",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "cosine similarity z-score is significantly negative"
+          },
+          "fallback_triggered": false
+        },
+        {
+          "round": 20,
+          "actions": {
+            "Danmini_Doorbell": "exclude",
+            "Ecobee_Thermostat": "downweight",
+            "Ennio_Doorbell": "exclude",
+            "Philips_B120N10_Baby_Monitor": "downweight",
+            "Provision_PT_737E_Security_Camera": "accept",
+            "Provision_PT_838_Security_Camera": "downweight",
+            "Samsung_SNH_1011_N_Webcam": "exclude",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "accept",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "accept"
+          },
+          "scores": {
+            "Danmini_Doorbell": 0.0,
+            "Ecobee_Thermostat": 0.5,
+            "Ennio_Doorbell": 0.0,
+            "Philips_B120N10_Baby_Monitor": 0.5,
+            "Provision_PT_737E_Security_Camera": 1.0,
+            "Provision_PT_838_Security_Camera": 0.5,
+            "Samsung_SNH_1011_N_Webcam": 0.0,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 1.0,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 1.0
+          },
+          "rationales": {
+            "Danmini_Doorbell": "update norm z-score and calibration loss change indicate significant deviation",
+            "Ecobee_Thermostat": "update norm z-score is a strong outlier while calibration loss significantly worsened (long-term posterior mean=0.72 over 9 rounds downgrades exclude to downweight)",
+            "Ennio_Doorbell": "Both z-scores are far from zero and calibration loss significantly worsened.",
+            "Philips_B120N10_Baby_Monitor": "cosine similarity z-score is relatively high and update norm z-score is relatively low, with calibration loss also slightly worsening",
+            "Provision_PT_737E_Security_Camera": "update norm z-score is moderately deviant",
+            "Provision_PT_838_Security_Camera": "cosine similarity z-score is a strong outlier",
+            "Samsung_SNH_1011_N_Webcam": "cosine similarity z-score and calibration loss change indicate significant deviation",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "cosine similarity z-score is a notable outlier",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "update norm and cosine similarity z-scores are slightly deviant but not extreme"
+          },
+          "fallback_triggered": false
+        },
+        {
+          "round": 21,
+          "actions": {
+            "Danmini_Doorbell": "downweight",
+            "Ecobee_Thermostat": "exclude",
+            "Ennio_Doorbell": "accept",
+            "Philips_B120N10_Baby_Monitor": "accept",
+            "Provision_PT_737E_Security_Camera": "accept",
+            "Provision_PT_838_Security_Camera": "accept",
+            "Samsung_SNH_1011_N_Webcam": "exclude",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "accept",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "accept"
+          },
+          "scores": {
+            "Danmini_Doorbell": 0.5,
+            "Ecobee_Thermostat": 0.0,
+            "Ennio_Doorbell": 1.0,
+            "Philips_B120N10_Baby_Monitor": 1.0,
+            "Provision_PT_737E_Security_Camera": 1.0,
+            "Provision_PT_838_Security_Camera": 1.0,
+            "Samsung_SNH_1011_N_Webcam": 0.0,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 1.0,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 1.0
+          },
+          "rationales": {
+            "Danmini_Doorbell": "Both update norm and cosine similarity z-scores are moderately high, and calibration loss slightly worsened.",
+            "Ecobee_Thermostat": "Both update norm and cosine similarity z-scores are high, and calibration loss significantly worsened.",
+            "Ennio_Doorbell": "update norm and cosine similarity z-scores are moderately high, but calibration loss is unchanged",
+            "Philips_B120N10_Baby_Monitor": "Both z-scores are close to 0, indicating normal behavior for this round.",
+            "Provision_PT_737E_Security_Camera": "Both z-scores are moderately negative but not extreme, and the calibration loss improvement is unusual but not necessarily indicative of an attack.",
+            "Provision_PT_838_Security_Camera": "Both z-scores are moderately negative but not extreme, and the calibration loss improvement is unusual but not necessarily indicative of an attack.",
+            "Samsung_SNH_1011_N_Webcam": "cosine similarity z-score and calibration loss change indicate significant deviation",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "both z-scores are moderately negative but not extreme outliers",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "Both z-scores are moderately negative but not extreme outliers, and the calibration loss improvement is unusual but not necessarily indicative of an attack."
+          },
+          "fallback_triggered": false
+        },
+        {
+          "round": 22,
+          "actions": {
+            "Danmini_Doorbell": "exclude",
+            "Ecobee_Thermostat": "exclude",
+            "Ennio_Doorbell": "exclude",
+            "Philips_B120N10_Baby_Monitor": "exclude",
+            "Provision_PT_737E_Security_Camera": "downweight",
+            "Provision_PT_838_Security_Camera": "accept",
+            "Samsung_SNH_1011_N_Webcam": "exclude",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "downweight",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "downweight"
+          },
+          "scores": {
+            "Danmini_Doorbell": 0.0,
+            "Ecobee_Thermostat": 0.0,
+            "Ennio_Doorbell": 0.0,
+            "Philips_B120N10_Baby_Monitor": 0.0,
+            "Provision_PT_737E_Security_Camera": 0.5,
+            "Provision_PT_838_Security_Camera": 1.0,
+            "Samsung_SNH_1011_N_Webcam": 0.0,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 0.5,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 0.5
+          },
+          "rationales": {
+            "Danmini_Doorbell": "Both z-scores are far from zero and calibration loss significantly worsened.",
+            "Ecobee_Thermostat": "Both z-scores are far from zero and calibration loss significantly worsened.",
+            "Ennio_Doorbell": "Both update norm and cosine similarity z-scores are far from zero, and calibration loss significantly worsened.",
+            "Philips_B120N10_Baby_Monitor": "cosine similarity z-score and change in calibration loss are both extreme in opposite directions",
+            "Provision_PT_737E_Security_Camera": "cosine similarity z-score is high and calibration loss change is unusually positive, both deviating from typical patterns (long-term posterior mean=0.75 over 9 rounds downgrades exclude to downweight)",
+            "Provision_PT_838_Security_Camera": "cosine similarity z-score is moderately high while update norm z-score is moderately low, and calibration loss improved significantly which is unusual for an attack but still warrants some concern",
+            "Samsung_SNH_1011_N_Webcam": "Both update norm and cosine similarity z-scores are far from zero, and calibration loss got much worse.",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "cosine similarity z-score is a strong outlier while update norm z-score is also notably different, and calibration loss change is unusual (long-term posterior mean=0.87 over 9 rounds downgrades exclude to downweight)",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "cosine similarity z-score is a strong outlier while update norm z-score is also notably different (long-term posterior mean=0.74 over 9 rounds downgrades exclude to downweight)"
+          },
+          "fallback_triggered": false
+        },
+        {
+          "round": 23,
+          "actions": {
+            "Danmini_Doorbell": "exclude",
+            "Ecobee_Thermostat": "exclude",
+            "Ennio_Doorbell": "exclude",
+            "Philips_B120N10_Baby_Monitor": "downweight",
+            "Provision_PT_737E_Security_Camera": "downweight",
+            "Provision_PT_838_Security_Camera": "downweight",
+            "Samsung_SNH_1011_N_Webcam": "exclude",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "accept",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "accept"
+          },
+          "scores": {
+            "Danmini_Doorbell": 0.0,
+            "Ecobee_Thermostat": 0.0,
+            "Ennio_Doorbell": 0.0,
+            "Philips_B120N10_Baby_Monitor": 0.5,
+            "Provision_PT_737E_Security_Camera": 0.5,
+            "Provision_PT_838_Security_Camera": 0.5,
+            "Samsung_SNH_1011_N_Webcam": 0.0,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 1.0,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 1.0
+          },
+          "rationales": {
+            "Danmini_Doorbell": "Both z-scores are significantly deviant and calibration loss worsened substantially.",
+            "Ecobee_Thermostat": "Both z-scores are far from zero and calibration loss significantly worsened.",
+            "Ennio_Doorbell": "Both z-scores are far from zero and the calibration loss significantly worsened.",
+            "Philips_B120N10_Baby_Monitor": "cosine similarity z-score is relatively high and update norm z-score is relatively low, with calibration loss also slightly worsening",
+            "Provision_PT_737E_Security_Camera": "cosine similarity z-score and change in calibration loss drove the score",
+            "Provision_PT_838_Security_Camera": "cosine similarity z-score and calibration loss change indicate significant deviation (long-term posterior mean=0.74 over 9 rounds downgrades exclude to downweight)",
+            "Samsung_SNH_1011_N_Webcam": "cosine similarity z-score and calibration loss change are both highly anomalous",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "update norm z-score is a notable outlier",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "update norm z-score is notably low"
+          },
+          "fallback_triggered": false
+        },
+        {
+          "round": 24,
+          "actions": {
+            "Danmini_Doorbell": "exclude",
+            "Ecobee_Thermostat": "exclude",
+            "Ennio_Doorbell": "exclude",
+            "Philips_B120N10_Baby_Monitor": "accept",
+            "Provision_PT_737E_Security_Camera": "accept",
+            "Provision_PT_838_Security_Camera": "downweight",
+            "Samsung_SNH_1011_N_Webcam": "exclude",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "downweight",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "downweight"
+          },
+          "scores": {
+            "Danmini_Doorbell": 0.0,
+            "Ecobee_Thermostat": 0.0,
+            "Ennio_Doorbell": 0.0,
+            "Philips_B120N10_Baby_Monitor": 1.0,
+            "Provision_PT_737E_Security_Camera": 1.0,
+            "Provision_PT_838_Security_Camera": 0.5,
+            "Samsung_SNH_1011_N_Webcam": 0.0,
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": 0.5,
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": 0.5
+          },
+          "rationales": {
+            "Danmini_Doorbell": "Both z-scores are far from zero and calibration loss significantly worsened.",
+            "Ecobee_Thermostat": "Both z-scores are far from zero and calibration loss significantly worsened.",
+            "Ennio_Doorbell": "update norm z-score is high and calibration loss got much worse",
+            "Philips_B120N10_Baby_Monitor": "update norm z-score is moderately deviant",
+            "Provision_PT_737E_Security_Camera": "update norm z-score is moderately deviant",
+            "Provision_PT_838_Security_Camera": "update norm and cosine similarity z-scores deviate from the group, with calibration loss also slightly worsening",
+            "Samsung_SNH_1011_N_Webcam": "calibration loss got much worse and update norm z-score is significantly negative",
+            "SimpleHome_XCS7_1002_WHT_Security_Camera": "cosine similarity z-score is relatively high and update norm z-score is relatively low, with calibration loss also slightly worsening",
+            "SimpleHome_XCS7_1003_WHT_Security_Camera": "cosine similarity z-score is somewhat high while update norm z-score is somewhat low"
+          },
+          "fallback_triggered": false
+        }
+      ]
+    }
+  ]
+}

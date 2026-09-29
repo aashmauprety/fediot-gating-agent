@@ -1,0 +1,386 @@
+{
+  "model": "qwen2.5:14b",
+  "n_total_test_samples": 5000,
+  "n_real_errors": 37,
+  "n_errors_flagged_likely_false_positive": 0,
+  "n_correct_sampled": 10,
+  "n_correct_confirmed": 10,
+  "rows": [
+    {
+      "client": "Danmini_Doorbell",
+      "predicted_class": "gafgyt",
+      "true_class": "mirai",
+      "correct": false,
+      "triage_action": "confirm",
+      "rationale": "0.233 indicates the query is very close to typical exemplars of the predicted class, suggesting a credible match."
+    },
+    {
+      "client": "Danmini_Doorbell",
+      "predicted_class": "benign",
+      "true_class": "gafgyt",
+      "correct": false,
+      "triage_action": "confirm",
+      "rationale": "0.821 is very close to the class's typical intra-class distance, indicating a clear match with known benign traffic."
+    },
+    {
+      "client": "Ecobee_Thermostat",
+      "predicted_class": "gafgyt",
+      "true_class": "benign",
+      "correct": false,
+      "triage_action": "confirm",
+      "rationale": "0.849 is very close to the class's own typical spread, indicating a credible example of the predicted class."
+    },
+    {
+      "client": "Ecobee_Thermostat",
+      "predicted_class": "gafgyt",
+      "true_class": "mirai",
+      "correct": false,
+      "triage_action": "confirm",
+      "rationale": "0.191 (the query is much closer to the class exemplars than typical spread within the class, indicating a very clear match)"
+    },
+    {
+      "client": "Ecobee_Thermostat",
+      "predicted_class": "gafgyt",
+      "true_class": "mirai",
+      "correct": false,
+      "triage_action": "confirm",
+      "rationale": "0.107 indicates the query is very close to typical exemplars of the predicted class, suggesting a credible match."
+    },
+    {
+      "client": "Ecobee_Thermostat",
+      "predicted_class": "gafgyt",
+      "true_class": "mirai",
+      "correct": false,
+      "triage_action": "confirm",
+      "rationale": "0.075 indicates the query is very close to typical exemplars of the predicted class, suggesting a credible match."
+    },
+    {
+      "client": "Ecobee_Thermostat",
+      "predicted_class": "gafgyt",
+      "true_class": "mirai",
+      "correct": false,
+      "triage_action": "confirm",
+      "rationale": "0.060 indicates the query is very close to typical exemplars of the predicted class, suggesting a credible match."
+    },
+    {
+      "client": "Ecobee_Thermostat",
+      "predicted_class": "gafgyt",
+      "true_class": "mirai",
+      "correct": false,
+      "triage_action": "confirm",
+      "rationale": "0.061 indicates the query is very close to typical exemplars of the predicted class, suggesting a credible match."
+    },
+    {
+      "client": "Ennio_Doorbell",
+      "predicted_class": "gafgyt",
+      "true_class": "benign",
+      "correct": false,
+      "triage_action": "confirm",
+      "rationale": "0.048 indicates the query is very close to typical exemplars of the predicted class, suggesting a credible match."
+    },
+    {
+      "client": "Ennio_Doorbell",
+      "predicted_class": "gafgyt",
+      "true_class": "benign",
+      "correct": false,
+      "triage_action": "confirm",
+      "rationale": "0.208 indicates the query is very close to typical exemplars of the predicted class, suggesting a credible match."
+    },
+    {
+      "client": "Ennio_Doorbell",
+      "predicted_class": "gafgyt",
+      "true_class": "benign",
+      "correct": false,
+      "triage_action": "confirm",
+      "rationale": "0.006 indicates the query is extremely similar to known exemplars of the predicted class, well within the typical range for this class."
+    },
+    {
+      "client": "Philips_B120N10_Baby_Monitor",
+      "predicted_class": "benign",
+      "true_class": "gafgyt",
+      "correct": false,
+      "triage_action": "flag-for-review",
+      "rationale": "1.425 indicates a partial match, warranting human review before taking action."
+    },
+    {
+      "client": "Provision_PT_737E_Security_Camera",
+      "predicted_class": "gafgyt",
+      "true_class": "mirai",
+      "correct": false,
+      "triage_action": "confirm",
+      "rationale": "0.390 indicates the query is very close to typical examples of the predicted class, suggesting a credible match."
+    },
+    {
+      "client": "Provision_PT_737E_Security_Camera",
+      "predicted_class": "mirai",
+      "true_class": "benign",
+      "correct": false,
+      "triage_action": "confirm",
+      "rationale": "0.256 indicates the query is very close to typical examples of the mirai class, well within expected variation for this class."
+    },
+    {
+      "client": "Provision_PT_737E_Security_Camera",
+      "predicted_class": "gafgyt",
+      "true_class": "mirai",
+      "correct": false,
+      "triage_action": "confirm",
+      "rationale": "0.429 indicates the query is much closer to the class exemplars than typical intra-class distances, suggesting a very clear match."
+    },
+    {
+      "client": "Provision_PT_737E_Security_Camera",
+      "predicted_class": "mirai",
+      "true_class": "benign",
+      "correct": false,
+      "triage_action": "confirm",
+      "rationale": "0.317 indicates the query is very close to typical examples of the mirai class, well within expected variation for this class."
+    },
+    {
+      "client": "Provision_PT_838_Security_Camera",
+      "predicted_class": "mirai",
+      "true_class": "benign",
+      "correct": false,
+      "triage_action": "confirm",
+      "rationale": "0.253 indicates the query is very close to typical examples of the mirai class, well within expected variation for this class."
+    },
+    {
+      "client": "Provision_PT_838_Security_Camera",
+      "predicted_class": "mirai",
+      "true_class": "benign",
+      "correct": false,
+      "triage_action": "confirm",
+      "rationale": "0.256 indicates the query is very close to typical examples of the mirai class, well within expected variation for this class."
+    },
+    {
+      "client": "Provision_PT_838_Security_Camera",
+      "predicted_class": "gafgyt",
+      "true_class": "benign",
+      "correct": false,
+      "triage_action": "confirm",
+      "rationale": "0.446 indicates the query is much closer to the class exemplars than typical intra-class distances, suggesting a very clear match."
+    },
+    {
+      "client": "Provision_PT_838_Security_Camera",
+      "predicted_class": "gafgyt",
+      "true_class": "benign",
+      "correct": false,
+      "triage_action": "confirm",
+      "rationale": "0.109 (the query is much closer to the class exemplars than typical spread within the class, indicating a very clear match)"
+    },
+    {
+      "client": "SimpleHome_XCS7_1002_WHT_Security_Camera",
+      "predicted_class": "gafgyt",
+      "true_class": "benign",
+      "correct": false,
+      "triage_action": "confirm",
+      "rationale": "0.842 is very close to the class's own typical spread, indicating a credible example of the predicted class."
+    },
+    {
+      "client": "SimpleHome_XCS7_1002_WHT_Security_Camera",
+      "predicted_class": "gafgyt",
+      "true_class": "mirai",
+      "correct": false,
+      "triage_action": "confirm",
+      "rationale": "0.242 (the query is much closer to the class exemplars than typical spread within the class, indicating a very clear match)"
+    },
+    {
+      "client": "SimpleHome_XCS7_1002_WHT_Security_Camera",
+      "predicted_class": "gafgyt",
+      "true_class": "benign",
+      "correct": false,
+      "triage_action": "confirm",
+      "rationale": "0.441 indicates the query is much closer to the class exemplars than typical intra-class distances, suggesting a very clear match."
+    },
+    {
+      "client": "SimpleHome_XCS7_1002_WHT_Security_Camera",
+      "predicted_class": "gafgyt",
+      "true_class": "mirai",
+      "correct": false,
+      "triage_action": "confirm",
+      "rationale": "0.033 indicates the query is very close to typical exemplars of the predicted class, suggesting a credible match."
+    },
+    {
+      "client": "SimpleHome_XCS7_1002_WHT_Security_Camera",
+      "predicted_class": "gafgyt",
+      "true_class": "benign",
+      "correct": false,
+      "triage_action": "confirm",
+      "rationale": "0.147 indicates the query is very close to typical exemplars of the predicted class, suggesting a credible match."
+    },
+    {
+      "client": "SimpleHome_XCS7_1002_WHT_Security_Camera",
+      "predicted_class": "benign",
+      "true_class": "gafgyt",
+      "correct": false,
+      "triage_action": "flag-for-review",
+      "rationale": "1.498 indicates a partial match, warranting human review before taking action."
+    },
+    {
+      "client": "SimpleHome_XCS7_1002_WHT_Security_Camera",
+      "predicted_class": "gafgyt",
+      "true_class": "benign",
+      "correct": false,
+      "triage_action": "confirm",
+      "rationale": "0.431 indicates the query is much closer to the class exemplars than typical intra-class distances, suggesting a very clear match."
+    },
+    {
+      "client": "SimpleHome_XCS7_1002_WHT_Security_Camera",
+      "predicted_class": "gafgyt",
+      "true_class": "benign",
+      "correct": false,
+      "triage_action": "confirm",
+      "rationale": "0.047 indicates the query is very close to typical exemplars of the predicted class, suggesting a credible match."
+    },
+    {
+      "client": "SimpleHome_XCS7_1002_WHT_Security_Camera",
+      "predicted_class": "gafgyt",
+      "true_class": "benign",
+      "correct": false,
+      "triage_action": "confirm",
+      "rationale": "0.000 indicates the query is an exact match or nearly identical to typical examples of the predicted class, making the alert highly credible."
+    },
+    {
+      "client": "SimpleHome_XCS7_1002_WHT_Security_Camera",
+      "predicted_class": "gafgyt",
+      "true_class": "benign",
+      "correct": false,
+      "triage_action": "confirm",
+      "rationale": "0.144 (the query is much closer to the class exemplars than typical spread within the class, indicating a very clear match)"
+    },
+    {
+      "client": "SimpleHome_XCS7_1002_WHT_Security_Camera",
+      "predicted_class": "gafgyt",
+      "true_class": "benign",
+      "correct": false,
+      "triage_action": "confirm",
+      "rationale": "0.166 indicates the query is very close to typical exemplars of the predicted class, suggesting a credible match."
+    },
+    {
+      "client": "SimpleHome_XCS7_1002_WHT_Security_Camera",
+      "predicted_class": "gafgyt",
+      "true_class": "mirai",
+      "correct": false,
+      "triage_action": "confirm",
+      "rationale": "0.052 indicates the query is very close to typical exemplars of the predicted class, suggesting a credible match."
+    },
+    {
+      "client": "SimpleHome_XCS7_1002_WHT_Security_Camera",
+      "predicted_class": "gafgyt",
+      "true_class": "benign",
+      "correct": false,
+      "triage_action": "confirm",
+      "rationale": "1.287 is close to 1.0, indicating the query resembles typical examples of the predicted class."
+    },
+    {
+      "client": "SimpleHome_XCS7_1003_WHT_Security_Camera",
+      "predicted_class": "gafgyt",
+      "true_class": "mirai",
+      "correct": false,
+      "triage_action": "confirm",
+      "rationale": "0.083 indicates the query is very close to typical exemplars of the predicted class, suggesting a credible match."
+    },
+    {
+      "client": "SimpleHome_XCS7_1003_WHT_Security_Camera",
+      "predicted_class": "benign",
+      "true_class": "mirai",
+      "correct": false,
+      "triage_action": "confirm",
+      "rationale": "0.539 indicates the query is very close to typical examples of the predicted class, suggesting a credible match."
+    },
+    {
+      "client": "SimpleHome_XCS7_1003_WHT_Security_Camera",
+      "predicted_class": "gafgyt",
+      "true_class": "mirai",
+      "correct": false,
+      "triage_action": "confirm",
+      "rationale": "0.024 indicates the query is very close to typical exemplars of the predicted class, suggesting a credible match."
+    },
+    {
+      "client": "SimpleHome_XCS7_1003_WHT_Security_Camera",
+      "predicted_class": "gafgyt",
+      "true_class": "mirai",
+      "correct": false,
+      "triage_action": "confirm",
+      "rationale": "0.201 (the query is much closer to the class exemplars than typical spread within the class, indicating a very clear match)"
+    },
+    {
+      "client": "SimpleHome_XCS7_1002_WHT_Security_Camera",
+      "predicted_class": "gafgyt",
+      "true_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm",
+      "rationale": "0.000 indicates the query is an exact match or nearly identical to typical examples of the predicted class, making the alert highly credible."
+    },
+    {
+      "client": "Provision_PT_737E_Security_Camera",
+      "predicted_class": "benign",
+      "true_class": "benign",
+      "correct": true,
+      "triage_action": "confirm",
+      "rationale": "0.034 indicates the query is very close to typical examples of the predicted class, suggesting a credible match."
+    },
+    {
+      "client": "Samsung_SNH_1011_N_Webcam",
+      "predicted_class": "gafgyt",
+      "true_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm",
+      "rationale": "0.023 (the query is extremely close to the class's exemplars, indicating a very typical example)"
+    },
+    {
+      "client": "Provision_PT_737E_Security_Camera",
+      "predicted_class": "benign",
+      "true_class": "benign",
+      "correct": true,
+      "triage_action": "confirm",
+      "rationale": "0.333 indicates the query is much closer to the reference exemplars than typical distances within the class, suggesting a very clear match to the predicted benign class."
+    },
+    {
+      "client": "Provision_PT_737E_Security_Camera",
+      "predicted_class": "mirai",
+      "true_class": "mirai",
+      "correct": true,
+      "triage_action": "confirm",
+      "rationale": "0.019 indicates the query is very close to typical examples of the mirai class, suggesting a credible match."
+    },
+    {
+      "client": "Provision_PT_737E_Security_Camera",
+      "predicted_class": "mirai",
+      "true_class": "mirai",
+      "correct": true,
+      "triage_action": "confirm",
+      "rationale": "0.279 indicates the query is very close to typical examples of the mirai class, suggesting a credible match."
+    },
+    {
+      "client": "Ennio_Doorbell",
+      "predicted_class": "gafgyt",
+      "true_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm",
+      "rationale": "0.011 (the query is extremely close to the class's exemplars, indicating a very typical example)"
+    },
+    {
+      "client": "Provision_PT_737E_Security_Camera",
+      "predicted_class": "benign",
+      "true_class": "benign",
+      "correct": true,
+      "triage_action": "confirm",
+      "rationale": "0.433 indicates the query is much closer to the class's exemplars than typical distances within the class, suggesting a very clear match to the predicted class."
+    },
+    {
+      "client": "Provision_PT_737E_Security_Camera",
+      "predicted_class": "gafgyt",
+      "true_class": "gafgyt",
+      "correct": true,
+      "triage_action": "confirm",
+      "rationale": "0.000 indicates the query is an exact match or nearly identical to typical examples of the predicted class, making the alert highly credible."
+    },
+    {
+      "client": "Ecobee_Thermostat",
+      "predicted_class": "benign",
+      "true_class": "benign",
+      "correct": true,
+      "triage_action": "confirm",
+      "rationale": "0.535 indicates the query is much closer to the class's exemplars than typical spread, suggesting a very clear match to the predicted class."
+    }
+  ]
+}

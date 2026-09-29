@@ -1,0 +1,71 @@
+{
+  "description": "CIC IoT-DIAD 2024 trust-building attack, rule-based Gating Agent baseline (richer 118-feature digest basis vs. N-BaIoT's 115)",
+  "classes": [
+    "Benign",
+    "BruteForce",
+    "DDoS",
+    "DoS",
+    "Mirai",
+    "Recon",
+    "Spoofing",
+    "Web"
+  ],
+  "embed_dim": 118,
+  "n_clients": 9,
+  "results": [
+    {
+      "delay_rounds": 0,
+      "strategy": "gating_with_bayesian",
+      "final_macro_f1": 0.09756557418958994,
+      "wall_clock_seconds": 16.080668210983276
+    },
+    {
+      "delay_rounds": 0,
+      "strategy": "gating_round_only",
+      "final_macro_f1": 0.17829588073691846,
+      "wall_clock_seconds": 15.180474758148193
+    },
+    {
+      "delay_rounds": 10,
+      "strategy": "gating_with_bayesian",
+      "final_macro_f1": 0.7583566704036,
+      "wall_clock_seconds": 15.239051103591919
+    },
+    {
+      "delay_rounds": 10,
+      "strategy": "gating_round_only",
+      "final_macro_f1": 0.027252502780867632,
+      "wall_clock_seconds": 15.317492008209229
+    },
+    {
+      "delay_rounds": 20,
+      "strategy": "gating_with_bayesian",
+      "final_macro_f1": 0.367302159947019,
+      "wall_clock_seconds": 15.175904989242554
+    },
+    {
+      "delay_rounds": 20,
+      "strategy": "gating_round_only",
+      "final_macro_f1": 0.367302159947019,
+      "wall_clock_seconds": 15.445086002349854
+    },
+    {
+      "delay_rounds": 0,
+      "strategy": "fedavg_plain",
+      "final_macro_f1": 0.12461152495776498,
+      "wall_clock_seconds": 15.735193729400635
+    },
+    {
+      "delay_rounds": 10,
+      "strategy": "fedavg_plain",
+      "final_macro_f1": 0.2050475869871681,
+      "wall_clock_seconds": 15.92753529548645
+    },
+    {
+      "delay_rounds": 20,
+      "strategy": "fedavg_plain",
+      "final_macro_f1": 0.10700254938382998,
+      "wall_clock_seconds": 15.388888120651245
+    }
+  ]
+}

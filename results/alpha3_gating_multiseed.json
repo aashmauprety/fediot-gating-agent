@@ -1,0 +1,27 @@
+[
+  {
+    "seed": 0,
+    "final_macro_f1": 0.3203640101420007,
+    "wall_clock_seconds": 29.766779899597168
+  },
+  {
+    "seed": 1,
+    "final_macro_f1": 0.14200769499825114,
+    "wall_clock_seconds": 31.01922297477722
+  },
+  {
+    "seed": 2,
+    "final_macro_f1": 0.9844215663599262,
+    "wall_clock_seconds": 28.365298986434937
+  },
+  {
+    "seed": 3,
+    "final_macro_f1": 0.15187717101472978,
+    "wall_clock_seconds": 28.008567810058594
+  },
+  {
+    "seed": 4,
+    "final_macro_f1": 0.1736186437892384,
+    "wall_clock_seconds": 28.554101943969727
+  }
+]

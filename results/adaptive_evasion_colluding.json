@@ -1,0 +1,50 @@
+{
+  "description": "Colluding adaptive attacker vs GShield and selective-LLM, targeted, CIC IoT-DIAD.",
+  "runs": [
+    {
+      "defense": "gshield",
+      "evasion_lambda": 0.0,
+      "final_macro_f1": 0.9208602390676883,
+      "targeted_success_rate": 0.01050420168067227,
+      "wall_clock_seconds": 18.26076579093933
+    },
+    {
+      "defense": "gshield",
+      "evasion_lambda": 0.9,
+      "final_macro_f1": 0.9191247209641684,
+      "targeted_success_rate": 0.01050420168067227,
+      "wall_clock_seconds": 22.28559184074402
+    },
+    {
+      "defense": "gshield",
+      "evasion_lambda": 0.99,
+      "final_macro_f1": 0.917611881510455,
+      "targeted_success_rate": 0.008403361344537815,
+      "wall_clock_seconds": 22.38142991065979
+    },
+    {
+      "defense": "selective_llm",
+      "evasion_lambda": 0.0,
+      "final_macro_f1": 0.9193122976329591,
+      "targeted_success_rate": 0.008403361344537815,
+      "wall_clock_seconds": 324.68840408325195,
+      "malicious_fast_path_bypass_fraction": 0.0
+    },
+    {
+      "defense": "selective_llm",
+      "evasion_lambda": 0.9,
+      "final_macro_f1": 0.9196632022562733,
+      "targeted_success_rate": 0.01050420168067227,
+      "wall_clock_seconds": 382.80160307884216,
+      "malicious_fast_path_bypass_fraction": 0.0
+    },
+    {
+      "defense": "selective_llm",
+      "evasion_lambda": 0.99,
+      "final_macro_f1": 0.9166267005965023,
+      "targeted_success_rate": 0.012605042016806723,
+      "wall_clock_seconds": 419.4373722076416,
+      "malicious_fast_path_bypass_fraction": 0.0
+    }
+  ]
+}
