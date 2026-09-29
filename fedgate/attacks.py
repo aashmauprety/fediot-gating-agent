@@ -28,6 +28,24 @@ def label_flip_targeted(
     return y_new
 
 
+def label_flip_partial(
+    y: torch.Tensor, fraction: float, num_classes: int, rng: np.random.RandomState
+) -> torch.Tensor:
+    """Novel-attack-shape generalization test: untargeted flip applied to
+    only `fraction` of samples (0 = no attack, 1 = identical to
+    `label_flip_untargeted`), used by the slow-drip attack to ramp attack
+    strength up gradually across rounds instead of attacking at full
+    strength from the first attacking round."""
+    y_np = y.clone().numpy()
+    n = len(y_np)
+    n_flip = int(round(fraction * n))
+    if n_flip == 0:
+        return y.clone()
+    idx = rng.choice(n, size=n_flip, replace=False)
+    y_np[idx] = rng.randint(0, num_classes, size=n_flip)
+    return torch.tensor(y_np, dtype=y.dtype)
+
+
 def scale_update(state_dict: Dict[str, torch.Tensor], factor: float) -> Dict[str, torch.Tensor]:
     """Model-poisoning attack: scale the local update by `factor`
     (>1 amplifies the malicious client's influence under uniform FedAvg)."""

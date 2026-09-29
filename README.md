@@ -1474,6 +1474,65 @@ capability floor" open question from Future Work -- it isn't a floor,
 it's already at the ceiling this specific judgment task offers at this
 evidence design. Paper's Conclusion updated to reflect this too.
 
+**Thirty-second real result: two structural experiments, per user
+request "tell me 2 experiment we can do to level up 100X this paper"
+(explicitly excluding human-grounded evaluation).** Both address the
+paper's own stated weakest points -- whether the LLM is truly reasoning
+vs. pattern-matching its calibration exemplars, and whether the
+round-relative digest design actually transfers across deployments --
+rather than adding another data point in an already-well-covered
+paradigm.
+
+**(1) Novel attack-shape generalization**
+(`scripts/run_novel_attack_shapes.py`,
+`results/novel_attack_shapes.json`). Added three new attack primitives
+to `fedgate/attacks.py`/`experiment.py` (`label_flip_partial`,
+`free_rider`, `intermittent`/`slow_drip` scheduling), none resembling
+the digest shapes the Gating Agent's few-shot exemplars were built
+from, tested on N-BaIoT with the prompt completely untouched:
+- slow-drip (ramps 0->full strength over 20 rounds): undefended 0.185
+  -> gated **0.997**.
+- intermittent (attacks only every 3rd round): undefended 0.138 ->
+  gated **0.997**.
+- free-rider (submits no real update, a distinct non-poisoning FL
+  threat): undefended 0.995 -> gated 0.997 (statistically the same,
+  since FedAvg dilutes rather than corrupts a near-zero contribution).
+
+Both damaging shapes were fully defended with zero prompt changes --
+real evidence against the "just pattern-matching the exemplars"
+critique. But inspecting per-round decisions found a genuine,
+honestly-reported limitation: free-riders got `accept` in every single
+round (checked directly, not inferred from the accuracy number alone).
+The exclude/downweight thresholds are one-sided -- built to catch
+anomalously LARGE update norms (poisoning), not anomalously SMALL ones
+(idling). Free-riding doesn't hurt this system, but it isn't detected
+by it either; a real scope boundary, not a bug.
+
+**(2) Zero-recalibration cross-dataset transfer**
+(`scripts/run_ciciot2023_zero_recalibration.py`,
+`results/ciciot2023_zero_recalibration.json`). Real CIC IoT 2023 data
+(`fedgate/data.py:load_ciciot2023_federated`, already implemented,
+never previously used for the Gating Agent -- 39 features, 8 classes,
+genuinely different from N-BaIoT's 115/CIC IoT-DIAD's 118), the exact
+same unmodified selective-LLM policy, zero threshold/prompt changes,
+across trust_building D=10/untargeted/targeted. Result: 0.691/0.685/0.688
+macro-F1 -- a tight band, but well below the 0.90+ on the other two
+datasets. Ran a no-attacker-at-all baseline on the same data before
+concluding anything: **0.686 macro-F1**, essentially identical to all
+three defended numbers. The defense fully absorbs the attacks' impact
+on this dataset; the lower absolute number is this simpler
+39-feature representation's natural ceiling, not a generalization
+failure. One real, unresolved caveat reported honestly: targeted-attack
+success rate here is 20% (vs <1% everywhere else) -- plausibly
+explained by this dataset's classes being more naturally confusable in
+a 39-dim space (which would inflate a raw source-predicted-as-target
+metric independent of any real defense gap), but NOT independently
+confirmed, so reported as an open hypothesis, not an established fact.
+
+Both written into `ICC2027/main.tex` as new Section IV-G/H. Paper is
+now 7 pages, page-limit trim still explicitly deferred per user
+instruction.
+
 **Still open, in priority order:**
 1. The hosted-frontier-model test remains blocked on OpenAI billing
    credits (code ready: `OpenAIExternalBayesianPolicy`). Now the more
@@ -1489,13 +1548,10 @@ evidence design. Paper's Conclusion updated to reflect this too.
 - **YourThings**: not attempted; `https://www.yourthings.info/data/` returns
   200 and is worth checking for the same kind of direct-download links
   UNSW turned out to have (its site initially looked gated but wasn't).
-- **CIC IoT 2023**: gated behind a personal registration form at
-  `https://cicresearch.ca/IOTDataset/CIC_IOT_Dataset2023/` (name, email,
-  institution, job title, country → `insert.php`). Fill it in yourself
-  with real details if you want this dataset — it should not be
-  auto-submitted with placeholder/fabricated identity information — then
-  extend `data.py` with a loader for whatever file format you're granted
-  access to (likely a merged CSV of flow features, based on other CIC
-  datasets' conventions, which would feed the attack-type head the same
-  way N-BaIoT does; check whether they also provide pcaps if you want to
-  exercise Phase 0 with it).
+- **CIC IoT 2023**: done — this note was stale; see the dataset table
+  above. The official portal is still gated behind a personal
+  registration form, but the dataset is legitimately re-mirrored under
+  a CC-BY-4.0 license, already downloaded, and already has a working
+  loader (`fedgate/data.py:load_ciciot2023_federated`), used for the
+  zero-recalibration cross-dataset transfer experiment (2026-09-29
+  entry above).

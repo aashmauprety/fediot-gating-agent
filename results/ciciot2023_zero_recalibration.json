@@ -1,0 +1,40 @@
+{
+  "description": "Zero-recalibration cross-dataset transfer: identical SelectiveLLMGatingPolicy, unchanged prompt, on CIC IoT 2023 -- a real dataset never used to build or tune the Gating Agent's few-shot calibration examples.",
+  "dataset": "CIC IoT 2023 (real flow features, 8 classes, 39 dims)",
+  "embed_dim": 39,
+  "runs": [
+    {
+      "label": "CIC IoT 2023, selective-LLM (zero recalibration), attack=trust_building, D=10",
+      "attack": "trust_building",
+      "delay": 10,
+      "final_macro_f1": 0.6909555410111949,
+      "targeted_success_rate": 0.19935691318327975,
+      "wall_clock_seconds": 273.51886796951294,
+      "n_fallback_rounds": 0,
+      "n_rounds": 25,
+      "llm_call_fraction": 0.3101851851851852
+    },
+    {
+      "label": "CIC IoT 2023, selective-LLM (zero recalibration), attack=untargeted",
+      "attack": "untargeted",
+      "delay": null,
+      "final_macro_f1": 0.6853550659048318,
+      "targeted_success_rate": null,
+      "wall_clock_seconds": 296.5317997932434,
+      "n_fallback_rounds": 0,
+      "n_rounds": 25,
+      "llm_call_fraction": 0.3333333333333333
+    },
+    {
+      "label": "CIC IoT 2023, selective-LLM (zero recalibration), attack=targeted",
+      "attack": "targeted",
+      "delay": null,
+      "final_macro_f1": 0.6878759683788884,
+      "targeted_success_rate": 0.20257234726688103,
+      "wall_clock_seconds": 305.2740969657898,
+      "n_fallback_rounds": 0,
+      "n_rounds": 25,
+      "llm_call_fraction": 0.33796296296296297
+    }
+  ]
+}

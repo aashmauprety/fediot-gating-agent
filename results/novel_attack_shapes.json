@@ -1,0 +1,35 @@
+{
+  "description": "Novel attack-shape generalization test: slow_drip, free_rider, intermittent -- none resembling the digest signatures the Gating Agent's few-shot calibration examples were built from. Prompt was NOT modified for this test.",
+  "results": {
+    "slow_drip": {
+      "undefended_macro_f1": 0.18459956292582594,
+      "gated": {
+        "final_macro_f1": 0.9973431834103245,
+        "wall_clock_seconds": 450.69116497039795,
+        "n_fallback_rounds": 0,
+        "n_rounds": 25,
+        "llm_call_fraction": 0.49074074074074076
+      }
+    },
+    "free_rider": {
+      "undefended_macro_f1": 0.9949296569709724,
+      "gated": {
+        "final_macro_f1": 0.9968499339097182,
+        "wall_clock_seconds": 388.9460780620575,
+        "n_fallback_rounds": 0,
+        "n_rounds": 25,
+        "llm_call_fraction": 0.46296296296296297
+      }
+    },
+    "intermittent": {
+      "undefended_macro_f1": 0.13790186125211507,
+      "gated": {
+        "final_macro_f1": 0.9973910689747078,
+        "wall_clock_seconds": 373.9423840045929,
+        "n_fallback_rounds": 0,
+        "n_rounds": 25,
+        "llm_call_fraction": 0.42592592592592593
+      }
+    }
+  }
+}

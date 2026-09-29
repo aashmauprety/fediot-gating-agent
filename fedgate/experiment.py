@@ -23,7 +23,7 @@ from sklearn.metrics import f1_score
 
 from . import federated as fed
 from .attacks import (
-    label_flip_untargeted, label_flip_targeted, scale_update, blend_toward_reference,
+    label_flip_untargeted, label_flip_targeted, label_flip_partial, scale_update, blend_toward_reference,
     TrustBuildingSchedule,
 )
 from .data import ClientData, train_val_test_split
@@ -67,6 +67,8 @@ class FederatedSimulation:
         evasion_collude: bool = False,
         concept_drift_start_round: int = -1,
         concept_drift_per_round: float = 0.0,
+        slow_drip_ramp_rounds: int = 20,
+        intermittent_period: int = 3,
     ):
         self.device_str = device
         self.rng = np.random.RandomState(seed)
@@ -139,6 +141,29 @@ class FederatedSimulation:
         self.concept_drift_start_round = concept_drift_start_round
         self.concept_drift_per_round = concept_drift_per_round
 
+        # Novel-attack-shape generalization test (Section VII limitation
+        # follow-up): none of these three shapes appear in the Gating
+        # Agent's few-shot calibration examples, which were hand-built
+        # against untargeted/targeted/trust-building digest signatures --
+        # testing them WITHOUT touching the prompt checks whether the
+        # design generalizes or was implicitly overfit to those examples.
+        #   "slow_drip": attack strength (both label-flip fraction and
+        #     magnitude scaling) ramps linearly from 0 to full strength
+        #     over `slow_drip_ramp_rounds`, instead of switching on at
+        #     full strength immediately -- each individual round looks
+        #     only mildly anomalous.
+        #   "free_rider": a malicious client submits no real update at
+        #     all (returns the global model essentially unchanged) --
+        #     not poisoning, a distinct, real FL threat category (a
+        #     client shirking compute/data contribution while still
+        #     being counted and rewarded).
+        #   "intermittent": attacks only every `intermittent_period`-th
+        #     round, honest otherwise -- tests whether the long-term
+        #     trust posterior handles a recurring pattern rather than a
+        #     one-time sustained shift.
+        self.slow_drip_ramp_rounds = slow_drip_ramp_rounds
+        self.intermittent_period = intermittent_period
+
         self.lr = lr
         self.local_epochs = local_epochs
         self.batch_size = batch_size
@@ -197,11 +222,16 @@ class FederatedSimulation:
         is_attacking = cid in self.malicious
         if self.attack == "trust_building":
             is_attacking = is_attacking and self.trust_schedule.is_attacking(round_idx)
+        if self.attack == "intermittent":
+            is_attacking = is_attacking and (round_idx % self.intermittent_period == 0)
 
-        if is_attacking and self.attack in ("untargeted", "trust_building"):
+        if is_attacking and self.attack in ("untargeted", "trust_building", "intermittent"):
             y = label_flip_untargeted(y, self.num_classes, self.rng)
         elif is_attacking and self.attack == "targeted":
             y = label_flip_targeted(y, self.targeted_source, self.targeted_target)
+        elif is_attacking and self.attack == "slow_drip":
+            fraction = min(1.0, round_idx / max(1, self.slow_drip_ramp_rounds))
+            y = label_flip_partial(y, fraction, self.num_classes, self.rng)
         return X, y
 
     def _local_train(self, cid: str, round_idx: int) -> Dict[str, torch.Tensor]:
@@ -220,11 +250,30 @@ class FederatedSimulation:
         is_attacking = cid in self.malicious
         if self.attack == "trust_building":
             is_attacking = is_attacking and self.trust_schedule.is_attacking(round_idx)
-        if is_attacking and self.attack in ("untargeted", "targeted", "trust_building"):
+        if self.attack == "intermittent":
+            is_attacking = is_attacking and (round_idx % self.intermittent_period == 0)
+
+        if is_attacking and self.attack == "free_rider":
+            # Not poisoning -- a distinct real FL threat: submits (almost)
+            # no real update at all, shirking its compute/data
+            # contribution while still being counted in the average. Tiny
+            # random noise instead of an exact zero delta, so downstream
+            # cosine-similarity computation never divides by a zero norm.
+            prev = fed.get_state(self.global_model)
+            return {k: prev[k] + torch.randn_like(prev[k]) * 1e-6 for k in prev}
+
+        if is_attacking and self.attack in ("untargeted", "targeted", "trust_building", "intermittent", "slow_drip"):
             # also scale the update to make the poisoning attempt stronger,
             # not just relabeled local training
             prev = fed.get_state(self.global_model)
             delta = fed.state_delta(state, prev)
+            effective_scale = self.scale_factor
+            if self.attack == "slow_drip":
+                # Ramp magnitude scaling up alongside the label-flip
+                # fraction, so each individual round looks only mildly
+                # anomalous rather than switching on at full strength.
+                fraction = min(1.0, round_idx / max(1, self.slow_drip_ramp_rounds))
+                effective_scale = 1.0 + fraction * (self.scale_factor - 1.0)
             if self.evasion_lambda > 0.0:
                 # Constrain-and-scale-style adaptive attack (Section
                 # VII-F): blend toward THIS client's own clean-label
@@ -256,7 +305,7 @@ class FederatedSimulation:
                     )
                     reference_delta = fed.state_delta(fed.get_state(clean_model), prev)
                 delta = blend_toward_reference(delta, reference_delta, self.evasion_lambda)
-            delta = scale_update(delta, self.scale_factor)
+            delta = scale_update(delta, effective_scale)
             state = {k: prev[k] + delta[k].to(prev[k].dtype) for k in prev}
         return state
 
