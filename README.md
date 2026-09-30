@@ -1603,6 +1603,67 @@ final, submission-ready state of the ICC 2027 paper.
    itself regardless of model class? Worth running the moment credits
    are available.
 
+**Thirty-fifth real result: two independent peer reviews (a full review
+and a separate novelty-focused review) were addressed with real
+text/scoping fixes, and the paper re-verified at 6/6 pages.** With the
+deadline 2 days out (Sept 30, 2026), `my_review_icc.md` and
+`novelty_review_icc.md` -- both dropped into the `ICC2027/` folder --
+converged on the same core objections, which is a real signal they're
+genuine issues, not reviewer idiosyncrasy. Fixes applied to
+`ICC2027/main.tex`:
+
+- **The single strongest objection** (both reviews independently
+  raised it): Fig. 1's shared-encoder diagram could be misread as one
+  model jointly attacked on both device-ID and intrusion detection,
+  when it is actually two separate poisoning experiments on a shared
+  architecture. Fixed in the abstract, the four-contributions
+  paragraph, and -- most directly -- a new sentence opening the
+  Results section that states this explicitly rather than letting the
+  figure imply something untested.
+- Softened three overclaims: the abstract's "beating a rule-based
+  reference every time" (not literally true across every table row),
+  auditability stated as settled fact rather than the paper's actual,
+  not-yet-human-validated hypothesis, and the two capability-boundary
+  sentences ("14B is necessary" / "14B is the ceiling") now explicitly
+  scoped to the tested model families and prompt design, not asserted
+  as general findings.
+- Added a privacy/server-visibility caveat to the System and Threat
+  Model section: gating requires the server (and the LLM it queries)
+  to see each client's per-round digest, which is compatible with an
+  honest-but-curious server but not with secure aggregation, which
+  would hide those signals -- flagged as open, not glossed over.
+- Verified via real WebSearch (not a hallucinated citation -- an
+  earlier session already caught one forked agent hallucinating a
+  literature "confirmation" with zero real tool calls, so citations
+  get checked directly) that OpenCLAW-Nexus (Jia et al., arXiv:2605.04091,
+  2026) is a real paper proposing a discounted Beta-reputation
+  posterior for decentralized Byzantine-resilient FL trust. Added it
+  to the bibliography and cited it in Related Work, explicitly
+  narrowing the paper's Beta-trust-posterior novelty claim: the
+  contribution isn't the Beta posterior, it's pairing one with an LLM
+  reasoning in natural language over its value.
+
+Adding this content pushed the paper to 7 pages. Rather than cut any
+of the new fixes back out, the same word-trimming discipline from the
+page-limit-trim pass (thirty-fourth real result) was reapplied across
+the intro, related work, results, and conclusion -- no claims or
+numbers removed, just tightened phrasing -- until back to 6 pages.
+Confirmed via full clean rebuild (`pdflatex` + `bibtex` + 2 more
+passes): exactly 6/6 pages, 0 undefined references/citations, 0
+overfull boxes, and a full visual read of all 6 rendered pages
+confirming no overlap or truncation from any of the edits.
+
+**Not attempted, explicitly, given the ~2-day deadline:** a true
+jointly-attacked two-head experiment, a blinded human audit study of
+the LLM's rationales (auditability remains a stated hypothesis, not a
+validated claim, for exactly this reason), a full matched-protocol
+reimplementation of the 3+ closest competing methods, and a
+controlled cross-model-family scaling study beyond the Qwen2.5
+8B/14B/32B points already measured. These would need new data,
+infrastructure, or human subjects not available before Oct 2, so the
+paper says so explicitly rather than claiming more than what was
+actually tested.
+
 ## To get the remaining datasets
 
 - **UNSW**: done — see above.
