@@ -65,6 +65,9 @@ class FederatedSimulation:
         force_accept_round0: bool = True,
         evasion_lambda: float = 0.0,
         evasion_collude: bool = False,
+        evasion_calib_aware: bool = False,
+        calib_aware_safe_delta: float = 0.5,
+        calib_aware_lambda_grid: Optional[List[float]] = None,
         concept_drift_start_round: int = -1,
         concept_drift_per_round: float = 0.0,
         slow_drip_ramp_rounds: int = 20,
@@ -128,6 +131,32 @@ class FederatedSimulation:
         self.evasion_collude = evasion_collude
         self._collude_ref_round = -1
         self._collude_ref_delta: Optional[Dict[str, torch.Tensor]] = None
+
+        # Calibration-preserving adaptive attacker (review-response
+        # follow-up, Oct 2026): every evasion variant above was built to
+        # evade the update-norm/cosine digest signals only, never tested
+        # against calib_loss_delta at all -- an attacker could in
+        # principle pick a blend that looks directionally honest (fools
+        # norm/cosine) while still making the global model measurably
+        # worse on held-out data. This variant searches a grid of blend
+        # strengths (floor at `evasion_lambda`, same reference-direction
+        # mechanism as above) and picks the smallest (= strongest
+        # residual attack) one whose calibration impact -- measured on
+        # the attacker's OWN held-out val split, a conservative,
+        # genuinely-available local proxy for the server's real
+        # calib_loss_delta, since the server's calibration set is built
+        # by concatenating every client's val split including this one
+        # -- stays at or below `calib_aware_safe_delta`. This assumes the
+        # attacker knows that threshold value, the same white-box
+        # worst-case assumption the constrain-and-scale literature
+        # already makes for norm/cosine (Bagdasaryan et al., already
+        # cited). It does NOT assume the attacker can see other clients'
+        # calib deltas this round, so it cannot directly target the real
+        # policy's same-round cross-client z-score -- only its own
+        # absolute impact, a realistic (not omniscient) attacker.
+        self.evasion_calib_aware = evasion_calib_aware
+        self.calib_aware_safe_delta = calib_aware_safe_delta
+        self.calib_aware_lambda_grid = calib_aware_lambda_grid or [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
 
         # Synthetic benign concept drift (Section VII limitation: "no
         # concept-drift adaptation"): a slowly-growing additive bias
@@ -208,6 +237,50 @@ class FederatedSimulation:
             logits = model(self._calib_X)
             loss = self._calib_loss_fn(logits, self._calib_y)
         return float(loss.item())
+
+    def _local_calib_proxy_loss(self, state: Dict[str, torch.Tensor], cid: str) -> float:
+        """Loss of `state` on client `cid`'s OWN val split -- a local
+        proxy for the server's real calib_loss_delta, used only by the
+        calibration-preserving adaptive attacker (`evasion_calib_aware`)
+        to estimate its own detectability without needing any
+        cross-client information. Genuinely available to the client:
+        it's the same val split `train_val_test_split` already set
+        aside, never used for local training."""
+        _, val, _ = self.splits[cid]
+        X = self._standardize(val.X).to(self.device_str)
+        y = torch.tensor(val.y_attack, dtype=torch.long).to(self.device_str)
+        model = copy.deepcopy(self.global_model)
+        fed.set_state(model, state)
+        model.eval()
+        with torch.no_grad():
+            logits = model(X)
+            loss = self._calib_loss_fn(logits, y)
+        return float(loss.item())
+
+    def _select_calib_aware_lambda(
+        self, cid: str, raw_delta: Dict[str, torch.Tensor], reference_delta: Dict[str, torch.Tensor],
+        effective_scale: float, prev_state: Dict[str, torch.Tensor],
+    ) -> float:
+        """Grid-search blend strength to find the strongest residual
+        attack (smallest lambda >= the fixed `evasion_lambda` floor)
+        whose local-proxy calibration impact stays within
+        `calib_aware_safe_delta`; falls back to whichever candidate
+        minimizes that impact if none qualify."""
+        base_proxy_loss = self._local_calib_proxy_loss(prev_state, cid)
+        best_lambda, best_abs_delta = 1.0, float("inf")
+        for lam in self.calib_aware_lambda_grid:
+            if lam < self.evasion_lambda:
+                continue
+            blended = blend_toward_reference(raw_delta, reference_delta, lam)
+            blended = scale_update(blended, effective_scale)
+            candidate_state = {k: prev_state[k] + blended[k].to(prev_state[k].dtype) for k in prev_state}
+            proxy_delta = self._local_calib_proxy_loss(candidate_state, cid) - base_proxy_loss
+            if proxy_delta <= self.calib_aware_safe_delta:
+                return lam
+            if abs(proxy_delta) < best_abs_delta:
+                best_abs_delta = abs(proxy_delta)
+                best_lambda = lam
+        return best_lambda
 
     def _standardize(self, X: np.ndarray) -> torch.Tensor:
         z = (X.astype(np.float64) - self.mu) / self.sigma
@@ -304,7 +377,12 @@ class FederatedSimulation:
                         self.lr, self.local_epochs, clean_iter, device=self.device_str,
                     )
                     reference_delta = fed.state_delta(fed.get_state(clean_model), prev)
-                delta = blend_toward_reference(delta, reference_delta, self.evasion_lambda)
+                lam = self.evasion_lambda
+                if self.evasion_calib_aware:
+                    lam = self._select_calib_aware_lambda(
+                        cid, delta, reference_delta, effective_scale, prev,
+                    )
+                delta = blend_toward_reference(delta, reference_delta, lam)
             delta = scale_update(delta, effective_scale)
             state = {k: prev[k] + delta[k].to(prev[k].dtype) for k in prev}
         return state

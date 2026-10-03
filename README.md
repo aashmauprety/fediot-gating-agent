@@ -1664,6 +1664,60 @@ infrastructure, or human subjects not available before Oct 2, so the
 paper says so explicitly rather than claiming more than what was
 actually tested.
 
+**Thirty-sixth real result: the deadline moved (Oct 2 -> Oct 16), so
+the calibration-preserving adaptive attacker -- previously shelved as
+"possibly fixable if time remains" -- was actually attempted. Another
+honest null result, but one with a real mechanistic explanation this
+time, not just "it didn't work."** Every adaptive-evasion variant
+already in the paper (`evasion_lambda`, `evasion_collude`) blends a
+poisoned update's direction toward a clean reference to evade the
+update-norm and cosine digest signals, but none were ever tested
+against the third signal, calib_loss_delta, at all. Built
+`evasion_calib_aware=True` (`fedgate/experiment.py:_select_calib_aware_lambda`):
+per malicious client per round, grid-search blend strength (floor at
+the existing `evasion_lambda`) and pick the smallest (strongest
+residual attack) one whose calibration impact -- measured on the
+attacker's OWN held-out val split, a genuinely locally-available proxy
+for the server's real calib_loss_delta, since the server's calibration
+set is literally built by concatenating every client's val split
+including this one -- stays within 0.5 absolute loss (the same
+threshold `RuleBasedGatingPolicy` uses, assumed known to the attacker
+as a conservative worst-case, consistent with the constrain-and-scale
+assumption already made for norm/cosine).
+
+Tested on N-BaIoT, targeted attack, 25 rounds, lambda in {0.9, 0.99},
+against both GShield (a control -- it never looks at calib_loss_delta,
+so this variant should and did change nothing: F1 0.9956-0.9971 across
+all configs) and `AdaptiveRuleBasedGatingPolicy` (the same-round
+cross-client z-score rule-based reference the real LLM Gating Agent is
+benchmarked against). Result: **no edge found here either** -- F1
+stayed in 0.9966-0.9982 and targeted-success stayed under 0.15% in
+every config, calib-aware or not; malicious-exclusion counts barely
+moved (26/75 -> 25/75 at lambda=0.9, 23/75 -> 24/75 at lambda=0.99).
+
+Per-round rationale inspection explains *why*, precisely: the
+calibration-aware search successfully drove down the attacker's own
+absolute calibration footprint, but the real policy doesn't judge
+calib_loss_delta in absolute terms -- it uses a same-round, cross-client
+robust z-score (median/MAD across that round's clients). A malicious
+client minimizing its own absolute impact still lands as an extreme
+outlier relative to the tight, near-zero distribution honest clients
+produce that same round (observed same-round calib z-scores of 30.5,
+37.7, 61.2 for an attacker the local-proxy search judged "safe" by its
+own absolute threshold). This is the attacker's actual blind spot: the
+search assumed access to other clients' calib deltas (needed to target
+the real z-score) would be unrealistic to grant a single client, so it
+optimized the wrong quantity by design, not by a bug -- and the
+same-round cross-client normalization trick (already in the paper for
+exactly this reason, Section III-A) structurally defeats a
+single-client attacker who can only see their own local proxy. A
+genuinely stronger attacker would need the colluding threat model
+(`evasion_collude=True`) to estimate the round's cross-client
+distribution too -- not attempted here; flagged as the natural next
+step if this line is pursued further. New script:
+`scripts/run_adaptive_evasion_calib_aware.py`; results in
+`results/adaptive_evasion_calib_aware.json`.
+
 ## To get the remaining datasets
 
 - **UNSW**: done — see above.

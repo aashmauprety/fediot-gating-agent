@@ -1,0 +1,90 @@
+{
+  "description": "Calibration-preserving adaptive attacker vs GShield and the rule-based z-score reference, targeted attack, N-BaIoT.",
+  "runs": [
+    {
+      "defense": "gshield",
+      "evasion_lambda": 0.0,
+      "calib_aware": false,
+      "final_macro_f1": 0.9956363418123956,
+      "targeted_success_rate": 0.001141552511415525,
+      "wall_clock_seconds": 44.956645250320435
+    },
+    {
+      "defense": "gshield",
+      "evasion_lambda": 0.9,
+      "calib_aware": false,
+      "final_macro_f1": 0.9966431893854896,
+      "targeted_success_rate": 0.001141552511415525,
+      "wall_clock_seconds": 56.13683485984802
+    },
+    {
+      "defense": "gshield",
+      "evasion_lambda": 0.9,
+      "calib_aware": true,
+      "final_macro_f1": 0.9965228101642234,
+      "targeted_success_rate": 0.0008561643835616438,
+      "wall_clock_seconds": 57.6453218460083
+    },
+    {
+      "defense": "gshield",
+      "evasion_lambda": 0.99,
+      "calib_aware": false,
+      "final_macro_f1": 0.9970922659925043,
+      "targeted_success_rate": 0.0008561643835616438,
+      "wall_clock_seconds": 58.42609691619873
+    },
+    {
+      "defense": "gshield",
+      "evasion_lambda": 0.99,
+      "calib_aware": true,
+      "final_macro_f1": 0.9967912687518264,
+      "targeted_success_rate": 0.001141552511415525,
+      "wall_clock_seconds": 53.15899205207825
+    },
+    {
+      "defense": "rule_based_adaptive_z",
+      "evasion_lambda": 0.0,
+      "calib_aware": false,
+      "final_macro_f1": 0.9965794808598855,
+      "targeted_success_rate": 0.001141552511415525,
+      "malicious_excluded_fraction": 0.96,
+      "wall_clock_seconds": 63.95012831687927
+    },
+    {
+      "defense": "rule_based_adaptive_z",
+      "evasion_lambda": 0.9,
+      "calib_aware": false,
+      "final_macro_f1": 0.997206693315821,
+      "targeted_success_rate": 0.0008561643835616438,
+      "malicious_excluded_fraction": 0.3466666666666667,
+      "wall_clock_seconds": 58.06538510322571
+    },
+    {
+      "defense": "rule_based_adaptive_z",
+      "evasion_lambda": 0.9,
+      "calib_aware": true,
+      "final_macro_f1": 0.9971601554593575,
+      "targeted_success_rate": 0.001141552511415525,
+      "malicious_excluded_fraction": 0.3333333333333333,
+      "wall_clock_seconds": 52.670984983444214
+    },
+    {
+      "defense": "rule_based_adaptive_z",
+      "evasion_lambda": 0.99,
+      "calib_aware": false,
+      "final_macro_f1": 0.9967087842277141,
+      "targeted_success_rate": 0.0008561643835616438,
+      "malicious_excluded_fraction": 0.30666666666666664,
+      "wall_clock_seconds": 53.36975908279419
+    },
+    {
+      "defense": "rule_based_adaptive_z",
+      "evasion_lambda": 0.99,
+      "calib_aware": true,
+      "final_macro_f1": 0.9981843006691715,
+      "targeted_success_rate": 0.0014269406392694063,
+      "malicious_excluded_fraction": 0.32,
+      "wall_clock_seconds": 54.29998278617859
+    }
+  ]
+}
