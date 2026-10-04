@@ -257,16 +257,44 @@ class FederatedSimulation:
             loss = self._calib_loss_fn(logits, y)
         return float(loss.item())
 
+    def _local_calib_proxy_loss_pooled(self, state: Dict[str, torch.Tensor]) -> float:
+        """Colluding variant of `_local_calib_proxy_loss`: pools ALL
+        malicious clients' val splits into one less-noisy proxy, exactly
+        the same realistic benefit collusion already gives the
+        direction-blending reference (`_get_collude_reference`) --
+        malicious clients sharing local data statistics with each other,
+        never with honest clients or the server."""
+        Xs, ys = [], []
+        for mcid in self.malicious:
+            _, val, _ = self.splits[mcid]
+            Xs.append(val.X)
+            ys.append(val.y_attack)
+        import numpy as _np
+        X = self._standardize(_np.concatenate(Xs, axis=0)).to(self.device_str)
+        y = torch.tensor(_np.concatenate(ys, axis=0), dtype=torch.long).to(self.device_str)
+        model = copy.deepcopy(self.global_model)
+        fed.set_state(model, state)
+        model.eval()
+        with torch.no_grad():
+            logits = model(X)
+            loss = self._calib_loss_fn(logits, y)
+        return float(loss.item())
+
     def _select_calib_aware_lambda(
         self, cid: str, raw_delta: Dict[str, torch.Tensor], reference_delta: Dict[str, torch.Tensor],
-        effective_scale: float, prev_state: Dict[str, torch.Tensor],
+        effective_scale: float, prev_state: Dict[str, torch.Tensor], use_pooled_proxy: bool = False,
     ) -> float:
         """Grid-search blend strength to find the strongest residual
         attack (smallest lambda >= the fixed `evasion_lambda` floor)
-        whose local-proxy calibration impact stays within
-        `calib_aware_safe_delta`; falls back to whichever candidate
-        minimizes that impact if none qualify."""
-        base_proxy_loss = self._local_calib_proxy_loss(prev_state, cid)
+        whose calibration impact stays within `calib_aware_safe_delta`;
+        falls back to whichever candidate minimizes that impact if none
+        qualify. `use_pooled_proxy=True` (the colluding variant) judges
+        impact against the pooled malicious-client val set instead of
+        just `cid`'s own -- a less noisy, but still genuinely
+        locally-available (to the colluding cohort), estimate."""
+        proxy_fn = self._local_calib_proxy_loss_pooled if use_pooled_proxy else \
+            (lambda state: self._local_calib_proxy_loss(state, cid))
+        base_proxy_loss = proxy_fn(prev_state)
         best_lambda, best_abs_delta = 1.0, float("inf")
         for lam in self.calib_aware_lambda_grid:
             if lam < self.evasion_lambda:
@@ -274,7 +302,7 @@ class FederatedSimulation:
             blended = blend_toward_reference(raw_delta, reference_delta, lam)
             blended = scale_update(blended, effective_scale)
             candidate_state = {k: prev_state[k] + blended[k].to(prev_state[k].dtype) for k in prev_state}
-            proxy_delta = self._local_calib_proxy_loss(candidate_state, cid) - base_proxy_loss
+            proxy_delta = proxy_fn(candidate_state) - base_proxy_loss
             if proxy_delta <= self.calib_aware_safe_delta:
                 return lam
             if abs(proxy_delta) < best_abs_delta:
@@ -381,6 +409,7 @@ class FederatedSimulation:
                 if self.evasion_calib_aware:
                     lam = self._select_calib_aware_lambda(
                         cid, delta, reference_delta, effective_scale, prev,
+                        use_pooled_proxy=self.evasion_collude,
                     )
                 delta = blend_toward_reference(delta, reference_delta, lam)
             delta = scale_update(delta, effective_scale)

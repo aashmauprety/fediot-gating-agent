@@ -1718,6 +1718,41 @@ step if this line is pursued further. New script:
 `scripts/run_adaptive_evasion_calib_aware.py`; results in
 `results/adaptive_evasion_calib_aware.json`.
 
+**Thirty-seventh real result: that flagged next step, done -- a
+colluding calibration-aware attacker. Still no edge, but a genuinely
+more nuanced null result than the isolated version: collusion DOES
+help evade detection, it just doesn't help the attack succeed.**
+Extended `_select_calib_aware_lambda` with a pooled proxy
+(`_local_calib_proxy_loss_pooled`): when `evasion_collude=True` is
+combined with `evasion_calib_aware=True`, malicious clients pool their
+own val splits into one less-noisy calibration estimate (the same
+realistic "share local data statistics with each other, not with
+honest clients or the server" assumption `evasion_collude` already
+makes for the direction reference), instead of each judging its own
+impact in isolation.
+
+Same protocol (N-BaIoT, targeted, GShield + `AdaptiveRuleBasedGatingPolicy`):
+F1 stayed at 0.9968-0.9984 and targeted success under 0.2\% in every
+config -- no measurable harm, matching the isolated attacker. But
+malicious-exclusion fraction genuinely dropped: 14/75 at
+evasion_lambda=0.9 (vs. 26/75 for the isolated calibration-aware
+attacker, nearly half), confirming collusion really does buy fewer
+exclusions. It just didn't translate into damage: the peak same-round
+calib z-score the colluding attackers still hit was, if anything,
+*higher* (74.1 vs. 61.2 for the isolated version) -- pooling reduced
+how OFTEN they got caught, not how extreme their worst round looked --
+and at the blend strength (lambda=0.9-0.99) needed for that partial
+stealth, the attack's own magnitude is diluted so far toward the
+honest direction that the long-term trust posterior's downweighting on
+the rounds that DID get caught was enough to keep aggregate harm at
+zero regardless. This is the same "evading detection and causing harm
+are different things" pattern already seen in the norm/cosine evasion
+result, now shown to hold one layer deeper (collusion-aided detection
+evasion on a third signal), not a new mechanism -- an honest,
+reinforcing null result rather than a novel defeat of the defense.
+New script: `scripts/run_adaptive_evasion_calib_aware_colluding.py`;
+results in `results/adaptive_evasion_calib_aware_colluding.json`.
+
 ## To get the remaining datasets
 
 - **UNSW**: done — see above.

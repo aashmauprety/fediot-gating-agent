@@ -1,0 +1,37 @@
+{
+  "description": "Colluding calibration-aware adaptive attacker vs GShield and the rule-based z-score reference, targeted attack, N-BaIoT.",
+  "runs": [
+    {
+      "defense": "gshield",
+      "evasion_lambda": 0.9,
+      "final_macro_f1": 0.9970080390713844,
+      "targeted_success_rate": 0.001997716894977169,
+      "wall_clock_seconds": 68.78321504592896
+    },
+    {
+      "defense": "gshield",
+      "evasion_lambda": 0.99,
+      "final_macro_f1": 0.9969941226370951,
+      "targeted_success_rate": 0.001997716894977169,
+      "wall_clock_seconds": 85.19212675094604
+    },
+    {
+      "defense": "rule_based_adaptive_z",
+      "evasion_lambda": 0.9,
+      "final_macro_f1": 0.9968002107057744,
+      "targeted_success_rate": 0.0008561643835616438,
+      "malicious_excluded_fraction": 0.18666666666666668,
+      "max_abs_calib_z": 74.09,
+      "wall_clock_seconds": 103.8143937587738
+    },
+    {
+      "defense": "rule_based_adaptive_z",
+      "evasion_lambda": 0.99,
+      "final_macro_f1": 0.9983606037741505,
+      "targeted_success_rate": 0.0008561643835616438,
+      "malicious_excluded_fraction": 0.29333333333333333,
+      "max_abs_calib_z": 69.21,
+      "wall_clock_seconds": 105.06993889808655
+    }
+  ]
+}
