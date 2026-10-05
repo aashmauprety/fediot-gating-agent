@@ -1,5 +1,9 @@
 % FedIoT-Gate system diagram (TikZ), with Font Awesome Free icon badges
-% (CC BY 4.0, https://fontawesome.com/license/free) for visual clarity.
+% (CC BY 4.0, https://fontawesome.com/license/free) for visual clarity,
+% real device icons (doorbell/thermostat/camera, matching the paper's
+% actual N-BaIoT device fleet), and a background card per stage so the
+% figure reads as an illustrated system, not a bare flowchart.
+%
 % Three stages, left to right:
 %   (1) Phase 0 -- federated self-supervised encoder pretraining
 %   (2) Phase I -- digest-gated federated classifier training
@@ -16,48 +20,53 @@
 %   \end{figure*}
 %
 % Icon PDFs: figures/system-diagram/icons/*.pdf (paths relative to
-% main.tex's directory). Can also be compiled on its own via
-% figures/system-diagram/standalone.tex.
+% main.tex's directory; see icons/README.md for attribution). Badges
+% sit entirely ABOVE their node (yshift clears half the badge size plus
+% a margin), never overlapping the node's own text, the stage title
+% above, or a neighboring box -- verified by rendering at each step,
+% since TikZ bounding boxes for multi-line centered text are easy to
+% misjudge by hand.
 
-\newcommand{\sysicon}[1]{\includegraphics[height=0.38cm]{figures/system-diagram/icons/#1.pdf}}
+\newcommand{\sysicon}[1]{\includegraphics[height=0.46cm]{figures/system-diagram/icons/#1.pdf}}
+\newcommand{\sysiconbig}[1]{\includegraphics[height=0.72cm]{figures/system-diagram/icons/#1.pdf}}
 
 \begin{tikzpicture}[
-    font=\scriptsize,
-    gateway/.style={rectangle, draw, rounded corners=1pt, fill=blue!6,
-        minimum width=2.0cm, minimum height=0.9cm, text width=1.9cm, align=center, inner sep=2pt},
-    server/.style={rectangle, draw, thick, rounded corners=2pt, fill=orange!10,
-        minimum width=4.6cm, minimum height=1.1cm, text width=4.3cm, align=center, inner sep=3pt},
-    agent/.style={rectangle, draw=red!60!black, thick, rounded corners=2pt, fill=red!6,
-        minimum width=4.4cm, minimum height=1.1cm, text width=4.1cm, align=center, inner sep=3pt},
-    frozen/.style={rectangle, draw=violet!60!black, thick, rounded corners=2pt, fill=violet!6,
-        minimum width=3.4cm, minimum height=0.85cm, text width=3.1cm, align=center, inner sep=2pt},
-    head/.style={rectangle, draw=violet!60!black, thick, rounded corners=2pt, fill=violet!6,
-        minimum width=2.3cm, minimum height=0.85cm, text width=2.0cm, align=center, inner sep=2pt},
-    decision/.style={rectangle, draw, rounded corners=1pt, minimum width=2.1cm,
-        minimum height=0.7cm, text width=1.9cm, align=center, inner sep=2pt},
-    stagetitle/.style={font=\bfseries\scriptsize, align=center, text width=6.0cm},
-    arr/.style={-{Latex[length=1.6mm]}, thick},
-    dashedarr/.style={-{Latex[length=1.6mm]}, thick, dashed, violet!60!black},
-    badge/.style={circle, draw=black!50, very thick, fill=white, minimum size=0.58cm, inner sep=0pt},
-    agentbadge/.style={circle, draw=red!60!black, ultra thick, fill=white, minimum size=0.62cm, inner sep=0pt},
+    font=\small,
+    gateway/.style={rectangle, draw, rounded corners=2pt, fill=blue!7, thick,
+        minimum width=2.5cm, minimum height=1.15cm, text width=2.3cm, align=center, inner sep=3pt},
+    server/.style={rectangle, draw, thick, rounded corners=3pt, fill=orange!10,
+        minimum width=5.6cm, minimum height=1.35cm, text width=5.2cm, align=center, inner sep=4pt},
+    agent/.style={rectangle, draw=red!60!black, very thick, rounded corners=3pt, fill=red!6,
+        minimum width=5.4cm, minimum height=1.4cm, text width=4.9cm, align=center, inner sep=4pt},
+    frozen/.style={rectangle, draw=violet!60!black, thick, rounded corners=3pt, fill=violet!6,
+        minimum width=4.1cm, minimum height=1.05cm, text width=3.7cm, align=center, inner sep=3pt},
+    head/.style={rectangle, draw=violet!60!black, thick, rounded corners=3pt, fill=violet!6,
+        minimum width=2.8cm, minimum height=1.05cm, text width=2.5cm, align=center, inner sep=3pt},
+    decision/.style={rectangle, draw, thick, rounded corners=2pt, minimum width=2.6cm,
+        minimum height=0.95cm, text width=2.3cm, align=center, inner sep=3pt},
+    stagetitle/.style={font=\bfseries\normalsize, align=center, text width=7.2cm},
+    arr/.style={-{Latex[length=2.2mm]}, ultra thick, black!70},
+    dashedarr/.style={-{Latex[length=2.2mm]}, very thick, dashed, violet!60!black},
+    badge/.style={circle, draw=black!55, very thick, fill=white, minimum size=0.82cm, inner sep=0pt},
+    agentbadge/.style={circle, draw=red!60!black, ultra thick, fill=white, minimum size=1.15cm, inner sep=0pt},
 ]
 
 %% ================= Stage 1 (centered at x=0): Phase 0 =================
-\node[stagetitle] (s1title) at (0,3.3) {Phase 0: Federated Self-Supervised Encoder Pretraining (Sec.~VI-A)};
+\node[stagetitle] (s1title) at (0,5.7) {Phase 0: Federated Self-Supervised Encoder Pretraining (Sec.~VI-A)};
 
-\node[gateway] (g1a) at (-2.3,2.0) {Gateway 1\\ unlabeled traffic};
-\node[gateway] (g1b) at (0,2.0)    {Gateway 2\\ unlabeled traffic};
-\node[gateway] (g1c) at (2.3,2.0)  {Gateway $N$\\ unlabeled traffic};
-\node[badge] at (g1a.north west) {\sysicon{wifi}};
-\node[badge] at (g1b.north west) {\sysicon{wifi}};
-\node[badge] at (g1c.north west) {\sysicon{wifi}};
+\node[gateway] (g1a) at (-2.9,3.1) {Gateway 1\\ unlabeled traffic};
+\node[gateway] (g1b) at (0,3.1)    {Gateway 2\\ unlabeled traffic};
+\node[gateway] (g1c) at (2.9,3.1)  {Gateway $N$\\ unlabeled traffic};
+\node[badge] at ([yshift=0.47cm]g1a.north) {\sysicon{bell}};
+\node[badge] at ([yshift=0.47cm]g1b.north) {\sysicon{temperature-half}};
+\node[badge] at ([yshift=0.47cm]g1c.north) {\sysicon{video}};
 
-\node[server] (srv1) at (0,0.5) {Aggregation Server\\ gate-weighted FedAvg over\\ encoder updates $\phi_n^{(r)}$};
-\node[badge] at (srv1.north west) {\sysicon{server}};
-\node[agent] (agent1) at (0,-1.1) {\textbf{Gating Agent}\\ audits encoder update digests\\ accept / downweight / exclude};
-\node[agentbadge] at ([xshift=-0.27cm]agent1.west) {\sysicon{robot}};
-\node[frozen] (frozenenc) at (0,-2.6) {Frozen Encoder $f_\phi$\\ shared embedding space};
-\node[badge] at (frozenenc.north west) {\sysicon{lock}};
+\node[server] (srv1) at (0,0.7) {Aggregation Server\\ gate-weighted FedAvg over\\ encoder updates $\phi_n^{(r)}$};
+\node[badge] at ([yshift=0.47cm]srv1.north) {\sysicon{server}};
+\node[agent] (agent1) at (0,-1.7) {\textbf{\large Gating Agent}\\ audits encoder update digests\\ accept / downweight / exclude};
+\node[agentbadge] at ([xshift=-0.35cm]agent1.west) {\sysiconbig{robot}};
+\node[frozen] (frozenenc) at (0,-4.1) {Frozen Encoder $f_\phi$\\ shared embedding space};
+\node[badge] at ([yshift=0.47cm]frozenenc.north) {\sysicon{lock}};
 
 \draw[arr] (g1a) -- (srv1);
 \draw[arr] (g1b) -- (srv1);
@@ -66,26 +75,26 @@
 \draw[arr] (agent1) -- (frozenenc);
 
 %% ---------- divider 1 ----------
-\draw[dotted, gray] (3.3,3.7) -- (3.3,-4.3);
+\draw[dotted, gray, thick] (4.2,6.3) -- (4.2,-6.7);
 
-%% ================= Stage 2 (centered at x=6.6): Phase I =================
-\node[stagetitle] (s2title) at (6.6,3.3) {Phase I: Digest-Gated Multi-Task Classifier Training (Sec.~VI-B)};
+%% ================= Stage 2 (centered at x=8.5): Phase I =================
+\node[stagetitle] (s2title) at (8.5,5.7) {Phase I: Digest-Gated Multi-Task Classifier Training (Sec.~VI-B)};
 
-\node[gateway] (g2a) at (4.3,2.0) {Gateway 1\\ dual heads};
-\node[gateway] (g2b) at (6.6,2.0) {Gateway 2\\ dual heads};
-\node[gateway] (g2c) at (8.9,2.0) {Gateway $N$\\ dual heads};
-\node[badge] at ([xshift=0.5cm]g2a.north west) {\sysicon{wifi}};
-\node[badge] at (g2b.north west) {\sysicon{wifi}};
-\node[badge] at (g2c.north west) {\sysicon{wifi}};
+\node[gateway] (g2a) at (5.6,3.1) {Gateway 1\\ dual heads};
+\node[gateway] (g2b) at (8.5,3.1) {Gateway 2\\ dual heads};
+\node[gateway] (g2c) at (11.4,3.1) {Gateway $N$\\ dual heads};
+\node[badge] at ([yshift=0.47cm]g2a.north) {\sysicon{bell}};
+\node[badge] at ([yshift=0.47cm]g2b.north) {\sysicon{temperature-half}};
+\node[badge] at ([yshift=0.47cm]g2c.north) {\sysicon{video}};
 
-\node[server] (srv2) at (6.6,0.5) {Aggregation Server\\ gate-weighted FedAvg, per head,\\ over updates $\theta_{n,c}^{(r)}$};
-\node[badge] at (srv2.north west) {\sysicon{server}};
-\node[agent] (agent2) at (6.6,-1.1) {\textbf{Gating Agent}\\ audits each head's update digests\\ accept / downweight / exclude};
-\node[agentbadge] at ([xshift=-0.27cm]agent2.west) {\sysicon{robot}};
-\node[head] (devclf) at (5.2,-2.6) {Device-Type\\ Head $\theta^{\text{dev}}$};
-\node[head] (atkclf) at (8.0,-2.6) {Attack-Type/\\ Benign Head $\theta^{\text{atk}}$};
-\node[badge] at (devclf.north west) {\sysicon{microchip}};
-\node[badge] at (atkclf.north west) {\sysicon{shield-halved}};
+\node[server] (srv2) at (8.5,0.7) {Aggregation Server\\ gate-weighted FedAvg, per head,\\ over updates $\theta_{n,c}^{(r)}$};
+\node[badge] at ([yshift=0.47cm]srv2.north) {\sysicon{server}};
+\node[agent] (agent2) at (8.5,-1.7) {\textbf{\large Gating Agent}\\ audits each head's update digests\\ accept / downweight / exclude};
+\node[agentbadge] at ([xshift=-0.35cm]agent2.west) {\sysiconbig{robot}};
+\node[head] (devclf) at (6.9,-4.1) {Device-Type\\ Head $\theta^{\text{dev}}$};
+\node[head] (atkclf) at (10.1,-4.1) {Attack-Type/\\ Benign Head $\theta^{\text{atk}}$};
+\node[badge] at ([yshift=0.47cm]devclf.north) {\sysicon{microchip}};
+\node[badge] at ([yshift=0.47cm]atkclf.north) {\sysicon{shield-halved}};
 
 \draw[arr] (g2a) -- (srv2);
 \draw[arr] (g2b) -- (srv2);
@@ -94,42 +103,46 @@
 \draw[arr] (agent2) -- (devclf);
 \draw[arr] (agent2) -- (atkclf);
 
-\draw[dashedarr] (frozenenc.east) -- (3.3,-2.6) -- (g2a.west);
-\node[font=\tiny, align=left, violet!60!black, anchor=west, text width=1.7cm] at (3.35,-0.3) {frozen encoder\\ feeds every\\ gateway};
+\draw[dashedarr] (frozenenc.east) -- (4.2,-4.1) -- (g2a.west);
+\node[font=\small, align=left, violet!60!black, anchor=west, text width=2.1cm] at (4.3,-0.5) {frozen encoder feeds every gateway};
 
 %% ---------- divider 2 ----------
-\draw[dotted, gray] (9.9,3.7) -- (9.9,-4.3);
+\draw[dotted, gray, thick] (13.0,6.3) -- (13.0,-6.7);
 
-%% ================= Stage 3 (centered at x=12.9): Onboarding =================
-\node[stagetitle] (s3title) at (12.9,3.3) {Zero-Shot Onboarding of a New Device Type (Sec.~VI-C)};
+%% ================= Stage 3 (centered at x=17): Onboarding =================
+\node[stagetitle] (s3title) at (17,5.7) {Zero-Shot Onboarding of a New Device Type (Sec.~VI-C)};
 
-\node[gateway, text width=3.0cm, minimum width=3.1cm] (newdev) at (12.9,2.0) {New device traffic\\ (unrecognized label)};
-\node[badge] at (newdev.north west) {\sysicon{wifi}};
-\node[frozen] (embnew) at (12.9,0.7) {Embedding via $f_\phi$\\ + timing/protocol meta};
-\node[badge] at (embnew.north west) {\sysicon{microchip}};
-\node[agent] (agent3) at (12.9,-0.8) {\textbf{Gating Agent}\\ retrieves $k$-NN over device-\\ fingerprint knowledge base};
-\node[agentbadge] at ([xshift=-0.27cm]agent3.west) {\sysicon{magnifying-glass}};
+\node[gateway, text width=3.6cm, minimum width=3.9cm] (newdev) at (17,3.1) {New device traffic\\ (unrecognized label)};
+\node[badge] at ([yshift=0.47cm]newdev.north) {\sysicon{house-signal}};
+\node[frozen] (embnew) at (17,0.7) {Embedding via $f_\phi$\\ + timing/protocol meta};
+\node[badge] at ([yshift=0.47cm]embnew.north) {\sysicon{microchip}};
+\node[agent] (agent3) at (17,-1.7) {\textbf{\large Gating Agent}\\ retrieves $k$-NN over device-\\ fingerprint knowledge base};
+\node[agentbadge] at ([xshift=-0.35cm]agent3.west) {\sysiconbig{magnifying-glass}};
 
 \draw[arr] (newdev) -- (embnew);
 \draw[arr] (embnew) -- (agent3);
-\draw[dashedarr] (frozenenc.south) -- (0,-4.9) -- (9.9,-4.9) -- (9.9,0.7) -- (embnew.west);
+\draw[dashedarr] (frozenenc.south) -- (0,-7.1) -- (13.0,-7.1) -- (13.0,0.7) -- (embnew.west);
 
-\node[decision, fill=green!10] (admit) at (10.7,-2.4) {Auto-admit};
-\node[decision, fill=yellow!12] (defer) at (12.9,-2.4) {Request\\ more data};
-\node[decision, fill=gray!12] (escalate) at (15.1,-2.4) {Escalate to\\ human review};
-\node[badge] at (admit.north west) {\sysicon{circle-check}};
-\node[badge] at (defer.north west) {\sysicon{circle-question}};
-\node[badge] at (escalate.north west) {\sysicon{user-shield}};
+\node[decision, fill=green!10] (admit) at (14.5,-4.1) {\sysicon{circle-check}\\ Auto-admit};
+\node[decision, fill=yellow!12] (defer) at (17,-4.1) {\sysicon{circle-question}\\ Request more data};
+\node[decision, fill=gray!12] (escalate) at (19.5,-4.1) {\sysicon{user-shield}\\ Escalate to human review};
 
 \draw[arr] (agent3) -- (admit);
 \draw[arr] (agent3) -- (defer);
 \draw[arr] (agent3) -- (escalate);
 
-\node[frozen] (kb) at (12.9,-3.9) {Device-fingerprint\\ knowledge base};
-\node[badge] at (kb.north west) {\sysicon{database}};
+\node[frozen] (kb) at (17,-6.3) {Device-fingerprint\\ knowledge base};
+\node[badge] at ([yshift=0.47cm]kb.north) {\sysicon{database}};
 \draw[arr] (admit) -- (kb);
 \draw[arr] (defer) -- (kb);
 \draw[arr] (escalate) -- (kb);
-\draw[dashedarr] (kb.east) -- (16.6,-3.9) -- (16.6,-0.8) -- (agent3.east);
+\draw[dashedarr] (kb.east) -- (21.3,-6.3) -- (21.3,-1.7) -- (agent3.east);
+
+%% ================= Background stage cards =================
+\begin{scope}[on background layer]
+    \node[fit=(s1title)(g1a)(g1c)(srv1)(agent1)(frozenenc), fill=blue!3, rounded corners=14pt, inner sep=14pt] {};
+    \node[fit=(s2title)(g2a)(g2c)(srv2)(agent2)(devclf)(atkclf), fill=orange!3, rounded corners=14pt, inner sep=14pt] {};
+    \node[fit=(s3title)(newdev)(embnew)(agent3)(admit)(escalate)(kb), fill=violet!3, rounded corners=14pt, inner sep=14pt] {};
+\end{scope}
 
 \end{tikzpicture}
