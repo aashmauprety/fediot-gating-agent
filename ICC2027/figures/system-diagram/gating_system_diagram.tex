@@ -1,11 +1,12 @@
-% FedIoT-Gate system diagram (TikZ).
+% FedIoT-Gate system diagram (TikZ), with Font Awesome Free icon badges
+% (CC BY 4.0, https://fontawesome.com/license/free) for visual clarity.
 % Three stages, left to right:
 %   (1) Phase 0 -- federated self-supervised encoder pretraining
 %   (2) Phase I -- digest-gated federated classifier training
 %   (3) Zero-shot onboarding of a new device type via the Gating Agent
 %
-% Intended usage from main.tex (requires \usepackage{tikz} with the
-% libraries listed below loaded in the preamble):
+% Intended usage from main.tex (requires \usepackage{tikz,graphicx} with
+% the libraries listed below loaded in the preamble):
 %
 %   \begin{figure*}[t]
 %       \centering
@@ -14,7 +15,11 @@
 %       \label{system}
 %   \end{figure*}
 %
-% Can also be compiled on its own via figures/system-diagram/standalone.tex.
+% Icon PDFs: figures/system-diagram/icons/*.pdf (paths relative to
+% main.tex's directory). Can also be compiled on its own via
+% figures/system-diagram/standalone.tex.
+
+\newcommand{\sysicon}[1]{\includegraphics[height=0.38cm]{figures/system-diagram/icons/#1.pdf}}
 
 \begin{tikzpicture}[
     font=\scriptsize,
@@ -32,7 +37,9 @@
         minimum height=0.7cm, text width=1.9cm, align=center, inner sep=2pt},
     stagetitle/.style={font=\bfseries\scriptsize, align=center, text width=6.0cm},
     arr/.style={-{Latex[length=1.6mm]}, thick},
-    dashedarr/.style={-{Latex[length=1.6mm]}, thick, dashed, violet!60!black}
+    dashedarr/.style={-{Latex[length=1.6mm]}, thick, dashed, violet!60!black},
+    badge/.style={circle, draw=black!50, very thick, fill=white, minimum size=0.58cm, inner sep=0pt},
+    agentbadge/.style={circle, draw=red!60!black, ultra thick, fill=white, minimum size=0.62cm, inner sep=0pt},
 ]
 
 %% ================= Stage 1 (centered at x=0): Phase 0 =================
@@ -41,10 +48,16 @@
 \node[gateway] (g1a) at (-2.3,2.0) {Gateway 1\\ unlabeled traffic};
 \node[gateway] (g1b) at (0,2.0)    {Gateway 2\\ unlabeled traffic};
 \node[gateway] (g1c) at (2.3,2.0)  {Gateway $N$\\ unlabeled traffic};
+\node[badge] at (g1a.north west) {\sysicon{wifi}};
+\node[badge] at (g1b.north west) {\sysicon{wifi}};
+\node[badge] at (g1c.north west) {\sysicon{wifi}};
 
 \node[server] (srv1) at (0,0.5) {Aggregation Server\\ gate-weighted FedAvg over\\ encoder updates $\phi_n^{(r)}$};
+\node[badge] at (srv1.north west) {\sysicon{server}};
 \node[agent] (agent1) at (0,-1.1) {\textbf{Gating Agent}\\ audits encoder update digests\\ accept / downweight / exclude};
+\node[agentbadge] at ([xshift=-0.27cm]agent1.west) {\sysicon{robot}};
 \node[frozen] (frozenenc) at (0,-2.6) {Frozen Encoder $f_\phi$\\ shared embedding space};
+\node[badge] at (frozenenc.north west) {\sysicon{lock}};
 
 \draw[arr] (g1a) -- (srv1);
 \draw[arr] (g1b) -- (srv1);
@@ -61,11 +74,18 @@
 \node[gateway] (g2a) at (4.3,2.0) {Gateway 1\\ dual heads};
 \node[gateway] (g2b) at (6.6,2.0) {Gateway 2\\ dual heads};
 \node[gateway] (g2c) at (8.9,2.0) {Gateway $N$\\ dual heads};
+\node[badge] at ([xshift=0.5cm]g2a.north west) {\sysicon{wifi}};
+\node[badge] at (g2b.north west) {\sysicon{wifi}};
+\node[badge] at (g2c.north west) {\sysicon{wifi}};
 
 \node[server] (srv2) at (6.6,0.5) {Aggregation Server\\ gate-weighted FedAvg, per head,\\ over updates $\theta_{n,c}^{(r)}$};
+\node[badge] at (srv2.north west) {\sysicon{server}};
 \node[agent] (agent2) at (6.6,-1.1) {\textbf{Gating Agent}\\ audits each head's update digests\\ accept / downweight / exclude};
+\node[agentbadge] at ([xshift=-0.27cm]agent2.west) {\sysicon{robot}};
 \node[head] (devclf) at (5.2,-2.6) {Device-Type\\ Head $\theta^{\text{dev}}$};
 \node[head] (atkclf) at (8.0,-2.6) {Attack-Type/\\ Benign Head $\theta^{\text{atk}}$};
+\node[badge] at (devclf.north west) {\sysicon{microchip}};
+\node[badge] at (atkclf.north west) {\sysicon{shield-halved}};
 
 \draw[arr] (g2a) -- (srv2);
 \draw[arr] (g2b) -- (srv2);
@@ -84,8 +104,11 @@
 \node[stagetitle] (s3title) at (12.9,3.3) {Zero-Shot Onboarding of a New Device Type (Sec.~VI-C)};
 
 \node[gateway, text width=3.0cm, minimum width=3.1cm] (newdev) at (12.9,2.0) {New device traffic\\ (unrecognized label)};
+\node[badge] at (newdev.north west) {\sysicon{wifi}};
 \node[frozen] (embnew) at (12.9,0.7) {Embedding via $f_\phi$\\ + timing/protocol meta};
+\node[badge] at (embnew.north west) {\sysicon{microchip}};
 \node[agent] (agent3) at (12.9,-0.8) {\textbf{Gating Agent}\\ retrieves $k$-NN over device-\\ fingerprint knowledge base};
+\node[agentbadge] at ([xshift=-0.27cm]agent3.west) {\sysicon{magnifying-glass}};
 
 \draw[arr] (newdev) -- (embnew);
 \draw[arr] (embnew) -- (agent3);
@@ -94,12 +117,16 @@
 \node[decision, fill=green!10] (admit) at (10.7,-2.4) {Auto-admit};
 \node[decision, fill=yellow!12] (defer) at (12.9,-2.4) {Request\\ more data};
 \node[decision, fill=gray!12] (escalate) at (15.1,-2.4) {Escalate to\\ human review};
+\node[badge] at (admit.north west) {\sysicon{circle-check}};
+\node[badge] at (defer.north west) {\sysicon{circle-question}};
+\node[badge] at (escalate.north west) {\sysicon{user-shield}};
 
 \draw[arr] (agent3) -- (admit);
 \draw[arr] (agent3) -- (defer);
 \draw[arr] (agent3) -- (escalate);
 
 \node[frozen] (kb) at (12.9,-3.9) {Device-fingerprint\\ knowledge base};
+\node[badge] at (kb.north west) {\sysicon{database}};
 \draw[arr] (admit) -- (kb);
 \draw[arr] (defer) -- (kb);
 \draw[arr] (escalate) -- (kb);
