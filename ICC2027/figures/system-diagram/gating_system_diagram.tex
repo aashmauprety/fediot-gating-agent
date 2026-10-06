@@ -1,11 +1,12 @@
-% FedIoT-Gate system diagram (TikZ), redesigned as a radial hub-and-spoke
-% illustration -- the canonical federated-learning figure style (devices
-% fanning into a central hub with curved arrows, e.g. Google's "Towards
-% Federated Learning at Scale") rather than a stacked-rectangle
-% flowchart. Font Awesome Free icon badges (CC BY 4.0, see
-% icons/README.md), real device icons (doorbell/thermostat/camera,
-% matching the paper's actual N-BaIoT device fleet) instead of a
-% generic gateway glyph, and a soft background card per stage.
+% FedIoT-Gate system diagram (TikZ), radial hub-and-spoke illustration
+% using Microsoft Fluent Emoji 3D assets (MIT license, see
+% fluent/README.md) -- full-color, shaded, "advanced" style icons
+% rather than flat line glyphs, so the figure reads as an illustration
+% at a glance, not a bare flowchart. Devices fan into a central hub
+% with curved arrows (the canonical federated-learning figure
+% composition, e.g. Google's "Towards Federated Learning at Scale"),
+% real device icons (doorbell/thermostat/camera, matching the paper's
+% actual N-BaIoT device fleet), and a soft background card per stage.
 %
 % Three stages, left to right:
 %   (1) Phase 0 -- federated self-supervised encoder pretraining
@@ -22,20 +23,16 @@
 %       \label{system}
 %   \end{figure*}
 
-\newcommand{\sysicon}[1]{\includegraphics[height=0.42cm]{figures/system-diagram/icons/#1.pdf}}
-\newcommand{\sysiconmed}[1]{\includegraphics[height=0.58cm]{figures/system-diagram/icons/#1.pdf}}
-\newcommand{\sysiconbig}[1]{\includegraphics[height=0.78cm]{figures/system-diagram/icons/#1.pdf}}
+\newcommand{\sysicon}[1]{\includegraphics[height=0.95cm]{figures/system-diagram/fluent/#1.png}}
+\newcommand{\sysiconbig}[1]{\includegraphics[height=1.55cm]{figures/system-diagram/fluent/#1.png}}
 
 \begin{tikzpicture}[
     font=\small,
-    devbubble/.style={circle, draw=blue!45!black, very thick, fill=blue!8, minimum size=1.5cm, inner sep=0pt},
-    serverbubble/.style={circle, draw=orange!70!black, very thick, fill=orange!12, minimum size=2.0cm, inner sep=0pt},
-    agentbubble/.style={circle, draw=red!60!black, ultra thick, fill=red!8, minimum size=2.3cm, inner sep=0pt},
-    outbubble/.style={circle, draw=violet!55!black, very thick, fill=violet!8, minimum size=1.5cm, inner sep=0pt},
-    decbubble/.style={circle, draw=black!55, very thick, minimum size=1.3cm, inner sep=0pt},
-    caption/.style={font=\footnotesize, align=center, text width=2.1cm},
+    devanchor/.style={circle, minimum size=1.5cm, inner sep=0pt},
+    hubanchor/.style={circle, minimum size=2.4cm, inner sep=0pt},
+    caption/.style={font=\footnotesize, align=center, text width=2.3cm},
     stagetitle/.style={font=\bfseries\normalsize, align=center, text width=7.0cm},
-    arr/.style={-{Latex[length=2.2mm]}, ultra thick, black!65},
+    arr/.style={-{Latex[length=2.2mm]}, ultra thick, black!55},
     dashedarr/.style={-{Latex[length=2.2mm]}, very thick, dashed, violet!55!black},
     annot/.style={font=\footnotesize, align=center, violet!55!black},
 ]
@@ -43,26 +40,26 @@
 %% ============================================================
 %% Stage 1 (cx=0): Phase 0 -- federated encoder pretraining
 %% ============================================================
-\node[stagetitle] (s1title) at (0,5.5) {Phase 0: Federated Self-Supervised Encoder Pretraining (Sec.~VI-A)};
+\node[stagetitle] (s1title) at (0,5.6) {Phase 0: Federated Self-Supervised Encoder Pretraining (Sec.~VI-A)};
 
-\node[devbubble] (g1a) at (-2.6,3.1) {\sysiconmed{bell}};
-\node[devbubble] (g1b) at (0,3.7)    {\sysiconmed{temperature-half}};
-\node[devbubble] (g1c) at (2.6,3.1)  {\sysiconmed{video}};
-\node[caption, below=0.1cm of g1a] {Gateway 1};
-\node[caption, below=0.1cm of g1b] {Gateway 2};
-\node[caption, below=0.1cm of g1c] {Gateway $N$};
+\node[devanchor] (g1a) at (-2.6,3.1) {\sysicon{bell}};
+\node[devanchor] (g1b) at (0,3.7)    {\sysicon{thermometer}};
+\node[devanchor] (g1c) at (2.6,3.1)  {\sysicon{movie_camera}};
+\node[caption, below=0.05cm of g1a] {Gateway 1};
+\node[caption, below=0.05cm of g1b] {Gateway 2};
+\node[caption, below=0.05cm of g1c] {Gateway $N$};
 
-\node[serverbubble] (srv1) at (0,1.1) {\sysiconbig{server}};
-\node[agentbubble] (agent1) at (0,-2.0) {\sysiconbig{robot}};
-\node[caption, text width=2.2cm, below=0.5cm of agent1] {\textbf{Gating Agent}};
-\node[outbubble] (frozenenc) at (0,-5.1) {\sysiconmed{lock}};
-\node[caption, text width=2.6cm, below=0.1cm of frozenenc] {Frozen Encoder $f_\phi$};
+\node[devanchor] (srv1) at (0,1.0) {\sysiconbig{desktop_computer}};
+\node[hubanchor] (agent1) at (0,-2.0) {\sysiconbig{robot}};
+\node[caption, text width=2.2cm, below=0.55cm of agent1] {\textbf{Gating Agent}};
+\node[devanchor] (frozenenc) at (0,-5.1) {\sysicon{locked}};
+\node[caption, text width=2.6cm, below=0.05cm of frozenenc] {Frozen Encoder $f_\phi$};
 
 \draw[arr] (g1a) to[bend right=12] (srv1);
-\draw[arr] (g1b) -- (srv1);
+\draw[arr] (g1b) to[bend right=35] (srv1);
 \draw[arr] (g1c) to[bend left=12] (srv1);
 \draw[arr] (srv1) -- (agent1);
-\draw[arr] (agent1) to[bend left=10] (frozenenc);
+\draw[arr] (agent1) to[bend left=40] (frozenenc);
 
 %% ---------- divider 1 ----------
 \draw[dotted, gray, thick] (4.0,6.1) -- (4.0,-6.9);
@@ -70,31 +67,31 @@
 %% ============================================================
 %% Stage 2 (cx=8.2): Phase I -- digest-gated classifier training
 %% ============================================================
-\node[stagetitle] (s2title) at (8.2,5.5) {Phase I: Digest-Gated Multi-Task Classifier Training (Sec.~VI-B)};
+\node[stagetitle] (s2title) at (8.2,5.6) {Phase I: Digest-Gated Multi-Task Classifier Training (Sec.~VI-B)};
 
-\node[devbubble] (g2a) at (5.6,3.1) {\sysiconmed{bell}};
-\node[devbubble] (g2b) at (8.2,3.7) {\sysiconmed{temperature-half}};
-\node[devbubble] (g2c) at (10.8,3.1) {\sysiconmed{video}};
-\node[caption, below=0.1cm of g2a] {Gateway 1};
-\node[caption, below=0.1cm of g2b] {Gateway 2};
-\node[caption, below=0.1cm of g2c] {Gateway $N$};
+\node[devanchor] (g2a) at (5.6,3.1) {\sysicon{bell}};
+\node[devanchor] (g2b) at (8.2,3.7) {\sysicon{thermometer}};
+\node[devanchor] (g2c) at (10.8,3.1) {\sysicon{movie_camera}};
+\node[caption, below=0.05cm of g2a] {Gateway 1};
+\node[caption, below=0.05cm of g2b] {Gateway 2};
+\node[caption, below=0.05cm of g2c] {Gateway $N$};
 
-\node[serverbubble] (srv2) at (8.2,1.1) {\sysiconbig{server}};
-\node[agentbubble] (agent2) at (8.2,-2.0) {\sysiconbig{robot}};
-\node[caption, text width=2.2cm, below=0.5cm of agent2] {\textbf{Gating Agent}};
-\node[outbubble] (devclf) at (6.9,-5.1) {\sysicon{microchip}};
-\node[outbubble] (atkclf) at (9.5,-5.1) {\sysicon{shield-halved}};
-\node[caption, below=0.1cm of devclf] {Device-Type Head};
-\node[caption, below=0.1cm of atkclf] {Attack-Type Head};
+\node[devanchor] (srv2) at (8.2,1.0) {\sysiconbig{desktop_computer}};
+\node[hubanchor] (agent2) at (8.2,-2.0) {\sysiconbig{robot}};
+\node[caption, text width=1.9cm, right=0.55cm of agent2] {\textbf{Gating Agent}};
+\node[devanchor] (devclf) at (6.9,-5.1) {\sysicon{gear}};
+\node[devanchor] (atkclf) at (9.5,-5.1) {\sysicon{shield}};
+\node[caption, below=0.05cm of devclf] {Device-Type Head};
+\node[caption, below=0.05cm of atkclf] {Attack-Type Head};
 
 \draw[arr] (g2a) to[bend right=12] (srv2);
-\draw[arr] (g2b) -- (srv2);
+\draw[arr] (g2b) to[bend right=35] (srv2);
 \draw[arr] (g2c) to[bend left=12] (srv2);
 \draw[arr] (srv2) -- (agent2);
-\draw[arr] (agent2) to[bend right=24] (devclf);
-\draw[arr] (agent2) to[bend left=24] (atkclf);
+\draw[arr] (agent2) to[bend right=35] (devclf);
+\draw[arr] (agent2) to[bend left=35] (atkclf);
 
-\draw[dashedarr] (frozenenc.east) -- (4.0,-5.1) -- (4.0,1.1) -- (srv2.west);
+\draw[dashedarr] (frozenenc.east) -- (4.0,-5.1) -- (4.0,1.0) -- (srv2.west);
 \node[annot, text width=1.7cm, anchor=west] at (4.2,-2.3) {frozen encoder reused};
 
 %% ---------- divider 2 ----------
@@ -103,45 +100,45 @@
 %% ============================================================
 %% Stage 3 (cx=16.6): Zero-shot onboarding of a new device type
 %% ============================================================
-\node[stagetitle] (s3title) at (16.6,5.5) {Zero-Shot Onboarding of a New Device Type (Sec.~VI-C)};
+\node[stagetitle] (s3title) at (16.6,5.6) {Zero-Shot Onboarding of a New Device Type (Sec.~VI-C)};
 
-\node[devbubble] (newdev) at (16.6,3.5) {\sysiconmed{house-signal}};
-\node[caption, text width=2.6cm, below=0.1cm of newdev] {New device, unrecognized};
+\node[devanchor] (newdev) at (16.6,3.5) {\sysicon{house}};
+\node[caption, text width=2.6cm, below right=0.05cm and 0.5cm of newdev] {New device, unrecognized};
 
-\node[outbubble] (embnew) at (16.6,1.3) {\sysiconmed{microchip}};
-\node[caption, below=0.1cm of embnew] {Embed via $f_\phi$};
+\node[devanchor] (embnew) at (16.6,1.3) {\sysiconbig{desktop_computer}};
+\node[caption, below left=0.05cm and 0.5cm of embnew] {Embed via $f_\phi$};
 
-\node[agentbubble] (agent3) at (16.6,-1.7) {\sysiconbig{magnifying-glass}};
-\node[caption, text width=2.2cm, below=0.5cm of agent3] {\textbf{Gating Agent}};
+\node[hubanchor] (agent3) at (16.6,-1.9) {\sysiconbig{magnifying_glass_tilted_right}};
+\node[caption, text width=1.9cm, left=0.55cm of agent3] {\textbf{Gating Agent}};
 
-\node[decbubble, fill=green!12] (admit) at (14.8,-4.6) {\sysicon{circle-check}};
-\node[decbubble, fill=yellow!15] (defer) at (16.6,-5.0) {\sysicon{circle-question}};
-\node[decbubble, fill=gray!15] (escalate) at (18.4,-4.6) {\sysicon{user-shield}};
-\node[caption, below=0.1cm of admit] {Auto-admit};
-\node[caption, below=0.1cm of defer] {Request more data};
-\node[caption, below=0.1cm of escalate] {Escalate to human};
+\node[devanchor] (admit) at (14.6,-4.8) {\sysicon{check_mark_button}};
+\node[devanchor] (defer) at (16.6,-5.2) {\sysicon{red_question_mark}};
+\node[devanchor] (escalate) at (18.6,-4.8) {\sysicon{bust_in_silhouette}};
+\node[caption, below=0.05cm of admit] {Auto-admit};
+\node[caption, below=0.05cm of defer] {Request more data};
+\node[caption, below=0.3cm of escalate] {Escalate to human};
 
-\node[outbubble] (kb) at (16.6,-7.6) {\sysiconmed{database}};
-\node[caption, text width=2.8cm, below=0.1cm of kb] {Device-fingerprint KB};
+\node[devanchor] (kb) at (16.6,-7.8) {\sysicon{file_cabinet}};
+\node[caption, text width=2.8cm, below=0.05cm of kb] {Device-fingerprint KB};
 
-\draw[arr] (newdev) -- (embnew);
-\draw[arr] (embnew) -- (agent3);
-\draw[arr] (agent3) to[bend right=24] (admit);
-\draw[arr] (agent3) to[bend left=10] (defer);
-\draw[arr] (agent3) to[bend left=24] (escalate);
-\draw[arr] (admit) to[bend right=8] (kb);
-\draw[arr] (defer) -- (kb);
-\draw[arr] (escalate) to[bend left=8] (kb);
-\draw[dashedarr] (kb.east) -- (20.2,-7.6) -- (20.2,-1.7) -- (agent3.east);
+\draw[arr] (newdev) to[bend right=45] (embnew);
+\draw[arr] (embnew) to[bend left=45] (agent3);
+\draw[arr] (agent3) to[bend right=35] (admit);
+\draw[arr] (agent3) to[bend left=40] (defer);
+\draw[arr] (agent3) to[bend left=35] (escalate);
+\draw[arr] (admit) to[bend right=28] (kb);
+\draw[arr] (defer) to[bend right=40] (kb);
+\draw[arr] (escalate) to[bend right=28] (kb);
+\draw[dashedarr] (kb.east) -- (20.4,-7.8) -- (20.4,-1.9) -- (agent3.east);
 
 \draw[dashedarr] (frozenenc.south) -- (0,-6.7) -- (13.0,-6.7) -- (13.0,1.3) -- (embnew.west);
-\node[annot, text width=1.7cm, anchor=west] at (13.2,-2.3) {frozen encoder reused};
+\node[annot, text width=1.7cm, anchor=west] at (13.1,-0.5) {frozen encoder reused};
 
 %% ================= Background stage cards =================
 \begin{scope}[on background layer]
-    \node[fit=(s1title)(g1a)(g1c)(srv1)(agent1)(frozenenc), fill=blue!3, rounded corners=16pt, inner sep=16pt] {};
-    \node[fit=(s2title)(g2a)(g2c)(srv2)(agent2)(devclf)(atkclf), fill=orange!3, rounded corners=16pt, inner sep=16pt] {};
-    \node[fit=(s3title)(newdev)(embnew)(agent3)(admit)(escalate)(kb), fill=violet!3, rounded corners=16pt, inner sep=16pt] {};
+    \node[fit=(s1title)(g1a)(g1c)(srv1)(agent1)(frozenenc), fill=blue!4, rounded corners=16pt, inner sep=16pt] {};
+    \node[fit=(s2title)(g2a)(g2c)(srv2)(agent2)(devclf)(atkclf), fill=orange!4, rounded corners=16pt, inner sep=16pt] {};
+    \node[fit=(s3title)(newdev)(embnew)(agent3)(admit)(escalate)(kb), fill=violet!4, rounded corners=16pt, inner sep=16pt] {};
 \end{scope}
 
 \end{tikzpicture}
