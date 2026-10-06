@@ -1,0 +1,1492 @@
+{
+  "description": "CIC IoT-DIAD 2024, D=10, model=qwen2.5:14b, with a shadow AdaptiveRuleBasedGatingPolicy logged alongside the real LLM policy on the same digest every round -- source data for the human-evaluation pilot (LLM rationale vs templated rule-based rationale, same underlying event).",
+  "delay": 10,
+  "model": "qwen2.5:14b",
+  "final_macro_f1": 0.9187274743939624,
+  "wall_clock_seconds": 845.6581799983978,
+  "n_fallback_rounds": 0,
+  "n_rounds": 25,
+  "malicious_clients": [
+    "ciciot_diad_attack_client_0",
+    "ciciot_diad_attack_client_1",
+    "ciciot_diad_attack_client_2"
+  ],
+  "action_agreement_fraction": 0.3511111111111111,
+  "gating_history": [
+    {
+      "round": 0,
+      "actions": {
+        "ciciot_diad_attack_client_0": "accept",
+        "ciciot_diad_attack_client_1": "accept",
+        "ciciot_diad_attack_client_2": "accept",
+        "ciciot_diad_attack_client_3": "accept",
+        "ciciot_diad_attack_client_4": "accept",
+        "ciciot_diad_attack_client_5": "accept",
+        "ciciot_diad_attack_client_6": "accept",
+        "ciciot_diad_attack_client_7": "accept",
+        "ciciot_diad_attack_client_8": "accept"
+      },
+      "scores": {
+        "ciciot_diad_attack_client_0": 1.0,
+        "ciciot_diad_attack_client_1": 1.0,
+        "ciciot_diad_attack_client_2": 1.0,
+        "ciciot_diad_attack_client_3": 1.0,
+        "ciciot_diad_attack_client_4": 1.0,
+        "ciciot_diad_attack_client_5": 1.0,
+        "ciciot_diad_attack_client_6": 1.0,
+        "ciciot_diad_attack_client_7": 1.0,
+        "ciciot_diad_attack_client_8": 1.0
+      },
+      "rationales": {
+        "ciciot_diad_attack_client_0": "round 0: no previous global update exists yet, cosine similarity to it is undefined -- trivially accepted without consulting the policy or updating the trust posterior, not a real gating judgment",
+        "ciciot_diad_attack_client_1": "round 0: no previous global update exists yet, cosine similarity to it is undefined -- trivially accepted without consulting the policy or updating the trust posterior, not a real gating judgment",
+        "ciciot_diad_attack_client_2": "round 0: no previous global update exists yet, cosine similarity to it is undefined -- trivially accepted without consulting the policy or updating the trust posterior, not a real gating judgment",
+        "ciciot_diad_attack_client_3": "round 0: no previous global update exists yet, cosine similarity to it is undefined -- trivially accepted without consulting the policy or updating the trust posterior, not a real gating judgment",
+        "ciciot_diad_attack_client_4": "round 0: no previous global update exists yet, cosine similarity to it is undefined -- trivially accepted without consulting the policy or updating the trust posterior, not a real gating judgment",
+        "ciciot_diad_attack_client_5": "round 0: no previous global update exists yet, cosine similarity to it is undefined -- trivially accepted without consulting the policy or updating the trust posterior, not a real gating judgment",
+        "ciciot_diad_attack_client_6": "round 0: no previous global update exists yet, cosine similarity to it is undefined -- trivially accepted without consulting the policy or updating the trust posterior, not a real gating judgment",
+        "ciciot_diad_attack_client_7": "round 0: no previous global update exists yet, cosine similarity to it is undefined -- trivially accepted without consulting the policy or updating the trust posterior, not a real gating judgment",
+        "ciciot_diad_attack_client_8": "round 0: no previous global update exists yet, cosine similarity to it is undefined -- trivially accepted without consulting the policy or updating the trust posterior, not a real gating judgment"
+      },
+      "fallback_triggered": false,
+      "shadow_actions": {
+        "ciciot_diad_attack_client_0": "accept",
+        "ciciot_diad_attack_client_1": "accept",
+        "ciciot_diad_attack_client_2": "accept",
+        "ciciot_diad_attack_client_3": "accept",
+        "ciciot_diad_attack_client_4": "accept",
+        "ciciot_diad_attack_client_5": "accept",
+        "ciciot_diad_attack_client_6": "accept",
+        "ciciot_diad_attack_client_7": "accept",
+        "ciciot_diad_attack_client_8": "accept"
+      },
+      "shadow_rationales": {
+        "ciciot_diad_attack_client_0": "round 0: no previous global update exists yet, cosine similarity to it is undefined -- trivially accepted without consulting the policy or updating the trust posterior, not a real gating judgment",
+        "ciciot_diad_attack_client_1": "round 0: no previous global update exists yet, cosine similarity to it is undefined -- trivially accepted without consulting the policy or updating the trust posterior, not a real gating judgment",
+        "ciciot_diad_attack_client_2": "round 0: no previous global update exists yet, cosine similarity to it is undefined -- trivially accepted without consulting the policy or updating the trust posterior, not a real gating judgment",
+        "ciciot_diad_attack_client_3": "round 0: no previous global update exists yet, cosine similarity to it is undefined -- trivially accepted without consulting the policy or updating the trust posterior, not a real gating judgment",
+        "ciciot_diad_attack_client_4": "round 0: no previous global update exists yet, cosine similarity to it is undefined -- trivially accepted without consulting the policy or updating the trust posterior, not a real gating judgment",
+        "ciciot_diad_attack_client_5": "round 0: no previous global update exists yet, cosine similarity to it is undefined -- trivially accepted without consulting the policy or updating the trust posterior, not a real gating judgment",
+        "ciciot_diad_attack_client_6": "round 0: no previous global update exists yet, cosine similarity to it is undefined -- trivially accepted without consulting the policy or updating the trust posterior, not a real gating judgment",
+        "ciciot_diad_attack_client_7": "round 0: no previous global update exists yet, cosine similarity to it is undefined -- trivially accepted without consulting the policy or updating the trust posterior, not a real gating judgment",
+        "ciciot_diad_attack_client_8": "round 0: no previous global update exists yet, cosine similarity to it is undefined -- trivially accepted without consulting the policy or updating the trust posterior, not a real gating judgment"
+      }
+    },
+    {
+      "round": 1,
+      "actions": {
+        "ciciot_diad_attack_client_0": "downweight",
+        "ciciot_diad_attack_client_1": "accept",
+        "ciciot_diad_attack_client_2": "accept",
+        "ciciot_diad_attack_client_3": "downweight",
+        "ciciot_diad_attack_client_4": "downweight",
+        "ciciot_diad_attack_client_5": "accept",
+        "ciciot_diad_attack_client_6": "accept",
+        "ciciot_diad_attack_client_7": "accept",
+        "ciciot_diad_attack_client_8": "downweight"
+      },
+      "scores": {
+        "ciciot_diad_attack_client_0": 0.5,
+        "ciciot_diad_attack_client_1": 1.0,
+        "ciciot_diad_attack_client_2": 1.0,
+        "ciciot_diad_attack_client_3": 0.5,
+        "ciciot_diad_attack_client_4": 0.5,
+        "ciciot_diad_attack_client_5": 1.0,
+        "ciciot_diad_attack_client_6": 1.0,
+        "ciciot_diad_attack_client_7": 1.0,
+        "ciciot_diad_attack_client_8": 0.5
+      },
+      "rationales": {
+        "ciciot_diad_attack_client_0": "cosine similarity z-score is significantly positive (early-round warmup active, scale=1.40)",
+        "ciciot_diad_attack_client_1": "Both z-scores are close to 0, indicating normal behavior for this round. (early-round warmup active, scale=1.40)",
+        "ciciot_diad_attack_client_2": "cosine similarity z-score is moderately high (early-round warmup active, scale=1.40)",
+        "ciciot_diad_attack_client_3": "cosine similarity z-score is significantly positive (early-round warmup active, scale=1.40)",
+        "ciciot_diad_attack_client_4": "update norm z-score is strongly negative and cosine similarity z-score is also negative, indicating a significant deviation from the group (early-round warmup active, scale=1.40)",
+        "ciciot_diad_attack_client_5": "cosine similarity z-score is notably negative (early-round warmup active, scale=1.40)",
+        "ciciot_diad_attack_client_6": "update norm z-score is moderately high (early-round warmup active, scale=1.40)",
+        "ciciot_diad_attack_client_7": "Both z-scores are close to 0 and calibration loss improved slightly, indicating normal behavior. (early-round warmup active, scale=1.40)",
+        "ciciot_diad_attack_client_8": "update norm and cosine similarity z-scores are far from zero in opposite directions (early-round warmup active, scale=1.40)"
+      },
+      "fallback_triggered": false,
+      "shadow_actions": {
+        "ciciot_diad_attack_client_0": "accept",
+        "ciciot_diad_attack_client_1": "exclude",
+        "ciciot_diad_attack_client_2": "accept",
+        "ciciot_diad_attack_client_3": "accept",
+        "ciciot_diad_attack_client_4": "accept",
+        "ciciot_diad_attack_client_5": "accept",
+        "ciciot_diad_attack_client_6": "accept",
+        "ciciot_diad_attack_client_7": "accept",
+        "ciciot_diad_attack_client_8": "accept"
+      },
+      "shadow_rationales": {
+        "ciciot_diad_attack_client_0": "update-norm z-score=0.45; calib-loss same-round z-score=0.03; early-round warmup active (scale=1.40); digest within same-round normal range",
+        "ciciot_diad_attack_client_1": "update-norm z-score=0.04; calib-loss same-round z-score=6.86; early-round warmup active (scale=1.40); cosine=0.21, calib-loss same-round z=6.86 exceed exclude thresholds",
+        "ciciot_diad_attack_client_2": "update-norm z-score=0.17; calib-loss same-round z-score=-1.93; early-round warmup active (scale=1.40); digest within same-round normal range",
+        "ciciot_diad_attack_client_3": "update-norm z-score=0.34; calib-loss same-round z-score=-1.07; early-round warmup active (scale=1.40); digest within same-round normal range",
+        "ciciot_diad_attack_client_4": "update-norm z-score=-2.67; calib-loss same-round z-score=0.46; early-round warmup active (scale=1.40); digest within same-round normal range",
+        "ciciot_diad_attack_client_5": "update-norm z-score=-0.07; calib-loss same-round z-score=0.41; early-round warmup active (scale=1.40); digest within same-round normal range",
+        "ciciot_diad_attack_client_6": "update-norm z-score=0.72; calib-loss same-round z-score=0.00; early-round warmup active (scale=1.40); digest within same-round normal range",
+        "ciciot_diad_attack_client_7": "update-norm z-score=0.03; calib-loss same-round z-score=-2.69; early-round warmup active (scale=1.40); digest within same-round normal range",
+        "ciciot_diad_attack_client_8": "update-norm z-score=1.00; calib-loss same-round z-score=-0.67; early-round warmup active (scale=1.40); digest within same-round normal range"
+      }
+    },
+    {
+      "round": 2,
+      "actions": {
+        "ciciot_diad_attack_client_0": "downweight",
+        "ciciot_diad_attack_client_1": "downweight",
+        "ciciot_diad_attack_client_2": "accept",
+        "ciciot_diad_attack_client_3": "downweight",
+        "ciciot_diad_attack_client_4": "accept",
+        "ciciot_diad_attack_client_5": "accept",
+        "ciciot_diad_attack_client_6": "accept",
+        "ciciot_diad_attack_client_7": "accept",
+        "ciciot_diad_attack_client_8": "downweight"
+      },
+      "scores": {
+        "ciciot_diad_attack_client_0": 0.5,
+        "ciciot_diad_attack_client_1": 0.5,
+        "ciciot_diad_attack_client_2": 1.0,
+        "ciciot_diad_attack_client_3": 0.5,
+        "ciciot_diad_attack_client_4": 1.0,
+        "ciciot_diad_attack_client_5": 1.0,
+        "ciciot_diad_attack_client_6": 1.0,
+        "ciciot_diad_attack_client_7": 1.0,
+        "ciciot_diad_attack_client_8": 0.5
+      },
+      "rationales": {
+        "ciciot_diad_attack_client_0": "update norm and cosine similarity z-scores are both significantly positive (early-round warmup active, scale=1.30)",
+        "ciciot_diad_attack_client_1": "update norm and cosine similarity z-scores are both significantly negative (early-round warmup active, scale=1.30)",
+        "ciciot_diad_attack_client_2": "update norm z-score is significantly negative (early-round warmup active, scale=1.30)",
+        "ciciot_diad_attack_client_3": "update norm and cosine similarity z-scores are both significantly positive (early-round warmup active, scale=1.30)",
+        "ciciot_diad_attack_client_4": "update norm z-score is somewhat high and cosine similarity z-score is somewhat low (early-round warmup active, scale=1.30)",
+        "ciciot_diad_attack_client_5": "Both z-scores are close to 0, indicating normal behavior for this round. (early-round warmup active, scale=1.30)",
+        "ciciot_diad_attack_client_6": "cosine similarity z-score is moderately negative (early-round warmup active, scale=1.30)",
+        "ciciot_diad_attack_client_7": "Both z-scores are slightly negative but close to zero, and calibration loss slightly improved, indicating minor deviation from normal. (early-round warmup active, scale=1.30)",
+        "ciciot_diad_attack_client_8": "update norm and cosine similarity z-scores are both significantly negative (early-round warmup active, scale=1.30)"
+      },
+      "fallback_triggered": false,
+      "shadow_actions": {
+        "ciciot_diad_attack_client_0": "accept",
+        "ciciot_diad_attack_client_1": "accept",
+        "ciciot_diad_attack_client_2": "accept",
+        "ciciot_diad_attack_client_3": "accept",
+        "ciciot_diad_attack_client_4": "accept",
+        "ciciot_diad_attack_client_5": "accept",
+        "ciciot_diad_attack_client_6": "accept",
+        "ciciot_diad_attack_client_7": "accept",
+        "ciciot_diad_attack_client_8": "accept"
+      },
+      "shadow_rationales": {
+        "ciciot_diad_attack_client_0": "update-norm z-score=0.71; calib-loss same-round z-score=0.44; early-round warmup active (scale=1.30); digest within same-round normal range",
+        "ciciot_diad_attack_client_1": "update-norm z-score=-1.47; calib-loss same-round z-score=1.47; early-round warmup active (scale=1.30); digest within same-round normal range",
+        "ciciot_diad_attack_client_2": "update-norm z-score=-1.11; calib-loss same-round z-score=1.72; early-round warmup active (scale=1.30); digest within same-round normal range",
+        "ciciot_diad_attack_client_3": "update-norm z-score=1.73; calib-loss same-round z-score=-0.46; early-round warmup active (scale=1.30); digest within same-round normal range",
+        "ciciot_diad_attack_client_4": "update-norm z-score=0.93; calib-loss same-round z-score=0.70; early-round warmup active (scale=1.30); digest within same-round normal range",
+        "ciciot_diad_attack_client_5": "update-norm z-score=0.51; calib-loss same-round z-score=-0.67; early-round warmup active (scale=1.30); digest within same-round normal range",
+        "ciciot_diad_attack_client_6": "update-norm z-score=-0.11; calib-loss same-round z-score=-0.95; early-round warmup active (scale=1.30); digest within same-round normal range",
+        "ciciot_diad_attack_client_7": "update-norm z-score=-0.23; calib-loss same-round z-score=-0.11; early-round warmup active (scale=1.30); digest within same-round normal range",
+        "ciciot_diad_attack_client_8": "update-norm z-score=-0.95; calib-loss same-round z-score=0.00; early-round warmup active (scale=1.30); digest within same-round normal range"
+      }
+    },
+    {
+      "round": 3,
+      "actions": {
+        "ciciot_diad_attack_client_0": "accept",
+        "ciciot_diad_attack_client_1": "accept",
+        "ciciot_diad_attack_client_2": "downweight",
+        "ciciot_diad_attack_client_3": "downweight",
+        "ciciot_diad_attack_client_4": "downweight",
+        "ciciot_diad_attack_client_5": "downweight",
+        "ciciot_diad_attack_client_6": "accept",
+        "ciciot_diad_attack_client_7": "downweight",
+        "ciciot_diad_attack_client_8": "accept"
+      },
+      "scores": {
+        "ciciot_diad_attack_client_0": 1.0,
+        "ciciot_diad_attack_client_1": 1.0,
+        "ciciot_diad_attack_client_2": 0.5,
+        "ciciot_diad_attack_client_3": 0.5,
+        "ciciot_diad_attack_client_4": 0.5,
+        "ciciot_diad_attack_client_5": 0.5,
+        "ciciot_diad_attack_client_6": 1.0,
+        "ciciot_diad_attack_client_7": 0.5,
+        "ciciot_diad_attack_client_8": 1.0
+      },
+      "rationales": {
+        "ciciot_diad_attack_client_0": "update norm z-score is moderately high (early-round warmup active, scale=1.20)",
+        "ciciot_diad_attack_client_1": "cosine similarity z-score is slightly negative but not extreme (early-round warmup active, scale=1.20)",
+        "ciciot_diad_attack_client_2": "update norm z-score is moderately high and cosine similarity z-score is moderately low (early-round warmup active, scale=1.20)",
+        "ciciot_diad_attack_client_3": "cosine similarity z-score is significantly positive (early-round warmup active, scale=1.20)",
+        "ciciot_diad_attack_client_4": "cosine similarity z-score is notably high this round (early-round warmup active, scale=1.20)",
+        "ciciot_diad_attack_client_5": "update norm z-score is strongly negative and cosine similarity z-score is positively deviant (early-round warmup active, scale=1.20)",
+        "ciciot_diad_attack_client_6": "update norm z-score is moderately high (early-round warmup active, scale=1.20)",
+        "ciciot_diad_attack_client_7": "update norm z-score is far smaller than the rest of the group this round (early-round warmup active, scale=1.20)",
+        "ciciot_diad_attack_client_8": "cosine similarity z-score is slightly higher than normal this round (early-round warmup active, scale=1.20)"
+      },
+      "fallback_triggered": false,
+      "shadow_actions": {
+        "ciciot_diad_attack_client_0": "accept",
+        "ciciot_diad_attack_client_1": "accept",
+        "ciciot_diad_attack_client_2": "accept",
+        "ciciot_diad_attack_client_3": "accept",
+        "ciciot_diad_attack_client_4": "accept",
+        "ciciot_diad_attack_client_5": "accept",
+        "ciciot_diad_attack_client_6": "accept",
+        "ciciot_diad_attack_client_7": "accept",
+        "ciciot_diad_attack_client_8": "accept"
+      },
+      "shadow_rationales": {
+        "ciciot_diad_attack_client_0": "update-norm z-score=1.46; calib-loss same-round z-score=2.52; early-round warmup active (scale=1.20); digest within same-round normal range",
+        "ciciot_diad_attack_client_1": "update-norm z-score=0.00; calib-loss same-round z-score=0.00; early-round warmup active (scale=1.20); digest within same-round normal range",
+        "ciciot_diad_attack_client_2": "update-norm z-score=0.56; calib-loss same-round z-score=1.87; early-round warmup active (scale=1.20); digest within same-round normal range",
+        "ciciot_diad_attack_client_3": "update-norm z-score=-0.42; calib-loss same-round z-score=-0.11; early-round warmup active (scale=1.20); digest within same-round normal range",
+        "ciciot_diad_attack_client_4": "update-norm z-score=-0.31; calib-loss same-round z-score=-0.14; early-round warmup active (scale=1.20); digest within same-round normal range",
+        "ciciot_diad_attack_client_5": "update-norm z-score=-0.61; calib-loss same-round z-score=1.88; early-round warmup active (scale=1.20); digest within same-round normal range",
+        "ciciot_diad_attack_client_6": "update-norm z-score=1.42; calib-loss same-round z-score=-0.67; early-round warmup active (scale=1.20); digest within same-round normal range",
+        "ciciot_diad_attack_client_7": "update-norm z-score=-1.97; calib-loss same-round z-score=1.75; early-round warmup active (scale=1.20); digest within same-round normal range",
+        "ciciot_diad_attack_client_8": "update-norm z-score=-0.12; calib-loss same-round z-score=-0.11; early-round warmup active (scale=1.20); digest within same-round normal range"
+      }
+    },
+    {
+      "round": 4,
+      "actions": {
+        "ciciot_diad_attack_client_0": "downweight",
+        "ciciot_diad_attack_client_1": "downweight",
+        "ciciot_diad_attack_client_2": "downweight",
+        "ciciot_diad_attack_client_3": "downweight",
+        "ciciot_diad_attack_client_4": "accept",
+        "ciciot_diad_attack_client_5": "downweight",
+        "ciciot_diad_attack_client_6": "downweight",
+        "ciciot_diad_attack_client_7": "downweight",
+        "ciciot_diad_attack_client_8": "accept"
+      },
+      "scores": {
+        "ciciot_diad_attack_client_0": 0.5,
+        "ciciot_diad_attack_client_1": 0.5,
+        "ciciot_diad_attack_client_2": 0.5,
+        "ciciot_diad_attack_client_3": 0.5,
+        "ciciot_diad_attack_client_4": 1.0,
+        "ciciot_diad_attack_client_5": 0.5,
+        "ciciot_diad_attack_client_6": 0.5,
+        "ciciot_diad_attack_client_7": 0.5,
+        "ciciot_diad_attack_client_8": 1.0
+      },
+      "rationales": {
+        "ciciot_diad_attack_client_0": "update norm z-score is strongly negative while cosine similarity z-score is strongly positive (early-round warmup active, scale=1.10)",
+        "ciciot_diad_attack_client_1": "Both update norm and cosine similarity z-scores are significantly negative, deviating from the group this round. (early-round warmup active, scale=1.10)",
+        "ciciot_diad_attack_client_2": "update norm and cosine similarity z-scores deviate moderately from the group this round (early-round warmup active, scale=1.10)",
+        "ciciot_diad_attack_client_3": "cosine similarity z-score is notably high (early-round warmup active, scale=1.10)",
+        "ciciot_diad_attack_client_4": "update norm z-score is somewhat high (early-round warmup active, scale=1.10)",
+        "ciciot_diad_attack_client_5": "update norm z-score and cosine similarity z-score are both strongly negative (early-round warmup active, scale=1.10)",
+        "ciciot_diad_attack_client_6": "update norm and cosine similarity z-scores are both significantly positive (early-round warmup active, scale=1.10)",
+        "ciciot_diad_attack_client_7": "Both update norm and cosine similarity z-scores are significantly negative, and calibration loss slightly worsened. (early-round warmup active, scale=1.10)",
+        "ciciot_diad_attack_client_8": "cosine similarity z-score is moderately high (early-round warmup active, scale=1.10)"
+      },
+      "fallback_triggered": false,
+      "shadow_actions": {
+        "ciciot_diad_attack_client_0": "accept",
+        "ciciot_diad_attack_client_1": "accept",
+        "ciciot_diad_attack_client_2": "accept",
+        "ciciot_diad_attack_client_3": "accept",
+        "ciciot_diad_attack_client_4": "accept",
+        "ciciot_diad_attack_client_5": "accept",
+        "ciciot_diad_attack_client_6": "downweight",
+        "ciciot_diad_attack_client_7": "accept",
+        "ciciot_diad_attack_client_8": "accept"
+      },
+      "shadow_rationales": {
+        "ciciot_diad_attack_client_0": "update-norm z-score=-1.06; calib-loss same-round z-score=-1.05; early-round warmup active (scale=1.10); digest within same-round normal range",
+        "ciciot_diad_attack_client_1": "update-norm z-score=-0.91; calib-loss same-round z-score=2.02; early-round warmup active (scale=1.10); digest within same-round normal range",
+        "ciciot_diad_attack_client_2": "update-norm z-score=0.74; calib-loss same-round z-score=0.50; early-round warmup active (scale=1.10); digest within same-round normal range",
+        "ciciot_diad_attack_client_3": "update-norm z-score=0.40; calib-loss same-round z-score=0.00; early-round warmup active (scale=1.10); digest within same-round normal range",
+        "ciciot_diad_attack_client_4": "update-norm z-score=0.77; calib-loss same-round z-score=0.12; early-round warmup active (scale=1.10); digest within same-round normal range",
+        "ciciot_diad_attack_client_5": "update-norm z-score=-0.66; calib-loss same-round z-score=-0.67; early-round warmup active (scale=1.10); digest within same-round normal range",
+        "ciciot_diad_attack_client_6": "update-norm z-score=1.85; calib-loss same-round z-score=-0.78; early-round warmup active (scale=1.10); norm z=1.85 > downweight threshold",
+        "ciciot_diad_attack_client_7": "update-norm z-score=-1.36; calib-loss same-round z-score=2.61; early-round warmup active (scale=1.10); digest within same-round normal range",
+        "ciciot_diad_attack_client_8": "update-norm z-score=0.23; calib-loss same-round z-score=-0.16; early-round warmup active (scale=1.10); digest within same-round normal range"
+      }
+    },
+    {
+      "round": 5,
+      "actions": {
+        "ciciot_diad_attack_client_0": "downweight",
+        "ciciot_diad_attack_client_1": "downweight",
+        "ciciot_diad_attack_client_2": "accept",
+        "ciciot_diad_attack_client_3": "downweight",
+        "ciciot_diad_attack_client_4": "downweight",
+        "ciciot_diad_attack_client_5": "downweight",
+        "ciciot_diad_attack_client_6": "downweight",
+        "ciciot_diad_attack_client_7": "downweight",
+        "ciciot_diad_attack_client_8": "accept"
+      },
+      "scores": {
+        "ciciot_diad_attack_client_0": 0.5,
+        "ciciot_diad_attack_client_1": 0.5,
+        "ciciot_diad_attack_client_2": 1.0,
+        "ciciot_diad_attack_client_3": 0.5,
+        "ciciot_diad_attack_client_4": 0.5,
+        "ciciot_diad_attack_client_5": 0.5,
+        "ciciot_diad_attack_client_6": 0.5,
+        "ciciot_diad_attack_client_7": 0.5,
+        "ciciot_diad_attack_client_8": 1.0
+      },
+      "rationales": {
+        "ciciot_diad_attack_client_0": "cosine similarity z-score is relatively high at +1.42",
+        "ciciot_diad_attack_client_1": "update norm and cosine similarity z-scores deviate from the group, with calibration loss slightly worsening",
+        "ciciot_diad_attack_client_2": "update norm z-score is moderately high",
+        "ciciot_diad_attack_client_3": "cosine similarity z-score is notably high",
+        "ciciot_diad_attack_client_4": "update norm z-score is moderately high and calibration loss got slightly worse",
+        "ciciot_diad_attack_client_5": "update norm z-score is strongly negative, indicating a very small update compared to peers this round",
+        "ciciot_diad_attack_client_6": "cosine similarity z-score is moderately high, and calibration loss got slightly worse.",
+        "ciciot_diad_attack_client_7": "update norm and cosine similarity z-scores are both significantly negative",
+        "ciciot_diad_attack_client_8": "update norm z-score is significantly negative"
+      },
+      "fallback_triggered": false,
+      "shadow_actions": {
+        "ciciot_diad_attack_client_0": "accept",
+        "ciciot_diad_attack_client_1": "accept",
+        "ciciot_diad_attack_client_2": "downweight",
+        "ciciot_diad_attack_client_3": "accept",
+        "ciciot_diad_attack_client_4": "accept",
+        "ciciot_diad_attack_client_5": "accept",
+        "ciciot_diad_attack_client_6": "accept",
+        "ciciot_diad_attack_client_7": "accept",
+        "ciciot_diad_attack_client_8": "accept"
+      },
+      "shadow_rationales": {
+        "ciciot_diad_attack_client_0": "update-norm z-score=0.20; calib-loss same-round z-score=0.67; digest within same-round normal range",
+        "ciciot_diad_attack_client_1": "update-norm z-score=0.85; calib-loss same-round z-score=-0.27; digest within same-round normal range",
+        "ciciot_diad_attack_client_2": "update-norm z-score=1.59; calib-loss same-round z-score=-1.06; norm z=1.59 > downweight threshold",
+        "ciciot_diad_attack_client_3": "update-norm z-score=0.29; calib-loss same-round z-score=-0.50; digest within same-round normal range",
+        "ciciot_diad_attack_client_4": "update-norm z-score=0.89; calib-loss same-round z-score=0.87; digest within same-round normal range",
+        "ciciot_diad_attack_client_5": "update-norm z-score=-1.70; calib-loss same-round z-score=-0.62; digest within same-round normal range",
+        "ciciot_diad_attack_client_6": "update-norm z-score=-0.28; calib-loss same-round z-score=1.46; digest within same-round normal range",
+        "ciciot_diad_attack_client_7": "update-norm z-score=-0.64; calib-loss same-round z-score=0.80; digest within same-round normal range",
+        "ciciot_diad_attack_client_8": "update-norm z-score=-1.20; calib-loss same-round z-score=0.00; digest within same-round normal range"
+      }
+    },
+    {
+      "round": 6,
+      "actions": {
+        "ciciot_diad_attack_client_0": "downweight",
+        "ciciot_diad_attack_client_1": "downweight",
+        "ciciot_diad_attack_client_2": "accept",
+        "ciciot_diad_attack_client_3": "downweight",
+        "ciciot_diad_attack_client_4": "downweight",
+        "ciciot_diad_attack_client_5": "downweight",
+        "ciciot_diad_attack_client_6": "downweight",
+        "ciciot_diad_attack_client_7": "downweight",
+        "ciciot_diad_attack_client_8": "downweight"
+      },
+      "scores": {
+        "ciciot_diad_attack_client_0": 0.5,
+        "ciciot_diad_attack_client_1": 0.5,
+        "ciciot_diad_attack_client_2": 1.0,
+        "ciciot_diad_attack_client_3": 0.5,
+        "ciciot_diad_attack_client_4": 0.5,
+        "ciciot_diad_attack_client_5": 0.5,
+        "ciciot_diad_attack_client_6": 0.5,
+        "ciciot_diad_attack_client_7": 0.5,
+        "ciciot_diad_attack_client_8": 0.5
+      },
+      "rationales": {
+        "ciciot_diad_attack_client_0": "update norm z-score is strongly negative, indicating a very small update compared to peers this round",
+        "ciciot_diad_attack_client_1": "cosine similarity z-score is significantly negative",
+        "ciciot_diad_attack_client_2": "Both z-scores are close to 0, indicating normal behavior for this round.",
+        "ciciot_diad_attack_client_3": "update norm and cosine similarity z-scores are moderately high, and calibration loss slightly worsened",
+        "ciciot_diad_attack_client_4": "update norm z-score is strongly negative, indicating a much smaller update than peers this round",
+        "ciciot_diad_attack_client_5": "update norm z-score is moderately high and calibration loss slightly worsened",
+        "ciciot_diad_attack_client_6": "update norm z-score is moderately high",
+        "ciciot_diad_attack_client_7": "cosine similarity z-score is significantly negative",
+        "ciciot_diad_attack_client_8": "cosine similarity z-score is notably high and update norm z-score is relatively low, indicating deviation from the group"
+      },
+      "fallback_triggered": false,
+      "shadow_actions": {
+        "ciciot_diad_attack_client_0": "accept",
+        "ciciot_diad_attack_client_1": "accept",
+        "ciciot_diad_attack_client_2": "accept",
+        "ciciot_diad_attack_client_3": "accept",
+        "ciciot_diad_attack_client_4": "accept",
+        "ciciot_diad_attack_client_5": "accept",
+        "ciciot_diad_attack_client_6": "downweight",
+        "ciciot_diad_attack_client_7": "accept",
+        "ciciot_diad_attack_client_8": "accept"
+      },
+      "shadow_rationales": {
+        "ciciot_diad_attack_client_0": "update-norm z-score=-1.92; calib-loss same-round z-score=-1.06; digest within same-round normal range",
+        "ciciot_diad_attack_client_1": "update-norm z-score=0.14; calib-loss same-round z-score=2.97; digest within same-round normal range",
+        "ciciot_diad_attack_client_2": "update-norm z-score=0.18; calib-loss same-round z-score=-0.84; digest within same-round normal range",
+        "ciciot_diad_attack_client_3": "update-norm z-score=0.74; calib-loss same-round z-score=0.00; digest within same-round normal range",
+        "ciciot_diad_attack_client_4": "update-norm z-score=-1.23; calib-loss same-round z-score=1.25; digest within same-round normal range",
+        "ciciot_diad_attack_client_5": "update-norm z-score=0.78; calib-loss same-round z-score=-0.59; digest within same-round normal range",
+        "ciciot_diad_attack_client_6": "update-norm z-score=1.51; calib-loss same-round z-score=-0.46; norm z=1.51 > downweight threshold",
+        "ciciot_diad_attack_client_7": "update-norm z-score=0.28; calib-loss same-round z-score=0.54; digest within same-round normal range",
+        "ciciot_diad_attack_client_8": "update-norm z-score=-0.49; calib-loss same-round z-score=0.67; digest within same-round normal range"
+      }
+    },
+    {
+      "round": 7,
+      "actions": {
+        "ciciot_diad_attack_client_0": "downweight",
+        "ciciot_diad_attack_client_1": "downweight",
+        "ciciot_diad_attack_client_2": "downweight",
+        "ciciot_diad_attack_client_3": "downweight",
+        "ciciot_diad_attack_client_4": "downweight",
+        "ciciot_diad_attack_client_5": "downweight",
+        "ciciot_diad_attack_client_6": "accept",
+        "ciciot_diad_attack_client_7": "accept",
+        "ciciot_diad_attack_client_8": "exclude"
+      },
+      "scores": {
+        "ciciot_diad_attack_client_0": 0.5,
+        "ciciot_diad_attack_client_1": 0.5,
+        "ciciot_diad_attack_client_2": 0.5,
+        "ciciot_diad_attack_client_3": 0.5,
+        "ciciot_diad_attack_client_4": 0.5,
+        "ciciot_diad_attack_client_5": 0.5,
+        "ciciot_diad_attack_client_6": 1.0,
+        "ciciot_diad_attack_client_7": 1.0,
+        "ciciot_diad_attack_client_8": 0.0
+      },
+      "rationales": {
+        "ciciot_diad_attack_client_0": "Both update norm and cosine similarity z-scores are significantly positive, and calibration loss slightly worsened.",
+        "ciciot_diad_attack_client_1": "update norm z-score is moderately negative, indicating a smaller update than peers this round",
+        "ciciot_diad_attack_client_2": "update norm z-score is strongly negative, indicating a much smaller update than peers this round",
+        "ciciot_diad_attack_client_3": "update norm z-score is significantly positive while cosine similarity z-score is significantly negative",
+        "ciciot_diad_attack_client_4": "update norm and cosine similarity z-scores are moderately high, and calibration loss slightly worsened",
+        "ciciot_diad_attack_client_5": "update norm z-score is strongly negative and cosine similarity z-score is strongly positive",
+        "ciciot_diad_attack_client_6": "cosine similarity z-score is slightly above normal this round",
+        "ciciot_diad_attack_client_7": "update norm z-score is moderately high while cosine similarity z-score is slightly low, with calibration loss slightly worsening",
+        "ciciot_diad_attack_client_8": "update norm and cosine similarity z-scores are both strongly negative"
+      },
+      "fallback_triggered": false,
+      "shadow_actions": {
+        "ciciot_diad_attack_client_0": "accept",
+        "ciciot_diad_attack_client_1": "accept",
+        "ciciot_diad_attack_client_2": "exclude",
+        "ciciot_diad_attack_client_3": "accept",
+        "ciciot_diad_attack_client_4": "accept",
+        "ciciot_diad_attack_client_5": "accept",
+        "ciciot_diad_attack_client_6": "accept",
+        "ciciot_diad_attack_client_7": "accept",
+        "ciciot_diad_attack_client_8": "accept"
+      },
+      "shadow_rationales": {
+        "ciciot_diad_attack_client_0": "update-norm z-score=1.02; calib-loss same-round z-score=0.00; digest within same-round normal range",
+        "ciciot_diad_attack_client_1": "update-norm z-score=-0.76; calib-loss same-round z-score=-0.42; digest within same-round normal range",
+        "ciciot_diad_attack_client_2": "update-norm z-score=-1.27; calib-loss same-round z-score=3.12; cosine=0.21, calib-loss same-round z=3.12 exceed exclude thresholds",
+        "ciciot_diad_attack_client_3": "update-norm z-score=1.27; calib-loss same-round z-score=-2.50; digest within same-round normal range",
+        "ciciot_diad_attack_client_4": "update-norm z-score=1.22; calib-loss same-round z-score=0.20; digest within same-round normal range",
+        "ciciot_diad_attack_client_5": "update-norm z-score=-0.86; calib-loss same-round z-score=-1.19; digest within same-round normal range",
+        "ciciot_diad_attack_client_6": "update-norm z-score=0.11; calib-loss same-round z-score=0.64; digest within same-round normal range",
+        "ciciot_diad_attack_client_7": "update-norm z-score=0.55; calib-loss same-round z-score=0.67; digest within same-round normal range",
+        "ciciot_diad_attack_client_8": "update-norm z-score=-1.28; calib-loss same-round z-score=-1.17; digest within same-round normal range"
+      }
+    },
+    {
+      "round": 8,
+      "actions": {
+        "ciciot_diad_attack_client_0": "exclude",
+        "ciciot_diad_attack_client_1": "downweight",
+        "ciciot_diad_attack_client_2": "accept",
+        "ciciot_diad_attack_client_3": "downweight",
+        "ciciot_diad_attack_client_4": "downweight",
+        "ciciot_diad_attack_client_5": "accept",
+        "ciciot_diad_attack_client_6": "downweight",
+        "ciciot_diad_attack_client_7": "exclude",
+        "ciciot_diad_attack_client_8": "downweight"
+      },
+      "scores": {
+        "ciciot_diad_attack_client_0": 0.0,
+        "ciciot_diad_attack_client_1": 0.5,
+        "ciciot_diad_attack_client_2": 1.0,
+        "ciciot_diad_attack_client_3": 0.5,
+        "ciciot_diad_attack_client_4": 0.5,
+        "ciciot_diad_attack_client_5": 1.0,
+        "ciciot_diad_attack_client_6": 0.5,
+        "ciciot_diad_attack_client_7": 0.0,
+        "ciciot_diad_attack_client_8": 0.5
+      },
+      "rationales": {
+        "ciciot_diad_attack_client_0": "update norm z-score is strongly negative, indicating a very small update compared to peers this round",
+        "ciciot_diad_attack_client_1": "cosine similarity z-score is far from 0, and calibration loss got slightly worse",
+        "ciciot_diad_attack_client_2": "cosine similarity z-score is moderately negative, and calibration loss slightly worsened.",
+        "ciciot_diad_attack_client_3": "update norm z-score is strongly positive",
+        "ciciot_diad_attack_client_4": "update norm z-score is strongly negative, indicating a much smaller update than peers this round",
+        "ciciot_diad_attack_client_5": "Both z-scores are slightly negative but close to zero, and the calibration loss change is minor.",
+        "ciciot_diad_attack_client_6": "cosine similarity z-score is notably high",
+        "ciciot_diad_attack_client_7": "update norm z-score is strongly negative and cosine similarity z-score is strongly positive",
+        "ciciot_diad_attack_client_8": "update norm z-score is moderately high and cosine similarity z-score is moderately low, with calibration loss slightly worsening"
+      },
+      "fallback_triggered": false,
+      "shadow_actions": {
+        "ciciot_diad_attack_client_0": "accept",
+        "ciciot_diad_attack_client_1": "accept",
+        "ciciot_diad_attack_client_2": "exclude",
+        "ciciot_diad_attack_client_3": "downweight",
+        "ciciot_diad_attack_client_4": "accept",
+        "ciciot_diad_attack_client_5": "accept",
+        "ciciot_diad_attack_client_6": "accept",
+        "ciciot_diad_attack_client_7": "accept",
+        "ciciot_diad_attack_client_8": "accept"
+      },
+      "shadow_rationales": {
+        "ciciot_diad_attack_client_0": "update-norm z-score=-1.03; calib-loss same-round z-score=-2.35; digest within same-round normal range",
+        "ciciot_diad_attack_client_1": "update-norm z-score=0.43; calib-loss same-round z-score=0.45; digest within same-round normal range",
+        "ciciot_diad_attack_client_2": "update-norm z-score=0.23; calib-loss same-round z-score=3.82; cosine=0.15, calib-loss same-round z=3.82 exceed exclude thresholds",
+        "ciciot_diad_attack_client_3": "update-norm z-score=2.05; calib-loss same-round z-score=-1.19; norm z=2.05 > downweight threshold",
+        "ciciot_diad_attack_client_4": "update-norm z-score=-1.45; calib-loss same-round z-score=0.67; digest within same-round normal range",
+        "ciciot_diad_attack_client_5": "update-norm z-score=-0.31; calib-loss same-round z-score=-0.67; digest within same-round normal range",
+        "ciciot_diad_attack_client_6": "update-norm z-score=0.30; calib-loss same-round z-score=0.48; digest within same-round normal range",
+        "ciciot_diad_attack_client_7": "update-norm z-score=-0.89; calib-loss same-round z-score=-1.20; digest within same-round normal range",
+        "ciciot_diad_attack_client_8": "update-norm z-score=0.67; calib-loss same-round z-score=0.00; digest within same-round normal range"
+      }
+    },
+    {
+      "round": 9,
+      "actions": {
+        "ciciot_diad_attack_client_0": "downweight",
+        "ciciot_diad_attack_client_1": "accept",
+        "ciciot_diad_attack_client_2": "downweight",
+        "ciciot_diad_attack_client_3": "downweight",
+        "ciciot_diad_attack_client_4": "downweight",
+        "ciciot_diad_attack_client_5": "accept",
+        "ciciot_diad_attack_client_6": "downweight",
+        "ciciot_diad_attack_client_7": "downweight",
+        "ciciot_diad_attack_client_8": "downweight"
+      },
+      "scores": {
+        "ciciot_diad_attack_client_0": 0.5,
+        "ciciot_diad_attack_client_1": 1.0,
+        "ciciot_diad_attack_client_2": 0.5,
+        "ciciot_diad_attack_client_3": 0.5,
+        "ciciot_diad_attack_client_4": 0.5,
+        "ciciot_diad_attack_client_5": 1.0,
+        "ciciot_diad_attack_client_6": 0.5,
+        "ciciot_diad_attack_client_7": 0.5,
+        "ciciot_diad_attack_client_8": 0.5
+      },
+      "rationales": {
+        "ciciot_diad_attack_client_0": "update norm z-score is moderately high",
+        "ciciot_diad_attack_client_1": "update norm and cosine similarity z-scores deviate moderately from the group this round",
+        "ciciot_diad_attack_client_2": "cosine similarity z-score is significantly positive while update norm z-score is negative, and calibration loss slightly worsened.",
+        "ciciot_diad_attack_client_3": "update norm z-score is strongly negative, indicating a much smaller update than peers this round",
+        "ciciot_diad_attack_client_4": "Both update norm and cosine similarity z-scores are moderately high, and calibration loss slightly worsened.",
+        "ciciot_diad_attack_client_5": "cosine similarity z-score is moderately high, while update norm z-score is slightly low and calibration loss slightly worsened.",
+        "ciciot_diad_attack_client_6": "cosine similarity z-score is moderately negative, and calibration loss slightly worsened.",
+        "ciciot_diad_attack_client_7": "update norm and cosine similarity z-scores are far from zero, indicating deviation from the group this round",
+        "ciciot_diad_attack_client_8": "update norm z-score is strongly negative, indicating a very small update compared to peers this round"
+      },
+      "fallback_triggered": false,
+      "shadow_actions": {
+        "ciciot_diad_attack_client_0": "downweight",
+        "ciciot_diad_attack_client_1": "accept",
+        "ciciot_diad_attack_client_2": "accept",
+        "ciciot_diad_attack_client_3": "accept",
+        "ciciot_diad_attack_client_4": "accept",
+        "ciciot_diad_attack_client_5": "accept",
+        "ciciot_diad_attack_client_6": "downweight",
+        "ciciot_diad_attack_client_7": "accept",
+        "ciciot_diad_attack_client_8": "accept"
+      },
+      "shadow_rationales": {
+        "ciciot_diad_attack_client_0": "update-norm z-score=0.73; calib-loss same-round z-score=8.26; cosine=0.13, calib-loss same-round z=8.26 exceed exclude thresholds; long-term posterior mean=0.87 over 6 rounds downgrades exclude to downweight",
+        "ciciot_diad_attack_client_1": "update-norm z-score=0.62; calib-loss same-round z-score=-0.67; digest within same-round normal range",
+        "ciciot_diad_attack_client_2": "update-norm z-score=-0.48; calib-loss same-round z-score=-0.01; digest within same-round normal range",
+        "ciciot_diad_attack_client_3": "update-norm z-score=-1.37; calib-loss same-round z-score=2.33; digest within same-round normal range",
+        "ciciot_diad_attack_client_4": "update-norm z-score=0.59; calib-loss same-round z-score=-0.43; digest within same-round normal range",
+        "ciciot_diad_attack_client_5": "update-norm z-score=-0.10; calib-loss same-round z-score=1.59; digest within same-round normal range",
+        "ciciot_diad_attack_client_6": "update-norm z-score=0.34; calib-loss same-round z-score=11.24; cosine=0.10, calib-loss same-round z=11.24 exceed exclude thresholds; long-term posterior mean=0.77 over 6 rounds downgrades exclude to downweight",
+        "ciciot_diad_attack_client_7": "update-norm z-score=1.49; calib-loss same-round z-score=-0.08; digest within same-round normal range",
+        "ciciot_diad_attack_client_8": "update-norm z-score=-1.81; calib-loss same-round z-score=0.00; digest within same-round normal range"
+      }
+    },
+    {
+      "round": 10,
+      "actions": {
+        "ciciot_diad_attack_client_0": "exclude",
+        "ciciot_diad_attack_client_1": "exclude",
+        "ciciot_diad_attack_client_2": "exclude",
+        "ciciot_diad_attack_client_3": "downweight",
+        "ciciot_diad_attack_client_4": "downweight",
+        "ciciot_diad_attack_client_5": "exclude",
+        "ciciot_diad_attack_client_6": "downweight",
+        "ciciot_diad_attack_client_7": "downweight",
+        "ciciot_diad_attack_client_8": "downweight"
+      },
+      "scores": {
+        "ciciot_diad_attack_client_0": 0.0,
+        "ciciot_diad_attack_client_1": 0.0,
+        "ciciot_diad_attack_client_2": 0.0,
+        "ciciot_diad_attack_client_3": 0.5,
+        "ciciot_diad_attack_client_4": 0.5,
+        "ciciot_diad_attack_client_5": 0.0,
+        "ciciot_diad_attack_client_6": 0.5,
+        "ciciot_diad_attack_client_7": 0.5,
+        "ciciot_diad_attack_client_8": 0.5
+      },
+      "rationales": {
+        "ciciot_diad_attack_client_0": "Both update norm and cosine similarity z-scores are far from zero, and calibration loss significantly worsened.",
+        "ciciot_diad_attack_client_1": "Both update norm and cosine similarity z-scores are far from 0, and calibration loss got much worse.",
+        "ciciot_diad_attack_client_2": "Both update norm and cosine similarity z-scores are far from 0, and calibration loss got much worse.",
+        "ciciot_diad_attack_client_3": "update norm z-score is strongly negative and cosine similarity z-score is moderately positive",
+        "ciciot_diad_attack_client_4": "update norm z-score is moderately negative, indicating a smaller update than peers this round",
+        "ciciot_diad_attack_client_5": "update norm z-score is strongly negative and cosine similarity z-score is moderately positive",
+        "ciciot_diad_attack_client_6": "update norm z-score is strongly negative and cosine similarity z-score is strongly positive",
+        "ciciot_diad_attack_client_7": "update norm z-score is strongly negative and cosine similarity z-score is positively deviant, with calibration loss also slightly worsening",
+        "ciciot_diad_attack_client_8": "update norm z-score is significantly negative and cosine similarity z-score is moderately positive"
+      },
+      "fallback_triggered": false,
+      "shadow_actions": {
+        "ciciot_diad_attack_client_0": "downweight",
+        "ciciot_diad_attack_client_1": "downweight",
+        "ciciot_diad_attack_client_2": "exclude",
+        "ciciot_diad_attack_client_3": "accept",
+        "ciciot_diad_attack_client_4": "accept",
+        "ciciot_diad_attack_client_5": "accept",
+        "ciciot_diad_attack_client_6": "accept",
+        "ciciot_diad_attack_client_7": "accept",
+        "ciciot_diad_attack_client_8": "accept"
+      },
+      "shadow_rationales": {
+        "ciciot_diad_attack_client_0": "update-norm z-score=1.42; calib-loss same-round z-score=64.73; cosine=-0.02, calib-loss same-round z=64.73 exceed exclude thresholds; long-term posterior mean=0.76 over 6 rounds downgrades exclude to downweight",
+        "ciciot_diad_attack_client_1": "update-norm z-score=1.38; calib-loss same-round z-score=66.22; cosine=-0.02, calib-loss same-round z=66.22 exceed exclude thresholds; long-term posterior mean=0.82 over 6 rounds downgrades exclude to downweight",
+        "ciciot_diad_attack_client_2": "update-norm z-score=1.44; calib-loss same-round z-score=64.74; cosine=-0.02, calib-loss same-round z=64.74 exceed exclude thresholds",
+        "ciciot_diad_attack_client_3": "update-norm z-score=-0.71; calib-loss same-round z-score=0.00; digest within same-round normal range",
+        "ciciot_diad_attack_client_4": "update-norm z-score=-0.71; calib-loss same-round z-score=-0.14; digest within same-round normal range",
+        "ciciot_diad_attack_client_5": "update-norm z-score=-0.71; calib-loss same-round z-score=0.07; digest within same-round normal range",
+        "ciciot_diad_attack_client_6": "update-norm z-score=-0.71; calib-loss same-round z-score=-0.67; digest within same-round normal range",
+        "ciciot_diad_attack_client_7": "update-norm z-score=-0.71; calib-loss same-round z-score=-0.76; digest within same-round normal range",
+        "ciciot_diad_attack_client_8": "update-norm z-score=-0.70; calib-loss same-round z-score=-0.55; digest within same-round normal range"
+      }
+    },
+    {
+      "round": 11,
+      "actions": {
+        "ciciot_diad_attack_client_0": "exclude",
+        "ciciot_diad_attack_client_1": "exclude",
+        "ciciot_diad_attack_client_2": "exclude",
+        "ciciot_diad_attack_client_3": "downweight",
+        "ciciot_diad_attack_client_4": "downweight",
+        "ciciot_diad_attack_client_5": "downweight",
+        "ciciot_diad_attack_client_6": "downweight",
+        "ciciot_diad_attack_client_7": "exclude",
+        "ciciot_diad_attack_client_8": "downweight"
+      },
+      "scores": {
+        "ciciot_diad_attack_client_0": 0.0,
+        "ciciot_diad_attack_client_1": 0.0,
+        "ciciot_diad_attack_client_2": 0.0,
+        "ciciot_diad_attack_client_3": 0.5,
+        "ciciot_diad_attack_client_4": 0.5,
+        "ciciot_diad_attack_client_5": 0.5,
+        "ciciot_diad_attack_client_6": 0.5,
+        "ciciot_diad_attack_client_7": 0.0,
+        "ciciot_diad_attack_client_8": 0.5
+      },
+      "rationales": {
+        "ciciot_diad_attack_client_0": "Both update norm and cosine similarity z-scores are far from zero, and calibration loss significantly worsened.",
+        "ciciot_diad_attack_client_1": "update norm z-score is significantly positive while cosine similarity z-score is notably negative, and calibration loss significantly worsened",
+        "ciciot_diad_attack_client_2": "Both update norm and cosine similarity z-scores are far from zero, and calibration loss significantly worsened.",
+        "ciciot_diad_attack_client_3": "update norm z-score is strongly negative and cosine similarity z-score is strongly positive",
+        "ciciot_diad_attack_client_4": "update norm z-score is strongly negative and cosine similarity z-score is strongly positive",
+        "ciciot_diad_attack_client_5": "update norm and cosine similarity z-scores are both significantly negative",
+        "ciciot_diad_attack_client_6": "update norm z-score is moderately negative, indicating a smaller update than peers this round",
+        "ciciot_diad_attack_client_7": "update norm z-score is strongly negative and cosine similarity z-score is strongly positive",
+        "ciciot_diad_attack_client_8": "update norm z-score is strongly negative and cosine similarity z-score is strongly positive"
+      },
+      "fallback_triggered": false,
+      "shadow_actions": {
+        "ciciot_diad_attack_client_0": "exclude",
+        "ciciot_diad_attack_client_1": "downweight",
+        "ciciot_diad_attack_client_2": "exclude",
+        "ciciot_diad_attack_client_3": "accept",
+        "ciciot_diad_attack_client_4": "accept",
+        "ciciot_diad_attack_client_5": "accept",
+        "ciciot_diad_attack_client_6": "accept",
+        "ciciot_diad_attack_client_7": "accept",
+        "ciciot_diad_attack_client_8": "accept"
+      },
+      "shadow_rationales": {
+        "ciciot_diad_attack_client_0": "update-norm z-score=1.40; calib-loss same-round z-score=117.07; cosine=0.01, calib-loss same-round z=117.07 exceed exclude thresholds",
+        "ciciot_diad_attack_client_1": "update-norm z-score=1.44; calib-loss same-round z-score=117.54; cosine=0.03, calib-loss same-round z=117.54 exceed exclude thresholds; long-term posterior mean=0.73 over 7 rounds downgrades exclude to downweight",
+        "ciciot_diad_attack_client_2": "update-norm z-score=1.40; calib-loss same-round z-score=122.73; cosine=0.01, calib-loss same-round z=122.73 exceed exclude thresholds",
+        "ciciot_diad_attack_client_3": "update-norm z-score=-0.70; calib-loss same-round z-score=-0.17; digest within same-round normal range",
+        "ciciot_diad_attack_client_4": "update-norm z-score=-0.70; calib-loss same-round z-score=-0.67; digest within same-round normal range",
+        "ciciot_diad_attack_client_5": "update-norm z-score=-0.72; calib-loss same-round z-score=0.00; digest within same-round normal range",
+        "ciciot_diad_attack_client_6": "update-norm z-score=-0.71; calib-loss same-round z-score=-0.59; digest within same-round normal range",
+        "ciciot_diad_attack_client_7": "update-norm z-score=-0.71; calib-loss same-round z-score=0.50; digest within same-round normal range",
+        "ciciot_diad_attack_client_8": "update-norm z-score=-0.71; calib-loss same-round z-score=-1.35; digest within same-round normal range"
+      }
+    },
+    {
+      "round": 12,
+      "actions": {
+        "ciciot_diad_attack_client_0": "exclude",
+        "ciciot_diad_attack_client_1": "exclude",
+        "ciciot_diad_attack_client_2": "exclude",
+        "ciciot_diad_attack_client_3": "downweight",
+        "ciciot_diad_attack_client_4": "downweight",
+        "ciciot_diad_attack_client_5": "downweight",
+        "ciciot_diad_attack_client_6": "downweight",
+        "ciciot_diad_attack_client_7": "downweight",
+        "ciciot_diad_attack_client_8": "downweight"
+      },
+      "scores": {
+        "ciciot_diad_attack_client_0": 0.0,
+        "ciciot_diad_attack_client_1": 0.0,
+        "ciciot_diad_attack_client_2": 0.0,
+        "ciciot_diad_attack_client_3": 0.5,
+        "ciciot_diad_attack_client_4": 0.5,
+        "ciciot_diad_attack_client_5": 0.5,
+        "ciciot_diad_attack_client_6": 0.5,
+        "ciciot_diad_attack_client_7": 0.5,
+        "ciciot_diad_attack_client_8": 0.5
+      },
+      "rationales": {
+        "ciciot_diad_attack_client_0": "Both update norm and cosine similarity z-scores are far from zero, and calibration loss significantly worsened.",
+        "ciciot_diad_attack_client_1": "Both update norm and cosine similarity z-scores are far from zero, and calibration loss significantly worsened.",
+        "ciciot_diad_attack_client_2": "Both update norm and cosine similarity z-scores are far from zero, and calibration loss significantly worsened.",
+        "ciciot_diad_attack_client_3": "update norm z-score is strongly negative and cosine similarity z-score is strongly positive",
+        "ciciot_diad_attack_client_4": "update norm z-score is strongly negative and cosine similarity z-score is positively deviant, with calibration loss also slightly worsening",
+        "ciciot_diad_attack_client_5": "update norm z-score is moderately negative, indicating a smaller update than peers this round",
+        "ciciot_diad_attack_client_6": "update norm z-score is strongly negative and cosine similarity z-score is strongly positive",
+        "ciciot_diad_attack_client_7": "Both update norm and cosine similarity z-scores are moderately negative, and calibration loss slightly worsened.",
+        "ciciot_diad_attack_client_8": "update norm z-score is moderately negative, indicating a smaller update than peers this round"
+      },
+      "fallback_triggered": false,
+      "shadow_actions": {
+        "ciciot_diad_attack_client_0": "exclude",
+        "ciciot_diad_attack_client_1": "exclude",
+        "ciciot_diad_attack_client_2": "exclude",
+        "ciciot_diad_attack_client_3": "accept",
+        "ciciot_diad_attack_client_4": "accept",
+        "ciciot_diad_attack_client_5": "accept",
+        "ciciot_diad_attack_client_6": "accept",
+        "ciciot_diad_attack_client_7": "accept",
+        "ciciot_diad_attack_client_8": "accept"
+      },
+      "shadow_rationales": {
+        "ciciot_diad_attack_client_0": "update-norm z-score=1.35; calib-loss same-round z-score=48.68; cosine=0.03, calib-loss same-round z=48.68 exceed exclude thresholds",
+        "ciciot_diad_attack_client_1": "update-norm z-score=1.48; calib-loss same-round z-score=48.44; cosine=0.04, calib-loss same-round z=48.44 exceed exclude thresholds",
+        "ciciot_diad_attack_client_2": "update-norm z-score=1.41; calib-loss same-round z-score=49.86; cosine=0.03, calib-loss same-round z=49.86 exceed exclude thresholds",
+        "ciciot_diad_attack_client_3": "update-norm z-score=-0.71; calib-loss same-round z-score=-0.39; digest within same-round normal range",
+        "ciciot_diad_attack_client_4": "update-norm z-score=-0.72; calib-loss same-round z-score=-0.67; digest within same-round normal range",
+        "ciciot_diad_attack_client_5": "update-norm z-score=-0.71; calib-loss same-round z-score=-0.62; digest within same-round normal range",
+        "ciciot_diad_attack_client_6": "update-norm z-score=-0.70; calib-loss same-round z-score=0.00; digest within same-round normal range",
+        "ciciot_diad_attack_client_7": "update-norm z-score=-0.70; calib-loss same-round z-score=-0.47; digest within same-round normal range",
+        "ciciot_diad_attack_client_8": "update-norm z-score=-0.70; calib-loss same-round z-score=0.87; digest within same-round normal range"
+      }
+    },
+    {
+      "round": 13,
+      "actions": {
+        "ciciot_diad_attack_client_0": "exclude",
+        "ciciot_diad_attack_client_1": "exclude",
+        "ciciot_diad_attack_client_2": "exclude",
+        "ciciot_diad_attack_client_3": "downweight",
+        "ciciot_diad_attack_client_4": "downweight",
+        "ciciot_diad_attack_client_5": "downweight",
+        "ciciot_diad_attack_client_6": "downweight",
+        "ciciot_diad_attack_client_7": "downweight",
+        "ciciot_diad_attack_client_8": "downweight"
+      },
+      "scores": {
+        "ciciot_diad_attack_client_0": 0.0,
+        "ciciot_diad_attack_client_1": 0.0,
+        "ciciot_diad_attack_client_2": 0.0,
+        "ciciot_diad_attack_client_3": 0.5,
+        "ciciot_diad_attack_client_4": 0.5,
+        "ciciot_diad_attack_client_5": 0.5,
+        "ciciot_diad_attack_client_6": 0.5,
+        "ciciot_diad_attack_client_7": 0.5,
+        "ciciot_diad_attack_client_8": 0.5
+      },
+      "rationales": {
+        "ciciot_diad_attack_client_0": "Both update norm and cosine similarity z-scores are far from zero, and calibration loss significantly worsened.",
+        "ciciot_diad_attack_client_1": "Both update norm and cosine similarity z-scores are far from zero, and calibration loss significantly worsened.",
+        "ciciot_diad_attack_client_2": "Both update norm and cosine similarity z-scores are far from zero, and calibration loss significantly worsened.",
+        "ciciot_diad_attack_client_3": "update norm z-score is strongly negative and cosine similarity z-score is strongly positive",
+        "ciciot_diad_attack_client_4": "update norm z-score is significantly negative",
+        "ciciot_diad_attack_client_5": "cosine similarity z-score is strongly positive and update norm z-score is negative, indicating a significant deviation from the group this round.",
+        "ciciot_diad_attack_client_6": "update norm z-score is significantly negative and cosine similarity z-score is moderately positive",
+        "ciciot_diad_attack_client_7": "Both update norm and cosine similarity z-scores deviate from the group this round, with calibration loss also slightly worsening.",
+        "ciciot_diad_attack_client_8": "update norm z-score is strongly negative and cosine similarity z-score is moderately positive"
+      },
+      "fallback_triggered": false,
+      "shadow_actions": {
+        "ciciot_diad_attack_client_0": "exclude",
+        "ciciot_diad_attack_client_1": "exclude",
+        "ciciot_diad_attack_client_2": "exclude",
+        "ciciot_diad_attack_client_3": "accept",
+        "ciciot_diad_attack_client_4": "accept",
+        "ciciot_diad_attack_client_5": "accept",
+        "ciciot_diad_attack_client_6": "accept",
+        "ciciot_diad_attack_client_7": "accept",
+        "ciciot_diad_attack_client_8": "accept"
+      },
+      "shadow_rationales": {
+        "ciciot_diad_attack_client_0": "update-norm z-score=1.44; calib-loss same-round z-score=47.03; cosine=0.02, calib-loss same-round z=47.03 exceed exclude thresholds",
+        "ciciot_diad_attack_client_1": "update-norm z-score=1.42; calib-loss same-round z-score=47.08; cosine=0.02, calib-loss same-round z=47.08 exceed exclude thresholds",
+        "ciciot_diad_attack_client_2": "update-norm z-score=1.38; calib-loss same-round z-score=47.27; cosine=0.03, calib-loss same-round z=47.27 exceed exclude thresholds",
+        "ciciot_diad_attack_client_3": "update-norm z-score=-0.71; calib-loss same-round z-score=0.00; digest within same-round normal range",
+        "ciciot_diad_attack_client_4": "update-norm z-score=-0.72; calib-loss same-round z-score=-0.65; digest within same-round normal range",
+        "ciciot_diad_attack_client_5": "update-norm z-score=-0.71; calib-loss same-round z-score=-0.42; digest within same-round normal range",
+        "ciciot_diad_attack_client_6": "update-norm z-score=-0.71; calib-loss same-round z-score=-1.00; digest within same-round normal range",
+        "ciciot_diad_attack_client_7": "update-norm z-score=-0.70; calib-loss same-round z-score=-0.48; digest within same-round normal range",
+        "ciciot_diad_attack_client_8": "update-norm z-score=-0.70; calib-loss same-round z-score=0.67; digest within same-round normal range"
+      }
+    },
+    {
+      "round": 14,
+      "actions": {
+        "ciciot_diad_attack_client_0": "exclude",
+        "ciciot_diad_attack_client_1": "exclude",
+        "ciciot_diad_attack_client_2": "exclude",
+        "ciciot_diad_attack_client_3": "downweight",
+        "ciciot_diad_attack_client_4": "downweight",
+        "ciciot_diad_attack_client_5": "accept",
+        "ciciot_diad_attack_client_6": "downweight",
+        "ciciot_diad_attack_client_7": "downweight",
+        "ciciot_diad_attack_client_8": "exclude"
+      },
+      "scores": {
+        "ciciot_diad_attack_client_0": 0.0,
+        "ciciot_diad_attack_client_1": 0.0,
+        "ciciot_diad_attack_client_2": 0.0,
+        "ciciot_diad_attack_client_3": 0.5,
+        "ciciot_diad_attack_client_4": 0.5,
+        "ciciot_diad_attack_client_5": 1.0,
+        "ciciot_diad_attack_client_6": 0.5,
+        "ciciot_diad_attack_client_7": 0.5,
+        "ciciot_diad_attack_client_8": 0.0
+      },
+      "rationales": {
+        "ciciot_diad_attack_client_0": "Both update norm and cosine similarity z-scores are far from zero, and calibration loss significantly worsened.",
+        "ciciot_diad_attack_client_1": "Both update norm and cosine similarity z-scores are far from zero, and calibration loss significantly worsened.",
+        "ciciot_diad_attack_client_2": "Both update norm and cosine similarity z-scores are far from zero, and calibration loss significantly worsened.",
+        "ciciot_diad_attack_client_3": "cosine similarity z-score is strongly positive and update norm z-score is negative, indicating a significant deviation from the group this round.",
+        "ciciot_diad_attack_client_4": "update norm z-score is strongly negative and cosine similarity z-score is moderately positive",
+        "ciciot_diad_attack_client_5": "update norm z-score is moderately negative and cosine similarity z-score is moderately positive",
+        "ciciot_diad_attack_client_6": "update norm z-score is moderately negative, indicating a smaller update than peers this round",
+        "ciciot_diad_attack_client_7": "update norm z-score is strongly negative and cosine similarity z-score is positively deviant, with calibration loss also slightly worsening",
+        "ciciot_diad_attack_client_8": "update norm z-score is strongly negative and cosine similarity z-score is strongly positive"
+      },
+      "fallback_triggered": false,
+      "shadow_actions": {
+        "ciciot_diad_attack_client_0": "exclude",
+        "ciciot_diad_attack_client_1": "exclude",
+        "ciciot_diad_attack_client_2": "exclude",
+        "ciciot_diad_attack_client_3": "accept",
+        "ciciot_diad_attack_client_4": "accept",
+        "ciciot_diad_attack_client_5": "accept",
+        "ciciot_diad_attack_client_6": "accept",
+        "ciciot_diad_attack_client_7": "accept",
+        "ciciot_diad_attack_client_8": "accept"
+      },
+      "shadow_rationales": {
+        "ciciot_diad_attack_client_0": "update-norm z-score=1.45; calib-loss same-round z-score=57.04; cosine=0.02, calib-loss same-round z=57.04 exceed exclude thresholds",
+        "ciciot_diad_attack_client_1": "update-norm z-score=1.39; calib-loss same-round z-score=57.11; cosine=0.01, calib-loss same-round z=57.11 exceed exclude thresholds",
+        "ciciot_diad_attack_client_2": "update-norm z-score=1.40; calib-loss same-round z-score=56.99; cosine=-0.00, calib-loss same-round z=56.99 exceed exclude thresholds",
+        "ciciot_diad_attack_client_3": "update-norm z-score=-0.71; calib-loss same-round z-score=0.00; digest within same-round normal range",
+        "ciciot_diad_attack_client_4": "update-norm z-score=-0.71; calib-loss same-round z-score=0.77; digest within same-round normal range",
+        "ciciot_diad_attack_client_5": "update-norm z-score=-0.71; calib-loss same-round z-score=-0.36; digest within same-round normal range",
+        "ciciot_diad_attack_client_6": "update-norm z-score=-0.70; calib-loss same-round z-score=-0.59; digest within same-round normal range",
+        "ciciot_diad_attack_client_7": "update-norm z-score=-0.70; calib-loss same-round z-score=-0.59; digest within same-round normal range",
+        "ciciot_diad_attack_client_8": "update-norm z-score=-0.71; calib-loss same-round z-score=-0.67; digest within same-round normal range"
+      }
+    },
+    {
+      "round": 15,
+      "actions": {
+        "ciciot_diad_attack_client_0": "exclude",
+        "ciciot_diad_attack_client_1": "exclude",
+        "ciciot_diad_attack_client_2": "exclude",
+        "ciciot_diad_attack_client_3": "downweight",
+        "ciciot_diad_attack_client_4": "downweight",
+        "ciciot_diad_attack_client_5": "downweight",
+        "ciciot_diad_attack_client_6": "downweight",
+        "ciciot_diad_attack_client_7": "downweight",
+        "ciciot_diad_attack_client_8": "downweight"
+      },
+      "scores": {
+        "ciciot_diad_attack_client_0": 0.0,
+        "ciciot_diad_attack_client_1": 0.0,
+        "ciciot_diad_attack_client_2": 0.0,
+        "ciciot_diad_attack_client_3": 0.5,
+        "ciciot_diad_attack_client_4": 0.5,
+        "ciciot_diad_attack_client_5": 0.5,
+        "ciciot_diad_attack_client_6": 0.5,
+        "ciciot_diad_attack_client_7": 0.5,
+        "ciciot_diad_attack_client_8": 0.5
+      },
+      "rationales": {
+        "ciciot_diad_attack_client_0": "update norm z-score is significantly positive while cosine similarity z-score is negative, and calibration loss got much worse",
+        "ciciot_diad_attack_client_1": "update norm z-score is significantly positive while cosine similarity z-score is negative, and calibration loss got much worse",
+        "ciciot_diad_attack_client_2": "The update norm z-score is high and the calibration loss significantly worsened, indicating a clear deviation from the group.",
+        "ciciot_diad_attack_client_3": "update norm z-score is moderately negative and cosine similarity z-score is moderately positive",
+        "ciciot_diad_attack_client_4": "update norm z-score is moderately negative, indicating a smaller update than peers this round",
+        "ciciot_diad_attack_client_5": "cosine similarity z-score is strongly positive while update norm z-score is negative, with calibration loss also slightly worsening",
+        "ciciot_diad_attack_client_6": "Both update norm and cosine similarity z-scores are moderately negative, and calibration loss slightly worsened.",
+        "ciciot_diad_attack_client_7": "update norm z-score is moderately negative, indicating a smaller update than peers this round",
+        "ciciot_diad_attack_client_8": "update norm z-score is moderately negative, indicating a smaller update than peers this round"
+      },
+      "fallback_triggered": false,
+      "shadow_actions": {
+        "ciciot_diad_attack_client_0": "exclude",
+        "ciciot_diad_attack_client_1": "exclude",
+        "ciciot_diad_attack_client_2": "exclude",
+        "ciciot_diad_attack_client_3": "accept",
+        "ciciot_diad_attack_client_4": "accept",
+        "ciciot_diad_attack_client_5": "accept",
+        "ciciot_diad_attack_client_6": "accept",
+        "ciciot_diad_attack_client_7": "accept",
+        "ciciot_diad_attack_client_8": "accept"
+      },
+      "shadow_rationales": {
+        "ciciot_diad_attack_client_0": "update-norm z-score=1.46; calib-loss same-round z-score=96.32; cosine=0.02, calib-loss same-round z=96.32 exceed exclude thresholds",
+        "ciciot_diad_attack_client_1": "update-norm z-score=1.40; calib-loss same-round z-score=97.35; cosine=0.02, calib-loss same-round z=97.35 exceed exclude thresholds",
+        "ciciot_diad_attack_client_2": "update-norm z-score=1.39; calib-loss same-round z-score=96.34; cosine=0.01, calib-loss same-round z=96.34 exceed exclude thresholds",
+        "ciciot_diad_attack_client_3": "update-norm z-score=-0.71; calib-loss same-round z-score=0.00; digest within same-round normal range",
+        "ciciot_diad_attack_client_4": "update-norm z-score=-0.71; calib-loss same-round z-score=-0.56; digest within same-round normal range",
+        "ciciot_diad_attack_client_5": "update-norm z-score=-0.71; calib-loss same-round z-score=-0.42; digest within same-round normal range",
+        "ciciot_diad_attack_client_6": "update-norm z-score=-0.71; calib-loss same-round z-score=0.90; digest within same-round normal range",
+        "ciciot_diad_attack_client_7": "update-norm z-score=-0.70; calib-loss same-round z-score=-0.67; digest within same-round normal range",
+        "ciciot_diad_attack_client_8": "update-norm z-score=-0.70; calib-loss same-round z-score=-0.12; digest within same-round normal range"
+      }
+    },
+    {
+      "round": 16,
+      "actions": {
+        "ciciot_diad_attack_client_0": "exclude",
+        "ciciot_diad_attack_client_1": "exclude",
+        "ciciot_diad_attack_client_2": "exclude",
+        "ciciot_diad_attack_client_3": "downweight",
+        "ciciot_diad_attack_client_4": "downweight",
+        "ciciot_diad_attack_client_5": "downweight",
+        "ciciot_diad_attack_client_6": "downweight",
+        "ciciot_diad_attack_client_7": "downweight",
+        "ciciot_diad_attack_client_8": "downweight"
+      },
+      "scores": {
+        "ciciot_diad_attack_client_0": 0.0,
+        "ciciot_diad_attack_client_1": 0.0,
+        "ciciot_diad_attack_client_2": 0.0,
+        "ciciot_diad_attack_client_3": 0.5,
+        "ciciot_diad_attack_client_4": 0.5,
+        "ciciot_diad_attack_client_5": 0.5,
+        "ciciot_diad_attack_client_6": 0.5,
+        "ciciot_diad_attack_client_7": 0.5,
+        "ciciot_diad_attack_client_8": 0.5
+      },
+      "rationales": {
+        "ciciot_diad_attack_client_0": "update norm z-score is significantly positive while calibration loss got much worse",
+        "ciciot_diad_attack_client_1": "update norm z-score is significantly positive while cosine similarity z-score is negative, and calibration loss got much worse",
+        "ciciot_diad_attack_client_2": "Both update norm and cosine similarity z-scores are far from zero, and calibration loss significantly worsened.",
+        "ciciot_diad_attack_client_3": "update norm z-score is strongly negative and cosine similarity z-score is strongly positive",
+        "ciciot_diad_attack_client_4": "update norm z-score is moderately negative, indicating a smaller update than peers this round",
+        "ciciot_diad_attack_client_5": "update norm z-score is moderately negative, indicating a smaller update than peers this round",
+        "ciciot_diad_attack_client_6": "Both update norm and cosine similarity z-scores are significantly negative, indicating a deviant update pattern.",
+        "ciciot_diad_attack_client_7": "update norm z-score is moderately negative and cosine similarity z-score is moderately positive, with calibration loss slightly worsening",
+        "ciciot_diad_attack_client_8": "update norm z-score is strongly negative and cosine similarity z-score is strongly positive"
+      },
+      "fallback_triggered": false,
+      "shadow_actions": {
+        "ciciot_diad_attack_client_0": "exclude",
+        "ciciot_diad_attack_client_1": "exclude",
+        "ciciot_diad_attack_client_2": "exclude",
+        "ciciot_diad_attack_client_3": "accept",
+        "ciciot_diad_attack_client_4": "accept",
+        "ciciot_diad_attack_client_5": "accept",
+        "ciciot_diad_attack_client_6": "accept",
+        "ciciot_diad_attack_client_7": "accept",
+        "ciciot_diad_attack_client_8": "accept"
+      },
+      "shadow_rationales": {
+        "ciciot_diad_attack_client_0": "update-norm z-score=1.39; calib-loss same-round z-score=36.99; cosine=0.03, calib-loss same-round z=36.99 exceed exclude thresholds",
+        "ciciot_diad_attack_client_1": "update-norm z-score=1.42; calib-loss same-round z-score=36.95; cosine=0.02, calib-loss same-round z=36.95 exceed exclude thresholds",
+        "ciciot_diad_attack_client_2": "update-norm z-score=1.43; calib-loss same-round z-score=37.16; cosine=0.00, calib-loss same-round z=37.16 exceed exclude thresholds",
+        "ciciot_diad_attack_client_3": "update-norm z-score=-0.70; calib-loss same-round z-score=-0.30; digest within same-round normal range",
+        "ciciot_diad_attack_client_4": "update-norm z-score=-0.71; calib-loss same-round z-score=-0.67; digest within same-round normal range",
+        "ciciot_diad_attack_client_5": "update-norm z-score=-0.71; calib-loss same-round z-score=0.00; digest within same-round normal range",
+        "ciciot_diad_attack_client_6": "update-norm z-score=-0.71; calib-loss same-round z-score=0.41; digest within same-round normal range",
+        "ciciot_diad_attack_client_7": "update-norm z-score=-0.70; calib-loss same-round z-score=-0.80; digest within same-round normal range",
+        "ciciot_diad_attack_client_8": "update-norm z-score=-0.71; calib-loss same-round z-score=-0.55; digest within same-round normal range"
+      }
+    },
+    {
+      "round": 17,
+      "actions": {
+        "ciciot_diad_attack_client_0": "exclude",
+        "ciciot_diad_attack_client_1": "exclude",
+        "ciciot_diad_attack_client_2": "exclude",
+        "ciciot_diad_attack_client_3": "downweight",
+        "ciciot_diad_attack_client_4": "downweight",
+        "ciciot_diad_attack_client_5": "downweight",
+        "ciciot_diad_attack_client_6": "downweight",
+        "ciciot_diad_attack_client_7": "downweight",
+        "ciciot_diad_attack_client_8": "downweight"
+      },
+      "scores": {
+        "ciciot_diad_attack_client_0": 0.0,
+        "ciciot_diad_attack_client_1": 0.0,
+        "ciciot_diad_attack_client_2": 0.0,
+        "ciciot_diad_attack_client_3": 0.5,
+        "ciciot_diad_attack_client_4": 0.5,
+        "ciciot_diad_attack_client_5": 0.5,
+        "ciciot_diad_attack_client_6": 0.5,
+        "ciciot_diad_attack_client_7": 0.5,
+        "ciciot_diad_attack_client_8": 0.5
+      },
+      "rationales": {
+        "ciciot_diad_attack_client_0": "Both update norm and cosine similarity z-scores are far from zero, and calibration loss significantly worsened.",
+        "ciciot_diad_attack_client_1": "Both update norm and cosine similarity z-scores are far from 0, and calibration loss got much worse.",
+        "ciciot_diad_attack_client_2": "Both update norm and cosine similarity z-scores are far from zero, and calibration loss significantly worsened.",
+        "ciciot_diad_attack_client_3": "update norm z-score is strongly negative and cosine similarity z-score is strongly positive",
+        "ciciot_diad_attack_client_4": "update norm z-score is strongly negative and cosine similarity z-score is moderately positive",
+        "ciciot_diad_attack_client_5": "update norm z-score is strongly negative and cosine similarity z-score is strongly positive",
+        "ciciot_diad_attack_client_6": "update norm z-score is moderately negative, indicating a smaller update than peers this round",
+        "ciciot_diad_attack_client_7": "update norm z-score is strongly negative and cosine similarity z-score is strongly positive",
+        "ciciot_diad_attack_client_8": "update norm z-score is significantly negative"
+      },
+      "fallback_triggered": false,
+      "shadow_actions": {
+        "ciciot_diad_attack_client_0": "exclude",
+        "ciciot_diad_attack_client_1": "exclude",
+        "ciciot_diad_attack_client_2": "exclude",
+        "ciciot_diad_attack_client_3": "accept",
+        "ciciot_diad_attack_client_4": "accept",
+        "ciciot_diad_attack_client_5": "accept",
+        "ciciot_diad_attack_client_6": "accept",
+        "ciciot_diad_attack_client_7": "accept",
+        "ciciot_diad_attack_client_8": "accept"
+      },
+      "shadow_rationales": {
+        "ciciot_diad_attack_client_0": "update-norm z-score=1.43; calib-loss same-round z-score=214.76; cosine=-0.00, calib-loss same-round z=214.76 exceed exclude thresholds",
+        "ciciot_diad_attack_client_1": "update-norm z-score=1.39; calib-loss same-round z-score=213.77; cosine=-0.01, calib-loss same-round z=213.77 exceed exclude thresholds",
+        "ciciot_diad_attack_client_2": "update-norm z-score=1.42; calib-loss same-round z-score=213.67; cosine=-0.00, calib-loss same-round z=213.67 exceed exclude thresholds",
+        "ciciot_diad_attack_client_3": "update-norm z-score=-0.70; calib-loss same-round z-score=-0.29; digest within same-round normal range",
+        "ciciot_diad_attack_client_4": "update-norm z-score=-0.71; calib-loss same-round z-score=0.36; digest within same-round normal range",
+        "ciciot_diad_attack_client_5": "update-norm z-score=-0.71; calib-loss same-round z-score=0.00; digest within same-round normal range",
+        "ciciot_diad_attack_client_6": "update-norm z-score=-0.70; calib-loss same-round z-score=-0.67; digest within same-round normal range",
+        "ciciot_diad_attack_client_7": "update-norm z-score=-0.71; calib-loss same-round z-score=-0.16; digest within same-round normal range",
+        "ciciot_diad_attack_client_8": "update-norm z-score=-0.72; calib-loss same-round z-score=-1.24; digest within same-round normal range"
+      }
+    },
+    {
+      "round": 18,
+      "actions": {
+        "ciciot_diad_attack_client_0": "exclude",
+        "ciciot_diad_attack_client_1": "exclude",
+        "ciciot_diad_attack_client_2": "exclude",
+        "ciciot_diad_attack_client_3": "downweight",
+        "ciciot_diad_attack_client_4": "downweight",
+        "ciciot_diad_attack_client_5": "downweight",
+        "ciciot_diad_attack_client_6": "downweight",
+        "ciciot_diad_attack_client_7": "downweight",
+        "ciciot_diad_attack_client_8": "downweight"
+      },
+      "scores": {
+        "ciciot_diad_attack_client_0": 0.0,
+        "ciciot_diad_attack_client_1": 0.0,
+        "ciciot_diad_attack_client_2": 0.0,
+        "ciciot_diad_attack_client_3": 0.5,
+        "ciciot_diad_attack_client_4": 0.5,
+        "ciciot_diad_attack_client_5": 0.5,
+        "ciciot_diad_attack_client_6": 0.5,
+        "ciciot_diad_attack_client_7": 0.5,
+        "ciciot_diad_attack_client_8": 0.5
+      },
+      "rationales": {
+        "ciciot_diad_attack_client_0": "update norm z-score is significantly positive while calibration loss got much worse",
+        "ciciot_diad_attack_client_1": "update norm z-score is significantly positive while calibration loss got much worse",
+        "ciciot_diad_attack_client_2": "update norm z-score is significantly positive while calibration loss got much worse",
+        "ciciot_diad_attack_client_3": "update norm z-score is strongly negative and cosine similarity z-score is strongly positive",
+        "ciciot_diad_attack_client_4": "Both update norm and cosine similarity z-scores are moderately negative, and calibration loss slightly worsened.",
+        "ciciot_diad_attack_client_5": "Both update norm and cosine similarity z-scores are notably negative, deviating from the group this round.",
+        "ciciot_diad_attack_client_6": "update norm z-score is significantly negative",
+        "ciciot_diad_attack_client_7": "update norm and cosine similarity z-scores are both significantly negative",
+        "ciciot_diad_attack_client_8": "update norm z-score is strongly negative and cosine similarity z-score is strongly positive"
+      },
+      "fallback_triggered": false,
+      "shadow_actions": {
+        "ciciot_diad_attack_client_0": "exclude",
+        "ciciot_diad_attack_client_1": "exclude",
+        "ciciot_diad_attack_client_2": "exclude",
+        "ciciot_diad_attack_client_3": "accept",
+        "ciciot_diad_attack_client_4": "accept",
+        "ciciot_diad_attack_client_5": "accept",
+        "ciciot_diad_attack_client_6": "accept",
+        "ciciot_diad_attack_client_7": "accept",
+        "ciciot_diad_attack_client_8": "accept"
+      },
+      "shadow_rationales": {
+        "ciciot_diad_attack_client_0": "update-norm z-score=1.39; calib-loss same-round z-score=118.97; cosine=0.06, calib-loss same-round z=118.97 exceed exclude thresholds",
+        "ciciot_diad_attack_client_1": "update-norm z-score=1.41; calib-loss same-round z-score=117.67; cosine=0.06, calib-loss same-round z=117.67 exceed exclude thresholds",
+        "ciciot_diad_attack_client_2": "update-norm z-score=1.44; calib-loss same-round z-score=117.66; cosine=0.05, calib-loss same-round z=117.66 exceed exclude thresholds",
+        "ciciot_diad_attack_client_3": "update-norm z-score=-0.70; calib-loss same-round z-score=-0.65; digest within same-round normal range",
+        "ciciot_diad_attack_client_4": "update-norm z-score=-0.71; calib-loss same-round z-score=-0.67; digest within same-round normal range",
+        "ciciot_diad_attack_client_5": "update-norm z-score=-0.71; calib-loss same-round z-score=-0.08; digest within same-round normal range",
+        "ciciot_diad_attack_client_6": "update-norm z-score=-0.70; calib-loss same-round z-score=0.00; digest within same-round normal range",
+        "ciciot_diad_attack_client_7": "update-norm z-score=-0.71; calib-loss same-round z-score=-1.42; digest within same-round normal range",
+        "ciciot_diad_attack_client_8": "update-norm z-score=-0.71; calib-loss same-round z-score=0.00; digest within same-round normal range"
+      }
+    },
+    {
+      "round": 19,
+      "actions": {
+        "ciciot_diad_attack_client_0": "exclude",
+        "ciciot_diad_attack_client_1": "exclude",
+        "ciciot_diad_attack_client_2": "exclude",
+        "ciciot_diad_attack_client_3": "downweight",
+        "ciciot_diad_attack_client_4": "downweight",
+        "ciciot_diad_attack_client_5": "downweight",
+        "ciciot_diad_attack_client_6": "downweight",
+        "ciciot_diad_attack_client_7": "downweight",
+        "ciciot_diad_attack_client_8": "downweight"
+      },
+      "scores": {
+        "ciciot_diad_attack_client_0": 0.0,
+        "ciciot_diad_attack_client_1": 0.0,
+        "ciciot_diad_attack_client_2": 0.0,
+        "ciciot_diad_attack_client_3": 0.5,
+        "ciciot_diad_attack_client_4": 0.5,
+        "ciciot_diad_attack_client_5": 0.5,
+        "ciciot_diad_attack_client_6": 0.5,
+        "ciciot_diad_attack_client_7": 0.5,
+        "ciciot_diad_attack_client_8": 0.5
+      },
+      "rationales": {
+        "ciciot_diad_attack_client_0": "Both update norm and cosine similarity z-scores are far from zero, and calibration loss significantly worsened.",
+        "ciciot_diad_attack_client_1": "Both update norm and cosine similarity z-scores are far from zero, and calibration loss significantly worsened.",
+        "ciciot_diad_attack_client_2": "Both update norm and cosine similarity z-scores are far from zero, and calibration loss significantly worsened.",
+        "ciciot_diad_attack_client_3": "update norm z-score is strongly negative and cosine similarity z-score is moderately positive",
+        "ciciot_diad_attack_client_4": "update norm z-score is strongly negative and cosine similarity z-score is strongly positive",
+        "ciciot_diad_attack_client_5": "update norm z-score is strongly negative and cosine similarity z-score is positively deviant",
+        "ciciot_diad_attack_client_6": "update norm z-score is strongly negative and cosine similarity z-score is positively deviant, with calibration loss also slightly worsening",
+        "ciciot_diad_attack_client_7": "update norm z-score is strongly negative and cosine similarity z-score is strongly positive",
+        "ciciot_diad_attack_client_8": "update norm z-score is significantly negative"
+      },
+      "fallback_triggered": false,
+      "shadow_actions": {
+        "ciciot_diad_attack_client_0": "exclude",
+        "ciciot_diad_attack_client_1": "exclude",
+        "ciciot_diad_attack_client_2": "exclude",
+        "ciciot_diad_attack_client_3": "accept",
+        "ciciot_diad_attack_client_4": "accept",
+        "ciciot_diad_attack_client_5": "accept",
+        "ciciot_diad_attack_client_6": "accept",
+        "ciciot_diad_attack_client_7": "accept",
+        "ciciot_diad_attack_client_8": "accept"
+      },
+      "shadow_rationales": {
+        "ciciot_diad_attack_client_0": "update-norm z-score=1.42; calib-loss same-round z-score=77.83; cosine=-0.01, calib-loss same-round z=77.83 exceed exclude thresholds",
+        "ciciot_diad_attack_client_1": "update-norm z-score=1.42; calib-loss same-round z-score=79.53; cosine=-0.01, calib-loss same-round z=79.53 exceed exclude thresholds",
+        "ciciot_diad_attack_client_2": "update-norm z-score=1.40; calib-loss same-round z-score=78.38; cosine=-0.01, calib-loss same-round z=78.38 exceed exclude thresholds",
+        "ciciot_diad_attack_client_3": "update-norm z-score=-0.71; calib-loss same-round z-score=-0.67; digest within same-round normal range",
+        "ciciot_diad_attack_client_4": "update-norm z-score=-0.72; calib-loss same-round z-score=-0.96; digest within same-round normal range",
+        "ciciot_diad_attack_client_5": "update-norm z-score=-0.70; calib-loss same-round z-score=-0.62; digest within same-round normal range",
+        "ciciot_diad_attack_client_6": "update-norm z-score=-0.70; calib-loss same-round z-score=-0.37; digest within same-round normal range",
+        "ciciot_diad_attack_client_7": "update-norm z-score=-0.70; calib-loss same-round z-score=0.47; digest within same-round normal range",
+        "ciciot_diad_attack_client_8": "update-norm z-score=-0.71; calib-loss same-round z-score=0.00; digest within same-round normal range"
+      }
+    },
+    {
+      "round": 20,
+      "actions": {
+        "ciciot_diad_attack_client_0": "exclude",
+        "ciciot_diad_attack_client_1": "exclude",
+        "ciciot_diad_attack_client_2": "exclude",
+        "ciciot_diad_attack_client_3": "downweight",
+        "ciciot_diad_attack_client_4": "downweight",
+        "ciciot_diad_attack_client_5": "downweight",
+        "ciciot_diad_attack_client_6": "downweight",
+        "ciciot_diad_attack_client_7": "downweight",
+        "ciciot_diad_attack_client_8": "downweight"
+      },
+      "scores": {
+        "ciciot_diad_attack_client_0": 0.0,
+        "ciciot_diad_attack_client_1": 0.0,
+        "ciciot_diad_attack_client_2": 0.0,
+        "ciciot_diad_attack_client_3": 0.5,
+        "ciciot_diad_attack_client_4": 0.5,
+        "ciciot_diad_attack_client_5": 0.5,
+        "ciciot_diad_attack_client_6": 0.5,
+        "ciciot_diad_attack_client_7": 0.5,
+        "ciciot_diad_attack_client_8": 0.5
+      },
+      "rationales": {
+        "ciciot_diad_attack_client_0": "update norm z-score is significantly positive while calibration loss got much worse",
+        "ciciot_diad_attack_client_1": "update norm z-score and calibration loss change are both significantly deviant",
+        "ciciot_diad_attack_client_2": "update norm z-score is significantly positive while calibration loss got much worse",
+        "ciciot_diad_attack_client_3": "update norm z-score is strongly negative and cosine similarity z-score is strongly positive",
+        "ciciot_diad_attack_client_4": "update norm and cosine similarity z-scores are both moderately negative",
+        "ciciot_diad_attack_client_5": "update norm z-score is strongly negative and cosine similarity z-score is strongly positive",
+        "ciciot_diad_attack_client_6": "update norm and cosine similarity z-scores are both significantly negative",
+        "ciciot_diad_attack_client_7": "Both update norm and cosine similarity z-scores are moderately negative, and calibration loss slightly worsened.",
+        "ciciot_diad_attack_client_8": "update norm z-score is moderately negative, indicating a smaller update than peers this round"
+      },
+      "fallback_triggered": false,
+      "shadow_actions": {
+        "ciciot_diad_attack_client_0": "exclude",
+        "ciciot_diad_attack_client_1": "exclude",
+        "ciciot_diad_attack_client_2": "exclude",
+        "ciciot_diad_attack_client_3": "accept",
+        "ciciot_diad_attack_client_4": "accept",
+        "ciciot_diad_attack_client_5": "accept",
+        "ciciot_diad_attack_client_6": "accept",
+        "ciciot_diad_attack_client_7": "accept",
+        "ciciot_diad_attack_client_8": "accept"
+      },
+      "shadow_rationales": {
+        "ciciot_diad_attack_client_0": "update-norm z-score=1.38; calib-loss same-round z-score=83.36; cosine=0.02, calib-loss same-round z=83.36 exceed exclude thresholds",
+        "ciciot_diad_attack_client_1": "update-norm z-score=1.42; calib-loss same-round z-score=82.73; cosine=0.03, calib-loss same-round z=82.73 exceed exclude thresholds",
+        "ciciot_diad_attack_client_2": "update-norm z-score=1.45; calib-loss same-round z-score=82.98; cosine=0.03, calib-loss same-round z=82.98 exceed exclude thresholds",
+        "ciciot_diad_attack_client_3": "update-norm z-score=-0.71; calib-loss same-round z-score=-0.67; digest within same-round normal range",
+        "ciciot_diad_attack_client_4": "update-norm z-score=-0.71; calib-loss same-round z-score=-0.04; digest within same-round normal range",
+        "ciciot_diad_attack_client_5": "update-norm z-score=-0.71; calib-loss same-round z-score=0.00; digest within same-round normal range",
+        "ciciot_diad_attack_client_6": "update-norm z-score=-0.71; calib-loss same-round z-score=-0.88; digest within same-round normal range",
+        "ciciot_diad_attack_client_7": "update-norm z-score=-0.71; calib-loss same-round z-score=-0.57; digest within same-round normal range",
+        "ciciot_diad_attack_client_8": "update-norm z-score=-0.70; calib-loss same-round z-score=0.36; digest within same-round normal range"
+      }
+    },
+    {
+      "round": 21,
+      "actions": {
+        "ciciot_diad_attack_client_0": "exclude",
+        "ciciot_diad_attack_client_1": "exclude",
+        "ciciot_diad_attack_client_2": "exclude",
+        "ciciot_diad_attack_client_3": "downweight",
+        "ciciot_diad_attack_client_4": "downweight",
+        "ciciot_diad_attack_client_5": "downweight",
+        "ciciot_diad_attack_client_6": "downweight",
+        "ciciot_diad_attack_client_7": "downweight",
+        "ciciot_diad_attack_client_8": "downweight"
+      },
+      "scores": {
+        "ciciot_diad_attack_client_0": 0.0,
+        "ciciot_diad_attack_client_1": 0.0,
+        "ciciot_diad_attack_client_2": 0.0,
+        "ciciot_diad_attack_client_3": 0.5,
+        "ciciot_diad_attack_client_4": 0.5,
+        "ciciot_diad_attack_client_5": 0.5,
+        "ciciot_diad_attack_client_6": 0.5,
+        "ciciot_diad_attack_client_7": 0.5,
+        "ciciot_diad_attack_client_8": 0.5
+      },
+      "rationales": {
+        "ciciot_diad_attack_client_0": "update norm z-score and calibration loss change are both significantly deviant",
+        "ciciot_diad_attack_client_1": "update norm and calibration loss both show significant deviation from normal",
+        "ciciot_diad_attack_client_2": "update norm z-score and calibration loss change are both significantly deviant",
+        "ciciot_diad_attack_client_3": "Both update norm and cosine similarity z-scores are moderately negative, and calibration loss slightly worsened.",
+        "ciciot_diad_attack_client_4": "update norm z-score is moderately negative, indicating a smaller update than peers this round",
+        "ciciot_diad_attack_client_5": "Both update norm and cosine similarity z-scores are significantly negative, indicating a deviant update pattern.",
+        "ciciot_diad_attack_client_6": "update norm z-score is strongly negative and cosine similarity z-score is strongly positive",
+        "ciciot_diad_attack_client_7": "update norm and cosine similarity z-scores are both significantly negative",
+        "ciciot_diad_attack_client_8": "update norm z-score is significantly negative"
+      },
+      "fallback_triggered": false,
+      "shadow_actions": {
+        "ciciot_diad_attack_client_0": "exclude",
+        "ciciot_diad_attack_client_1": "exclude",
+        "ciciot_diad_attack_client_2": "exclude",
+        "ciciot_diad_attack_client_3": "accept",
+        "ciciot_diad_attack_client_4": "accept",
+        "ciciot_diad_attack_client_5": "accept",
+        "ciciot_diad_attack_client_6": "accept",
+        "ciciot_diad_attack_client_7": "accept",
+        "ciciot_diad_attack_client_8": "accept"
+      },
+      "shadow_rationales": {
+        "ciciot_diad_attack_client_0": "update-norm z-score=1.44; calib-loss same-round z-score=146.52; cosine=0.05, calib-loss same-round z=146.52 exceed exclude thresholds",
+        "ciciot_diad_attack_client_1": "update-norm z-score=1.40; calib-loss same-round z-score=146.27; cosine=0.05, calib-loss same-round z=146.27 exceed exclude thresholds",
+        "ciciot_diad_attack_client_2": "update-norm z-score=1.40; calib-loss same-round z-score=150.27; cosine=0.05, calib-loss same-round z=150.27 exceed exclude thresholds",
+        "ciciot_diad_attack_client_3": "update-norm z-score=-0.70; calib-loss same-round z-score=0.00; digest within same-round normal range",
+        "ciciot_diad_attack_client_4": "update-norm z-score=-0.71; calib-loss same-round z-score=-0.27; digest within same-round normal range",
+        "ciciot_diad_attack_client_5": "update-norm z-score=-0.71; calib-loss same-round z-score=-0.07; digest within same-round normal range",
+        "ciciot_diad_attack_client_6": "update-norm z-score=-0.71; calib-loss same-round z-score=-0.30; digest within same-round normal range",
+        "ciciot_diad_attack_client_7": "update-norm z-score=-0.70; calib-loss same-round z-score=1.49; digest within same-round normal range",
+        "ciciot_diad_attack_client_8": "update-norm z-score=-0.71; calib-loss same-round z-score=-0.67; digest within same-round normal range"
+      }
+    },
+    {
+      "round": 22,
+      "actions": {
+        "ciciot_diad_attack_client_0": "exclude",
+        "ciciot_diad_attack_client_1": "exclude",
+        "ciciot_diad_attack_client_2": "exclude",
+        "ciciot_diad_attack_client_3": "downweight",
+        "ciciot_diad_attack_client_4": "downweight",
+        "ciciot_diad_attack_client_5": "downweight",
+        "ciciot_diad_attack_client_6": "downweight",
+        "ciciot_diad_attack_client_7": "downweight",
+        "ciciot_diad_attack_client_8": "downweight"
+      },
+      "scores": {
+        "ciciot_diad_attack_client_0": 0.0,
+        "ciciot_diad_attack_client_1": 0.0,
+        "ciciot_diad_attack_client_2": 0.0,
+        "ciciot_diad_attack_client_3": 0.5,
+        "ciciot_diad_attack_client_4": 0.5,
+        "ciciot_diad_attack_client_5": 0.5,
+        "ciciot_diad_attack_client_6": 0.5,
+        "ciciot_diad_attack_client_7": 0.5,
+        "ciciot_diad_attack_client_8": 0.5
+      },
+      "rationales": {
+        "ciciot_diad_attack_client_0": "Both update norm and cosine similarity z-scores are far from 0, and calibration loss got much worse.",
+        "ciciot_diad_attack_client_1": "Both update norm and cosine similarity z-scores are far from zero, and calibration loss significantly worsened.",
+        "ciciot_diad_attack_client_2": "Both update norm and cosine similarity z-scores are far from zero, and calibration loss significantly worsened.",
+        "ciciot_diad_attack_client_3": "update norm z-score is moderately negative, indicating a smaller update than peers this round",
+        "ciciot_diad_attack_client_4": "update norm z-score is strongly negative and cosine similarity z-score is moderately positive",
+        "ciciot_diad_attack_client_5": "update norm z-score is moderately negative, indicating a smaller update than peers this round",
+        "ciciot_diad_attack_client_6": "update norm z-score is strongly negative and cosine similarity z-score is strongly positive",
+        "ciciot_diad_attack_client_7": "update norm z-score is moderately negative, indicating a smaller update than peers this round",
+        "ciciot_diad_attack_client_8": "update norm z-score is strongly negative and cosine similarity z-score is strongly positive"
+      },
+      "fallback_triggered": false,
+      "shadow_actions": {
+        "ciciot_diad_attack_client_0": "exclude",
+        "ciciot_diad_attack_client_1": "exclude",
+        "ciciot_diad_attack_client_2": "exclude",
+        "ciciot_diad_attack_client_3": "accept",
+        "ciciot_diad_attack_client_4": "accept",
+        "ciciot_diad_attack_client_5": "accept",
+        "ciciot_diad_attack_client_6": "accept",
+        "ciciot_diad_attack_client_7": "accept",
+        "ciciot_diad_attack_client_8": "accept"
+      },
+      "shadow_rationales": {
+        "ciciot_diad_attack_client_0": "update-norm z-score=1.42; calib-loss same-round z-score=50.28; cosine=-0.02, calib-loss same-round z=50.28 exceed exclude thresholds",
+        "ciciot_diad_attack_client_1": "update-norm z-score=1.45; calib-loss same-round z-score=50.25; cosine=-0.02, calib-loss same-round z=50.25 exceed exclude thresholds",
+        "ciciot_diad_attack_client_2": "update-norm z-score=1.38; calib-loss same-round z-score=50.17; cosine=-0.01, calib-loss same-round z=50.17 exceed exclude thresholds",
+        "ciciot_diad_attack_client_3": "update-norm z-score=-0.71; calib-loss same-round z-score=-0.67; digest within same-round normal range",
+        "ciciot_diad_attack_client_4": "update-norm z-score=-0.71; calib-loss same-round z-score=-0.76; digest within same-round normal range",
+        "ciciot_diad_attack_client_5": "update-norm z-score=-0.71; calib-loss same-round z-score=0.00; digest within same-round normal range",
+        "ciciot_diad_attack_client_6": "update-norm z-score=-0.70; calib-loss same-round z-score=-0.39; digest within same-round normal range",
+        "ciciot_diad_attack_client_7": "update-norm z-score=-0.70; calib-loss same-round z-score=-0.58; digest within same-round normal range",
+        "ciciot_diad_attack_client_8": "update-norm z-score=-0.71; calib-loss same-round z-score=0.37; digest within same-round normal range"
+      }
+    },
+    {
+      "round": 23,
+      "actions": {
+        "ciciot_diad_attack_client_0": "exclude",
+        "ciciot_diad_attack_client_1": "exclude",
+        "ciciot_diad_attack_client_2": "exclude",
+        "ciciot_diad_attack_client_3": "downweight",
+        "ciciot_diad_attack_client_4": "downweight",
+        "ciciot_diad_attack_client_5": "downweight",
+        "ciciot_diad_attack_client_6": "downweight",
+        "ciciot_diad_attack_client_7": "downweight",
+        "ciciot_diad_attack_client_8": "downweight"
+      },
+      "scores": {
+        "ciciot_diad_attack_client_0": 0.0,
+        "ciciot_diad_attack_client_1": 0.0,
+        "ciciot_diad_attack_client_2": 0.0,
+        "ciciot_diad_attack_client_3": 0.5,
+        "ciciot_diad_attack_client_4": 0.5,
+        "ciciot_diad_attack_client_5": 0.5,
+        "ciciot_diad_attack_client_6": 0.5,
+        "ciciot_diad_attack_client_7": 0.5,
+        "ciciot_diad_attack_client_8": 0.5
+      },
+      "rationales": {
+        "ciciot_diad_attack_client_0": "Both update norm and cosine similarity z-scores are far from 0, and calibration loss got much worse.",
+        "ciciot_diad_attack_client_1": "update norm z-score is significantly positive while cosine similarity z-score is notably negative, and calibration loss significantly worsened",
+        "ciciot_diad_attack_client_2": "Both update norm and cosine similarity z-scores are far from zero, and calibration loss significantly worsened.",
+        "ciciot_diad_attack_client_3": "update norm z-score is moderately negative, indicating a smaller update than peers this round",
+        "ciciot_diad_attack_client_4": "update norm z-score is strongly negative and cosine similarity z-score is strongly positive",
+        "ciciot_diad_attack_client_5": "update norm z-score is strongly negative and cosine similarity z-score is moderately positive",
+        "ciciot_diad_attack_client_6": "update norm z-score is strongly negative and cosine similarity z-score is strongly positive",
+        "ciciot_diad_attack_client_7": "Both update norm and cosine similarity z-scores are moderately negative, and calibration loss slightly worsened.",
+        "ciciot_diad_attack_client_8": "update norm z-score is strongly negative and cosine similarity z-score is strongly positive"
+      },
+      "fallback_triggered": false,
+      "shadow_actions": {
+        "ciciot_diad_attack_client_0": "exclude",
+        "ciciot_diad_attack_client_1": "exclude",
+        "ciciot_diad_attack_client_2": "exclude",
+        "ciciot_diad_attack_client_3": "accept",
+        "ciciot_diad_attack_client_4": "accept",
+        "ciciot_diad_attack_client_5": "accept",
+        "ciciot_diad_attack_client_6": "accept",
+        "ciciot_diad_attack_client_7": "accept",
+        "ciciot_diad_attack_client_8": "accept"
+      },
+      "shadow_rationales": {
+        "ciciot_diad_attack_client_0": "update-norm z-score=1.41; calib-loss same-round z-score=121.47; cosine=-0.01, calib-loss same-round z=121.47 exceed exclude thresholds",
+        "ciciot_diad_attack_client_1": "update-norm z-score=1.44; calib-loss same-round z-score=121.17; cosine=0.00, calib-loss same-round z=121.17 exceed exclude thresholds",
+        "ciciot_diad_attack_client_2": "update-norm z-score=1.40; calib-loss same-round z-score=120.97; cosine=-0.01, calib-loss same-round z=120.97 exceed exclude thresholds",
+        "ciciot_diad_attack_client_3": "update-norm z-score=-0.71; calib-loss same-round z-score=0.67; digest within same-round normal range",
+        "ciciot_diad_attack_client_4": "update-norm z-score=-0.71; calib-loss same-round z-score=-0.66; digest within same-round normal range",
+        "ciciot_diad_attack_client_5": "update-norm z-score=-0.71; calib-loss same-round z-score=0.00; digest within same-round normal range",
+        "ciciot_diad_attack_client_6": "update-norm z-score=-0.70; calib-loss same-round z-score=-1.07; digest within same-round normal range",
+        "ciciot_diad_attack_client_7": "update-norm z-score=-0.70; calib-loss same-round z-score=-0.44; digest within same-round normal range",
+        "ciciot_diad_attack_client_8": "update-norm z-score=-0.70; calib-loss same-round z-score=-0.03; digest within same-round normal range"
+      }
+    },
+    {
+      "round": 24,
+      "actions": {
+        "ciciot_diad_attack_client_0": "exclude",
+        "ciciot_diad_attack_client_1": "exclude",
+        "ciciot_diad_attack_client_2": "exclude",
+        "ciciot_diad_attack_client_3": "downweight",
+        "ciciot_diad_attack_client_4": "downweight",
+        "ciciot_diad_attack_client_5": "downweight",
+        "ciciot_diad_attack_client_6": "downweight",
+        "ciciot_diad_attack_client_7": "downweight",
+        "ciciot_diad_attack_client_8": "downweight"
+      },
+      "scores": {
+        "ciciot_diad_attack_client_0": 0.0,
+        "ciciot_diad_attack_client_1": 0.0,
+        "ciciot_diad_attack_client_2": 0.0,
+        "ciciot_diad_attack_client_3": 0.5,
+        "ciciot_diad_attack_client_4": 0.5,
+        "ciciot_diad_attack_client_5": 0.5,
+        "ciciot_diad_attack_client_6": 0.5,
+        "ciciot_diad_attack_client_7": 0.5,
+        "ciciot_diad_attack_client_8": 0.5
+      },
+      "rationales": {
+        "ciciot_diad_attack_client_0": "Both update norm and cosine similarity z-scores are high, and calibration loss significantly worsened.",
+        "ciciot_diad_attack_client_1": "Both update norm and cosine similarity z-scores are high, and calibration loss significantly worsened.",
+        "ciciot_diad_attack_client_2": "update norm and calibration loss both show significant deviation from normal",
+        "ciciot_diad_attack_client_3": "Both update norm and cosine similarity z-scores are notably negative, deviating from the group this round.",
+        "ciciot_diad_attack_client_4": "Both update norm and cosine similarity z-scores are moderately negative, and calibration loss slightly worsened.",
+        "ciciot_diad_attack_client_5": "Both update norm and cosine similarity z-scores are notably negative, deviating from the group this round.",
+        "ciciot_diad_attack_client_6": "Both update norm and cosine similarity z-scores are notably negative, deviating from the group this round.",
+        "ciciot_diad_attack_client_7": "update norm z-score is moderately negative, indicating a smaller update than peers this round",
+        "ciciot_diad_attack_client_8": "update norm z-score is moderately negative and cosine similarity z-score is moderately positive"
+      },
+      "fallback_triggered": false,
+      "shadow_actions": {
+        "ciciot_diad_attack_client_0": "exclude",
+        "ciciot_diad_attack_client_1": "exclude",
+        "ciciot_diad_attack_client_2": "exclude",
+        "ciciot_diad_attack_client_3": "accept",
+        "ciciot_diad_attack_client_4": "accept",
+        "ciciot_diad_attack_client_5": "accept",
+        "ciciot_diad_attack_client_6": "accept",
+        "ciciot_diad_attack_client_7": "accept",
+        "ciciot_diad_attack_client_8": "accept"
+      },
+      "shadow_rationales": {
+        "ciciot_diad_attack_client_0": "update-norm z-score=1.42; calib-loss same-round z-score=69.17; cosine=0.04, calib-loss same-round z=69.17 exceed exclude thresholds",
+        "ciciot_diad_attack_client_1": "update-norm z-score=1.42; calib-loss same-round z-score=69.90; cosine=0.05, calib-loss same-round z=69.90 exceed exclude thresholds",
+        "ciciot_diad_attack_client_2": "update-norm z-score=1.40; calib-loss same-round z-score=69.21; cosine=0.04, calib-loss same-round z=69.21 exceed exclude thresholds",
+        "ciciot_diad_attack_client_3": "update-norm z-score=-0.71; calib-loss same-round z-score=-0.67; digest within same-round normal range",
+        "ciciot_diad_attack_client_4": "update-norm z-score=-0.71; calib-loss same-round z-score=0.00; digest within same-round normal range",
+        "ciciot_diad_attack_client_5": "update-norm z-score=-0.70; calib-loss same-round z-score=-0.67; digest within same-round normal range",
+        "ciciot_diad_attack_client_6": "update-norm z-score=-0.70; calib-loss same-round z-score=-0.70; digest within same-round normal range",
+        "ciciot_diad_attack_client_7": "update-norm z-score=-0.71; calib-loss same-round z-score=0.40; digest within same-round normal range",
+        "ciciot_diad_attack_client_8": "update-norm z-score=-0.71; calib-loss same-round z-score=-0.42; digest within same-round normal range"
+      }
+    }
+  ]
+}

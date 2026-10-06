@@ -61,6 +61,7 @@ class FederatedSimulation:
         scale_factor: float = 5.0,
         use_bayesian_prior: bool = True,
         gating_policy=None,
+        shadow_policy=None,
         trust_decay: float = 1.0,
         force_accept_round0: bool = True,
         evasion_lambda: float = 0.0,
@@ -203,6 +204,14 @@ class FederatedSimulation:
         # rule-based results already collected.
         self.policy = gating_policy if gating_policy is not None else RuleBasedGatingPolicy(use_bayesian_prior=use_bayesian_prior)
         self.trust = BayesianTrust(decay=trust_decay)
+        # Human-evaluation pilot (review-response follow-up): a shadow
+        # policy, run alongside the real one on the IDENTICAL digest each
+        # round (never consulted for the real gating decision or
+        # aggregation weights), so its templated rationale can be
+        # compared against the real policy's for the exact same event --
+        # not a re-simulation that would diverge after round 1.
+        self.shadow_policy = shadow_policy
+        self.shadow_trust = BayesianTrust(decay=trust_decay) if shadow_policy is not None else None
         self.prev_global_delta: Optional[Dict[str, torch.Tensor]] = None
         # Section VII-E fix #1: round 0 has no previous global update, so
         # cosine_sim_to_prev_update is hardcoded to 1.0 below purely
@@ -510,6 +519,7 @@ class FederatedSimulation:
                 calib_deltas = [d.calib_loss_delta for d in digests]
                 weights = []
                 rationales = {}
+                shadow_actions, shadow_rationales = {}, {}
                 for d in digests:
                     if r == 0 and self.force_accept_round0:
                         decision = GatingDecision(
@@ -529,10 +539,26 @@ class FederatedSimulation:
                     actions[d.client_id] = decision.action
                     scores[d.client_id] = decision.gating_score
                     rationales[d.client_id] = decision.rationale
-                self.gating_history.append({
+
+                    if self.shadow_policy is not None:
+                        if r == 0 and self.force_accept_round0:
+                            shadow_decision = decision
+                        else:
+                            shadow_decision = self.shadow_policy.decide(
+                                d, norms, self.shadow_trust, round_idx=r, round_cosines=cosines,
+                                round_calib_deltas=calib_deltas,
+                            )
+                        shadow_actions[d.client_id] = shadow_decision.action
+                        shadow_rationales[d.client_id] = shadow_decision.rationale
+
+                entry = {
                     "round": r, "actions": dict(actions), "scores": dict(scores),
                     "rationales": rationales, "fallback_triggered": sum(weights) == 0,
-                })
+                }
+                if self.shadow_policy is not None:
+                    entry["shadow_actions"] = shadow_actions
+                    entry["shadow_rationales"] = shadow_rationales
+                self.gating_history.append(entry)
                 if sum(weights) == 0:
                     weights = [1.0] * len(weights)  # safety: never fully stall training
                 new_global = fed.weighted_average_states(client_states, weights)

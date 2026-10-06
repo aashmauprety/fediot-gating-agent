@@ -1753,6 +1753,52 @@ reinforcing null result rather than a novel defeat of the defense.
 New script: `scripts/run_adaptive_evasion_calib_aware_colluding.py`;
 results in `results/adaptive_evasion_calib_aware_colluding.json`.
 
+**Thirty-eighth real result: started on the single biggest weakness a
+seasoned-reviewer read surfaced -- auditability is the paper's whole
+reason for using an LLM instead of the cheaper GShield baseline, and
+the paper itself says that advantage is "hypothesized... not yet
+validated with human evaluators." Built the materials for a small
+human pilot to close that gap, not just assert it.**
+
+Added a `shadow_policy` to `FederatedSimulation` (`fedgate/experiment.py`):
+a second gating policy run alongside the real one on the IDENTICAL
+digest every round, logged into `gating_history` but never consulted
+for the real decision or aggregation weights. This lets a deterministic
+rule-based policy (`AdaptiveRuleBasedGatingPolicy`) produce its own
+templated rationale for the exact same event the LLM just explained --
+not a re-simulation that would diverge after round 1 once the two
+policies' choices start affecting training differently.
+
+Re-ran the flagship Qwen2.5 14B CIC IoT-DIAD D=10 config
+(`scripts/run_human_eval_pilot_source.py`, identical setup to
+`run_ciciot_diad_hybrid_fixed_v3.py`) with the shadow policy attached:
+F1=0.9187, 0/25 fallback rounds, consistent with the original flagship
+band. One real, unexpected finding surfaced for free: the LLM and the
+shadow rule-based policy, judging the identical digest every round,
+only agree on the actual accept/downweight/exclude verdict **35.1% of
+the time** (79/225 client-rounds) -- their independently-accumulated
+trust histories diverge quickly once they start disagreeing, even
+though neither can see the other's choices. Worth reporting on its
+own: two reasonable judges of the same evidence landing on different
+verdicts most of the time is not something the paper currently
+surfaces anywhere.
+
+Sampled 24 blind comparison pairs (`scripts/build_human_eval_pairs.py`
+-> `results/human_eval_pairs.json`), stratified on purpose rather than
+cherry-picked: 8 where the two policies' actions disagree, 5 trust-
+posterior-override cases (the mechanism a template structurally can't
+narrate as naturally), 11 where they agree -- so the pilot isn't rigged
+by only showing cases that favor the LLM. Built and published a blind
+rating survey (Artifact, `db`-backed so responses from multiple raters
+land in one place for me to tally): each pair shows "Explanation A"
+vs "Explanation B" with which-is-LLM randomized and hidden, asks which
+a rater would trust more and which gives enough information to act.
+
+**Not yet done:** actually recruiting raters and tallying results --
+the survey is live and functional (verified via a real `ArtifactData`
+write-path check) but needs real responses before this becomes a
+reportable finding rather than just materials for one.
+
 ## To get the remaining datasets
 
 - **UNSW**: done — see above.

@@ -1,0 +1,273 @@
+{
+  "description": "Blind human-evaluation pilot pairs: LLM Gating Agent rationale vs. templated rule-based rationale, same underlying digest/decision event (CIC IoT-DIAD, D=10, qwen2.5:14b). _which_is_llm and other _-prefixed fields are the answer key -- strip them before handing pairs to raters.",
+  "n_pairs": 24,
+  "n_disagreeing_actions": 8,
+  "n_trust_override_cases": 5,
+  "n_agreeing_actions": 11,
+  "pairs": [
+    {
+      "pair_id": 1,
+      "round": 9,
+      "action_A": "downweight",
+      "explanation_A": "cosine similarity z-score is moderately negative, and calibration loss slightly worsened.",
+      "action_B": "downweight",
+      "explanation_B": "update-norm z-score=0.34; calib-loss same-round z-score=11.24; cosine=0.10, calib-loss same-round z=11.24 exceed exclude thresholds; long-term posterior mean=0.77 over 6 rounds downgrades exclude to downweight",
+      "_which_is_llm": "A",
+      "_actions_agree": true,
+      "_has_trust_override": true
+    },
+    {
+      "pair_id": 2,
+      "round": 13,
+      "action_A": "exclude",
+      "explanation_A": "update-norm z-score=1.38; calib-loss same-round z-score=47.27; cosine=0.03, calib-loss same-round z=47.27 exceed exclude thresholds",
+      "action_B": "exclude",
+      "explanation_B": "Both update norm and cosine similarity z-scores are far from zero, and calibration loss significantly worsened.",
+      "_which_is_llm": "B",
+      "_actions_agree": true,
+      "_has_trust_override": false
+    },
+    {
+      "pair_id": 3,
+      "round": 17,
+      "action_A": "exclude",
+      "explanation_A": "update-norm z-score=1.42; calib-loss same-round z-score=213.67; cosine=-0.00, calib-loss same-round z=213.67 exceed exclude thresholds",
+      "action_B": "exclude",
+      "explanation_B": "Both update norm and cosine similarity z-scores are far from zero, and calibration loss significantly worsened.",
+      "_which_is_llm": "B",
+      "_actions_agree": true,
+      "_has_trust_override": false
+    },
+    {
+      "pair_id": 4,
+      "round": 6,
+      "action_A": "downweight",
+      "explanation_A": "update norm z-score is moderately high",
+      "action_B": "downweight",
+      "explanation_B": "update-norm z-score=1.51; calib-loss same-round z-score=-0.46; norm z=1.51 > downweight threshold",
+      "_which_is_llm": "A",
+      "_actions_agree": true,
+      "_has_trust_override": false
+    },
+    {
+      "pair_id": 5,
+      "round": 21,
+      "action_A": "exclude",
+      "explanation_A": "update norm z-score and calibration loss change are both significantly deviant",
+      "action_B": "exclude",
+      "explanation_B": "update-norm z-score=1.40; calib-loss same-round z-score=150.27; cosine=0.05, calib-loss same-round z=150.27 exceed exclude thresholds",
+      "_which_is_llm": "A",
+      "_actions_agree": true,
+      "_has_trust_override": false
+    },
+    {
+      "pair_id": 6,
+      "round": 9,
+      "action_A": "accept",
+      "explanation_A": "update-norm z-score=-1.37; calib-loss same-round z-score=2.33; digest within same-round normal range",
+      "action_B": "downweight",
+      "explanation_B": "update norm z-score is strongly negative, indicating a much smaller update than peers this round",
+      "_which_is_llm": "B",
+      "_actions_agree": false,
+      "_has_trust_override": false
+    },
+    {
+      "pair_id": 7,
+      "round": 4,
+      "action_A": "downweight",
+      "explanation_A": "update norm z-score is strongly negative while cosine similarity z-score is strongly positive (early-round warmup active, scale=1.10)",
+      "action_B": "accept",
+      "explanation_B": "update-norm z-score=-1.06; calib-loss same-round z-score=-1.05; early-round warmup active (scale=1.10); digest within same-round normal range",
+      "_which_is_llm": "A",
+      "_actions_agree": false,
+      "_has_trust_override": false
+    },
+    {
+      "pair_id": 8,
+      "round": 14,
+      "action_A": "accept",
+      "explanation_A": "update-norm z-score=-0.71; calib-loss same-round z-score=0.77; digest within same-round normal range",
+      "action_B": "downweight",
+      "explanation_B": "update norm z-score is strongly negative and cosine similarity z-score is moderately positive",
+      "_which_is_llm": "B",
+      "_actions_agree": false,
+      "_has_trust_override": false
+    },
+    {
+      "pair_id": 9,
+      "round": 5,
+      "action_A": "downweight",
+      "explanation_A": "update norm and cosine similarity z-scores are both significantly negative",
+      "action_B": "accept",
+      "explanation_B": "update-norm z-score=-0.64; calib-loss same-round z-score=0.80; digest within same-round normal range",
+      "_which_is_llm": "A",
+      "_actions_agree": false,
+      "_has_trust_override": false
+    },
+    {
+      "pair_id": 10,
+      "round": 8,
+      "action_A": "downweight",
+      "explanation_A": "cosine similarity z-score is notably high",
+      "action_B": "accept",
+      "explanation_B": "update-norm z-score=0.30; calib-loss same-round z-score=0.48; digest within same-round normal range",
+      "_which_is_llm": "A",
+      "_actions_agree": false,
+      "_has_trust_override": false
+    },
+    {
+      "pair_id": 11,
+      "round": 10,
+      "action_A": "exclude",
+      "explanation_A": "Both update norm and cosine similarity z-scores are far from 0, and calibration loss got much worse.",
+      "action_B": "downweight",
+      "explanation_B": "update-norm z-score=1.38; calib-loss same-round z-score=66.22; cosine=-0.02, calib-loss same-round z=66.22 exceed exclude thresholds; long-term posterior mean=0.82 over 6 rounds downgrades exclude to downweight",
+      "_which_is_llm": "A",
+      "_actions_agree": false,
+      "_has_trust_override": true
+    },
+    {
+      "pair_id": 12,
+      "round": 22,
+      "action_A": "exclude",
+      "explanation_A": "Both update norm and cosine similarity z-scores are far from zero, and calibration loss significantly worsened.",
+      "action_B": "exclude",
+      "explanation_B": "update-norm z-score=1.38; calib-loss same-round z-score=50.17; cosine=-0.01, calib-loss same-round z=50.17 exceed exclude thresholds",
+      "_which_is_llm": "A",
+      "_actions_agree": true,
+      "_has_trust_override": false
+    },
+    {
+      "pair_id": 13,
+      "round": 9,
+      "action_A": "accept",
+      "explanation_A": "update-norm z-score=-1.81; calib-loss same-round z-score=0.00; digest within same-round normal range",
+      "action_B": "downweight",
+      "explanation_B": "update norm z-score is strongly negative, indicating a very small update compared to peers this round",
+      "_which_is_llm": "B",
+      "_actions_agree": false,
+      "_has_trust_override": false
+    },
+    {
+      "pair_id": 14,
+      "round": 6,
+      "action_A": "accept",
+      "explanation_A": "Both z-scores are close to 0, indicating normal behavior for this round.",
+      "action_B": "accept",
+      "explanation_B": "update-norm z-score=0.18; calib-loss same-round z-score=-0.84; digest within same-round normal range",
+      "_which_is_llm": "A",
+      "_actions_agree": true,
+      "_has_trust_override": false
+    },
+    {
+      "pair_id": 15,
+      "round": 9,
+      "action_A": "downweight",
+      "explanation_A": "update-norm z-score=0.34; calib-loss same-round z-score=11.24; cosine=0.10, calib-loss same-round z=11.24 exceed exclude thresholds; long-term posterior mean=0.77 over 6 rounds downgrades exclude to downweight",
+      "action_B": "downweight",
+      "explanation_B": "cosine similarity z-score is moderately negative, and calibration loss slightly worsened.",
+      "_which_is_llm": "B",
+      "_actions_agree": true,
+      "_has_trust_override": true
+    },
+    {
+      "pair_id": 16,
+      "round": 7,
+      "action_A": "accept",
+      "explanation_A": "update-norm z-score=0.55; calib-loss same-round z-score=0.67; digest within same-round normal range",
+      "action_B": "accept",
+      "explanation_B": "update norm z-score is moderately high while cosine similarity z-score is slightly low, with calibration loss slightly worsening",
+      "_which_is_llm": "B",
+      "_actions_agree": true,
+      "_has_trust_override": false
+    },
+    {
+      "pair_id": 17,
+      "round": 22,
+      "action_A": "exclude",
+      "explanation_A": "update-norm z-score=1.42; calib-loss same-round z-score=50.28; cosine=-0.02, calib-loss same-round z=50.28 exceed exclude thresholds",
+      "action_B": "exclude",
+      "explanation_B": "Both update norm and cosine similarity z-scores are far from 0, and calibration loss got much worse.",
+      "_which_is_llm": "B",
+      "_actions_agree": true,
+      "_has_trust_override": false
+    },
+    {
+      "pair_id": 18,
+      "round": 11,
+      "action_A": "exclude",
+      "explanation_A": "update norm z-score is significantly positive while cosine similarity z-score is notably negative, and calibration loss significantly worsened",
+      "action_B": "downweight",
+      "explanation_B": "update-norm z-score=1.44; calib-loss same-round z-score=117.54; cosine=0.03, calib-loss same-round z=117.54 exceed exclude thresholds; long-term posterior mean=0.73 over 7 rounds downgrades exclude to downweight",
+      "_which_is_llm": "A",
+      "_actions_agree": false,
+      "_has_trust_override": true
+    },
+    {
+      "pair_id": 19,
+      "round": 9,
+      "action_A": "downweight",
+      "explanation_A": "update norm z-score is moderately high",
+      "action_B": "downweight",
+      "explanation_B": "update-norm z-score=0.73; calib-loss same-round z-score=8.26; cosine=0.13, calib-loss same-round z=8.26 exceed exclude thresholds; long-term posterior mean=0.87 over 6 rounds downgrades exclude to downweight",
+      "_which_is_llm": "A",
+      "_actions_agree": true,
+      "_has_trust_override": true
+    },
+    {
+      "pair_id": 20,
+      "round": 20,
+      "action_A": "exclude",
+      "explanation_A": "update norm z-score is significantly positive while calibration loss got much worse",
+      "action_B": "exclude",
+      "explanation_B": "update-norm z-score=1.45; calib-loss same-round z-score=82.98; cosine=0.03, calib-loss same-round z=82.98 exceed exclude thresholds",
+      "_which_is_llm": "A",
+      "_actions_agree": true,
+      "_has_trust_override": false
+    },
+    {
+      "pair_id": 21,
+      "round": 22,
+      "action_A": "accept",
+      "explanation_A": "update-norm z-score=-0.70; calib-loss same-round z-score=-0.39; digest within same-round normal range",
+      "action_B": "downweight",
+      "explanation_B": "update norm z-score is strongly negative and cosine similarity z-score is strongly positive",
+      "_which_is_llm": "B",
+      "_actions_agree": false,
+      "_has_trust_override": false
+    },
+    {
+      "pair_id": 22,
+      "round": 23,
+      "action_A": "accept",
+      "explanation_A": "update-norm z-score=-0.70; calib-loss same-round z-score=-0.44; digest within same-round normal range",
+      "action_B": "downweight",
+      "explanation_B": "Both update norm and cosine similarity z-scores are moderately negative, and calibration loss slightly worsened.",
+      "_which_is_llm": "B",
+      "_actions_agree": false,
+      "_has_trust_override": false
+    },
+    {
+      "pair_id": 23,
+      "round": 10,
+      "action_A": "downweight",
+      "explanation_A": "update-norm z-score=1.42; calib-loss same-round z-score=64.73; cosine=-0.02, calib-loss same-round z=64.73 exceed exclude thresholds; long-term posterior mean=0.76 over 6 rounds downgrades exclude to downweight",
+      "action_B": "exclude",
+      "explanation_B": "Both update norm and cosine similarity z-scores are far from zero, and calibration loss significantly worsened.",
+      "_which_is_llm": "B",
+      "_actions_agree": false,
+      "_has_trust_override": true
+    },
+    {
+      "pair_id": 24,
+      "round": 19,
+      "action_A": "exclude",
+      "explanation_A": "Both update norm and cosine similarity z-scores are far from zero, and calibration loss significantly worsened.",
+      "action_B": "exclude",
+      "explanation_B": "update-norm z-score=1.42; calib-loss same-round z-score=79.53; cosine=-0.01, calib-loss same-round z=79.53 exceed exclude thresholds",
+      "_which_is_llm": "A",
+      "_actions_agree": true,
+      "_has_trust_override": false
+    }
+  ]
+}
